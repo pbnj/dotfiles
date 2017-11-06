@@ -1,0 +1,6 @@
+github.com/goreleaser/goreleaser
+github.com/petermbenjamin/aws-console
+github.com/petermbenjamin/go-gitignore/cmd/gitignore
+github.com/petermbenjamin/go-open/cmd/gopen
+github.com/tj/go-search
+github.com/jessfraz/weather
