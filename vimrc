@@ -66,6 +66,7 @@ set number
 set relativenumber
 set showcmd
 set showmatch
+set splitbelow
 set wildmenu
 
 " Enable autocompletion
