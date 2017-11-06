@@ -19,6 +19,7 @@ Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'itchyny/calendar.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'kien/ctrlp.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
@@ -76,9 +77,9 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 syntax on
 
-" ============================== 
+" ==============================
 " Keybindings
-" ============================== 
+" ==============================
 
 map <C-e> :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
@@ -86,9 +87,9 @@ nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
 
-" ============================== 
+" ==============================
 " Generic: Calendar
-" ============================== 
+" ==============================
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
