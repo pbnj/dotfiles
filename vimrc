@@ -40,8 +40,15 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+" ==============================
 " Generic
-autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
+" ==============================
+
+"auto change directory based on current window
+autocmd BufEnter * silent! lcd %:p:h
+
+" Change BAR cursor to BEAM cursor on insert
+autocmd InsertEnter,InsertLeave * set cul!
 
 colorscheme nord
 filetype indent on
@@ -70,11 +77,6 @@ set showmatch
 set splitbelow
 set wildmenu
 
-" Enable autocompletion
-let g:deoplete#enable_at_startup = 1
-" use tab to forward cycle
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 syntax on
 
 " ==============================
@@ -82,17 +84,29 @@ syntax on
 " ==============================
 
 map <C-e> :NERDTreeToggle<CR>
+
+nnoremap <leader>t :split +terminal<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
 
 " ==============================
-" Generic: Calendar
+" Plugin: Calendar
 " ==============================
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
+
+" ==============================
+" Plugin: Deoplete / Autocompletion
+" ==============================
+
+" Enable autocompletion
+let g:deoplete#enable_at_startup = 1
+
+" use tab to forward cycle deoplete
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ==============================
 " Language: GO
