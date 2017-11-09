@@ -85,7 +85,7 @@ syntax on
 
 map <C-e> :NERDTreeToggle<CR>
 
-nnoremap <leader>t :split +terminal<CR>
+nnoremap <leader>t :terminal<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
