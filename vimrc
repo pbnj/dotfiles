@@ -5,52 +5,45 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/vimshell'
+Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'gabrielelana/vim-markdown'
 Plug 'itchyny/calendar.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'kien/ctrlp.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
-Plug 'gabrielelana/vim-markdown'
+Plug 'raimondi/delimitmate'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sebdah/vim-delve'
-Plug 'townk/vim-autoclose'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
-Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-" ==============================
 " Generic
-" ==============================
+autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
-"auto change directory based on current window
-autocmd BufEnter * silent! lcd %:p:h
+syntax enable
+set background=dark
+colorscheme solarized
 
-" Change BAR cursor to BEAM cursor on insert
-autocmd InsertEnter,InsertLeave * set cul!
-
-colorscheme nord
 filetype indent on
 
 let g:NERDSpaceDelims = 1
@@ -75,38 +68,28 @@ set relativenumber
 set showcmd
 set showmatch
 set splitbelow
+set splitright
 set wildmenu
-
-syntax on
 
 " ==============================
 " Keybindings
 " ==============================
 
 map <C-e> :NERDTreeToggle<CR>
-
-nnoremap <leader>t :terminal<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
 
+command! -nargs=* T split | terminal <args>
+command! -nargs=* VT vsplit | terminal <args>
+
 " ==============================
-" Plugin: Calendar
+" Generic: Calendar
 " ==============================
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
-
-" ==============================
-" Plugin: Deoplete / Autocompletion
-" ==============================
-
-" Enable autocompletion
-let g:deoplete#enable_at_startup = 1
-
-" use tab to forward cycle deoplete
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " ==============================
 " Language: GO
@@ -114,8 +97,6 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " ==============================
 
 " For autocompletion
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 function! s:build_go_files()
   let l:file = expand('%')
@@ -151,12 +132,6 @@ augroup go
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
   autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
-" autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-" autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-" autocmd FileType go nmap <leader>r  <Plug>(go-run)
-" autocmd FileType go nmap <leader>t  <Plug>(go-test)
-" autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
-" autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
