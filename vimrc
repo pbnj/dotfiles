@@ -47,6 +47,7 @@ colorscheme solarized
 filetype indent on
 
 let g:NERDSpaceDelims = 1
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:indent_guides_start_level = 2
 let mapleader=","
 
@@ -71,9 +72,9 @@ set splitbelow
 set splitright
 set wildmenu
 
-" ==============================
+" ============================== 
 " Keybindings
-" ==============================
+" ============================== 
 
 map <C-e> :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
@@ -84,9 +85,9 @@ nnoremap k gk
 command! -nargs=* T split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
-" ==============================
+" ============================== 
 " Generic: Calendar
-" ==============================
+" ============================== 
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
