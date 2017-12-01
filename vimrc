@@ -76,12 +76,20 @@ set wildmenu
 " Keybindings
 " ============================== 
 
+" Generic
 map <C-e> :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
 
+" Git
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gd :Gdiff<CR>
+
+" Terminal
 command! -nargs=* T split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
