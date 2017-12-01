@@ -72,9 +72,9 @@ set splitbelow
 set splitright
 set wildmenu
 
-" ============================== 
+" ==============================
 " Keybindings
-" ============================== 
+" ==============================
 
 " Generic
 map <C-e> :NERDTreeToggle<CR>
@@ -88,14 +88,15 @@ nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gl :Glog<CR>
 nmap <leader>gd :Gdiff<CR>
+nmap <leader>gp :Gpush<CR>
 
 " Terminal
 command! -nargs=* T split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
-" ============================== 
+" ==============================
 " Generic: Calendar
-" ============================== 
+" ==============================
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
