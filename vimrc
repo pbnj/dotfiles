@@ -41,12 +41,11 @@ call plug#end()
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
 syntax enable
-set background=light
 
 filetype indent on
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme="light"
+" let g:airline_theme="light"
 let g:NERDSpaceDelims = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:indent_guides_start_level = 2
