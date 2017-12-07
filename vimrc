@@ -41,11 +41,12 @@ call plug#end()
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
 syntax enable
-set background=dark
-colorscheme solarized
+set background=light
 
 filetype indent on
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="light"
 let g:NERDSpaceDelims = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:indent_guides_start_level = 2
@@ -72,9 +73,9 @@ set splitbelow
 set splitright
 set wildmenu
 
-" ==============================
+" ============================== 
 " Keybindings
-" ==============================
+" ============================== 
 
 " Generic
 map <C-e> :NERDTreeToggle<CR>
@@ -94,9 +95,9 @@ nmap <leader>gp :Gpush<CR>
 command! -nargs=* T split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
-" ==============================
+" ============================== 
 " Generic: Calendar
-" ==============================
+" ============================== 
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
