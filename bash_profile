@@ -27,7 +27,8 @@ eval "$(hub alias -s)"
 . ~/.bash_prompt
 
 # Vault
-. ~/.vault_profile
+[ -f ~/.vault_profile ] && source ~/.vault_profile
+
 
 # SSH Keys
-if [[ -z "$(ssh-add -l | grep 4096)" ]]; then ssh-add; fi
+[ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
