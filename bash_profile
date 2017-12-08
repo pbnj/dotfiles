@@ -21,7 +21,6 @@ eval "$(hub alias -s)"
 
 # Aliases
 . ~/.bash_aliases
-. ~/.docker_aliases
 
 # Bash Prompt
 . ~/.bash_prompt
@@ -31,4 +30,5 @@ eval "$(hub alias -s)"
 
 
 # SSH Keys
+eval $(ssh-agent)
 [ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
