@@ -46,5 +46,5 @@ function parse_git_dirty {
 }
 
 export PS1="
-\u @ \h : \w \`parse_git_branch\`
+\u@\h:\w \`parse_git_branch\`
 \\$ "
