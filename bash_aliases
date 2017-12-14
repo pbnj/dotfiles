@@ -196,10 +196,8 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Personal additions
-alias v="vim"
-alias nv="nvim"
-alias zshconfig="${EDITOR:-vim} ~/.zshrc"
-alias ohmyzsh="${EDITOR:-vim} ~/.oh-my-zsh"
+# alias zshconfig="${EDITOR:-vim} ~/.zshrc"
+# alias ohmyzsh="${EDITOR:-vim} ~/.oh-my-zsh"
 alias sshconfig="${EDITOR:-vim} ~/.ssh/config"
 alias vimconfig="${EDITOR:-vim} ~/.vimrc"
 alias gitconfig="${EDITOR:-vim} ~/.gitconfig"
