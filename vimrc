@@ -20,7 +20,6 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'itchyny/calendar.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'moorereason/vim-markdownfmt'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'raimondi/delimitmate'
 Plug 'roxma/nvim-yarp'
@@ -46,23 +45,22 @@ syntax enable
 
 filetype indent on
 
-let g:markdownfmt_autosave=1
-let g:airline#extensions#tabline#enabled = 1
 let g:NERDSpaceDelims = 1
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:indent_guides_start_level = 2
+let g:airline#extensions#tabline#enabled=1
+let g:markdownfmt_autosave=1
 let mapleader=","
 
 set autowrite
+set background=dark
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf8
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20
-set guifont=FiraCode-Light:h12
 set hlsearch
 set incsearch
 set laststatus=2
-set listchars=tab:▸\ ,eol:¬
+set list
+set listchars=tab:▸\ ,eol:¬,space:·
 set mouse=a
 set number
 set relativenumber
@@ -71,6 +69,8 @@ set showmatch
 set splitbelow
 set splitright
 set wildmenu
+
+colorscheme default
 
 " ============================== 
 " Keybindings
