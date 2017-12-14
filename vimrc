@@ -60,7 +60,7 @@ set hlsearch
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:▸\ ,eol:¬,space:·
+set listchars=tab:▸\ ,eol:¬,trail:·
 set mouse=a
 set number
 set relativenumber
