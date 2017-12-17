@@ -9,7 +9,6 @@ Plug 'Shougo/vimshell'
 Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
 Plug 'editorconfig/editorconfig-vim'
@@ -69,8 +68,6 @@ set showmatch
 set splitbelow
 set splitright
 set wildmenu
-
-colorscheme default
 
 " ============================== 
 " Keybindings
