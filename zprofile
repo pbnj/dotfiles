@@ -16,7 +16,7 @@ eval "$(hub alias -s)"
 source ~/.aliases
 
 # Vault
-[ -f ~/.vault_profile ] && source ~/.vault_profile
+# [ -f ~/.vault_profile ] && source ~/.vault_profile
 
 
 # SSH Keys
