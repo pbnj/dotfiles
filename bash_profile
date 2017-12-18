@@ -17,17 +17,22 @@ export PATH="$HOME/.cargo/bin:$PATH"
 eval "$(hub alias -s)"
 
 # Aliases
-. ~/.bash_aliases
+source ~/.bash_aliases
 
-# Bash Prompt
-. ~/.bash_prompt
-
-# Vault
-# [ -f ~/.vault_profile ] && source ~/.vault_profile
-
+# Bash completions
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # SSH Keys
-# eval $(ssh-agent)
 [ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
 
-source ~/.git_prompt
+# Git prompt
+source ~/.git_prompt.sh
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWCOLORHINTS=true
+
+# Bash prompt
+export PS1='
+\W$(__git_ps1 " (%s)")
+$ '
