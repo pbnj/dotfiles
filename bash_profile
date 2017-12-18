@@ -10,14 +10,11 @@ export PATH=${HOME}/go/bin:${PATH}
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Hub
 eval "$(hub alias -s)"
-
-# FZF
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Aliases
 . ~/.bash_aliases
@@ -26,9 +23,11 @@ eval "$(hub alias -s)"
 . ~/.bash_prompt
 
 # Vault
-[ -f ~/.vault_profile ] && source ~/.vault_profile
+# [ -f ~/.vault_profile ] && source ~/.vault_profile
 
 
 # SSH Keys
-eval $(ssh-agent)
+# eval $(ssh-agent)
 [ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
+
+source ~/.git_prompt
