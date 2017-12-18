@@ -9,10 +9,6 @@ export PATH=${HOME}/go/bin:${PATH}
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Hub
 eval "$(hub alias -s)"
 
@@ -23,6 +19,7 @@ source ~/.bash_aliases
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # SSH Keys
+# eval $(ssh-agent)
 [ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
 
 # Git prompt
@@ -34,5 +31,5 @@ export GIT_PS1_SHOWCOLORHINTS=true
 
 # Bash prompt
 export PS1='
-\W$(__git_ps1 " (%s)")
+\W$(__git_ps1 " (\[\e[31m\]%s\[\e[m\])")
 $ '
