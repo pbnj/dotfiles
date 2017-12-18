@@ -34,19 +34,21 @@ Plug 'tpope/vim-surround'
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
+colorscheme base16-oceanicnext
 syntax enable
 
 filetype indent on
 
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims=1
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#enabled=1
 let g:markdownfmt_autosave=1
 let mapleader=","
 
