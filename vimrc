@@ -41,7 +41,7 @@ call plug#end()
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
-colorscheme base16-oceanicnext
+colorscheme base16-default-dark
 syntax enable
 
 filetype indent on
