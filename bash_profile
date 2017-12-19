@@ -13,7 +13,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 eval "$(hub alias -s)"
 
 # Aliases
-source $HOME/.bash_aliases
+[ -f $HOME/.bash_aliases ] && source ~/.bash_aliases
 
 # Bash completions
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
