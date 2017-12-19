@@ -4,16 +4,16 @@ unset HISTFILE
 export PATH="/usr/local/sbin:${PATH}"
 
 # GO
-export PATH=${HOME}/go/bin:${PATH}
+export PATH=${PATH}:${HOME}/go/bin
 
 # Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:$HOME/.cargo/bin
 
 # Hub
 eval "$(hub alias -s)"
 
 # Aliases
-source ~/.bash_aliases
+[ -f $HOME/.bash_aliases ] && source ~/.bash_aliases
 
 # Bash completions
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -23,7 +23,7 @@ source ~/.bash_aliases
 [ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
 
 # Git prompt
-source ~/.git_prompt.sh
+# source ~/.git_prompt.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
