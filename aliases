@@ -208,12 +208,6 @@ alias cdo="cd ~/Documents"
 alias cdl="cd ~/Downloads"
 alias todo="vim ~/Projects/github/todo"
 
-if [[ $os = "Darwin" ]]; then
-    alias bubu="brew outdated -v && brew update && brew upgrade && brew cleanup -s && brew cask cleanup"
-    alias sleep="pmset sleepnow"
-    alias lock="pmset sleepnow"
-fi
-
 # Shortcuts: docker
 alias d="docker"
 alias dp="docker ps"
