@@ -20,7 +20,7 @@ eval "$(hub alias -s)"
 
 # SSH Keys
 # eval $(ssh-agent)
-[ -z "$(ssh-add -l | grep 4096)" ] && ssh-add
+[ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent) && ssh-add
 
 # Bash prompt
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
