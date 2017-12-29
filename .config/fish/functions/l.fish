@@ -1,4 +1,4 @@
 function l
-    ls -alFh
+    command ls -alFh --color=auto $argv 
 end
 
