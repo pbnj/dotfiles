@@ -21,8 +21,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'moorereason/vim-markdownfmt'
 Plug 'pangloss/vim-javascript'
 Plug 'raimondi/delimitmate'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -34,14 +32,12 @@ Plug 'tpope/vim-surround'
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
-Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
-colorscheme base16-default-dark
 syntax enable
 
 filetype indent on
@@ -53,7 +49,6 @@ let g:markdownfmt_autosave=1
 let mapleader=","
 
 set autowrite
-set background=dark
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf8
