@@ -16,7 +16,6 @@ Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'gabrielelana/vim-markdown'
-Plug 'itchyny/calendar.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'moorereason/vim-markdownfmt'
 Plug 'pangloss/vim-javascript'
@@ -44,7 +43,6 @@ filetype indent on
 
 let g:NERDSpaceDelims=1
 let g:UltiSnipsExpandTrigger="<tab>"
-" let g:airline#extensions#tabline#enabled=1
 let g:markdownfmt_autosave=1
 let mapleader=","
 
@@ -52,6 +50,7 @@ set autowrite
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf8
+set expandtab
 set hlsearch
 set incsearch
 set laststatus=2
@@ -60,15 +59,17 @@ set listchars=tab:▸\ ,eol:¬,trail:·
 set mouse=a
 set number
 set relativenumber
+set shiftwidth=2
 set showcmd
 set showmatch
 set splitbelow
 set splitright
+set tabstop=2
 set wildmenu
 
-" ============================== 
+" ==============================
 " Keybindings
-" ============================== 
+" ==============================
 
 " Generic
 map <C-e> :NERDTreeToggle<CR>
@@ -88,9 +89,9 @@ nmap <leader>gp :Gpush<CR>
 command! -nargs=* T split | terminal <args>
 command! -nargs=* VT vsplit | terminal <args>
 
-" ============================== 
+" ==============================
 " Generic: Calendar
-" ============================== 
+" ==============================
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
