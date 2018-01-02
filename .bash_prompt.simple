@@ -45,4 +45,4 @@ function parse_git_dirty {
 	fi
 }
 
-export PS1="\u@\h:\W \`parse_git_branch\` "
+export PS1="\u@\h:\W \`parse_git_branch\` \$ "
