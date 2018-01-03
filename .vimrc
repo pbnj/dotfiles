@@ -19,6 +19,7 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
 Plug 'raimondi/delimitmate'
@@ -47,6 +48,7 @@ let mapleader=","
 
 set autowrite
 set backspace=indent,eol,start
+set clipboard=unnamed
 set cursorline
 set encoding=utf8
 set expandtab
@@ -54,7 +56,12 @@ set hlsearch
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:▸\ ,eol:¬,trail:·
+set listchars=
+set listchars+=tab:\|\  
+set listchars+=trail:•
+set listchars+=extends:»              " show cut off when nowrap
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
 set mouse=a
 set number
 set paste
