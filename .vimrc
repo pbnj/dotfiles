@@ -50,6 +50,7 @@ set autowrite
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf8
+set expandtab
 set hlsearch
 set incsearch
 set laststatus=2
@@ -59,10 +60,12 @@ set mouse=a
 set number
 set paste
 set relativenumber
+set shiftwidth=2
 set showcmd
 set showmatch
 set splitbelow
 set splitright
+set tabstop=2
 set wildmenu
 
 " ==============================
