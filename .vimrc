@@ -18,6 +18,7 @@ Plug 'fatih/vim-go'                   , { 'do': ':GoInstallBinaries' }
 Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
+Plug 'moll/vim-node'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
 Plug 'raimondi/delimitmate'
