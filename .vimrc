@@ -12,19 +12,17 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
-Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'ekalinin/Dockerfile.vim'        , {'for' : 'Dockerfile'}
+Plug 'elzr/vim-json'                  , {'for' : 'json'}
+Plug 'fatih/vim-go'                   , { 'do': ':GoInstallBinaries' }
 Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'md'] }
+Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
 Plug 'raimondi/delimitmate'
-Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'sebdah/vim-delve'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -122,7 +120,7 @@ augroup go
   autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
 
   " I like these more!
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang A  call go#alternate#Switch(<bang>0, 'edit')
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
   autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
@@ -133,36 +131,38 @@ map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
 let g:syntastic_go_checkers = ['go']
-let g:go_fmt_command = "goimports"
-let g:go_list_type = "quickfix"
-let g:go_def_mode = "guru"
-let g:go_info_mode = "guru"
-let g:go_autodetect_gopath = 1
-" let g:go_auto_type_info = 1
-" set updatetime=100
+let g:go_fmt_command        = "goimports"
+let g:go_list_type          = "quickfix"
+let g:go_def_mode           = "guru"
+let g:go_info_mode          = "guru"
+let g:go_autodetect_gopath  = 1
+" let g:go_auto_type_info   = 1
+" set updatetime            = 100
 
 " Enable Go syntax highlighting.
 " If perf is significantly impacted, remove or disable highlighting below
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
+let g:go_highlight_functions         = 1
+let g:go_highlight_methods           = 1
+let g:go_highlight_types             = 1
+let g:go_highlight_fields            = 1
+let g:go_highlight_operators         = 1
+let g:go_highlight_extra_types       = 1
 let g:go_highlight_build_constraints = 1
 
 " ==============================
 " Language: JS
 " From: https://prettier.io/docs/en/vim.html
 " ==============================
-let g:prettier#autoformat = 0                         " autosave files that have @format
-autocmd BufWritePre *.js,*.css,*.scss,*.less Prettier
-g:prettier#config#print_width = 80                    " max line length for wrapping
-g:prettier#config#tab_width = 2                       " number of spaces for indentation
-g:prettier#config#use_tabs = 'false'                  " spaces vs tabs
-g:prettier#config#semi = 'false'                      " semi colons
-g:prettier#config#single_quote = 'true'               " single vs double quotes
-g:prettier#config#bracket_spacing = 'false'           " print space inside parens
-g:prettier#config#jsx_bracket_same_line = 'false'     " put > on last line or on new line
-g:prettier#config#trailing_comma = 'es5'              " none|es5|all
-g:prettier#config#parser = 'babylon'                  " flow|babylon|typescript|postcss
+let g:prettier#autoformat                             = 0             " autosave files that have @format
+autocmd BufWritePre *.js,*.css,*.scss,*.less,*.json,*.md Prettier
+let g:prettier#config#print_width                     = 80            " max line length for wrapping
+let g:prettier#config#tab_width                       = 2             " number of spaces for indentation
+let g:prettier#config#use_tabs                        = 'false'       " spaces vs tabs
+let g:prettier#config#semi                            = 'false'       " semi colons
+let g:prettier#config#single_quote                    = 'true'        " single vs double quotes
+let g:prettier#config#bracket_spacing                 = 'false'       " print space inside parens
+let g:prettier#config#jsx_bracket_same_line           = 'false'       " put > on last line or on new line
+let g:prettier#config#trailing_comma                  = 'es5'         " none|es5|all
+let g:prettier#config#parser                          = 'babylon'     " flow|babylon|typescript|postcss
+let g:prettier#config#config_precedence               = 'prefer-file' " cli-override|file-override|prefer-file
+let g:prettier#config#prose_wrap                      = 'preserve'    " always|never|preserve
