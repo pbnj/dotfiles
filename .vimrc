@@ -16,10 +16,10 @@ Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'gabrielelana/vim-markdown'
-Plug 'itchyny/calendar.vim'
+Plug 'godlygeek/tabular'
 Plug 'kien/ctrlp.vim'
-Plug 'moorereason/vim-markdownfmt'
 Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'md'] }
 Plug 'raimondi/delimitmate'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
@@ -44,8 +44,6 @@ filetype indent on
 
 let g:NERDSpaceDelims=1
 let g:UltiSnipsExpandTrigger="<tab>"
-" let g:airline#extensions#tabline#enabled=1
-let g:markdownfmt_autosave=1
 let mapleader=","
 
 set autowrite
@@ -59,6 +57,7 @@ set list
 set listchars=tab:▸\ ,eol:¬,trail:·
 set mouse=a
 set number
+set paste
 set relativenumber
 set showcmd
 set showmatch
@@ -66,9 +65,9 @@ set splitbelow
 set splitright
 set wildmenu
 
-" ============================== 
+" ==============================
 " Keybindings
-" ============================== 
+" ==============================
 
 " Generic
 map <C-e> :NERDTreeToggle<CR>
@@ -83,17 +82,6 @@ nmap <leader>gc :Gcommit<CR>
 nmap <leader>gl :Glog<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gp :Gpush<CR>
-
-" Terminal
-command! -nargs=* T split | terminal <args>
-command! -nargs=* VT vsplit | terminal <args>
-
-" ============================== 
-" Generic: Calendar
-" ============================== 
-
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
 
 " ==============================
 " Language: GO
@@ -159,3 +147,19 @@ let g:go_highlight_fields = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
+
+" ==============================
+" Language: JS
+" From: https://prettier.io/docs/en/vim.html
+" ==============================
+let g:prettier#autoformat = 0                         " autosave files that have @format
+autocmd BufWritePre *.js,*.css,*.scss,*.less Prettier
+g:prettier#config#print_width = 80                    " max line length for wrapping
+g:prettier#config#tab_width = 2                       " number of spaces for indentation
+g:prettier#config#use_tabs = 'false'                  " spaces vs tabs
+g:prettier#config#semi = 'false'                      " semi colons
+g:prettier#config#single_quote = 'true'               " single vs double quotes
+g:prettier#config#bracket_spacing = 'false'           " print space inside parens
+g:prettier#config#jsx_bracket_same_line = 'false'     " put > on last line or on new line
+g:prettier#config#trailing_comma = 'es5'              " none|es5|all
+g:prettier#config#parser = 'babylon'                  " flow|babylon|typescript|postcss
