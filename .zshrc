@@ -4,8 +4,7 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   aws
-  brew
-  cargo
+  # brew # macOS
   docker
   docker-compose
   git
