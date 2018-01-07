@@ -3,12 +3,14 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 plugins=(
-  aws
   # brew # macOS
+  aws
   docker
   docker-compose
   git
+  heroku
   kubectl
+  ssh-agent
   vault
   zsh-syntax-highlighting
 )
