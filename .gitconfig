@@ -1,16 +1,18 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-	name = Peter Benjamin
-	email = petermbenjamin@gmail.com
+    name = Peter Benjamin
+    email = petermbenjamin@gmail.com
 # [credential]
-	# helper = osxkeychain  # macos
-	# helper = manager      # windows (install: https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
+    # helper = osxkeychain  # macos
+    # helper = manager      # windows (install: https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 [hub]
-	host = git.company.com
+    host = git.company.com
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
+[push]
+    default = simple
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+    insteadOf = https://github.com/
 [url "git@github.com:"]
-	insteadOf = git://github.com/
+    insteadOf = git://github.com/
