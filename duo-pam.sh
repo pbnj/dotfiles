@@ -5,16 +5,19 @@ set -e
 # To setup MFA on Debian/Ubuntu servers (including Raspberry Pi):
 # Source: https://duo.com/docs/duounix
 
-sudo apt update && sudo apt install -y 
+sudo apt update && sudo apt install -y \
 	libssl-dev \
-	libpam-dev 
+	libpam-dev
 	wget \
 	curl
 
 wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
 tar zxf duo_unix-latest.tar.gz
 cd duo_unix-1.10.1
-./configure --with-pam --prefix=/usr && make && sudo make install
+
+./configure --with-pam --prefix=/usr && sudo make && sudo make install
+
+rm -rf duo_unix*
 
 # edit pam_duo.conf (usually in /etc/duo or /etc/security) to add duo integration key, secret key, API hostname:
 #	[duo]
@@ -31,7 +34,7 @@ cd duo_unix-1.10.1
 # 	AuthenticationMethods publickey,keyboard-interactive
 
 # otherwise, edit /etc/pam.d/sshd to add:
-sudo echo "auth required pam_duo.so" >> /etc/pam.d/sshd
+sudo echo "auth required pam_duo.so" >> /etc/pam.d/sshd # sometimes pam_duo.so is in /lib64/security instead of lib/security
 sudo echo "UsePAM yes" >> /etc/ssh/sshd_config
 sudo echo "ChallengeResponseAuthentication yes" >> /etc/ssh/sshd_config
 sudo echo "UseDNS no" >> /etc/ssh/sshd_config
