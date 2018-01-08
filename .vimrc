@@ -32,6 +32,7 @@ Plug 'tpope/vim-surround'
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+" Plug 'dracula/vim'
 
 call plug#end()
 
@@ -39,6 +40,7 @@ call plug#end()
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 
 syntax enable
+" colorscheme dracula
 
 filetype indent on
 
@@ -51,13 +53,12 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
 set encoding=utf8
-set expandtab
 set hlsearch
 set incsearch
 set laststatus=2
 set list
 set listchars=
-set listchars+=tab:\|\  
+set listchars+=tab:\|\
 set listchars+=trail:•
 set listchars+=extends:»              " show cut off when nowrap
 set listchars+=precedes:«
@@ -66,13 +67,15 @@ set mouse=a
 set number
 set paste
 set relativenumber
-set shiftwidth=2
 set showcmd
 set showmatch
 set splitbelow
 set splitright
-set tabstop=2
 set wildmenu
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " ==============================
 " Keybindings
