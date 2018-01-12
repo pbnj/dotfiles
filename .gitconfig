@@ -1,11 +1,10 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
   name = Peter Benjamin
   email = petermbenjamin@gmail.com
-# [credential]
-  # helper = osxkeychain  # macos
-  # helper = manager      # windows (install: https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
+[core]
+  editor = vim
+[credential]
+  helper = cache
 [hub]
   host = git.company.com
 [push]
@@ -14,5 +13,3 @@
   insteadOf = https://github.com/
 [url "git@github.com:"]
   insteadOf = git://github.com/
-[core]
-	editor = vim
