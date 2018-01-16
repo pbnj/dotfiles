@@ -22,7 +22,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
 Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
