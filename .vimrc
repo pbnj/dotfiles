@@ -6,17 +6,19 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Shougo/vimshell'
-Plug 'SirVer/ultisnips'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
+Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim'        , {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json'                  , {'for' : 'json'}
+Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'                   , { 'do': ':GoInstallBinaries' }
 Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
@@ -29,18 +31,23 @@ Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
-" Plug 'dracula/vim'
 
 call plug#end()
 
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
+autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
+augroup NERD
+    au!
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
+augroup END
+
 
 syntax enable
-" colorscheme dracula
+colorscheme base16-default-dark
 
 filetype indent on
 
@@ -58,24 +65,21 @@ set incsearch
 set laststatus=2
 set list
 set listchars=
-set listchars+=tab:\|\
+set listchars+=tab:▸\  
 set listchars+=trail:•
 set listchars+=extends:»              " show cut off when nowrap
 set listchars+=precedes:«
 set listchars+=nbsp:⣿
 set mouse=a
 set number
-set paste
 set relativenumber
 set showcmd
 set showmatch
 set splitbelow
 set splitright
+set t_Co=256
+set termguicolors
 set wildmenu
-
-set expandtab
-set tabstop=2
-set shiftwidth=2
 
 " ==============================
 " Keybindings
