@@ -16,13 +16,13 @@ Plug 'ekalinin/Dockerfile.vim'        , {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json'                  , {'for' : 'json'}
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'                   , { 'do': ':GoInstallBinaries' }
-Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
 Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
@@ -44,7 +44,6 @@ augroup NERD
     autocmd VimEnter * NERDTree
     autocmd VimEnter * wincmd p
 augroup END
-
 
 syntax enable
 colorscheme base16-default-dark
