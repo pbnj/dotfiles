@@ -1,24 +1,24 @@
 @font-face {
   font-family: "Custom Font";
-  src: url("Font-Book.otf") format("otf");
+  src: url("Font-Book.opentype") format("opentype");
 }
 
 @font-face {
   font-family: "Custom Font";
-  src: url("Font-Medium.otf") format("otf");
+  src: url("Font-Medium.opentype") format("opentype");
 }
 
 @font-face {
   font-family: "Custom Font";
-  src: url("Font-Bold.otf") format("otf");
+  src: url("Font-Bold.opentype") format("opentype");
 }
 
 @font-face {
   font-family: "Custom Font";
-  src: url("Font-Light.otf") format("otf");
+  src: url("Font-Light.opentype") format("opentype");
 }
 
 @font-face {
   font-family: "Custom Font";
-  src: url("Font-XLight.otf") format("otf");
+  src: url("Font-XLight.opentype") format("opentype");
 }
