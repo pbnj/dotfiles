@@ -50,33 +50,29 @@ colorscheme base16-default-dark
 
 filetype indent on
 
-let g:NERDSpaceDelims=1
-let g:UltiSnipsExpandTrigger="<tab>"
-let mapleader=","
+let g:NERDSpaceDelims        = 1
+let g:UltiSnipsExpandTrigger = "<tab>"
+let mapleader                = ","
+let maplocalleader           = ",,"
 
 set autowrite
-set backspace=indent,eol,start
-set clipboard=unnamed
+set backspace      = indent,eol,start
+set clipboard      = unnamed
 set cursorline
-set encoding=utf8
+set encoding       = utf8
 set hlsearch
 set incsearch
-set laststatus=2
+set laststatus     = 2
 set list
-set listchars=
-set listchars+=tab:▸\  
-set listchars+=trail:•
-set listchars+=extends:»              " show cut off when nowrap
-set listchars+=precedes:«
-set listchars+=nbsp:⣿
-set mouse=a
+set listchars      = tab:▸\ ,trail:•,extends:»,precedes:«,nbsp:•
+set mouse          = a
 set number
 set relativenumber
 set showcmd
 set showmatch
 set splitbelow
 set splitright
-set t_Co=256
+set t_Co           = 256
 set termguicolors
 set wildmenu
 
