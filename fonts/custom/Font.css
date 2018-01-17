@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Operator Mono";
+  src: url("Font-Book.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Operator Mono";
+  src: url("Font-Medium.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Operator Mono";
+  src: url("Font-Bold.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Operator Mono";
+  src: url("Font-Light.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Operator Mono";
+  src: url("Font-XLight.otf") format("otf");
+}
