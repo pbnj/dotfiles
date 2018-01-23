@@ -48,12 +48,16 @@ augroup END
 syntax enable
 colorscheme base16-default-dark
 
+
 filetype indent on
 
-let g:NERDSpaceDelims        = 1
-let g:UltiSnipsExpandTrigger = "<tab>"
-let mapleader                = ","
-let maplocalleader           = ",,"
+let g:NERDSpaceDelims                    = 1
+let g:UltiSnipsExpandTrigger             = "<tab>"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts            = 1
+let g:airline_theme                      = "base16_default"
+let mapleader                            = ","
+let maplocalleader                       = ",,"
 
 set autowrite
 set backspace=indent,eol,start
@@ -73,7 +77,7 @@ set showmatch
 set splitbelow
 set splitright
 set t_Co=256
-set termguicolors " hack to fix vim colors in chrome secure shell
+set termguicolors
 set wildmenu
 
 " ==============================
