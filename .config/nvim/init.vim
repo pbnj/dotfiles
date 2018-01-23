@@ -73,7 +73,7 @@ set showmatch
 set splitbelow
 set splitright
 set t_Co=256
-" set termguicolors
+set termguicolors " hack to fix vim colors in chrome secure shell
 set wildmenu
 
 " ==============================
