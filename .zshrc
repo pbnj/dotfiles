@@ -1,10 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
-DEFAULT_USER="$(whoami)"
 
 plugins=(
-  # brew # macOS
+  brew
   aws
   docker
   docker-compose
@@ -18,3 +17,4 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U compinit && compinit
