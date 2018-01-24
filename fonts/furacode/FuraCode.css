@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Fira Code';
+  src: url('Fura Code Regular Nerd Font Complete.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  font-weight: bold;
+  src: url('Fura Code Bold Nerd Font Complete.otf') format('opentype');
+}
