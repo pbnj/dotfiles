@@ -1,10 +1,12 @@
 @font-face {
   font-family: 'Fira Code';
-  src: url('Fura Code Regular Nerd Font Complete.otf') format('opentype');
+  src: url('https://raw.githubusercontent.com/petermbenjamin/dotfiles/master/fonts/furacode/Fura%20Code%20Regular%20Nerd%20Font%20Complete.otf')
+    format('opentype');
 }
 
 @font-face {
   font-family: 'Fira Code';
   font-weight: bold;
-  src: url('Fura Code Bold Nerd Font Complete.otf') format('opentype');
+  src: url('https://raw.githubusercontent.com/petermbenjamin/dotfiles/master/fonts/furacode/Fura%20Code%20Bold%20Nerd%20Font%20Complete.otf')
+    format('opentype');
 }
