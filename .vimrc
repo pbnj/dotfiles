@@ -5,6 +5,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Shougo/deoplete.nvim'           , { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimshell'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -12,33 +13,36 @@ Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/Dockerfile.vim'        , {'for' : 'Dockerfile'}
-Plug 'elzr/vim-json'                  , {'for' : 'json'}
-Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'                   , { 'do': ':GoInstallBinaries' }
+Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
+Plug 'elzr/vim-json'                  , { 'for' : 'json' }
+Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
-Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
+Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
 
 call plug#end()
 
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType markdown setlocal expandtab tabstop=2 shiftwidth=2
+
 augroup NERD
     au!
     autocmd VimEnter * NERDTree
@@ -50,10 +54,13 @@ colorscheme base16-default-dark
 
 filetype indent on
 
-let g:NERDSpaceDelims        = 1
-let g:UltiSnipsExpandTrigger = "<tab>"
-let mapleader                = ","
-let maplocalleader           = ",,"
+let g:NERDSpaceDelims                    = 1
+let g:UltiSnipsExpandTrigger             = "<tab>"
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts            = 1
+" let g:airline_theme                      = "base16_default"
+let mapleader                            = ","
+let maplocalleader                       = ",,"
 
 set autowrite
 set backspace=indent,eol,start
@@ -94,9 +101,36 @@ nmap <leader>gl :Glog<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gp :Gpush<CR>
 
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" ===
+" Plugin: Autocompletion
+" From: https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
+" ===
+
+let g:deoplete#enable_at_startup = 1
+" autoclose completion/scratch window on completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 " ==============================
 " Language: GO
-" All of these vim-go configurations came from: https://github.com/fatih/vim-go-tutorial
+" From: https://github.com/fatih/vim-go-tutorial
 " ==============================
 
 " For autocompletion
@@ -146,7 +180,7 @@ let g:go_list_type          = "quickfix"
 let g:go_def_mode           = "guru"
 let g:go_info_mode          = "guru"
 let g:go_autodetect_gopath  = 1
-" let g:go_auto_type_info   = 1
+" let g:go_auto_type_info     = 1
 " set updatetime            = 100
 
 " Enable Go syntax highlighting.
