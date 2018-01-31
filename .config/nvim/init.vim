@@ -5,6 +5,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'Shougo/deoplete.nvim'           , { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimshell'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -12,33 +13,35 @@ Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/Dockerfile.vim'        , {'for' : 'Dockerfile'}
-Plug 'elzr/vim-json'                  , {'for' : 'json'}
+Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
+Plug 'elzr/vim-json'                  , { 'for' : 'json' }
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'                   , { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-markdown'
-Plug 'prettier/vim-prettier'          , { 'do': 'npm install' }
+Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
 
 call plug#end()
 
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
 autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType markdown setlocal expandtab tabstop=2 shiftwidth=2
 augroup NERD
     au!
     autocmd VimEnter * NERDTree
@@ -47,7 +50,6 @@ augroup END
 
 syntax enable
 colorscheme base16-default-dark
-
 
 filetype indent on
 
@@ -81,9 +83,20 @@ set termguicolors
 set wildmenu
 
 " ==============================
-" Keybindings
+" Settings: Autocompletion
 " ==============================
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
+" ==============================
+" Settings: Keybindings
+" ==============================
 " Generic
 map <C-e> :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
