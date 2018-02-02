@@ -4,8 +4,15 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'           , { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Shougo/deoplete.nvim'           , { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimshell'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
@@ -40,8 +47,7 @@ call plug#end()
 
 " Generic
 autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
-autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
-autocmd FileType markdown setlocal expandtab tabstop=2 shiftwidth=2
+
 augroup NERD
     au!
     autocmd VimEnter * NERDTree
@@ -50,7 +56,6 @@ augroup END
 
 syntax enable
 colorscheme base16-default-dark
-
 filetype indent on
 
 let g:NERDSpaceDelims                    = 1
@@ -81,6 +86,11 @@ set splitright
 set t_Co=256
 set termguicolors
 set wildmenu
+
+set softtabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
 
 " ==============================
 " Settings: Autocompletion
@@ -113,19 +123,6 @@ nmap <leader>gp :Gpush<CR>
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
-tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
-tnoremap <A-h> <C-\><C-N><C-w>h
-tnoremap <A-j> <C-\><C-N><C-w>j
-tnoremap <A-k> <C-\><C-N><C-w>k
-tnoremap <A-l> <C-\><C-N><C-w>l
-inoremap <A-h> <C-\><C-N><C-w>h
-inoremap <A-j> <C-\><C-N><C-w>j
-inoremap <A-k> <C-\><C-N><C-w>k
-inoremap <A-l> <C-\><C-N><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
 
 " ==============================
 " Language: GO
