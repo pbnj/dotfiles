@@ -29,6 +29,7 @@ Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
