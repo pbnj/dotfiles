@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="agnoster"
+ZSH_THEME="pbnj"
 
 plugins=(
   docker
@@ -8,6 +8,7 @@ plugins=(
   git
   heroku
   kubectl
+  shrink-path
   ssh-agent
   vault
   zsh-syntax-highlighting
@@ -15,16 +16,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# HUB
-eval $(hub alias -s)
-
 # GO
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME
+export PATH=$PATH:/usr/local/go/bin:$HOME/bin
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# HUB
+eval $(hub alias -s)
 
 # ENV VARS
 export LANG=en_US.UTF-8
@@ -34,7 +35,8 @@ export LC_CTYPE=en_US.UTF-8
 alias c="clear"
 alias d="docker"
 alias k="kubectl"
-alias nv="nvim"
-alias v="vim"
+alias l="ls -alFh --group-directories-first"
+alias v="nvim"
+alias reload="source ~/.zshrc"
 
 autoload -U compinit && compinit
