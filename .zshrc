@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 
 # GO
 export GOPATH=$HOME
-export PATH=$PATH:/usr/local/go/bin:$HOME/bin
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
