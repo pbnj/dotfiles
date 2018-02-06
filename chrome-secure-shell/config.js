@@ -38,7 +38,7 @@ term_.prefs_.set('color-palette-overrides', [
 // Fonts
 term_.prefs_.set(
   'font-family',
-  `'Monoisome', 'Fira Code', 'DejaVu Sans Mono', 'Everson Mono', FreeMono, 'Menlo', 'Terminal', monospace`
+  `Monoid, 'Fira Code', 'DejaVu Sans Mono', 'Everson Mono', FreeMono, 'Menlo', 'Terminal', monospace`
 )
 
 term_.prefs_.set('font-size', 13)
@@ -55,6 +55,12 @@ term_.prefs_.set(
     src: url("https://cdn.rawgit.com/larsenwork/monoid/0.61/Monoisome/Monoisome-Regular.ttf") format("truetype");
 }
 
+/* Import Monoid */
+@font-face {
+    font-family: "Monoid";
+    src: url("https://larsenwork.com/monoid/css/Monoid-Regular.woff2") format("woff2");
+}
+
 /* Enable Ligatures */
 x-row {
   text-rendering: optimizeLegibility;
@@ -68,3 +74,4 @@ term_.prefs_.set('enable-bold-as-bright', false)
 term_.prefs_.set('font-smoothing', 'subpixel-antialiased')
 term_.prefs_.set('alt-is-meta', true)
 term_.prefs_.set('scrollbar-visible', false)
+term_.prefs_.set('scroll-wheel-move-multiplier', '0')
