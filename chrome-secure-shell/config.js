@@ -61,11 +61,13 @@ term_.prefs_.set(
     src: url("https://larsenwork.com/monoid/css/Monoid-Regular.woff2") format("woff2");
 }
 
-/* Enable Ligatures */
+/* Uncomment to enable ligatures */
+/*
 x-row {
   text-rendering: optimizeLegibility;
   font-variant-ligatures: normal;
 }
+*/
 `
 )
 
