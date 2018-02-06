@@ -1,0 +1,6 @@
+/*
+https://chromium.googlesource.com/apps/libapps/+/nassh-0.8.42/nassh/doc/FAQ.md
+font-family: "Fira Code", "Source Code Pro", "DejaVu Sans Mono", "Everson Mono", FreeMono, "Menlo", "Terminal", monospace
+*/
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+@import url(https://cdn.rawgit.com/wernight/powerline-web-fonts/4c2fbd9a52a443fbdf00c9eb79e615f1bed3a55c/PowerlineFonts.css);
