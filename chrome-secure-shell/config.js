@@ -44,6 +44,11 @@ term_.prefs_.set(
 term_.prefs_.set('font-size', 13)
 
 term_.prefs_.set(
+  'user-css',
+  'https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Fonts.css'
+)
+
+term_.prefs_.set(
   'user-css-text',
   `
 /* Import FiraCode */
@@ -52,13 +57,13 @@ term_.prefs_.set(
 /* Import Monoisome */
 @font-face {
     font-family: "Monoisome";
-    src: url("https://cdn.rawgit.com/larsenwork/monoid/0.61/Monoisome/Monoisome-Regular.ttf") format("truetype");
+    src: url("https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoisome-Regular.ttf") format("truetype");
 }
 
 /* Import Monoid */
 @font-face {
     font-family: "Monoid";
-    src: url("https://larsenwork.com/monoid/css/Monoid-Regular.woff2") format("woff2");
+    src: url("hhttps://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoid-Regular.ttf") format("truetype");
 }
 
 /* Uncomment to enable ligatures */
