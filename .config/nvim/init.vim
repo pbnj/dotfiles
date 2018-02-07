@@ -29,7 +29,6 @@ Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
-Plug 'mzlogin/vim-markdown-toc'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
@@ -47,7 +46,8 @@ Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
 call plug#end()
 
 " Generic
-autocmd BufEnter * silent! lcd %:p:h "auto change directory based on current window
+autocmd BufNewFile,BufRead *.fish set ft=sh " treat *.fish as shell for syntax highlighting and grammar
+autocmd BufEnter * silent! lcd %:p:h        " auto change directory based on current window
 
 augroup NERD
     au!
@@ -84,7 +84,6 @@ set showcmd
 set showmatch
 set splitbelow
 set splitright
-set t_Co=256
 set termguicolors
 set wildmenu
 
