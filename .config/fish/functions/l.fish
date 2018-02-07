@@ -1,4 +1,4 @@
-function l
-    command ls -alFh --color=auto $argv 
+function l --wrap ls
+    ls -alFh --group-directories-first --color=auto $argv
 end
 
