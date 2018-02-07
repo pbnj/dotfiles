@@ -1,5 +1,5 @@
 set -x GOPATH $HOME
-set -x PATH $PATH /usr/local/go/ $GOPATH/bin
+set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 
 function l --wraps ls
   if type -q gls
