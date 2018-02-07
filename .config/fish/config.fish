@@ -10,36 +10,23 @@ function l --wraps ls
 end
 
 # Kubectl aliases/functions
-function k --wraps kubectl
-  kubectl $argv
+if type -q kubectl
+    abbr k "kubectl"
+    abbr kgp "kubectl get pod"
+    abbr kc "kube config"
 end
 
 # Git aliases/functions
-if type -q hub
-  eval (hub alias -s)
-end
+if type -q git
+    if type -q hub
+      eval (hub alias -s)
+    end
 
-function g --wraps git
-  git $argv
+    abbr g git
+    abbr ga git add
+    abbr gaa git add --all
+    abbr gcmsg git commit -m
+    abbr gco git checkout
+    abbr gp git push
+    abbr gst git status
 end
-
-function gst --wraps "git status"
-  git status $argv
-end
-
-function gl --wraps "git pull"
-  git pull $argv
-end
-
-function gp --wraps "git push"
-  git push $argv
-end
-
-function ga --wraps "git add"
-  git add $argv
-end
-
-function gc --wraps "git commit"
-  git commit $argv
-end
-
