@@ -1,1 +1,0 @@
-../fish-kubectl-completions/kubectl.fish
