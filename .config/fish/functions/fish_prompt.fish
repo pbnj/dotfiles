@@ -15,9 +15,9 @@ function fish_prompt
     printf '%s@%s:%s%s%s%s' (whoami) (hostname) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (__fish_git_prompt)
     # echo -n -s (whoami)@(hostname | cut -d . -f 1):(set_color $fish_color_cwd)(prompt_pwd)(set_color normal)(__fish_git_prompt)
 
-    set -l prompt_color $red
+    set -l prompt_color (set_color red)
     if test $last_status = 0
-    set prompt_color $normal
+      set prompt_color (set_color normal)
     end
 
     echo -e ''
