@@ -82,3 +82,17 @@ term_.prefs_.set('font-smoothing', 'subpixel-antialiased')
 term_.prefs_.set('alt-is-meta', true)
 term_.prefs_.set('scrollbar-visible', false)
 term_.prefs_.set('scroll-wheel-move-multiplier', '0')
+term_.prefs_.set('alt-backspace-is-meta-backspace':  true)
+term_.prefs_.set('alt-is-meta':  true)
+term_.prefs_.set('environment', {
+    NCURSES_NO_UTF8_ACS: "1",
+    TERM: "xterm-256color",
+    LANG: "en_US.UTF-8",
+    LC_COLLATE: "en_US.UTF-8",
+    LC_CTYPE: "en_US.UTF-8",
+    LC_MESSAGES: "en_US.UTF-8",
+    LC_MONETARY: "en_US.UTF-8",
+    LC_NUMERIC: "en_US.UTF-8",
+    LC_TIME: "en_US.UTF-8",
+    LC_ALL: "en_US.UTF-8"
+    })
