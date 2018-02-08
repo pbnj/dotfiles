@@ -29,6 +29,8 @@ Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
@@ -46,8 +48,9 @@ Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
 call plug#end()
 
 " Generic
-autocmd BufNewFile,BufRead *.fish set ft=sh " treat *.fish as shell for syntax highlighting and grammar
-autocmd BufEnter * silent! lcd %:p:h        " auto change directory based on current window
+autocmd BufNewFile,BufRead *.fish set ft=sh    " treat *.fish as shell for syntax highlighting and grammar
+autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
+autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
 augroup NERD
     au!
@@ -75,8 +78,6 @@ set encoding=utf8
 set hlsearch
 set incsearch
 set laststatus=2
-set list
-set listchars=tab:▸\ ,trail:•,extends:»,precedes:«,nbsp:•
 set mouse=a
 set number
 set relativenumber
