@@ -2,5 +2,28 @@
 https://chromium.googlesource.com/apps/libapps/+/nassh-0.8.42/nassh/doc/FAQ.md
 font-family: "Fira Code", "Source Code Pro", "DejaVu Sans Mono", "Everson Mono", FreeMono, "Menlo", "Terminal", monospace
 */
-@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
-@import url(https://cdn.rawgit.com/wernight/powerline-web-fonts/4c2fbd9a52a443fbdf00c9eb79e615f1bed3a55c/PowerlineFonts.css);
+/* @import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css); */
+/* @import url(https://cdn.rawgit.com/wernight/powerline-web-fonts/4c2fbd9a52a443fbdf00c9eb79e615f1bed3a55c/PowerlineFonts.css); */
+
+/* Import FiraCode */
+@font-face {
+  font-family: "Fira Code";
+  src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/7bcfae0c74ad9396e04de068a97b1667fda0c634/patched-fonts/FiraCode/Light/complete/Fura%20Code%20Light%20Nerd%20Font%20Complete.otf");
+}
+
+/* Import Monoisome */
+@font-face {
+    font-family: "Monoisome";
+    src: url("https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoisome-Regular.ttf");
+}
+
+/* Import Monoid */
+@font-face {
+    font-family: "Monoid";
+    src: url("https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoid-Regular.ttf")
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("https://cdn.rawgit.com/powerline/fonts/e33688b3151e84056365664e6d372118852732bc/SourceCodePro/Sauce%20Code%20Powerline%20Light.otf");
+}
