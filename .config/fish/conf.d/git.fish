@@ -13,6 +13,7 @@ if type -q git
     abbr -a gcmsg 'git commit -m'
     abbr -a gco 'git checkout'
     abbr -a gd 'git diff'
+    abbr -a gl 'git pull'
     abbr -a gp 'git push'
     abbr -a grv 'git remote -v'
     abbr -a gs 'git status'
