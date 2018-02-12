@@ -8,22 +8,16 @@ font-family: "Fira Code", "Source Code Pro", "DejaVu Sans Mono", "Everson Mono",
 /* Import FiraCode */
 @font-face {
   font-family: "Fira Code";
-  src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/7bcfae0c74ad9396e04de068a97b1667fda0c634/patched-fonts/FiraCode/Light/complete/Fura%20Code%20Light%20Nerd%20Font%20Complete.otf");
-}
-
-/* Import Monoisome */
-@font-face {
-    font-family: "Monoisome";
-    src: url("https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoisome-Regular.ttf");
+  src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/FiraCode/Light/complete/Fura%20Code%20Light%20Nerd%20Font%20Complete%20Mono.otf");
 }
 
 /* Import Monoid */
 @font-face {
     font-family: "Monoid";
-    src: url("https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoid-Regular.ttf")
+    src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/Monoid/complete/Monoid%20Regular%20Nerd%20Font%20Complete%20Mono.ttf")
 }
 
 @font-face {
   font-family: "Source Code Pro";
-  src: url("https://cdn.rawgit.com/powerline/fonts/e33688b3151e84056365664e6d372118852732bc/SourceCodePro/Sauce%20Code%20Powerline%20Light.otf");
+  src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/SourceCodePro/Light/complete/Sauce%20Code%20Pro%20Light%20Nerd%20Font%20Complete%20Mono.ttf");
 }
