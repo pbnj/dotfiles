@@ -36,6 +36,7 @@ Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sirver/ultisnips'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
@@ -52,6 +53,7 @@ autocmd BufNewFile,BufRead *.fish set ft=sh    " treat *.fish as shell for synta
 autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
+autocmd FileType javascript setlocal sts=2 sw=2 smarttab expandtab
 augroup NERD
     au!
     autocmd VimEnter * NERDTree
@@ -62,13 +64,13 @@ syntax enable
 colorscheme base16-default-dark
 filetype indent on
 
-let g:NERDSpaceDelims                    = 1
-let g:UltiSnipsExpandTrigger             = "<tab>"
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts            = 1
-let g:airline_theme                      = "base16_default"
-let mapleader                            = ","
-let maplocalleader                       = ",,"
+let g:NERDSpaceDelims                      = 1
+let g:UltiSnipsExpandTrigger               = "<tab>"
+let g:airline#extensions#tabline#enabled   = 1
+let g:airline_powerline_fonts              = 1
+let g:airline_theme                        = "base16_default"
+let mapleader                              = ","
+let maplocalleader                         = ",,"
 
 set autowrite
 set backspace=indent,eol,start
@@ -78,6 +80,8 @@ set encoding=utf8
 set hlsearch
 set incsearch
 set laststatus=2
+set list
+set listchars=tab:\|\ ,
 set mouse=a
 set number
 set relativenumber
@@ -87,11 +91,6 @@ set splitbelow
 set splitright
 set termguicolors
 set wildmenu
-
-set softtabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
 
 " ==============================
 " Settings: Autocompletion
