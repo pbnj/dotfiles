@@ -1,6 +1,13 @@
 # Kubectl
 if type -q kubectl
     abbr -a k 'kubectl'
+    abbr -a kd 'kubectl delete'
+    abbr -a kdp 'kubectl delete pods'
+    abbr -a kdd 'kubectl delete deployments'
+    abbr -a kg 'kubectl get'
+    abbr -a kgd 'kubectl get deployments'
+    abbr -a kgp 'kubectl get pods'
+    abbr -a kl 'kubectl logs'
 end
 
 function install_kubectl
