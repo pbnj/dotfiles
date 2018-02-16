@@ -3,6 +3,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias nv="nvim"
 alias l="ls -alFh --color=auto --group-directories-first"
+alias grep="grep --color=auto"
 
 # Git
 alias g="git"
