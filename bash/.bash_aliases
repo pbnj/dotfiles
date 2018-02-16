@@ -1,4 +1,6 @@
 # Generic
+alias ..="cd .."
+alias ...="cd ../.."
 alias nv="nvim"
 alias l="ls -alFh --color=auto --group-directories-first"
 
