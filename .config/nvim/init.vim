@@ -48,21 +48,24 @@ Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
 
 call plug#end()
 
+syntax enable
+colorscheme base16-default-dark
+filetype plugin indent on
+
 " Generic
 autocmd BufNewFile,BufRead *.fish set ft=sh    " treat *.fish as shell for syntax highlighting and grammar
 autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
-autocmd FileType javascript setlocal sts=2 sw=2 smarttab expandtab
+autocmd VimEnter *.js set sts=2 sw=2 expandtab
+autocmd VimEnter *.json set sts=2 sw=2 expandtab
+autocmd VimEnter *.yaml set ts=2 sts=2 sw=2 expandtab
+
 augroup NERD
     au!
     autocmd VimEnter * NERDTree
     autocmd VimEnter * wincmd p
 augroup END
-
-syntax enable
-colorscheme base16-default-dark
-filetype indent on
 
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
