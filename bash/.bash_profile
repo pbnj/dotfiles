@@ -1,9 +1,13 @@
+# General
 export EDITOR=nvim
-
-# GO
-export GOPATH=$HOME/go
-export GOBIN=/usr/local/go/bin
-export PATH=$PATH:$GOBIN:$GOPATH/bin
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -14,10 +18,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # Load SSH identities
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-  ssh-add
-fi
+[ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s) && ssh-add
 
 # Load aliases
 [ -f $HOME/.bash_aliases ] && . $HOME/.bash_aliases
