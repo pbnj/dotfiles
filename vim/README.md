@@ -6,6 +6,5 @@ I'm currently using SpaceVim distribution of Vim as my setup.
 
 ```sh
 $ ./spacevim.sh
-$ cp init.vim ~/.SpaceVim.d/init.vim
 ```
 
