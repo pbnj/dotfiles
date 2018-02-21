@@ -1,0 +1,11 @@
+# Vim Installation
+
+I'm currently using SpaceVim distribution of Vim as my setup.
+
+## Install
+
+```sh
+$ ./spacevim.sh
+$ cp init.vim ~/.SpaceVim.d/init.vim
+```
+
