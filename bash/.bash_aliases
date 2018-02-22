@@ -4,6 +4,7 @@ alias ...="cd ../.."
 alias nv="nvim"
 alias l="ls -alFh --color=auto --group-directories-first"
 alias grep="grep --color=auto"
+alias reload="source $HOME/.bash_profile"
 
 # Git
 alias g="git"
@@ -40,15 +41,6 @@ alias dps="docker ps"
 alias dpsa="docker ps -aq"
 alias drm="docker rm"
 alias drmi="docker rmi"
-
-# Vault
-alias v="vault"
-alias vl="vault login -method=ldap username=$(whoami)"
-alias vsl="vault secrets list"
-vssh() {
-    if [ -n $@ ]; then echo "Please, provide remote host name or IP as arguments. Example: $0 10.1.2.3"; return 1; fi
-    vault write -field=signed_key ssh-client-signer/sign/$USER public_key=@$HOME/.ssh/id_rsa.pub > $HOME/.ssh/id_rsa-cert.pub && ssh $@
-}
 
 # macOS
 if [ $(uname) = "Darwin" ]; then
