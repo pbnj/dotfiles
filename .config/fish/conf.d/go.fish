@@ -1,6 +1,5 @@
 # GO
-set -x GOPATH $HOME
-set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
+set -x PATH $PATH (go env GOPATH)/bin
 
 function install_go
   echo "## INSTALLING GO"
