@@ -1,4 +1,15 @@
 export EDITOR=vim
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# GO
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -16,17 +27,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load bash_prompt
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
-
-# Load bash-git-prompt
-## Add Git Status to bash prompt
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWCOLORHINTS=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
-parse_git_branch() { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'; }
-# export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$ "
-export PS1="\n\u@\h \[\033[32m\]\w\[\033[33m\]\$(__git_ps1)\[\033[00m\]\n$ "
-## Change terminal title
-PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 # Load bash_completion
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
