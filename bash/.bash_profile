@@ -17,13 +17,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Load bash_completion
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
 # Load SSH identities
 [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent) && ssh-add
 
 # Load aliases
 [ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
+
+# Load git-prompt
+[ -f $HOME/.git-prompt.sh ] && source $HOME/.git-prompt.sh
 
 # Load bash_prompt
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
