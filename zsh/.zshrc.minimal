@@ -12,6 +12,9 @@ fpath=( "$HOME/.zsh" $fpath )
 # =============
 alias ..='cd ..'
 alias l='ls -alFh --group-directories-first --color=auto'
+alias g='git'
+alias d='docker'
+alias k='kubectl'
 
 # =============
 #    EXPORT
