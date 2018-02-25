@@ -1,0 +1,9 @@
+
+passwd:
+  users:
+    - name: peter
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/QDavI/dveIBZo/HsoeeOAB4UawjIzLKzN0lM95D2V/VkT8NGIp+ihhIvBs5Q83R8djmcf+bKDv3TrYYP4tfky/fc29jYb5KueFQMTmNjl4E6MHSosj4fpZ1rqDJkD8dMNywFInNZEYp25w129dyPvfRxXlLEfGts6/vQGsIK5SG8vwJSFgPw/d0ftE7tjjvofqJ6vLgVHQgjrdlESOWjy5QYNotW9NXtjQMOo1eUl37B/I6JD0HA108RGMc5W5WEOb5r3vTDw8jsbqsXbdkaTalLw3Ik2lz2rgGFwmNje8egz4gzaabViMJNTUpjy5QpOzCaGbY1y8Qb9tk8xVOJtHR/ZpN2MGshxHG1xHau++az+gKPfcZYCtr1Kr1lQ9sJhfdNLS8oVQr8OgA+d7I6+O3GYfmMOQF5R5/TdMk62G/boOWzotIrHlfkClQFLdEIDHdXfeyaq4z/vjBXMQOz6BK/RgyoU7wZFdA8mSoptiAvO1VFBM0CZBtcTTtc9ObiWclpommV0ppiBY2YqtJSqTauRyH6gI51I9roiAcXZMTj2EgVHV7dC4Dwyyl2RJAbUaYR3gOD43fqMZ4aLs2JSS9OBvSAu2CBr9gMlJY8ayrHiLHK8um8lg0/Pyzd82r+dIGlepIfZCPErgy4OB1KCElwf+dj3hk74jnU426qow== pixelbook
+      groups:
+        - sudo
+        - docker
