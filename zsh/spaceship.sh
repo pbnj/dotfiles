@@ -1,8 +1,10 @@
 #!/bin/bash
 
-set -e
+set -ex
 
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+mkdir -p ~/.zsh
 
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+git clone https://github.com/denysdovhan/spaceship-prompt.git $HOME/.zsh/spaceship-prompt
+
+ln -sf "$HOME/.zsh/spaceship-prompt/spaceship.zsh" "$HOME/.zsh/prompt_spaceship_setup"
 
