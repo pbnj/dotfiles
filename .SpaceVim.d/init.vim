@@ -21,7 +21,6 @@ let g:spacevim_enable_tabline_filetype_icon = 1
 let g:spacevim_enable_statusline_display_mode = 0
 let g:spacevim_enable_os_fileformat_icon = 1
 let g:spacevim_buffer_index_type = 1
-let g:spacevim_colorscheme = "base16-default-dark"
 let g:neomake_vim_enabled_makers = []
 if executable('vimlint')
     call add(g:neomake_vim_enabled_makers, 'vimlint') 
@@ -33,4 +32,8 @@ if has('python3')
     let g:ctrlp_map = ''
     nnoremap <silent> <C-p> :Denite file_rec<CR>
 endif
+
+let g:spacevim_statusline_separator = 'nil'
+let g:spacevim_colorscheme = 'base16-default-dark'
+set clipboard=unnamed
 
