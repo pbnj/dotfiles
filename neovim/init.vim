@@ -69,11 +69,12 @@ augroup END
 
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
+let mapleader                              = ","
+let maplocalleader                         = ",,"
+" Powerline theme for vim/neovim
 let g:airline#extensions#tabline#enabled   = 1
 let g:airline_powerline_fonts              = 1
 let g:airline_theme                        = "base16_default"
-let mapleader                              = ","
-let maplocalleader                         = ",,"
 
 set autowrite
 set backspace=indent,eol,start
