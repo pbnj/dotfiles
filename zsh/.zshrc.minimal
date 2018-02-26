@@ -81,13 +81,47 @@ autoload -U promptinit; promptinit
 autoload -U colors && colors
 setopt promptsubst
 
-local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
-PROMPT='$(kubectl_context_info)%{$fg_bold[white]%}%n%{$reset_color%}@%{$fg_bold[white]%}%M%{$reset_color%} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)
-${ret_status}%{$reset_color%} '
+PROMPT='
+$(kubectl_context_info)$(date_info)$(context_info)$(dir_info)$(git_prompt_info)
+$(prompt_status)'
 
+### ==========
+### PROMPT STATUS
+### ==========
+function prompt_status() {
+  local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
+  echo "${ret_status}%{$reset_color%} "
+}
+
+### ==========
+### DIR
+### ==========
+function dir_info() {
+  echo "%{$fg[cyan]%}%~%{$reset_color%} "
+}
+
+### ==========
+### CONTEXT
+### ==========
+function context_info() {
+  local USER="%{$fg_bold[white]%}%n%{$reset_color%}"
+  local HOST="%{$fg_bold[white]%}%M%{$reset_color%}"
+  echo "$USER @ $HOST "
+}
+
+### ==========
+### DATE
+### ==========
+function date_info() {
+  local DT=$(date "+%Y-%m-%d %H:%M:%S")
+  echo "%{$fg[magenta]%}$DT%{$reset_color%} "
+}
+
+### ==========
+### KUBECTL
+### ==========
 ZSH_THEME_KUBECTX_PROMPT_PREFIX="%{$fg_bold[blue]%}kube:(%{$fg[red]%}"
 ZSH_THEME_KUBECTX_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%} "
-# Outputs current kubectl context info in prompt format
 function kubectl_context_info() {
   local CTX
   CTX=$(command kubectl config current-context)
@@ -96,6 +130,9 @@ function kubectl_context_info() {
   fi
 }
 
+### ==========
+### GIT
+### ==========
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
@@ -223,19 +260,12 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 #    PLUGINS
 # ===================
 
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ===================
 #    THIRD PARTY
 # ===================
-# brew install jump
-# https://github.com/gsamokovarov/jump
-# eval "$(jump shell)"
-
-# brew install direnv
-# https://github.com/direnv/direnv
-# eval "$(direnv hook zsh)
 
 # GO
 export PATH=$PATH:/usr/local/go/bin
