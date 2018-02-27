@@ -83,12 +83,12 @@ setopt promptsubst
 
 ZSH_THEME_DATE_FORMAT=""
 ZSH_THEME_DATE_COLOR=""
-ZSH_THEME_USER_COLOR="cyan"
-ZSH_THEME_HOST_COLOR="cyan"
+ZSH_THEME_USER_COLOR=""
+ZSH_THEME_HOST_COLOR=""
 ZSH_THEME_DIR_COLOR="magenta"
-ZSH_THEME_KUBECTX_COLOR=""
+ZSH_THEME_KUBECTX_COLOR="cyan"
 ZSH_THEME_KUBECTX_SYMBOL=""
-ZSH_THEME_GIT_PROMPT_COLOR=""
+ZSH_THEME_GIT_PROMPT_COLOR="cyan"
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}) %{$fg[yellow]%}✗"
@@ -111,15 +111,15 @@ function prompt_status() {
 ### DIR
 ### ==========
 function dir_info() {
-  echo "%{$fg[${ZSH_THEME_DIR_COLOR:-white}]%}%~%{$reset_color%} "
+  echo "%{$fg_bold[${ZSH_THEME_DIR_COLOR:-white}]%}%~%{$reset_color%} "
 }
 
 ### ==========
 ### CONTEXT
 ### ==========
 function context_info() {
-  local USER="%{$fg_bold[${ZSH_THEME_CTX_USER_COLOR:-white}]%}%n%{$reset_color%}"
-  local HOST="%{$fg_bold[${ZSH_THEME_CTX_HOST_COLOR:-white}]%}%M%{$reset_color%}"
+  local USER="%{$fg_bold[${ZSH_THEME_USER_COLOR:-white}]%}%n%{$reset_color%}"
+  local HOST="%{$fg_bold[${ZSH_THEME_HOST_COLOR:-white}]%}%M%{$reset_color%}"
   echo "$USER @ $HOST "
 }
 
