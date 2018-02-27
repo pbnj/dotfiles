@@ -81,8 +81,22 @@ autoload -U promptinit; promptinit
 autoload -U colors && colors
 setopt promptsubst
 
+ZSH_THEME_DATE_FORMAT=""
+ZSH_THEME_DATE_COLOR=""
+ZSH_THEME_USER_COLOR="cyan"
+ZSH_THEME_HOST_COLOR="cyan"
+ZSH_THEME_DIR_COLOR="magenta"
+ZSH_THEME_KUBECTX_COLOR=""
+ZSH_THEME_KUBECTX_SYMBOL=""
+ZSH_THEME_GIT_PROMPT_COLOR=""
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}) %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%})"
+
+RPROMPT='$(date_info)'
 PROMPT='
-$(kubectl_context_info)$(date_info)$(context_info)$(dir_info)$(git_prompt_info)
+$(context_info)$(dir_info)$(kubectl_context_info)$(git_prompt_info)
 $(prompt_status)'
 
 ### ==========
@@ -97,15 +111,15 @@ function prompt_status() {
 ### DIR
 ### ==========
 function dir_info() {
-  echo "%{$fg[cyan]%}%~%{$reset_color%} "
+  echo "%{$fg[${ZSH_THEME_DIR_COLOR:-white}]%}%~%{$reset_color%} "
 }
 
 ### ==========
 ### CONTEXT
 ### ==========
 function context_info() {
-  local USER="%{$fg_bold[white]%}%n%{$reset_color%}"
-  local HOST="%{$fg_bold[white]%}%M%{$reset_color%}"
+  local USER="%{$fg_bold[${ZSH_THEME_CTX_USER_COLOR:-white}]%}%n%{$reset_color%}"
+  local HOST="%{$fg_bold[${ZSH_THEME_CTX_HOST_COLOR:-white}]%}%M%{$reset_color%}"
   echo "$USER @ $HOST "
 }
 
@@ -113,31 +127,25 @@ function context_info() {
 ### DATE
 ### ==========
 function date_info() {
-  local DT=$(date "+%Y-%m-%d %H:%M:%S")
-  echo "%{$fg[magenta]%}$DT%{$reset_color%} "
+  local DATE=$(date +${ZSH_THEME_DATE_FORMAT:-%Y-%m-%d %H:%M:%S})
+  echo "%{$fg[${ZSH_THEME_DATE_COLOR:-white}]%}$DATE%{$reset_color%} "
 }
 
 ### ==========
 ### KUBECTL
 ### ==========
-ZSH_THEME_KUBECTX_PROMPT_PREFIX="%{$fg_bold[blue]%}kube:(%{$fg[red]%}"
-ZSH_THEME_KUBECTX_PROMPT_SUFFIX="%{$fg[blue]%})%{$reset_color%} "
 function kubectl_context_info() {
-  local CTX
-  CTX=$(command kubectl config current-context)
+  local CTX=$(command kubectl config current-context)
+  local CTX_PREFIX="%{$fg_bold[${ZSH_THEME_KUBECTX_COLOR:-white}]%}${ZSH_THEME_KUBECTX_SYMBOL:-kube}:(%{$fg[red]%}"
+  local CTX_SUFFIX="%{$fg_bold[${ZSH_THEME_KUBECTX_COLOR:-white}]%})%{$reset_color%} "
   if [[ -n $CTX ]]; then
-    echo "$ZSH_THEME_KUBECTX_PROMPT_PREFIX$CTX$ZSH_THEME_KUBECTX_PROMPT_SUFFIX"
+    echo "$CTX_PREFIX$CTX$CTX_SUFFIX"
   fi
 }
 
 ### ==========
 ### GIT
 ### ==========
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-
 # Outputs current branch info in prompt format
 function git_prompt_info() {
   local ref
