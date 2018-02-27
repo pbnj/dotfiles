@@ -32,6 +32,16 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# support utf-8
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 # =============
 #    HISTORY
 # =============
@@ -62,6 +72,7 @@ setopt share_history
 ## =============
 ## Powerlevel9k
 ## =============
+
 # source  ~/powerlevel9k/powerlevel9k.zsh-theme
 # POWERLEVEL9K_DISABLE_RPROMPT=true
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -70,109 +81,139 @@ setopt share_history
 
 ## =============
 ## Spaceship
+## npm install -g spaceship-prompt
 ## =============
-# autoload -U promptinit; promptinit
-# prompt spaceship
+
+autoload -U promptinit; promptinit
+prompt spaceship
+SPACESHIP_PROMPT_ORDER=(
+  user          # Username section
+  host          # Hostname section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  node          # Node.js section
+  ruby          # Ruby section
+  golang        # Go section
+  docker        # Docker section
+  aws           # Amazon Web Services section
+  line_sep      # Line break
+  char          # Prompt character
+)
+
+SPACESHIP_RPROMPT_ORDER=(
+  jobs          # Background jobs indicator
+  exec_time     # Execution time
+  exit_code     # Exit code section
+  kubecontext   # Kubectl context section
+  battery       # Battery level and status
+  time          # Time stampts section
+)
+
+SPACESHIP_BATTERY_SHOW='always'
+# SPACESHIP_CHAR_SYMBOL='$ '
+SPACESHIP_TIME_SHOW='true'
+SPACESHIP_TIME_PREFIX=''
 
 ## =============
 ## Custom
 ## =============
-autoload -U promptinit; promptinit
-autoload -U colors && colors
-setopt promptsubst
 
-ZSH_THEME_DATE_FORMAT=""
-ZSH_THEME_DATE_COLOR=""
-ZSH_THEME_USER_COLOR=""
-ZSH_THEME_HOST_COLOR=""
-ZSH_THEME_DIR_COLOR="magenta"
-ZSH_THEME_KUBECTX_COLOR="cyan"
-ZSH_THEME_KUBECTX_SYMBOL=""
-ZSH_THEME_GIT_PROMPT_COLOR="cyan"
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}git:(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%})"
+# autoload -U promptinit; promptinit
+# autoload -U colors && colors
+# setopt promptsubst
 
-RPROMPT='$(date_info)'
-PROMPT='
-$(context_info)$(dir_info)$(kubectl_context_info)$(git_prompt_info)
-$(prompt_status)'
+# ZSH_THEME_DATE_FORMAT=""
+# ZSH_THEME_DATE_COLOR=""
+# ZSH_THEME_USER_COLOR=""
+# ZSH_THEME_HOST_COLOR=""
+# ZSH_THEME_DIR_COLOR="magenta"
+# ZSH_THEME_KUBECTX_COLOR="cyan"
+# ZSH_THEME_KUBECTX_SYMBOL=""
+# ZSH_THEME_GIT_PROMPT_COLOR="cyan"
+# ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}git:(%{$fg[red]%}"
+# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%}) %{$fg[yellow]%}✗"
+# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[${ZSH_THEME_GIT_PROMPT_COLOR:-white}]%})"
 
-### ==========
-### PROMPT STATUS
-### ==========
-function prompt_status() {
-  local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
-  echo "${ret_status}%{$reset_color%} "
-}
+# RPROMPT='$(date_info)'
+# PROMPT='
+# $(context_info)$(dir_info)$(kubectl_context_info)$(git_prompt_info)
+# $(prompt_status)'
 
-### ==========
-### DIR
-### ==========
-function dir_info() {
-  echo "%{$fg_bold[${ZSH_THEME_DIR_COLOR:-white}]%}%~%{$reset_color%} "
-}
+# ### ==========
+# ### PROMPT STATUS
+# ### ==========
+# function prompt_status() {
+  # local ret_status="%(?:%{$fg_bold[green]%}$:%{$fg_bold[red]%}$)"
+  # echo "${ret_status}%{$reset_color%} "
+# }
 
-### ==========
-### CONTEXT
-### ==========
-function context_info() {
-  local USER="%{$fg_bold[${ZSH_THEME_USER_COLOR:-white}]%}%n%{$reset_color%}"
-  local HOST="%{$fg_bold[${ZSH_THEME_HOST_COLOR:-white}]%}%M%{$reset_color%}"
-  echo "$USER @ $HOST "
-}
+# ### ==========
+# ### DIR
+# ### ==========
+# function dir_info() {
+  # echo "%{$fg_bold[${ZSH_THEME_DIR_COLOR:-white}]%}%~%{$reset_color%} "
+# }
 
-### ==========
-### DATE
-### ==========
-function date_info() {
-  local DATE=$(date +${ZSH_THEME_DATE_FORMAT:-%Y-%m-%d %H:%M:%S})
-  echo "%{$fg[${ZSH_THEME_DATE_COLOR:-white}]%}$DATE%{$reset_color%} "
-}
+# ### ==========
+# ### CONTEXT
+# ### ==========
+# function context_info() {
+  # local USER="%{$fg_bold[${ZSH_THEME_USER_COLOR:-white}]%}%n%{$reset_color%}"
+  # local HOST="%{$fg_bold[${ZSH_THEME_HOST_COLOR:-white}]%}%M%{$reset_color%}"
+  # echo "$USER @ $HOST "
+# }
 
-### ==========
-### KUBECTL
-### ==========
-function kubectl_context_info() {
-  local CTX=$(command kubectl config current-context)
-  local CTX_PREFIX="%{$fg_bold[${ZSH_THEME_KUBECTX_COLOR:-white}]%}${ZSH_THEME_KUBECTX_SYMBOL:-kube}:(%{$fg[red]%}"
-  local CTX_SUFFIX="%{$fg_bold[${ZSH_THEME_KUBECTX_COLOR:-white}]%})%{$reset_color%} "
-  if [[ -n $CTX ]]; then
-    echo "$CTX_PREFIX$CTX$CTX_SUFFIX"
-  fi
-}
+# ### ==========
+# ### DATE
+# ### ==========
+# function date_info() {
+  # local DATE=$(date +${ZSH_THEME_DATE_FORMAT:-%Y-%m-%d %H:%M:%S})
+  # echo "%{$fg[${ZSH_THEME_DATE_COLOR:-white}]%}$DATE%{$reset_color%} "
+# }
 
-### ==========
-### GIT
-### ==========
-# Outputs current branch info in prompt format
-function git_prompt_info() {
-  local ref
-  if [[ "$(command git config --get customzsh.hide-status 2>/dev/null)" != "1" ]]; then
-    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
-  fi
-}
+# ### ==========
+# ### KUBECTL
+# ### ==========
+# function kubectl_context_info() {
+  # local CTX=$(command kubectl config current-context)
+  # local CTX_PREFIX="%{$fg_bold[${ZSH_THEME_KUBECTX_COLOR:-white}]%}${ZSH_THEME_KUBECTX_SYMBOL:-kube}:(%{$fg[red]%}"
+  # local CTX_SUFFIX="%{$fg_bold[${ZSH_THEME_KUBECTX_COLOR:-white}]%})%{$reset_color%} "
+  # if [[ -n $CTX ]]; then
+    # echo "$CTX_PREFIX$CTX$CTX_SUFFIX"
+  # fi
+# }
 
-# Checks if working tree is dirty
-function parse_git_dirty() {
-  local STATUS=''
-  local FLAGS
-  FLAGS=('--porcelain')
+# ### ==========
+# ### GIT
+# ### ==========
+# # Outputs current branch info in prompt format
+# function git_prompt_info() {
+  # local ref
+  # if [[ "$(command git config --get customzsh.hide-status 2>/dev/null)" != "1" ]]; then
+    # ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+    # ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+    # echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  # fi
+# }
 
-  if [[ "$(command git config --get customzsh.hide-dirty)" != "1" ]]; then
-    FLAGS+='--ignore-submodules=dirty'
-    STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
-  fi
+# # Checks if working tree is dirty
+# function parse_git_dirty() {
+  # local STATUS=''
+  # local FLAGS
+  # FLAGS=('--porcelain')
 
-  if [[ -n $STATUS ]]; then
-    echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
-  else
-    echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
-  fi
-}
+  # if [[ "$(command git config --get customzsh.hide-dirty)" != "1" ]]; then
+    # FLAGS+='--ignore-submodules=dirty'
+    # STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
+  # fi
+
+  # if [[ -n $STATUS ]]; then
+    # echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
+  # else
+    # echo "$ZSH_THEME_GIT_PROMPT_CLEAN"
+  # fi
+# }
 
 # ===================
 #    AUTOCOMPLETION
