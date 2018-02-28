@@ -17,6 +17,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# HUB
+[ type hub > /dev/null 2>&1 ] && eval $(hub alias -s) || true
+
 # Load SSH identities
 [ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent) && ssh-add
 
@@ -30,8 +33,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
 
 # Load bash_completion
-[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
+# [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
 # Load Vault profile
-[ -f $HOME/vault/scripts/vault_profile.sh ] && source $HOME/vault/scripts/vault_profile.sh
+# [ -f $HOME/vault/scripts/vault_profile.sh ] && source $HOME/vault/scripts/vault_profile.sh
 
