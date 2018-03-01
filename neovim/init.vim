@@ -19,6 +19,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
 Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
 Plug 'elzr/vim-json'                  , { 'for' : 'json' }
@@ -73,7 +74,7 @@ let mapleader                              = ","
 let maplocalleader                         = ",,"
 " Powerline theme for vim/neovim
 let g:airline#extensions#tabline#enabled   = 1
-let g:airline_powerline_fonts              = 1
+" let g:airline_powerline_fonts              = 1
 let g:airline_theme                        = "base16_default"
 
 set autowrite
