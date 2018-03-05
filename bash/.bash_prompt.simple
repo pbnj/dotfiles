@@ -1,14 +1,46 @@
-# Colors
-RESET="$(tput sgr0)"
-BOLD="$(tput bold)"
+PROMPT_CHAR=''
+
+# GIT PROMPT
+# Source: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE='true'
+export GIT_PS1_SHOWUNTRACKEDFILES='true'
+export GIT_PS1_SHOWUPSTREAM='verbose'
+
+if tput setaf 1 &> /dev/null; then
+	tput sgr0; # reset colors
+	BOLD=$(tput bold);
+	RESET=$(tput sgr0);
+	BLACK=$(tput setaf 0);
+	RED=$(tput setaf 1);
+	GREEN=$(tput setaf 2);
+	YELLOW=$(tput setaf 3);
+	BLUE=$(tput setaf 4);
+	MAGENTA=$(tput setaf 5);
+	CYAN=$(tput setaf 6);
+	WHITE=$(tput setaf 7);
+# else
+	# BOLD='';
+	# RESET="\\e[0m";
+	# BLACK="\\e[0;30m";
+	# RED="\\e[0;31m";
+	# GREEN="\\e[0;32m";
+	# YELLOW="\\e[0;33m";
+	# BLUE="\\e[0;34m";
+	# MAGENTA="\\e[0;35m";
+	# CYAN="\\e[0;36m";
+	# WHITE="\\e[0;37m";
+fi;
 
 # Prompt Status
-PROMPT_FAILURE_COLOR="$BOLD$(tput setaf 1)"
-PROMPT_SUCCESS_COLOR="$BOLD$(tput setaf 7)"
-
-PROMPT_COMMAND=prompt_command
-
-prompt_command() {
-  PS1="$(__git_ps1) "
-  [ "$?" != 0 ] && PS1+="$PROMPT_FAILURE_COLOR\$$RESET " || PS1+="$PROMPT_SUCCESS_COLOR\$$RESET "
+__prompt_status () {
+    if [[ "$?" == "0" ]]; then
+	echo "${BOLD}${WHITE}${PROMPT_CHAR:-$}${RESET} "
+    else
+	echo "${BOLD}${RED}${PROMPT_CHAR:-$}${RESET} "
+    fi;
 }
+
+PS1="\\n";                  # newline
+PS1+="\$(__git_ps1) ";      # git info
+PS1+="\$(__prompt_status)"; # prompt status
+export PS1;
