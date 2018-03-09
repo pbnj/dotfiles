@@ -1,5 +1,8 @@
 [alias]
 
+	# add
+	a = add
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -23,6 +26,7 @@
 
 	# Commit all changes
 	ca = !git add -A && git commit -av
+	cam = !git add -A && git commit -avm
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -120,5 +124,5 @@
 	pushInsteadOf = "https://github.com/"
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
-[commit]
-	gpgsign = true
+; [commit]
+	; gpgsign = true
