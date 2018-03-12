@@ -20,6 +20,8 @@ alias gd="git diff"
 alias gl="git pull"
 alias glg="git log"
 alias gp="git push"
+alias gpull="git pull"
+alias gpush="git push"
 alias grv="git remote -v"
 alias gs="git status"
 
