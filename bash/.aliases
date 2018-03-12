@@ -13,9 +13,10 @@ fi
 
 alias sudo='sudo '
 alias l="ls -alFh ${colorflag}"
+alias ls="command ls ${colorflag}"
 alias grep="grep --color=auto"
 alias nv="nvim"
-alias v="vim"
+alias vi="vim"
 # Enable aliases to be sudo'ed
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
