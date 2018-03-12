@@ -42,6 +42,9 @@ if command -v git > /dev/null; then
 	alias gs="git status"
 fi;
 
+## HUB
+command -v hub > /dev/null && eval "$(hub alias -s)"
+
 # Kubernetes
 if command -v kubectl > /dev/null; then
 	alias k="kubectl"
@@ -64,6 +67,11 @@ if command -v docker > /dev/null; then
 	alias drm="docker rm"
 	alias drmi="docker rmi"
 fi;
+
+# Vault
+if command -v vault > /dev/null; then
+	source $HOME/vault/scripts/vault_profile.sh
+fi
 
 # macOS
 command -v brew > /dev/null && alias bubu="brew update && brew upgrade && brew cleanup"
