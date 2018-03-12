@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 [[ -f $HOME/.git-prompt.sh ]] && source $HOME/.git-prompt.sh
 
 # GIT PROMPT
