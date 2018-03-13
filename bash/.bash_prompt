@@ -1,17 +1,90 @@
 #!/usr/bin/env bash
-[[ -f $HOME/.git-prompt.sh ]] && source $HOME/.git-prompt.sh
 
-# GIT PROMPT
-# Source: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE='true'
-export GIT_PS1_SHOWUNTRACKEDFILES='true'
-export GIT_PS1_SHOWUPSTREAM='verbose'
+if tput setaf 1 &> /dev/null; then
+	tput sgr0; # reset colors
+	BOLD=$(tput bold);
+	RESET=$(tput sgr0);
+	BLACK=$(tput setaf 0);
+	RED=$(tput setaf 1);
+	GREEN=$(tput setaf 2);
+	YELLOW=$(tput setaf 3);
+	BLUE=$(tput setaf 4);
+	MAGENTA=$(tput setaf 5);
+	CYAN=$(tput setaf 6);
+	WHITE=$(tput setaf 7);
+else
+	BOLD='';
+	RESET="\\e[0m";
+	BLACK="\\e[0;30m";
+	RED="\\e[0;31m";
+	GREEN="\\e[0;32m";
+	YELLOW="\\e[0;33m";
+	BLUE="\\e[0;34m";
+	MAGENTA="\\e[0;35m";
+	CYAN="\\e[0;36m";
+	WHITE="\\e[0;37m";
+fi;
+
+prompt_kubectl() {
+	kubectl config current-context
+}
+
+prompt_git() {
+	local s='';
+	local branchName='';
+
+	# Check if the current directory is in a Git repository.
+	if [ "$(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}")" == '0' ]; then
+
+		# check if the current directory is in .git before running git checks
+		if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+
+			if [[ -O "$(git rev-parse --show-toplevel)/.git/index" ]]; then
+				git update-index --really-refresh -q &> /dev/null;
+			fi;
+
+			# Check for uncommitted changes in the index.
+			if ! git diff --quiet --ignore-submodules --cached; then
+				s+='+';
+			fi;
+
+			# Check for unstaged changes.
+			if ! git diff-files --quiet --ignore-submodules --; then
+				s+='!';
+			fi;
+
+			# Check for untracked files.
+			if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+				s+='?';
+			fi;
+
+			# Check for stashed files.
+			if git rev-parse --verify refs/stash &>/dev/null; then
+				s+='$';
+			fi;
+
+		fi;
+
+		# Get the short symbolic ref.
+		# If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
+		# Otherwise, just give up.
+		branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+			git rev-parse --short HEAD 2> /dev/null || \
+			echo '(unknown)')";
+
+		[ -n "${s}" ] && s=" [${s}]";
+
+		echo -e "${1}${branchName}${blue}${s}";
+	else
+		return;
+	fi;
+}
 
 PS1="\\n"; # newline
-PS1+="[\d \T] "; # date and time
-PS1+="[\u @ \H] "; # user/host context
-PS1+="[\W] "; # current working dir (basename)
-PS1+="\$(__git_ps1) "; # git info
+PS1+="[${BLUE}\d \@${RESET}] "; # date and time
+PS1+="[${CYAN}\u${RESET} @ ${CYAN}\H${RESET} : ${MAGENTA}\W${RESET}] "; # user/host/dir context
+PS1+="${YELLOW}\$(prompt_git)${RESET} "; # git info
+PS1+="${RED}\$(prompt_kubectl)${RESET} "; # kubectl context
 PS1+="\\n"; # newline
 PS1+='$ '; # prompt status
 export PS1;
