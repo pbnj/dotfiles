@@ -82,9 +82,9 @@ prompt_git() {
 
 PS1="\\n"; # newline
 PS1+="[${BLUE}\d \@${RESET}] "; # date and time
+PS1+="[${RED}\$(prompt_kubectl)${RESET}] "; # kubectl context
 PS1+="[${CYAN}\u${RESET} @ ${CYAN}\H${RESET} : ${MAGENTA}\W${RESET}] "; # user/host/dir context
 PS1+="${YELLOW}\$(prompt_git)${RESET} "; # git info
-PS1+="${RED}\$(prompt_kubectl)${RESET} "; # kubectl context
 PS1+="\\n"; # newline
 PS1+='$ '; # prompt status
 export PS1;
