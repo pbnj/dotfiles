@@ -26,7 +26,7 @@ Plug 'elzr/vim-json'                  , { 'for' : 'json' }
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-terraform'         , { 'for' : 'tf' }
+Plug 'hashivim/vim-terraform'
 Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
@@ -59,9 +59,10 @@ autocmd BufNewFile,BufRead *.fish set ft=sh    " treat *.fish as shell for synta
 autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
-autocmd VimEnter *.js set sts=2 sw=2 expandtab
-autocmd VimEnter *.json set sts=2 sw=2 expandtab
-autocmd VimEnter *.yaml set ts=2 sts=2 sw=2 expandtab
+autocmd VimEnter *.js set sts=2 sw=2 expandtab smarttab
+autocmd VimEnter *.json set sts=2 sw=2 expandtab smarttab
+autocmd VimEnter *.yaml set sts=2 sw=2 expandtab smarttab
+autocmd VimEnter *.md set sts=2 sw=2 expandtab smarttab
 
 augroup NERD
     au!
