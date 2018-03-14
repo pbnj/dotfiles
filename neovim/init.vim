@@ -26,7 +26,7 @@ Plug 'elzr/vim-json'                  , { 'for' : 'json' }
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-hashicorp-tools'
 Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
