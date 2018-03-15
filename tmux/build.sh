@@ -2,7 +2,7 @@
 
 set -e
 
-git clone https://github.com/tmux/tmux $HOME
+git clone https://github.com/tmux/tmux $HOME/tmux
 
 cd $HOME/tmux
 
