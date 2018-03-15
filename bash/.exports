@@ -14,4 +14,5 @@ export LC_ALL="en_US.UTF-8"
 export HISTCONTROL=ignoredups;
 export MANPAGER="less -X";
 
-export PATH=$PATH:/usr/local/go/bin:$(go env GOPATH)/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
