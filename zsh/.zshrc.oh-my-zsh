@@ -41,6 +41,7 @@ SPACESHIP_BATTERY_SHOW='always'
 SPACESHIP_CHAR_SYMBOL='$ '
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_12HR=true
+SPACESHIP_PROMPT_PREFIXES_SHOW=false
 
 ####################
 # PLUGINS
@@ -73,6 +74,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
+# RUST
+source $HOME/.cargo/env
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -94,3 +98,6 @@ export LC_TIME="en_US.UTF-8"
 source $HOME/Projects/ida/vault/scripts/vault_profile.sh
 
 autoload -U compinit && compinit
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
