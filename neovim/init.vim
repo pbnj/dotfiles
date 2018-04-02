@@ -51,11 +51,9 @@ Plug 'tpope/vim-markdown'
 Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
 
 " Tools
-Plug 'hashivim/vim-consul'
-Plug 'hashivim/vim-packer'
-Plug 'hashivim/vim-terraform'
-Plug 'hashivim/vim-vagrant'
-Plug 'hashivim/vim-vaultproject'
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
+Plug 'hashivim/vim-hashicorp-tools'
 
 call plug#end()
 
