@@ -12,6 +12,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" General
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Shougo/vimshell'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -22,31 +23,39 @@ Plug 'chriskempson/base16-vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
-Plug 'elzr/vim-json'                  , { 'for' : 'json' }
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
 Plug 'honza/vim-snippets'
 Plug 'kien/ctrlp.vim'
-Plug 'moll/vim-node'
-Plug 'mxw/vim-jsx'
-Plug 'mzlogin/vim-markdown-toc'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sirver/ultisnips'
-Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+
+" Languages
+Plug 'elzr/vim-json'                  , { 'for' : 'json' }
+Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
+Plug 'moll/vim-node'
+Plug 'mxw/vim-jsx'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
+Plug 'stephpy/vim-yaml'
+Plug 'tpope/vim-markdown'
 Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
+
+" Tools
+Plug 'hashivim/vim-consul'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-vaultproject'
 
 call plug#end()
 
