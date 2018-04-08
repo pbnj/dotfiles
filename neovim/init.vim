@@ -92,6 +92,7 @@ set clipboard=unnamed
 set cursorline
 set encoding=utf8
 set hlsearch
+set ignorecase
 set incsearch
 set laststatus=2
 set list
@@ -101,6 +102,7 @@ set number
 set relativenumber
 set showcmd
 set showmatch
+set smartcase
 set splitbelow
 set splitright
 set termguicolors
