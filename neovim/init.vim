@@ -18,7 +18,6 @@ Plug 'Shougo/vimshell'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'cespare/vim-toml'
 Plug 'chriskempson/base16-vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
@@ -39,18 +38,27 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 
 " Languages
-Plug 'elzr/vim-json'                  , { 'for' : 'json' }
-Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
+"" JS/Node
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
-Plug 'mzlogin/vim-markdown-toc'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
-Plug 'stephpy/vim-yaml'
+"" Markdown
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'tpope/vim-markdown'
+"" Go
+Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
+"" JSON/YAML/TOML
+Plug 'cespare/vim-toml'
+Plug 'elzr/vim-json'                  , { 'for' : 'json' }
+Plug 'stephpy/vim-yaml'
+"" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 " Tools
+"" Hashicorp
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
 Plug 'hashivim/vim-hashicorp-tools'
@@ -92,17 +100,15 @@ set clipboard=unnamed
 set cursorline
 set encoding=utf8
 set hlsearch
-set ignorecase
 set incsearch
 set laststatus=2
 set list
 set listchars=tab:\|\ ,
 set mouse=a
 set number
-set relativenumber
+" set relativenumber
 set showcmd
 set showmatch
-set smartcase
 set splitbelow
 set splitright
 set termguicolors
