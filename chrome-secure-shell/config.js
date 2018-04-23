@@ -52,29 +52,15 @@ term_.prefs_.set(
   'user-css-text',
   `
 /* Import FiraCode */
-@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
-
-/* Import Monoisome */
 @font-face {
-    font-family: "Monoisome";
-    src: url("https://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoisome-Regular.ttf") format("truetype");
+  font-family: "Fira Code";
+  src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/FiraCode/Light/complete/Fura%20Code%20Light%20Nerd%20Font%20Complete%20Mono.otf");
 }
 
-/* Import Monoid */
 @font-face {
-    font-family: "Monoid";
-    src: url("hhttps://cdn.rawgit.com/petermbenjamin/dotfiles/fa36a079534d3adef07a0109426eeba32e5a5f7b/fonts/Monoid/Monoid-Regular.ttf") format("truetype");
-}
-
-/* Uncomment to enable ligatures */
-/*
-x-row {
-  text-rendering: optimizeLegibility;
-  font-variant-ligatures: normal;
-}
-*/
-`
-)
+  font-family: "Source Code Pro";
+  src: url("https://cdn.rawgit.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf");
+}`)
 
 term_.prefs_.set('enable-bold', true)
 term_.prefs_.set('enable-bold-as-bright', false)
