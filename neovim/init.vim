@@ -79,19 +79,12 @@ autocmd VimEnter *.json set sts=2 sw=2 expandtab smarttab
 autocmd VimEnter *.yaml set sts=2 sw=2 expandtab smarttab
 autocmd VimEnter *.md set sts=2 sw=2 expandtab smarttab
 
-augroup NERD
-    au!
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-augroup END
-
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
 let mapleader                              = ","
 let maplocalleader                         = ",,"
 " Powerline theme for vim/neovim
 let g:airline#extensions#tabline#enabled   = 1
-" let g:airline_powerline_fonts              = 1
 let g:airline_theme                        = "base16_default"
 
 set autowrite
@@ -130,7 +123,7 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Settings: Keybindings
 " ==============================
 " Generic
-map <C-e> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
