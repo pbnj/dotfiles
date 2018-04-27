@@ -43,16 +43,20 @@ Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
+
 "" Markdown
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'tpope/vim-markdown'
+
 "" Go
 Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
+
 "" JSON/YAML/TOML
 Plug 'cespare/vim-toml'
 Plug 'elzr/vim-json'                  , { 'for' : 'json' }
 Plug 'stephpy/vim-yaml'
+
 "" Rust
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
@@ -66,7 +70,8 @@ Plug 'hashivim/vim-hashicorp-tools'
 call plug#end()
 
 syntax enable
-colorscheme base16-default-dark
+" colorscheme base16-default-dark
+" colorscheme base16-one-light
 filetype plugin indent on
 
 " Generic
@@ -83,9 +88,9 @@ let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
 let mapleader                              = ","
 let maplocalleader                         = ",,"
-" Powerline theme for vim/neovim
+" Theme for vim/neovim
 let g:airline#extensions#tabline#enabled   = 1
-let g:airline_theme                        = "base16_default"
+" let g:airline_theme                        = "base16_default"
 
 set autowrite
 set backspace=indent,eol,start
@@ -221,4 +226,4 @@ let g:prettier#config#jsx_bracket_same_line           = 'false'       " put > on
 let g:prettier#config#trailing_comma                  = 'es5'         " none|es5|all
 let g:prettier#config#parser                          = 'babylon'     " flow|babylon|typescript|postcss
 let g:prettier#config#config_precedence               = 'prefer-file' " cli-override|file-override|prefer-file
-let g:prettier#config#prose_wrap                      = 'preserve'    " always|never|preserve
+let g:prettier#config#prose_wrap                      = 'always'    " always|never|preserve
