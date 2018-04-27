@@ -77,7 +77,7 @@ prompt_git() {
 }
 
 prompt_datetime() {
-	echo -e "[${BLUE}$(date "+%Y-%m-%d %H:%M:%S %p")${RESET}] ";
+	echo -e "[${BLUE}$(date "+%Y-%m-%d %I:%M:%S %p")${RESET}] ";
 }
 
 prompt_kubecontext() {
