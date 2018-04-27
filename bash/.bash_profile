@@ -37,24 +37,24 @@ fi
 # ==========
 
 ## RUST
-export PATH="$PATH:$HOME/.cargo/bin"
+if [ -d "$HOME/.cargo" ]; then
+	export PATH="$PATH:$HOME/.cargo/bin"
+fi;
 
 ## GO
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+if [ -d "/usr/local/go" ]; then
+	export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+fi;
 
 ## NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -d "$HOME/.nvm" ]; then
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi;
 
 ## KUBECTL
-source <(kubectl completion bash)
+command -v kubectl &>/dev/null && source <(kubectl completion bash)
 
 ## VAULT
-complete -C /usr/local/bin/vault vault
-
-# ==========
-# PROMPT
-# ==========
-# source $HOME/.bash_prompt
-
+command -v vault &>/dev/null && complete -C /usr/local/bin/vault vault
