@@ -88,15 +88,11 @@ prompt_context() {
 	echo -e "[${CYAN}$(whoami)${RESET} @ ${CYAN}$(hostname)${RESET} : ${MAGENTA}$(pwd)${RESET}] ";
 }
 
-prompt_char() {
-	echo "$ ";
-}
-
 PS1="\\n"; # newline
 PS1+="\$(prompt_datetime)"; # date and time
 PS1+="\$(prompt_kubecontext)"; # kubectl context
 PS1+="\$(prompt_context)"; # user/host/dir context
 PS1+="\$(prompt_git)"; # git info
 PS1+="\\n"; # newline
-PS1+="\$(prompt_char)"; # prompt char
+PS1+='$ '; # prompt char
 export PS1;
