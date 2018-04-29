@@ -81,7 +81,9 @@ prompt_datetime() {
 }
 
 prompt_kubecontext() {
-	echo -e "[${RED}$(kubectl config current-context)${RESET}] ";
+	if command -v kubectl &>/dev/null && kubectl config current-context &>/dev/null; then
+		echo -e "[${RED}$(kubectl config current-context)${RESET}] ";
+	fi
 }
 
 prompt_context() {
