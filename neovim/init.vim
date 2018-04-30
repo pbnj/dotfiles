@@ -17,8 +17,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Shougo/vimshell'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
-Plug 'chriskempson/base16-vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
@@ -34,8 +32,14 @@ Plug 'sirver/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+
+" Themes
+" Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Languages
 "" JS/Node
@@ -70,8 +74,7 @@ Plug 'hashivim/vim-hashicorp-tools'
 call plug#end()
 
 syntax enable
-" colorscheme base16-default-dark
-" colorscheme base16-one-light
+colorscheme nord
 filetype plugin indent on
 
 " Generic
@@ -90,7 +93,7 @@ let mapleader                              = ","
 let maplocalleader                         = ",,"
 " Theme for vim/neovim
 let g:airline#extensions#tabline#enabled   = 1
-" let g:airline_theme                        = "base16_default"
+let g:airline_theme                        = "nord"
 
 set autowrite
 set backspace=indent,eol,start
@@ -110,7 +113,7 @@ set showmatch
 set smartcase
 set splitbelow
 set splitright
-set termguicolors
+" set termguicolors
 set wildmenu
 
 " ==============================
