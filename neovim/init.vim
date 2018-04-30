@@ -35,9 +35,8 @@ Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
 
 " Themes
-" Plug 'dracula/vim'
-Plug 'arcticicestudio/nord-vim'
-" Plug 'chriskempson/base16-vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -74,7 +73,6 @@ Plug 'hashivim/vim-hashicorp-tools'
 call plug#end()
 
 syntax enable
-colorscheme nord
 filetype plugin indent on
 
 " Generic
@@ -93,7 +91,7 @@ let mapleader                              = ","
 let maplocalleader                         = ",,"
 " Theme for vim/neovim
 let g:airline#extensions#tabline#enabled   = 1
-let g:airline_theme                        = "nord"
+let g:airline_theme                        = "base16"
 
 set autowrite
 set backspace=indent,eol,start
@@ -113,8 +111,11 @@ set showmatch
 set smartcase
 set splitbelow
 set splitright
-" set termguicolors
 set wildmenu
+" set termguicolors
+" set t_Co=256
+
+colorscheme base16-dracula
 
 " ==============================
 " Settings: Autocompletion
