@@ -33,15 +33,16 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-syntastic/syntastic'
+Plug 'vim-scripts/BufOnly.vim'
 
 " Themes
-" Plug 'arcticicestudio/nord-vim'
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Languages
 "" JS/Node
+Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -80,18 +81,13 @@ autocmd BufNewFile,BufRead *.fish set ft=sh    " treat *.fish as shell for synta
 autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
-autocmd VimEnter *.js set sts=2 sw=2 expandtab smarttab
-autocmd VimEnter *.json set sts=2 sw=2 expandtab smarttab
-autocmd VimEnter *.yaml set sts=2 sw=2 expandtab smarttab
-autocmd VimEnter *.md set sts=2 sw=2 expandtab smarttab
-
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
 let mapleader                              = ","
 let maplocalleader                         = ",,"
 " Theme for vim/neovim
+" let g:airline_theme                        = "base16"
 let g:airline#extensions#tabline#enabled   = 1
-let g:airline_theme                        = "base16"
 
 set autowrite
 set backspace=indent,eol,start
@@ -103,7 +99,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:\|\ ,
+set listchars=tab:¦·,
 set mouse=a
 set number
 set showcmd
@@ -112,10 +108,20 @@ set smartcase
 set splitbelow
 set splitright
 set wildmenu
+" Tab settings
+set sts=2
+set sw=2
+set expandtab
+set smarttab
 " set termguicolors
 " set t_Co=256
 
-colorscheme base16-dracula
+" colorscheme base16-default-dark
+
+autocmd VimEnter *.js set sts=2 sw=2 expandtab smarttab
+autocmd VimEnter *.json set sts=2 sw=2 expandtab smarttab
+autocmd VimEnter *.yaml set sts=2 sw=2 expandtab smarttab
+autocmd VimEnter *.md set sts=2 sw=2 expandtab smarttab
 
 " ==============================
 " Settings: Autocompletion
@@ -173,6 +179,7 @@ augroup go
   autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
 
   autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
+  autocmd FileType go nmap <silent> <Leader>d <Plug>(go-doc-split)
 
   autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
   autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
@@ -201,7 +208,7 @@ let g:go_list_type          = "quickfix"
 let g:go_def_mode           = "guru"
 let g:go_info_mode          = "guru"
 let g:go_autodetect_gopath  = 1
-" let g:go_auto_type_info   = 1
+let g:go_auto_type_info   = 1
 " set updatetime            = 100
 
 " Enable Go syntax highlighting.
