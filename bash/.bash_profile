@@ -54,7 +54,11 @@ if [ -d "$HOME/.nvm" ]; then
 fi;
 
 ## KUBECTL
-command -v kubectl &>/dev/null && source <(kubectl completion bash)
+if command -v kubectl &>/dev/null; then
+    source <(kubectl completion bash)
+fi
 
 ## VAULT
-command -v vault &>/dev/null && complete -C /usr/local/bin/vault vault
+if command -v vault &>/dev/null; then
+    complete -C /usr/local/bin/vault vault
+fi
