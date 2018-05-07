@@ -38,7 +38,14 @@ function context_date {
 }
 
 function context_userhostdir {
-  echo "[${YELLOW}\u${RESET} @ ${BLUE}\h${RESET} : ${MAGENTA}\W${RESET}]"
+  echo "[${YELLOW}\u${RESET} @ ${BLUE}\h${RESET} : ${MAGENTA}\w${RESET}]"
 }
+
+function context_kubectl {
+  if command -v kubectl &>/dev/null && [ -n "$(kubectl config current-context)" ]; then
+    echo "[${RED}$(kubectl config current-context)${RESET}]"
+  fi
+}
+
 # PROMPT_COMMAND='__git_ps1 "\n[${CYAN}\d \t${RESET}] [${GREEN}\u${RESET} @ ${BLUE}\h${RESET} : ${MAGENTA}\W${RESET}]" "\n\\\$ "'
-PROMPT_COMMAND='__git_ps1 "\n$(context_date) $(context_userhostdir)" "\n\\\$ "'
+PROMPT_COMMAND='__git_ps1 "\n$(context_date) $(context_kubectl) $(context_userhostdir)" "\n\\\$ "'
