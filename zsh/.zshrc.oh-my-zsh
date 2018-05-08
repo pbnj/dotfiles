@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ####################
 # npm i -g spaceship-prompt
 # git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" && ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
   battery       # Battery level and status
@@ -30,6 +30,7 @@ SPACESHIP_PROMPT_PREFIXES_SHOW=false
 ####################
 plugins=(
 	aws
+	# brew
 	docker
 	docker-compose
 	git
@@ -45,20 +46,18 @@ plugins=(
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
 source $ZSH/oh-my-zsh.sh
 
 # GO
-if command -v go >/dev/null 2>&1; then
-	PATH=$PATH:/usr/local/go/bin
-	PATH=$PATH:$(go env GOPATH)/bin
-	export PATH
+if [ -d "$HOME/go" ] && [ -d "/usr/local/go" ]; then
+	export GOPATH="$HOME/go"
+	export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
 fi
 
 # RUST
-[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo" ]; then
+	source "$HOME/.cargo/env"
+fi
 
 # NVM
 if [ -d "$HOME/.nvm" ]; then
@@ -67,7 +66,9 @@ if [ -d "$HOME/.nvm" ]; then
 fi
 
 # HUB
-command -v hub >/dev/null 2>&1 && eval "$(hub alias -s zsh)"
+if command -v hub &>/dev/null; then
+	eval "$(hub alias -s)"
+fi
 
 # ENV VARS
 export LANG="en_US.UTF-8"
@@ -80,5 +81,7 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 
 autoload -U compinit && compinit
-
 autoload -U +X bashcompinit && bashcompinit
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
