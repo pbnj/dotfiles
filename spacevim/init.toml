@@ -24,6 +24,7 @@
     filetype_icon = true
     statusline_display_mode = false
     filemanager = "nerdtree"
+    terminal_cursor_shape = 1 # solid block
 
 # Enable autocomplete layer
 [[layers]]
