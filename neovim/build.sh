@@ -2,7 +2,7 @@
 
 set -e
 
-git clone https://github.com/neovim/neovim $HOME
+git clone https://github.com/neovim/neovim $HOME/neovim
 
 cd $HOME/neovim
 
