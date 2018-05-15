@@ -4,14 +4,15 @@
 # Senstive functions which are not pushed to Github
 # It contains GOPATH, some functions, aliases etc...
 # [ -r ~/.zsh_private ] && source ~/.zsh_private
-fpath=( "$HOME/.zsh" $fpath )
-[ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent) && ssh-add
+# fpath=( $fpath )
+# initialize zplug
+source $HOME/.zplug/init.zsh
 
 # =============
 #    ALIAS
 # =============
 alias ..='cd ..'
-alias l='gls -alFh --group-directories-first --color=auto'
+alias l='ls -alFh'
 alias g='git'
 alias d='docker'
 alias k='kubectl'
@@ -89,6 +90,11 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 SPACESHIP_PROMPT_ORDER=(
+  time          # Time stampts section
+  battery       # Battery level and status
+  kubecontext   # Kubectl context section
+  docker        # Docker section
+  aws           # Amazon Web Services section
   user          # Username section
   host          # Hostname section
   dir           # Current directory section
@@ -97,19 +103,10 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-SPACESHIP_RPROMPT_ORDER=(
-  exec_time     # Execution time
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  kubecontext   # Kubectl context section
-  battery       # Battery level and status
-  time          # Time stampts section
-)
-
 SPACESHIP_BATTERY_SHOW='always'
 SPACESHIP_CHAR_SYMBOL='$ '
-SPACESHIP_KUBECONTEXT_SYMBOL=''
 SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_12HR=true
 SPACESHIP_PROMPT_PREFIXES_SHOW=false
 
 # ===================
@@ -195,31 +192,49 @@ else
   bindkey "\e[3~" delete-char
 fi
 
-# ===================
-#    MISC SETTINGS
-# ===================
+# ============= #
+# MISC SETTINGS #
+# ============= #
 
 # automatically remove duplicates from these arrays
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 
-# ===================
-#    PLUGINS
-# ===================
+# ======= #
+# PLUGINS #
+# ======= #
 
-[ -f $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# ZSH-SYNTAX-HIGHLIGHTING
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-# ===================
-#    THIRD PARTY
-# ===================
+# ZSH-AUTOSUGGESTION
+zplug "zsh-users/zsh-autosuggestions"
+
+# ZSH-HISTORY-SUBSTRING-SEARCH
+zplug "zsh-users/zsh-history-substring-search"
+
+# HUB
+eval $(hub alias -s zsh)
+
+# ========= #
+# LANGUAGES #
+# ========= #
 
 # GO
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# HUB
-eval $(hub alias -s zsh)
+# CARGO
+# source "$HOME/.cargo/env"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+zplug load --verbose
