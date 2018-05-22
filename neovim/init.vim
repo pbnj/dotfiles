@@ -5,7 +5,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim'           , { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -19,7 +19,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
+Plug 'ekalinin/Dockerfile.vim', { 'for' : 'Dockerfile' }
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
@@ -32,11 +32,12 @@ Plug 'sirver/ultisnips'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'vim-scripts/BufOnly.vim'
+Plug 'w0rp/ale'
 
 " Themes
-" Plug 'chriskempson/base16-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -46,24 +47,30 @@ Plug 'leafgarland/typescript-vim'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
+Plug 'prettier/vim-prettier', { 'do' : 'npm install' }
 
 "" Markdown
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'tpope/vim-markdown'
 
 "" Go
-Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
-Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
+Plug 'fatih/vim-go', { 'do' : ':GoInstallBinaries' }
+Plug 'zchee/deoplete-go', { 'do' : 'make' }
 
 "" JSON/YAML/TOML
 Plug 'cespare/vim-toml'
-Plug 'elzr/vim-json'                  , { 'for' : 'json' }
+Plug 'elzr/vim-json', { 'for' : 'json' }
 Plug 'stephpy/vim-yaml'
 
 "" Rust
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+
+"" Python
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+
+"" Ruby
+Plug 'vim-ruby/vim-ruby'
 
 " Tools
 "" Hashicorp
@@ -86,7 +93,7 @@ let g:UltiSnipsExpandTrigger               = "<tab>"
 let mapleader                              = ","
 let maplocalleader                         = ",,"
 " Theme for vim/neovim
-" let g:airline_theme                        = "base16"
+let g:airline_theme                        = "dracula"
 let g:airline#extensions#tabline#enabled   = 1
 
 set autowrite
@@ -113,10 +120,10 @@ set sts=2
 set sw=2
 set expandtab
 set smarttab
-" set termguicolors
+set termguicolors
 " set t_Co=256
 
-" colorscheme base16-default-dark
+colorscheme dracula
 
 autocmd VimEnter *.js set sts=2 sw=2 expandtab smarttab
 autocmd VimEnter *.json set sts=2 sw=2 expandtab smarttab
@@ -238,3 +245,9 @@ let g:prettier#config#trailing_comma                  = 'es5'         " none|es5
 let g:prettier#config#parser                          = 'babylon'     " flow|babylon|typescript|postcss
 let g:prettier#config#config_precedence               = 'prefer-file' " cli-override|file-override|prefer-file
 let g:prettier#config#prose_wrap                      = 'always'    " always|never|preserve
+
+" ==============================
+" Language: PYTHON
+" From: https://github.com/python-mode/python-mode
+" ==============================
+let g:pymode_python = 'python3'
