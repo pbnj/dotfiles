@@ -121,7 +121,10 @@ set sw=2
 set expandtab
 set smarttab
 set termguicolors
-" set t_Co=256
+
+" Make tab key switch between windows
+set autochdir
+map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 colorscheme dracula
 
@@ -161,6 +164,14 @@ nmap <leader>gp :Gpush<CR>
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
+
+" ==============================
+" Settings: Ale
+" ==============================
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
 
 " ==============================
 " Language: GO
