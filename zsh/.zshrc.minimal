@@ -66,49 +66,6 @@ setopt inc_append_history
 # share command history data
 setopt share_history
 
-# =============
-#    PROMPT
-# =============
-
-## =============
-## Powerlevel9k
-## Source: https://github.com/bhilburn/powerlevel9k
-## =============
-
-# source  ~/powerlevel9k/powerlevel9k.zsh-theme
-# POWERLEVEL9K_DISABLE_RPROMPT=true
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status time kubecontext context dir vcs)
-
-## =============
-## Spaceship
-## Source: https://github.com/denysdovhan/spaceship-prompt
-## =============
-
-autoload -U promptinit; promptinit
-prompt spaceship
-
-SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
-  battery       # Battery level and status
-  kubecontext   # Kubectl context section
-  docker        # Docker section
-  aws           # Amazon Web Services section
-  user          # Username section
-  host          # Hostname section
-  dir           # Current directory section
-  git           # Git section (git_branch + git_status)
-  line_sep      # Line break
-  char          # Prompt character
-)
-
-SPACESHIP_BATTERY_SHOW='always'
-SPACESHIP_CHAR_SYMBOL='$ '
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_TIME_12HR=true
-SPACESHIP_PROMPT_PREFIXES_SHOW=false
-
 # ===================
 #    AUTOCOMPLETION
 # ===================
@@ -203,6 +160,36 @@ typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 # PLUGINS #
 # ======= #
 
+# THEME
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+## =============
+## Spaceship
+## Source: https://github.com/denysdovhan/spaceship-prompt
+## =============
+# autoload -U promptinit; promptinit
+# prompt spaceship
+
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stampts section
+  battery       # Battery level and status
+  kubecontext   # Kubectl context section
+  docker        # Docker section
+  aws           # Amazon Web Services section
+  user          # Username section
+  host          # Hostname section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  line_sep      # Line break
+  char          # Prompt character
+)
+
+SPACESHIP_BATTERY_SHOW='always'
+SPACESHIP_CHAR_SYMBOL='$ '
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_12HR=true
+SPACESHIP_PROMPT_PREFIXES_SHOW=false
+
 # ZSH-SYNTAX-HIGHLIGHTING
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
@@ -211,6 +198,12 @@ zplug "zsh-users/zsh-autosuggestions"
 
 # ZSH-HISTORY-SUBSTRING-SEARCH
 zplug "zsh-users/zsh-history-substring-search"
+
+# SSH-AGENT
+zplug "plugins/ssh-agent", from:oh-my-zsh
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # HUB
 eval $(hub alias -s zsh)
@@ -228,7 +221,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # CARGO
-# source "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -237,4 +230,5 @@ if ! zplug check --verbose; then
     echo; zplug install
   fi
 fi
-zplug load --verbose
+zplug load
+
