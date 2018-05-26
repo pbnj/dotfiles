@@ -16,6 +16,7 @@ alias l='ls -alFh'
 alias g='git'
 alias d='docker'
 alias k='kubectl'
+alias v='vault'
 
 # =============
 #    EXPORT
@@ -65,6 +66,11 @@ setopt hist_verify
 setopt inc_append_history
 # share command history data
 setopt share_history
+
+# =============
+#    PROMPT
+# =============
+
 
 # ===================
 #    AUTOCOMPLETION
@@ -156,6 +162,21 @@ fi
 # automatically remove duplicates from these arrays
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 
+# ========= #
+# LANGUAGES #
+# ========= #
+
+# GO
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# CARGO
+source "$HOME/.cargo/env"
+
 # ======= #
 # PLUGINS #
 # ======= #
@@ -167,6 +188,14 @@ zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ## Spaceship
 ## Source: https://github.com/denysdovhan/spaceship-prompt
 ## =============
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+zplug load
 # autoload -U promptinit; promptinit
 # prompt spaceship
 
@@ -208,27 +237,7 @@ zplug "plugins/ssh-agent", from:oh-my-zsh
 # HUB
 eval $(hub alias -s zsh)
 
-# ========= #
-# LANGUAGES #
-# ========= #
-
-# GO
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# CARGO
-source "$HOME/.cargo/env"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-zplug load
-
+# VAULT
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+compdef v='vault'
