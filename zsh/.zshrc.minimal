@@ -188,14 +188,6 @@ zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ## Spaceship
 ## Source: https://github.com/denysdovhan/spaceship-prompt
 ## =============
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-zplug load
 # autoload -U promptinit; promptinit
 # prompt spaceship
 
@@ -230,6 +222,15 @@ zplug "zsh-users/zsh-history-substring-search"
 
 # SSH-AGENT
 zplug "plugins/ssh-agent", from:oh-my-zsh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+zplug load
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
