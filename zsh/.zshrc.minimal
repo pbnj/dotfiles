@@ -175,7 +175,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # CARGO
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 # ======= #
 # PLUGINS #
@@ -219,6 +219,10 @@ zplug "zsh-users/zsh-autosuggestions"
 
 # ZSH-HISTORY-SUBSTRING-SEARCH
 zplug "zsh-users/zsh-history-substring-search"
+
+# Docker CLI Completion
+zplug "docker/cli", use:contrib/completion/zsh
+zplug "docker/compose", use:contrib/completion/zsh
 
 # SSH-AGENT
 zplug "plugins/ssh-agent", from:oh-my-zsh
