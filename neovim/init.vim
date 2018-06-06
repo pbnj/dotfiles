@@ -1,92 +1,60 @@
+" Inspired by: https://dougblack.io/words/a-good-vimrc.html
+set nocompatible
 filetype off
-if &compatible
-  set nocompatible
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'Shougo/deoplete.nvim'
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
-" Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  call dein#add('~/.cache/dein')
-  call dein#add('Shougo/deoplete.nvim')
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
+" General
+Plug 'bling/vim-airline'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'Shougo/vimshell'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  call dein#add('dracula/vim', { 'name': 'dracula' })
-  call dein#add('bling/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('Shougo/deol.nvim')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
-  call dein#add('airblade/vim-gitgutter')
-  call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('ekalinin/Dockerfile.vim', { 'on_ft' : 'Dockerfile' })
-  call dein#add('ervandew/supertab')
-  call dein#add('godlygeek/tabular')
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  call dein#add('ntpeters/vim-better-whitespace')
-  call dein#add('raimondi/delimitmate')
-  call dein#add('scrooloose/nerdcommenter')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
-  call dein#add('tpope/vim-surround')
-  call dein#add('w0rp/ale')
-  " Plug 'sirver/ultisnips'
-  let g:deoplete#enable_at_startup = 1
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+" Languages
+Plug 'sheerun/vim-polyglot'
 
-  " Languages
-  "" Dart
-  call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': 'dart' })
+" Tools
+"" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+"" Go
+Plug 'zchee/deoplete-go', { 'do' : 'make' }
+"" Markdown
+Plug 'mzlogin/vim-markdown-toc'
+"" Misc
+Plug 'honza/vim-snippets'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'raimondi/delimitmate'
+Plug 'sirver/ultisnips'
+Plug 'w0rp/ale'
+"" Node
+Plug 'moll/vim-node'
+Plug 'prettier/vim-prettier', { 'do' : 'npm install' }
+"" Hashicorp
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
+Plug 'hashivim/vim-hashicorp-tools'
+"" Rust
+Plug 'racer-rust/vim-racer'
 
-  "" JS/Node
-  call dein#add('mhartington/nvim-typescript' , { 'build': './install.sh'   , 'on_ft': 'javascript' })
-  call dein#add('leafgarland/typescript-vim'  , { 'on_ft': 'typescript' })
-  call dein#add('moll/vim-node'               , { 'on_ft': 'javascript' })
-  call dein#add('mxw/vim-jsx'                 , { 'on_ft': 'javascript' })
-  call dein#add('pangloss/vim-javascript'     , { 'on_ft': 'javascript' })
-  call dein#add('prettier/vim-prettier'       , { 'build': 'npm install' })
-
-  "" Markdown
-  call dein#add('mzlogin/vim-markdown-toc' , { 'on_ft': 'markdown' })
-  call dein#add('tpope/vim-markdown'       , { 'on_ft': 'markdown' })
-
-  "" Go
-  call dein#add('fatih/vim-go'      , { 'build': ':GoInstallBinaries', 'on_ft': 'go' })
-  call dein#add('zchee/deoplete-go' , { 'build': 'make', 'on_ft': 'go' })
-
-  "" JSON/YAML/TOML
-  call dein#add('cespare/vim-toml' , { 'on_ft': 'toml' })
-  call dein#add('elzr/vim-json'    , { 'on_ft': 'json' })
-  call dein#add('stephpy/vim-yaml' , { 'on_ft': 'yaml' })
-
-  "" Rust
-  call dein#add('rust-lang/rust.vim'   , { 'on_ft': 'rust' })
-  call dein#add('racer-rust/vim-racer' , { 'on_ft': 'rust' })
-
-  "" Python
-  call dein#add('python-mode/python-mode', { 'rev': 'develop' })
-
-  "" Ruby
-  call dein#add('vim-ruby/vim-ruby', { 'on_ft': 'ruby' })
-
-  " Tools
-  "" Hashicorp
-  call dein#add('b4b4r07/vim-hcl')
-  call dein#add('fatih/vim-hclfmt')
-  call dein#add('hashivim/vim-hashicorp-tools')
-
-  call dein#end()
-  call dein#save_state()
-
-  if dein#check_install()
-    call dein#install()
-  endif
-endif
+call plug#end()
 
 filetype plugin indent on
 syntax enable
@@ -97,14 +65,13 @@ autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on sa
 
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
+let g:airline#extensions#tabline#enabled   = 1
+let g:airline_theme                        = "dracula"
 let mapleader                              = ","
 let maplocalleader                         = ",,"
-" Theme for vim/neovim
-let g:airline_theme                        = "dracula"
-let g:airline#extensions#tabline#enabled   = 1
 
 set autowrite
-set background=dark
+set autoread
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
@@ -131,11 +98,15 @@ map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 colorscheme dracula
 
-autocmd FileType js setlocal sts=2 sw=2 expandtab smarttab
-autocmd FileType json setlocal sts=2 sw=2 expandtab smarttab
-autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
-autocmd FileType md setlocal sts=2 sw=2 expandtab smarttab
-autocmd FileType vim setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType shell setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType bash setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType javascript setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType typescript setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType json setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType toml setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab
+" autocmd FileType vim setlocal sts=2 sw=2 expandtab smarttab
 
 " ==============================
 " Settings: Autocompletion
