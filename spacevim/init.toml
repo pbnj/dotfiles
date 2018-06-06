@@ -8,16 +8,9 @@
 
 # All SpaceVim option below [option] section
 [options]
-    # set spacevim theme. by default colorscheme layer is not loaded,
-    # if you want to use more colorscheme, please load the colorscheme
-    # layer
-    colorscheme = "base16-default-dark"
+    colorscheme = "one"
     background = "dark"
-    # Disable guicolors in basic mode, many terminal do not support 24bit
-    # true colors
     guicolors = true
-    # Disable statusline separator, if you want to use other value, please
-    # install nerd fonts
     statusline_separator = "nil"
     statusline_inactive_separator = "arrow"
     buffer_index_type = 4
@@ -26,7 +19,6 @@
     filemanager = "nerdtree"
     terminal_cursor_shape = 1 # solid block
 
-# Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
 auto-completion-return-key-behavior = "complete"
@@ -34,7 +26,7 @@ auto-completion-tab-key-behavior = "smart"
 
 [[layers]]
 name = 'shell'
-default_position = 'top'
+default_position = 'bottom'
 default_height = 30
 
 [[layers]]
@@ -53,6 +45,10 @@ name = 'tmux'
 # Languages
 [[layers]]
 name = 'lang#go'
+[[layers]]
+name = 'lang#html'
+[[layers]]
+name = 'lang#java'
 [[layers]]
 name = 'lang#javascript'
 [[layers]]
