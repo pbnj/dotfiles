@@ -59,10 +59,6 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-" Generic
-autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
-autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
-
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
 let g:airline#extensions#tabline#enabled   = 1
@@ -92,8 +88,12 @@ set splitright
 set wildmenu
 set termguicolors
 
+" Generic
 " Make tab key switch between windows
-set autochdir
+" set autochdir
+" autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
+autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
+
 map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 colorscheme dracula
