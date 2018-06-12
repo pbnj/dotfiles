@@ -66,12 +66,14 @@ let g:airline_theme                        = "dracula"
 let mapleader                              = ","
 let maplocalleader                         = ",,"
 
-set autowrite
+set autoindent
 set autoread
+set autowrite
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
 set encoding=utf8
+set expandtab
 set hlsearch
 set ignorecase
 set incsearch
@@ -80,13 +82,16 @@ set list
 set listchars=tab:¦·,
 set mouse=a
 set number
+set shiftwidth=4
 set showcmd
 set showmatch
 set smartcase
+set smarttab
 set splitbelow
 set splitright
-set wildmenu
+set tabstop=4
 set termguicolors
+set wildmenu
 
 " Generic
 " Make tab key switch between windows
@@ -98,15 +103,14 @@ map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 colorscheme dracula
 
-" autocmd FileType shell setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType bash setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType javascript setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType typescript setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType json setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType toml setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab
-" autocmd FileType vim setlocal sts=2 sw=2 expandtab smarttab
+" ====================
+" Settings: File Type
+" ====================
+autocmd BufNewFile,BufRead *.sh,*.bash setlocal sts=2 sw=2 expandtab smarttab
+autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue setlocal sts=2 sw=2 expandtab smarttab
+autocmd BufNewFile,BufRead *.json,*.toml,*.yml,*.yaml setlocal sts=2 sw=2 expandtab smarttab
+autocmd BufNewFile,BufRead *.md setlocal sts=2 sw=2 expandtab smarttab
+autocmd BufNewFile,BufRead *.vim setlocal sts=2 sw=2 expandtab smarttab
 
 " ==============================
 " Settings: Autocompletion
