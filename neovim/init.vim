@@ -33,26 +33,35 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'ap/vim-css-color', { 'for': 'css' }
 " Dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+"" Docker
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 "" Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 "" Go
-Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
-"" Docker
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
-"" Go
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
+Plug 'zchee/vim-vgo', { 'for': 'vgo' }
+Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
 "" Jenkins
 Plug 'martinda/Jenkinsfile-vim-syntax'
 "" Hashicorp
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
-Plug 'hashivim/vim-hashicorp-tools'
-" HTML
+Plug 'hashivim/vim-vaultproject'
+Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-nomadproject'
+Plug 'hashivim/vim-consul'
+"" HTML
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
+"" Kubernetes
+Plug 'c9s/vikube.vim'
+Plug 'andrewstuart/vim-kubernetes'
+Plug 'technosophos/vim-kubernetes-snippets'
 "" Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 "" Misc
