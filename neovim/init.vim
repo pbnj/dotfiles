@@ -26,18 +26,35 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Languages
-Plug 'sheerun/vim-polyglot'
-
-" Tools
+"" Arduino
+Plug 'sudar/vim-arduino-syntax'
+" CSS
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'ap/vim-css-color', { 'for': 'css' }
+" Dart
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 "" Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 "" Go
-Plug 'zchee/deoplete-go', { 'do' : 'make' }
+Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
+"" Docker
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+"" Go
+Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
+"" Jenkins
+Plug 'martinda/Jenkinsfile-vim-syntax'
+"" Hashicorp
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
+Plug 'hashivim/vim-hashicorp-tools'
+" HTML
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/html5.vim', { 'for': 'html' }
 "" Markdown
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 "" Misc
 Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
@@ -47,12 +64,16 @@ Plug 'w0rp/ale'
 "" Node
 Plug 'moll/vim-node'
 Plug 'prettier/vim-prettier', { 'do' : 'npm install' }
-"" Hashicorp
-Plug 'b4b4r07/vim-hcl'
-Plug 'fatih/vim-hclfmt'
-Plug 'hashivim/vim-hashicorp-tools'
-"" Rust
-Plug 'racer-rust/vim-racer'
+" JavaScript
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Python
+Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+" Ruby
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
 call plug#end()
 
@@ -69,6 +90,7 @@ let maplocalleader                         = ",,"
 set autoindent
 set autoread
 set autowrite
+set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
@@ -103,15 +125,6 @@ map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 colorscheme dracula
 
-" ====================
-" Settings: File Type
-" ====================
-autocmd BufNewFile,BufRead *.sh,*.bash setlocal sts=2 sw=2 expandtab smarttab
-autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue setlocal sts=2 sw=2 expandtab smarttab
-autocmd BufNewFile,BufRead *.json,*.toml,*.yml,*.yaml setlocal sts=2 sw=2 expandtab smarttab
-autocmd BufNewFile,BufRead *.md setlocal sts=2 sw=2 expandtab smarttab
-autocmd BufNewFile,BufRead *.vim setlocal sts=2 sw=2 expandtab smarttab
-
 " ==============================
 " Settings: Autocompletion
 " ==============================
@@ -133,6 +146,15 @@ nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
+
+" Split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enabling folding with <space>
+nnoremap <space> za
 
 " Git
 nmap <leader>gs :Gstatus<CR>
@@ -158,6 +180,46 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
+
+" ====================
+" Language: Shell
+" ====================
+autocmd BufNewFile,BufRead *.sh,*.bash
+    \ setlocal sts=2
+    \ setlocal sw=2
+    \ setlocal expandtab
+
+" ====================
+" Language: JS|TS|VUE
+" ====================
+autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
+    \ setlocal sts=2
+    \ setlocal sw=2
+    \ setlocal expandtab
+
+" ====================
+" Language: TOML|YAML
+" ====================
+autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml
+    \ setlocal sts=2
+    \ setlocal sw=2
+    \ setlocal expandtab
+
+" ====================
+" Language: MARKDOWN
+" ====================
+autocmd BufNewFile,BufRead *.md
+    \ setlocal sts=2
+    \ setlocal sw=2
+    \ setlocal expandtab
+
+" ====================
+" Language: VIM
+" ====================
+autocmd BufNewFile,BufRead *.vim
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
+    \ setlocal expandtab |
 
 " ==============================
 " Language: GO
@@ -229,8 +291,17 @@ let g:go_highlight_build_constraints = 1
 " Language: JS
 " From: https://prettier.io/docs/en/vim.html
 " ==============================
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+
 let g:prettier#autoformat                             = 0             " autosave files that have @format
-autocmd BufWritePre *.js,*.css,*.scss,*.less,*.json,*.md Prettier
+autocmd BufNewFile,BufRead *.js,*.css,*.scss,*.less,*.json,*.md
+    \ Prettier |
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
+    \ setlocal expandtab |
 let g:prettier#config#print_width                     = 80            " max line length for wrapping
 let g:prettier#config#tab_width                       = 2             " number of spaces for indentation
 let g:prettier#config#use_tabs                        = 'false'       " spaces vs tabs
@@ -248,3 +319,11 @@ let g:prettier#config#prose_wrap                      = 'none'    " always|never
 " From: https://github.com/python-mode/python-mode
 " ==============================
 let g:pymode_python = 'python3'
+autocmd BufNewFile,BufRead *.py
+    \ setlocal tabstop=4
+    \ setlocal softtabstop=4
+    \ setlocal shiftwidth=4
+    \ setlocal textwidth=79
+    \ setlocal expandtab
+    \ setlocal autoindent
+    \ setlocal fileformat=unix
