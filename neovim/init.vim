@@ -198,20 +198,24 @@ let g:ale_fixers = {
 let g:airline#extensions#ale#enabled = 1
 
 " ====================
-" Language: Shell
+" Helper Functions
 " ====================
-autocmd BufNewFile,BufRead *.sh,*.bash
-    \ setlocal sts=2 |
-    \ setlocal sw=2 |
-    \ setlocal expandtab
+function SetIndent2()
+   setlocal sts=2
+   setlocal sw=2
+   setlocal expandtab
+endfunction
+
+" ====================
+" Language: Shell/Conf
+" ====================
+autocmd BufNewFile,BufRead *.sh,*.bash call SetIndent2()
+autocmd FileType sh,conf call SetIndent2()
 
 " ====================
 " Language: JS|TS|VUE
 " ====================
-autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
-    \ setlocal sts=2
-    \ setlocal sw=2
-    \ setlocal expandtab
+autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue call SetIndent2()
 
 " ====================
 " Language: TOML|YAML

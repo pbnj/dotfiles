@@ -10,7 +10,7 @@ shopt -s nocaseglob
 shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
-shopt -s cdspell
+# shopt -s cdspell
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
@@ -49,16 +49,11 @@ fi
 ## NVM
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-
-## VAULT
-if [ -f "$HOME/.vault-profile" ]; then
-  source "$HOME/.vault-profile"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 ## HUB
 if command -v hub &>/dev/null; then
-  eval $(hub alias -s)
+  eval "$(hub alias -s)"
 fi
