@@ -10,9 +10,8 @@ if !has('nvim')
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" General
+"" General
 Plug 'bling/vim-airline'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
@@ -24,6 +23,10 @@ Plug 'Shougo/vimshell'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+""Themes
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rakr/vim-one', { 'as': 'one' }
 
 "" Arduino
 Plug 'sudar/vim-arduino-syntax'
@@ -88,17 +91,10 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-let g:NERDSpaceDelims                      = 1
-let g:UltiSnipsExpandTrigger               = "<tab>"
-let g:airline#extensions#tabline#enabled   = 1
-let g:airline_theme                        = "dracula"
-let mapleader                              = ","
-let maplocalleader                         = ",,"
-
+set autochdir
 set autoindent
 set autoread
 set autowrite
-set background=dark
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
@@ -123,15 +119,22 @@ set tabstop=4
 set termguicolors
 set wildmenu
 
+let g:NERDSpaceDelims                      = 1
+let g:UltiSnipsExpandTrigger               = "<tab>"
+let g:airline#extensions#tabline#enabled   = 1
+let mapleader                              = ","
+let maplocalleader                         = ",,"
+
 " Generic
 " Make tab key switch between windows
-" set autochdir
 " autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 " map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
-colorscheme dracula
+set background=light " <light|dark>
+colorscheme one
+let g:airline_theme= "one" " <one|onedark>
 
 " ==============================
 " Settings: Autocompletion
@@ -189,6 +192,7 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
   \ 'javascript': ['prettier'],
+  \ 'json': ['prettier'],
   \ 'markdown': ['prettier']
   \ }
 let g:airline#extensions#ale#enabled = 1
