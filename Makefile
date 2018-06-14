@@ -1,5 +1,5 @@
 .PHONY: all
-all: neovim vim
+all: neovim vim tmux git battstat
 
 .PHONY: neovim
 neovim: vim-plug
@@ -22,3 +22,9 @@ tmux: ## Install tmux & config
 git: ## Configures git
     curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
     ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
+
+.PHONY: battstat
+battstat: ## Installs battstat cli
+    git clone https://github.com/imwally/battstat $(HOME)/battstat
+    chmod u+x $(HOME)/battstat/battstat
+    mv $(HOME)/battstat/battstat /usr/local/bin/
