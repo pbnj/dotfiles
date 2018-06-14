@@ -10,7 +10,7 @@ shopt -s nocaseglob
 shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
-# shopt -s cdspell
+shopt -s cdspell
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
@@ -20,9 +20,9 @@ for option in autocd globstar; do
 done
 
 # Add tab completion for many Bash commands
-if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-  . /usr/local/share/bash-completion/bash_completion
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f /usr/local/share/bash-completion/bash_completion ] && . /usr/local/share/bash-completion/bash_completion
+[ -f "$HOME/.git-prompt.sh" ] && . $HOME/.git-prompt.sh
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
