@@ -6,7 +6,7 @@ neovim: vim-plug
     ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.config/nvim/init.vim
 
 .PHONY: vim
-vim: vim-plug
+vim: vim
     ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.vimrc
 
 .PHONY: vim-plug
