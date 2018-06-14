@@ -25,7 +25,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Languages
 "" Arduino
 Plug 'sudar/vim-arduino-syntax'
 " CSS
@@ -64,6 +63,7 @@ Plug 'andrewstuart/vim-kubernetes'
 Plug 'technosophos/vim-kubernetes-snippets'
 "" Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
 "" Misc
 Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
@@ -72,7 +72,6 @@ Plug 'sirver/ultisnips'
 Plug 'w0rp/ale'
 "" Node
 Plug 'moll/vim-node'
-Plug 'prettier/vim-prettier', { 'do' : 'npm install' }
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Python
@@ -128,9 +127,9 @@ set wildmenu
 " Make tab key switch between windows
 " set autochdir
 " autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
-autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
+" map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
-map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
+autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
 colorscheme dracula
 
@@ -188,14 +187,18 @@ let g:fzf_action = {
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
+let g:ale_fixers = {
+  \ 'javascript': ['prettier'],
+  \ 'markdown': ['prettier']
+  \ }
 let g:airline#extensions#ale#enabled = 1
 
 " ====================
 " Language: Shell
 " ====================
 autocmd BufNewFile,BufRead *.sh,*.bash
-    \ setlocal sts=2
-    \ setlocal sw=2
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
     \ setlocal expandtab
 
 " ====================
@@ -210,16 +213,16 @@ autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
 " Language: TOML|YAML
 " ====================
 autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml
-    \ setlocal sts=2
-    \ setlocal sw=2
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
     \ setlocal expandtab
 
 " ====================
 " Language: MARKDOWN
 " ====================
 autocmd BufNewFile,BufRead *.md
-    \ setlocal sts=2
-    \ setlocal sw=2
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
     \ setlocal expandtab
 
 " ====================
@@ -300,28 +303,14 @@ let g:go_highlight_build_constraints = 1
 " Language: JS
 " From: https://prettier.io/docs/en/vim.html
 " ==============================
+autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.vue
+    \ setlocal sts=2 |
+    \ setlocal sw=2 |
+    \ setlocal expandtab
 augroup javascript_folding
     au!
     au FileType javascript setlocal foldmethod=syntax
 augroup END
-
-let g:prettier#autoformat                             = 0             " autosave files that have @format
-autocmd BufNewFile,BufRead *.js,*.css,*.scss,*.less,*.json,*.md
-    \ Prettier |
-    \ setlocal sts=2 |
-    \ setlocal sw=2 |
-    \ setlocal expandtab |
-let g:prettier#config#print_width                     = 80            " max line length for wrapping
-let g:prettier#config#tab_width                       = 2             " number of spaces for indentation
-let g:prettier#config#use_tabs                        = 'false'       " spaces vs tabs
-let g:prettier#config#semi                            = 'false'       " semi colons
-let g:prettier#config#single_quote                    = 'true'        " single vs double quotes
-let g:prettier#config#bracket_spacing                 = 'false'       " print space inside parens
-let g:prettier#config#jsx_bracket_same_line           = 'false'       " put > on last line or on new line
-let g:prettier#config#trailing_comma                  = 'es5'         " none|es5|all
-let g:prettier#config#parser                          = 'babylon'     " flow|babylon|typescript|postcss
-let g:prettier#config#config_precedence               = 'prefer-file' " cli-override|file-override|prefer-file
-let g:prettier#config#prose_wrap                      = 'none'    " always|never|preserve
 
 " ==============================
 " Language: PYTHON
@@ -329,10 +318,10 @@ let g:prettier#config#prose_wrap                      = 'none'    " always|never
 " ==============================
 let g:pymode_python = 'python3'
 autocmd BufNewFile,BufRead *.py
-    \ setlocal tabstop=4
-    \ setlocal softtabstop=4
-    \ setlocal shiftwidth=4
-    \ setlocal textwidth=79
-    \ setlocal expandtab
-    \ setlocal autoindent
+    \ setlocal tabstop=4 |
+    \ setlocal softtabstop=4 |
+    \ setlocal shiftwidth=4 |
+    \ setlocal textwidth=79 |
+    \ setlocal expandtab |
+    \ setlocal autoindent |
     \ setlocal fileformat=unix
