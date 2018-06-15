@@ -1,3 +1,4 @@
+##### SETTINGS #####
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
@@ -19,11 +20,18 @@ for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null
 done
 
+## COMPLETION ##
 # Add tab completion for many Bash commands
+for file in /usr/local/etc/bash_completion.d/*; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 [ -f /usr/local/share/bash-completion/bash_completion ] && . /usr/local/share/bash-completion/bash_completion
 
-# Enable tab completion for `g` by marking it as an alias for `git`
+## GIT ##
+[ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ] && source "/usr/local/etc/bash_completion.d/git-completion.bash"
+## Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
   complete -o default -o nospace -F _git g
 fi
@@ -31,9 +39,7 @@ fi
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# ==========
-# PLUGINS
-# ==========
+###### LANGUAGES #####
 
 ## RUST
 if [ -d "$HOME/.cargo" ]; then
