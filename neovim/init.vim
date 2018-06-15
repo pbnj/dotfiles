@@ -108,14 +108,14 @@ set list
 set listchars=tab:¦·,
 set mouse=a
 set number
-set shiftwidth=4
 set showcmd
 set showmatch
 set smartcase
 set smarttab
 set splitbelow
 set splitright
-set tabstop=4
+set sts=2
+set sw=2
 set termguicolors
 set wildmenu
 
@@ -191,54 +191,51 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_fixers = {
-  \ 'javascript': ['prettier'],
-  \ 'json': ['prettier'],
-  \ }
+      \ 'javascript': ['prettier'],
+      \ 'json': ['prettier'],
+      \ }
 let g:airline#extensions#ale#enabled = 1
 
 " ====================
 " Helper Functions
 " ====================
-function SetIndent2()
-   setlocal sts=2
-   setlocal sw=2
-   setlocal expandtab
+function SetIndentSpace()
+  setlocal sts=2
+  setlocal sw=2
+  setlocal expandtab
+endfunction
+
+function SetIndentTab()
+  setlocal ts=4
+  setlocal sw=4
+  set noexpandtab
 endfunction
 
 " ====================
 " Language: Shell/Conf
 " ====================
-autocmd BufNewFile,BufRead *.sh,*.bash call SetIndent2()
-autocmd FileType sh,conf call SetIndent2()
+autocmd BufNewFile,BufRead *.sh,*.bash call SetIndentSpace()
+autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml call SetIndentSpace()
+autocmd FileType sh,conf call SetIndentSpace()
+autocmd FileType make
+      \ setlocal ts=4 |
+      \ setlocal sw=4 |
+      \ setlocal noet
 
 " ====================
 " Language: JS|TS|VUE
 " ====================
-autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue call SetIndent2()
-
-" ====================
-" Language: TOML|YAML
-" ====================
-autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml
-    \ setlocal sts=2 |
-    \ setlocal sw=2 |
-    \ setlocal expandtab
+autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue call SetIndentSpace()
 
 " ====================
 " Language: MARKDOWN
 " ====================
-autocmd BufNewFile,BufRead *.md
-    \ setlocal sts=2 |
-    \ setlocal sw=2 |
-    \ setlocal expandtab
+autocmd BufNewFile,BufRead *.md call SetIndentSpace()
 
 " ====================
 " Language: VIM
 " ====================
-autocmd BufNewFile,BufRead *.vim
-    \ setlocal sts=2 |
-    \ setlocal sw=2 |
-    \ setlocal expandtab |
+autocmd BufNewFile,BufRead *.vim call SetIndentSpace()
 
 " ==============================
 " Language: GO
@@ -311,12 +308,12 @@ let g:go_highlight_build_constraints = 1
 " From: https://prettier.io/docs/en/vim.html
 " ==============================
 autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.vue
-    \ setlocal sts=2 |
-    \ setlocal sw=2 |
-    \ setlocal expandtab
+      \ setlocal sts=2 |
+      \ setlocal sw=2 |
+      \ setlocal expandtab
 augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
+  au!
+  au FileType javascript setlocal foldmethod=syntax
 augroup END
 
 " ==============================
@@ -325,10 +322,10 @@ augroup END
 " ==============================
 let g:pymode_python = 'python3'
 autocmd BufNewFile,BufRead *.py
-    \ setlocal tabstop=4 |
-    \ setlocal softtabstop=4 |
-    \ setlocal shiftwidth=4 |
-    \ setlocal textwidth=79 |
-    \ setlocal expandtab |
-    \ setlocal autoindent |
-    \ setlocal fileformat=unix
+      \ setlocal tabstop=4 |
+      \ setlocal softtabstop=4 |
+      \ setlocal shiftwidth=4 |
+      \ setlocal textwidth=79 |
+      \ setlocal expandtab |
+      \ setlocal autoindent |
+      \ setlocal fileformat=unix
