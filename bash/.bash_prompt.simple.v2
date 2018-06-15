@@ -38,7 +38,7 @@ function context_date {
 }
 
 function context_userhostdir {
-  echo "[${YELLOW}\u${RESET} @ ${BLUE}\h${RESET} : ${MAGENTA}\w${RESET}]"
+  echo "[${YELLOW}\u${RESET}@${BLUE}\h${RESET}:${MAGENTA}\w${RESET}]"
 }
 
 function context_kubectl {
