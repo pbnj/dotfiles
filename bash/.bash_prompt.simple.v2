@@ -34,18 +34,17 @@ if [ -f "$HOME/.git-prompt.sh" ]; then
 fi
 
 function context_date {
-  echo "[${CYAN}$(date "+%Y-%m-%d %I:%M:%S %p")${RESET}]"
+  echo "[${BOLD}${CYAN}$(date "+%Y-%m-%d %I:%M:%S %p")${RESET}]"
 }
 
 function context_userhostdir {
-  echo "[${YELLOW}\u${RESET}@${BLUE}\h${RESET}:${MAGENTA}\w${RESET}]"
+  echo "[${BOLD}${YELLOW}\u${RESET}@${BOLD}${BLUE}\h${RESET}:${BOLD}${MAGENTA}\w${RESET}]"
 }
 
 function context_kubectl {
   if command -v kubectl &>/dev/null && [ -n "$(kubectl config current-context)" ]; then
-    echo "[${RED}$(kubectl config current-context)${RESET}]"
+    echo "[${BOLD}${RED}$(kubectl config current-context)${RESET}]"
   fi
 }
 
-# PROMPT_COMMAND='__git_ps1 "\n[${CYAN}\d \t${RESET}] [${GREEN}\u${RESET} @ ${BLUE}\h${RESET} : ${MAGENTA}\W${RESET}]" "\n\\\$ "'
 PROMPT_COMMAND='__git_ps1 "\n$(context_date) $(context_kubectl) $(context_userhostdir)" "\n\\\$ "'
