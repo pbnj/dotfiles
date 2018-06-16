@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 .PHONY: all
-all: neovim vim tmux git battstat
+all: neovim vim tmux git
 
 .PHONY: neovim
 neovim: ## configures neovim
@@ -26,11 +26,12 @@ git: ## Configures git
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
-.PHONY: battstat
-battstat: ## Installs battstat cli
-	git clone https://github.com/imwally/battstat $(HOME)/battstat
-	chmod u+x $(HOME)/battstat/battstat
-	mv $(HOME)/battstat/battstat /usr/local/bin/
+.PHONY: go
+go: ## installs go
+	mkdir -p $(HOME)/go
+	curl -LO https://storage.googleapis.com/golang/go1.10.3.linux-amd64.tar.gz
+	sudo tar -C /usr/local -xzf go1.10.3.linux-amd64.tar.gz
+	rm -rf go1.10.3.linux-amd64.tar.gz
 
 .PHONY: help
 help: ## prints help
