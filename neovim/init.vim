@@ -1,4 +1,3 @@
-" Inspired by: https://dougblack.io/words/a-good-vimrc.html
 set nocompatible
 filetype off
 
@@ -23,6 +22,8 @@ Plug 'Shougo/vimshell'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'yggdroot/indentline'
 
 ""Themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -92,33 +93,31 @@ filetype plugin indent on
 syntax enable
 
 set autochdir
-set autoindent
 set autoread
 set autowrite
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
 set encoding=utf8
-set expandtab
 set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:¦·,
+" set listchars=tab:¦·,
 set mouse=a
 set number
 set showcmd
 set showmatch
 set smartcase
+set smartindent
 set smarttab
 set splitbelow
 set splitright
-set sts=2
-set sw=2
 set termguicolors
 set wildmenu
 
+let g:indent_guides_enable_on_vim_startup  = 1
 let g:NERDSpaceDelims                      = 1
 let g:UltiSnipsExpandTrigger               = "<tab>"
 let g:airline#extensions#tabline#enabled   = 1
@@ -163,7 +162,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
 " Enabling folding with <space>
 nnoremap <space> za
 
@@ -193,55 +191,76 @@ let g:ale_sign_column_always = 1
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
       \ 'json': ['prettier'],
+      \ 'sh': ['shfmt']
       \ }
 let g:airline#extensions#ale#enabled = 1
 
 " ====================
-" Helper Functions
-" ====================
-function SetIndentSpace()
-  setlocal sts=2
-  setlocal sw=2
-  setlocal expandtab
-endfunction
-
-function SetIndentTab()
-  setlocal ts=4
-  setlocal sw=4
-  set noexpandtab
-endfunction
-
-" ====================
 " Language: Shell/Conf
 " ====================
-autocmd BufNewFile,BufRead *.sh,*.bash call SetIndentSpace()
-autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml call SetIndentSpace()
-autocmd FileType sh,conf call SetIndentSpace()
-autocmd FileType make
-      \ setlocal ts=4 |
-      \ setlocal sw=4 |
-      \ setlocal noet
-
+augroup shell
+  autocmd!
+  autocmd BufNewFile,BufRead *.sh,*.bash
+        \ setlocal sts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+  autocmd FileType sh,conf
+        \ set sts=2 |
+        \ set sw=2 |
+        \ set expandtab
+augroup END
+augroup config
+  autocmd!
+  autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml
+        \ setlocal sts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
+augroup makefile
+  autocmd!
+  autocmd FileType make
+        \ set ts=4 |
+        \ set sts=4 |
+        \ set sw=4 |
+        \ set noexpandtab
+augroup END
 " ====================
 " Language: JS|TS|VUE
 " ====================
-autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue call SetIndentSpace()
+augroup node
+  autocmd!
+  autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
+        \ setlocal sts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
 
 " ====================
 " Language: MARKDOWN
 " ====================
-autocmd BufNewFile,BufRead *.md call SetIndentSpace()
+augroup markdown
+  autocmd!
+  autocmd BufNewFile,BufRead *.md
+        \ setlocal sts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
 
 " ====================
 " Language: VIM
 " ====================
-autocmd BufNewFile,BufRead *.vim call SetIndentSpace()
+augroup vimrc
+  autocmd!
+  autocmd BufNewFile,BufRead *.vim
+        \ setlocal sts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
 
 " ==============================
 " Language: GO
 " All of these vim-go configurations came from: https://github.com/fatih/vim-go-tutorial
 " ==============================
-
 " For autocompletion
 
 function! s:build_go_files()
@@ -253,27 +272,23 @@ function! s:build_go_files()
   endif
 endfunction
 
-
 augroup go
   autocmd!
-
+  autocmd FileType go
+        \ setlocal ts=4 |
+        \ setlocal sw=4 |
+        \ setlocal noexpandtab
   autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
   autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
-
   autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
   autocmd FileType go nmap <silent> <Leader>d <Plug>(go-doc-split)
-
   autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
   autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
-
   autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
   autocmd FileType go nmap <silent> <leader>t  <Plug>(go-test)
   autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
   autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
-
   autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
-
-  " I like these more!
   autocmd Filetype go command! -bang A  call go#alternate#Switch(<bang>0, 'edit')
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
@@ -304,28 +319,18 @@ let g:go_highlight_extra_types       = 1
 let g:go_highlight_build_constraints = 1
 
 " ==============================
-" Language: JS
-" From: https://prettier.io/docs/en/vim.html
-" ==============================
-autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.vue
-      \ setlocal sts=2 |
-      \ setlocal sw=2 |
-      \ setlocal expandtab
-augroup javascript_folding
-  au!
-  au FileType javascript setlocal foldmethod=syntax
-augroup END
-
-" ==============================
 " Language: PYTHON
 " From: https://github.com/python-mode/python-mode
 " ==============================
 let g:pymode_python = 'python3'
-autocmd BufNewFile,BufRead *.py
-      \ setlocal tabstop=4 |
-      \ setlocal softtabstop=4 |
-      \ setlocal shiftwidth=4 |
-      \ setlocal textwidth=79 |
-      \ setlocal expandtab |
-      \ setlocal autoindent |
-      \ setlocal fileformat=unix
+augroup python
+  autocmd!
+  autocmd BufNewFile,BufRead *.py
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+        \ setlocal textwidth=79 |
+        \ setlocal expandtab |
+        \ setlocal autoindent |
+        \ setlocal fileformat=unix
+augroup END
