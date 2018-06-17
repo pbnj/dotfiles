@@ -131,9 +131,9 @@ let maplocalleader                         = ",,"
 
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
-set background=light " <light|dark>
-colorscheme one
-let g:airline_theme= "one" " <one|onedark>
+set background=dark " <light|dark>
+colorscheme dracula
+let g:airline_theme= "dracula" " <one|onedark>
 
 " ==============================
 " Settings: Autocompletion
