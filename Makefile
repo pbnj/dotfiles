@@ -2,13 +2,19 @@
 .PHONY: all
 all: neovim vim tmux git
 
+.PHONY: brew
+brew: ## Installs homebrew
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 .PHONY: neovim
 neovim: ## configures neovim
-	@ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.config/nvim/init.vim
+	ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.config/nvim/init.vim
+	sh $(CURDIR)/neovim/build.sh
 
 .PHONY: vim
 vim: ## configures vim
-	@ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.vimrc
+	ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.vimrc
+	sh $(CURDIR)/vim/build.sh
 
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
@@ -23,7 +29,7 @@ tmux: ## Install tmux & config
 .PHONY: git
 git: ## Configures git
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+	# curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
 .PHONY: go
