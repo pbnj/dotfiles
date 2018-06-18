@@ -86,6 +86,10 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+" TOML
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+" YAML
+Plug 'stephpy/vim-yaml', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
