@@ -69,9 +69,14 @@ fi
 ## SSH ##
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
-if [ -z "$SSH_AGENT_PID" ]
+
+if [ -z "$SSH_AUTH_SOCK" ]
 then
-  eval "$(ssh-agent)"
+  eval $(ssh-agent -s)
+fi
+if [ -z "$(ssh-add -l | grep SHA)" ]
+then
+  ssh-add
 fi
 
 ## BREW ##
