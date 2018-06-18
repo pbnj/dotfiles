@@ -3,4 +3,5 @@ set completion-ignore-case On
 set mark-symlinked-directories on
 set show-all-if-ambiguous on
 set visible-stats on
+set completion-query-items 0
 set page-completions off
