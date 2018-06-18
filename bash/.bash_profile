@@ -5,6 +5,9 @@ do
 done
 unset file
 
+# Prevent bash from escaping '$' when bash-completion is installed and <TAB> is pressed
+shopt -s direxpand
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
@@ -28,6 +31,11 @@ done
 # [ -r "$file" ] && [ -f "$file" ] && source "$file"
 # done
 # unset file
+# For bash-completion@2
+if [ -f "/usr/local/etc/profile.d/bash_completion.sh" ]
+then
+  source /usr/local/etc/profile.d/bash_completion.sh
+fi
 
 ## RUST ##
 if [ -d "$HOME/.cargo" ]
