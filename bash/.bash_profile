@@ -22,12 +22,32 @@ done
 
 ## COMPLETION ##
 # Add tab completion for many Bash commands
-for file in /usr/local/etc/bash_completion.d/*; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
-unset file
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-[ -f /usr/local/share/bash-completion/bash_completion ] && . /usr/local/share/bash-completion/bash_completion
+# for file in /usr/local/etc/bash_completion.d/*; do
+# [ -r "$file" ] && [ -f "$file" ] && source "$file"
+# done
+# unset file
+
+## RUST ##
+if [ -d "$HOME/.cargo" ]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+## GO ##
+if [ -d "/usr/local/go" ]; then
+  export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
+fi
+
+## NVM ##
+if [ -d "$HOME/.nvm" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+## HUB ##
+if command -v hub &>/dev/null; then
+  eval "$(hub alias -s)"
+fi
 
 ## GIT ##
 [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ] && source "/usr/local/etc/bash_completion.d/git-completion.bash"
@@ -36,29 +56,30 @@ if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completio
   complete -o default -o nospace -F _git g
 fi
 
+## SSH ##
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-###### LANGUAGES #####
+## BREW ##
+source "$HOME/.config/brew"
 
-## RUST
-if [ -d "$HOME/.cargo" ]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
+## KUBECTL ##
+if command -v kubectl &>/dev/null
+then
+  source <(kubectl completion bash)
 fi
 
-## GO
-if [ -d "/usr/local/go" ]; then
-  export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
+## MINIKUBE ##
+if command -v minikube &>/dev/null
+then
+  source <(minikube completion bash)
 fi
 
-## NVM
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+## FZF ##
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-## HUB
-if command -v hub &>/dev/null; then
-  eval "$(hub alias -s)"
+## VAULT ##
+if command -v vault &>/dev/null
+then
+  complete -C /usr/local/bin/vault vault
 fi
