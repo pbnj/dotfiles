@@ -31,10 +31,12 @@ done
 # [ -r "$file" ] && [ -f "$file" ] && source "$file"
 # done
 # unset file
+# For bash-completion
+# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 # For bash-completion@2
-if [ -f "/usr/local/etc/profile.d/bash_completion.sh" ]
+if [ -f /usr/local/share/bash-completion/bash_completion ]
 then
-  source /usr/local/etc/profile.d/bash_completion.sh
+    . /usr/local/share/bash-completion/bash_completion
 fi
 
 ## RUST ##
