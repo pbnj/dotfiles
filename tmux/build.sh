@@ -5,8 +5,8 @@ set -e
 TMUX_HOME="$HOME/tmux"
 git clone https://github.com/tmux/tmux "$TMUX_HOME"
 
-command -v yum &>/dev/null && sudo yum update -y && sudo yum install -y libevent-devel ncurses-devel
-command -v apt-get &>/dev/null && sudo apt-get update && sudo apt-get install -y libevent-dev ncurses-dev
+command -v yum &>/dev/null && sudo yum update -y && sudo yum install -y libevent-devel ncurses-devel automake build-essential pkg-config
+command -v apt-get &>/dev/null && sudo apt-get update && sudo apt-get install -y libevent-dev ncurses-dev automake build-essential pkg-config
 command -v brew &>/dev/null && brew install tmux && exit 0
 
 cd "$TMUX_HOME"
