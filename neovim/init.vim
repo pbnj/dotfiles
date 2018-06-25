@@ -11,7 +11,6 @@ endif
 
 "" General
 Plug 'bling/vim-airline'
-" Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
