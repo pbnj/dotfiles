@@ -32,12 +32,18 @@ git: ## Configures git
 	# curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
+GO_VERSION ?= "1.10.3"
+GO_ARCH    ?= "linux-amd64"
 .PHONY: go
 go: ## installs go
 	mkdir -p $(HOME)/go
-	curl -LO https://storage.googleapis.com/golang/go1.10.3.linux-amd64.tar.gz
-	sudo tar -C /usr/local -xzf go1.10.3.linux-amd64.tar.gz
-	rm -rf go1.10.3.linux-amd64.tar.gz
+	curl -LO https://storage.googleapis.com/golang/go$(GO_VERSION).$(GO_ARCH).tar.gz
+	sudo tar -C /usr/local -xzf go$(GO_VERSION).$(GO_ARCH).tar.gz
+	rm -rf go$(GO_VERSION).$(GO_ARCH).tar.gz
+
+.PHONY: rust
+rust: ## installs rust
+	sh <(curl https://sh.rustup.rs -sSf)
 
 .PHONY: help
 help: ## prints help
