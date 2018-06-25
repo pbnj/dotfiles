@@ -11,7 +11,7 @@ endif
 
 "" General
 Plug 'bling/vim-airline'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -45,7 +45,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 "" Go
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
-Plug 'zchee/vim-vgo', { 'for': 'vgo' }
+Plug 'zchee/vim-vgo', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
 "" Jenkins
 Plug 'martinda/Jenkinsfile-vim-syntax'
@@ -78,6 +78,8 @@ Plug 'w0rp/ale'
 Plug 'moll/vim-node'
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" JSON
+Plug 'elzr/vim-json', { 'for': 'json' }
 " Python
 Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
@@ -121,12 +123,14 @@ set splitright
 set termguicolors
 set wildmenu
 
-let g:indent_guides_enable_on_vim_startup  = 1
-let g:NERDSpaceDelims                      = 1
-let g:UltiSnipsExpandTrigger               = "<tab>"
-let g:airline#extensions#tabline#enabled   = 1
-let mapleader                              = ","
-let maplocalleader                         = ",,"
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level           = 1
+let g:NERDSpaceDelims                     = 1
+let g:UltiSnipsExpandTrigger              = "<tab>"
+let g:airline#extensions#tabline#enabled  = 1
+let g:vim_json_syntax_conceal             = 0
+let mapleader                             = ","
+let maplocalleader                        = ",,"
 
 " Generic
 " Make tab key switch between windows
@@ -189,52 +193,60 @@ let g:fzf_action = {
 " ==============================
 " Settings: Ale
 " ==============================
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 1
-let g:ale_fixers = {
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fix_on_save                = 1
+let g:ale_completion_enabled         = 1
+let g:ale_sign_column_always         = 1
+let g:ale_fixers                     = {
       \ 'javascript': ['prettier'],
-      \ 'json': ['prettier'],
       \ 'sh': ['shfmt']
       \ }
-let g:airline#extensions#ale#enabled = 1
 
 " ====================
-" Language: Shell/Conf
+" Language: Shell
 " ====================
 augroup shell
   autocmd!
   autocmd BufNewFile,BufRead *.sh,*.bash
-        \ setlocal sts=2 |
+        \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab
   autocmd FileType sh,conf
-        \ set sts=2 |
-        \ set sw=2 |
-        \ set expandtab
-augroup END
-augroup config
-  autocmd!
-  autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml
-        \ setlocal sts=2 |
+        \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab
 augroup END
+
+" ====================
+" Language: Config
+" ====================
+augroup config
+  autocmd!
+  autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml,*.json
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+  autocmd FileType toml,yml,yaml,json
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
+
 augroup makefile
   autocmd!
   autocmd FileType make
-        \ set ts=4 |
-        \ set sts=4 |
-        \ set sw=4 |
-        \ set noexpandtab
+        \ setlocal ts=4 |
+        \ setlocal sw=4 |
+        \ setlocal noexpandtab
 augroup END
+
 " ====================
 " Language: JS|TS|VUE
 " ====================
 augroup node
   autocmd!
   autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
-        \ setlocal sts=2 |
+        \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab
 augroup END
@@ -245,7 +257,7 @@ augroup END
 augroup markdown
   autocmd!
   autocmd BufNewFile,BufRead *.md
-        \ setlocal sts=2 |
+        \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab
 augroup END
@@ -256,7 +268,7 @@ augroup END
 augroup vimrc
   autocmd!
   autocmd BufNewFile,BufRead *.vim
-        \ setlocal sts=2 |
+        \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab
 augroup END
@@ -330,9 +342,8 @@ let g:pymode_python = 'python3'
 augroup python
   autocmd!
   autocmd BufNewFile,BufRead *.py
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
+        \ setlocal ts=4 |
+        \ setlocal sw=4 |
         \ setlocal textwidth=79 |
         \ setlocal expandtab |
         \ setlocal autoindent |
