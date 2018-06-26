@@ -24,10 +24,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'yggdroot/indentline'
 
-""Themes
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'rakr/vim-one', { 'as': 'one' }
-
 "" Arduino
 Plug 'sudar/vim-arduino-syntax'
 " CSS
@@ -89,6 +85,8 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 " TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+" TravisCI
+Plug 'keith/travis.vim'
 " YAML
 Plug 'stephpy/vim-yaml', { 'for': ['yaml', 'yml'] }
 
@@ -109,7 +107,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
-" set listchars=tab:¦·,
 set mouse=a
 set number
 set showcmd
@@ -119,8 +116,10 @@ set smartindent
 set smarttab
 set splitbelow
 set splitright
-set termguicolors
 set wildmenu
+
+set tabstop=4
+set shiftwidth=4
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level           = 1
@@ -138,9 +137,9 @@ let maplocalleader                        = ",,"
 
 autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
 
-set background=dark " <light|dark>
-colorscheme dracula
-let g:airline_theme= "dracula" " <one|onedark>
+" set termguicolors " Enable for iTerm / Disable for Terminal.app
+set background=light
+" colorscheme one
 
 " ==============================
 " Settings: Autocompletion
