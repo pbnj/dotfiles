@@ -15,14 +15,20 @@ Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'yggdroot/indentline'
+
+"" Themes
+" Plug 'flazz/vim-colorschemes'
+" Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
 
 "" Arduino
 Plug 'sudar/vim-arduino-syntax'
@@ -135,11 +141,17 @@ let maplocalleader                        = ",,"
 " autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 " map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
-autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
+augroup format
+  autocmd!
+  autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
+  autocmd BufWritePre * :normal migg=G`i
+augroup End
+
 
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
+" set t_Co=256
 set background=light
-" colorscheme one
+colorscheme one
 
 " ==============================
 " Settings: Autocompletion
