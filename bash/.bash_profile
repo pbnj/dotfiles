@@ -32,12 +32,12 @@ done
 # done
 # unset file
 # For bash-completion
-# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 # For bash-completion@2
-if [ -f /usr/local/share/bash-completion/bash_completion ]
-then
-    . /usr/local/share/bash-completion/bash_completion
-fi
+# if [ -f /usr/local/share/bash-completion/bash_completion ]
+# then
+  # . /usr/local/share/bash-completion/bash_completion
+# fi
 
 ## RUST ##
 if [ -d "$HOME/.cargo" ]
