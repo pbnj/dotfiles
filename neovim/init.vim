@@ -133,9 +133,6 @@ let g:indent_guides_start_level           = 1
 let g:NERDSpaceDelims                     = 1
 let g:UltiSnipsExpandTrigger              = "<tab>"
 let g:airline#extensions#tabline#enabled  = 1
-let g:vim_json_syntax_conceal             = 0
-let g:vim_markdown_conceal                = 0
-let g:vim_markdown_folding_disabled       = 1
 let mapleader                             = ","
 let maplocalleader                        = ",,"
 
@@ -153,7 +150,7 @@ augroup End
 
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
 " set t_Co=256
-set background=dark
+set background=light
 colorscheme PaperColor
 
 " ==============================
@@ -233,6 +230,7 @@ augroup END
 " ====================
 " Language: Config
 " ====================
+let g:vim_json_syntax_conceal = 0
 augroup config
   autocmd!
   autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml,*.json
@@ -267,6 +265,8 @@ augroup END
 " ====================
 " Language: MARKDOWN
 " ====================
+let g:vim_markdown_conceal          = 0
+let g:vim_markdown_folding_disabled = 1
 augroup markdown
   autocmd!
   autocmd BufNewFile,BufRead *.md
