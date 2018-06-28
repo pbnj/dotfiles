@@ -69,6 +69,7 @@ Plug 'technosophos/vim-kubernetes-snippets'
 "" Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 "" Misc
 Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
@@ -133,6 +134,8 @@ let g:NERDSpaceDelims                     = 1
 let g:UltiSnipsExpandTrigger              = "<tab>"
 let g:airline#extensions#tabline#enabled  = 1
 let g:vim_json_syntax_conceal             = 0
+let g:vim_markdown_conceal                = 0
+let g:vim_markdown_folding_disabled       = 1
 let mapleader                             = ","
 let maplocalleader                        = ",,"
 
@@ -150,8 +153,8 @@ augroup End
 
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
 " set t_Co=256
-set background=light
-colorscheme one
+set background=dark
+colorscheme PaperColor
 
 " ==============================
 " Settings: Autocompletion
