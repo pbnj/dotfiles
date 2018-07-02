@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if [ -f "$HOME/.git-prompt.sh" ]; then
-    source "$HOME/.git-prompt.sh"
-    export GIT_PS1_SHOWDIRTYSTATE="true"
-    export GIT_PS1_SHOWUNTRACKEDFILES="true"
-    export GIT_PS1_SHOWUPSTREAM="auto"
-    export GIT_PS1_SHOWCOLORHINTS="true"
+  source "$HOME/.git-prompt.sh"
+  export GIT_PS1_SHOWDIRTYSTATE="true"
+  export GIT_PS1_SHOWUNTRACKEDFILES="true"
+  export GIT_PS1_SHOWUPSTREAM="auto"
+  export GIT_PS1_SHOWCOLORHINTS="true"
 fi
 
 PROMPT_COMMAND='__git_ps1 "\n\W" "\n\\\$ "'
