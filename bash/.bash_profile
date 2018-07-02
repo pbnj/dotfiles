@@ -36,7 +36,7 @@ done
 # For bash-completion@2
 # if [ -f /usr/local/share/bash-completion/bash_completion ]
 # then
-  # . /usr/local/share/bash-completion/bash_completion
+# . /usr/local/share/bash-completion/bash_completion
 # fi
 
 ## RUST ##
