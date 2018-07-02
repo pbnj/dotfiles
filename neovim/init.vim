@@ -24,44 +24,48 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yggdroot/indentline'
 
+"" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+
 "" Themes
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
 Plug 'rakr/vim-one'
 Plug 'NLKNguyen/papercolor-theme'
 
+"" Languages
+Plug 'sheerun/vim-polyglot'
 "" Arduino
-Plug 'sudar/vim-arduino-syntax'
+" Plug 'sudar/vim-arduino-syntax'
 " CSS
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-Plug 'ap/vim-css-color', { 'for': 'css' }
+" Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+" Plug 'ap/vim-css-color', { 'for': 'css' }
 " Dart
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+" Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 "" Docker
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
-"" Git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
+" Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 "" Go
-Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
+" Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
 Plug 'zchee/vim-vgo', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
 "" Jenkins
-Plug 'martinda/Jenkinsfile-vim-syntax'
+" Plug 'martinda/Jenkinsfile-vim-syntax'
 "" Hashicorp
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
-Plug 'hashivim/vim-vaultproject'
-Plug 'hashivim/vim-vagrant'
-Plug 'hashivim/vim-terraform'
-Plug 'hashivim/vim-packer'
-Plug 'hashivim/vim-nomadproject'
-Plug 'hashivim/vim-consul'
+Plug 'hashivim/vim-hashicorp-tools'
+" Plug 'hashivim/vim-vaultproject'
+" Plug 'hashivim/vim-vagrant'
+" Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-packer'
+" Plug 'hashivim/vim-nomadproject'
+" Plug 'hashivim/vim-consul'
 "" HTML
 Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'othree/html5.vim', { 'for': 'html' }
+" Plug 'othree/html5.vim', { 'for': 'html' }
 "" Kubernetes
 Plug 'c9s/vikube.vim'
 Plug 'andrewstuart/vim-kubernetes'
@@ -69,7 +73,7 @@ Plug 'technosophos/vim-kubernetes-snippets'
 "" Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 "" Misc
 Plug 'honza/vim-snippets'
 Plug 'ntpeters/vim-better-whitespace'
@@ -77,25 +81,25 @@ Plug 'raimondi/delimitmate'
 Plug 'sirver/ultisnips'
 Plug 'w0rp/ale'
 "" Node
-Plug 'moll/vim-node'
+Plug 'moll/vim-node' " Vim utilities for node projects
 " JavaScript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " JSON
-Plug 'elzr/vim-json', { 'for': 'json' }
+" Plug 'elzr/vim-json', { 'for': 'json' }
 " Python
-Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
+" Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 " Ruby
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " Rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+" Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 " TOML
-Plug 'cespare/vim-toml', { 'for': 'toml' }
+" Plug 'cespare/vim-toml', { 'for': 'toml' }
 " TravisCI
 Plug 'keith/travis.vim'
 " YAML
-Plug 'stephpy/vim-yaml', { 'for': ['yaml', 'yml'] }
+" Plug 'stephpy/vim-yaml', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
