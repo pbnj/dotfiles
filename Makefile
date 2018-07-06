@@ -1,6 +1,16 @@
 .DEFAULT_GOAL := help
 .PHONY: all
-all: neovim vim tmux git
+all: bash neovim vim tmux git
+
+.PHONY: bash
+bash: ## Configures bash
+	ln -sf $(CURDIR)/bash/.bash_profile $(HOME)/.bash_profile
+	ln -sf $(CURDIR)/bash/.bash_prompt.simple $(HOME)/.bash_prompt
+	ln -sf $(CURDIR)/bash/.bash_logout $(HOME)/.bash_logout
+	ln -sf $(CURDIR)/bash/.inputrc $(HOME)/.inputrc
+	ln -sf $(CURDIR)/bash/.aliases $(HOME)/.aliases
+	sudo apt update && sudo apt install -y bash-completion
+	source $(HOME)/.bash_profile
 
 .PHONY: brew
 brew: ## Installs homebrew
@@ -22,15 +32,17 @@ vim-plug: ## Install vim-plug
 
 .PHONY: tmux
 tmux: ## Install tmux & config
-	sh $(CURDIR)/tmux/build.sh
-	sh $(CURDIR)/tmux/tmux-plugins.sh
+	# sh $(CURDIR)/tmux/build.sh
+	# sh $(CURDIR)/tmux/tmux-plugins.sh
 	ln -sf $(CURDIR)/tmux/.tmux.conf $(HOME)/.tmux.conf
 
 .PHONY: git
+GIT_VERSION = $(shell git version | cut -d" " -f3)
 git: ## Configures git
-	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-	# curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
+	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
+	source $(HOME)/.bash_profile
 
 GO_VERSION ?= "1.10.3"
 GO_ARCH    ?= "linux-amd64"
