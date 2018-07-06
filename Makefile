@@ -36,8 +36,8 @@ tmux: ## Install tmux & config
 	# sh $(CURDIR)/tmux/tmux-plugins.sh
 	ln -sf $(CURDIR)/tmux/.tmux.conf $(HOME)/.tmux.conf
 
-.PHONY: git
 GIT_VERSION = $(shell git version | cut -d" " -f3)
+.PHONY: git
 git: ## Configures git
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
