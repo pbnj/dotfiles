@@ -1,6 +1,14 @@
 .DEFAULT_GOAL := help
 .PHONY: all
-all: neovim vim tmux git
+all: bash tmux neovim vim git rust go
+
+.PHONY: bash
+bash: ## Configures bash files
+	ln -sf $(CURDIR)/bash/.bash_profile $(HOME)/.bash_profile
+	ln -sf $(CURDIR)/bash/.bash_logout $(HOME)/.bash_logout
+	ln -sf $(CURDIR)/bash/.aliases $(HOME)/.aliases
+	ln -sf $(CURDIR)/bash/.inputrc $(HOME)/.inputrc
+	ln -sf $(CURDIR)/bash/.bash_prompt.simple $(HOME)/.bash_prompt
 
 .PHONY: brew
 brew: ## Installs homebrew
