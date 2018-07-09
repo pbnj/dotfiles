@@ -121,8 +121,8 @@
 [push]
 	default = simple
 [url "git@github.com:"]
-	pushInsteadOf = "https://github.com/"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
+	insteadOf = "https://github.com/"
+	insteadOf = "github:"
+	insteadOf = "git://github.com/"
 ; [commit]
 	; gpgsign = true
