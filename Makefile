@@ -8,7 +8,7 @@ bash: ## Configures bash
 	ln -sf $(CURDIR)/bash/.bash_prompt.simple $(HOME)/.bash_prompt
 	ln -sf $(CURDIR)/bash/.bash_logout $(HOME)/.bash_logout
 	ln -sf $(CURDIR)/bash/.inputrc $(HOME)/.inputrc
-	ln -sf $(CURDIR)/bash/.aliases $(HOME)/.aliases
+	ln -sf $(CURDIR)/bash/.bash_aliases $(HOME)/.bash_aliases
 	sudo apt update && sudo apt install -y bash-completion
 	source $(HOME)/.bash_profile
 
