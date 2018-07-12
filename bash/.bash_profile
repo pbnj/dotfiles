@@ -80,8 +80,13 @@ fi
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-[ -z "$SSH_AUTH_SOCK" ] && eval $(ssh-agent -s)
-[ -z "$(ssh-add -l | grep SHA)" ] && ssh-add
+if [ -z "$SSH_AUTH_SOCK" ]
+then
+  echo "Starting SSH Agent"
+  eval $(ssh-agent -s)
+  echo "Adding SSH Identities"
+  ssh-add
+fi
 
 ## BREW ##
 if [ -f "$HOME/.config/brew" ]
