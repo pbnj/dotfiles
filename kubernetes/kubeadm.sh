@@ -6,9 +6,9 @@ set -e
 set -x
 
 if command -v yum &>/dev/null; then
-	yum install -y docker
-	systemctl enable docker
-	systemctl start docker
+	sudo yum install -y docker
+	sudo systemctl enable docker
+	sudo systemctl start docker
 
 	cat <<EOF >/etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -21,9 +21,9 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 EOF
 
 	setenforce 0
-	yum install -y kubelet kubeadm kubectl
-	systemctl enable kubelet && systemctl start kubelet
+	sudo yum install -y kubelet kubeadm kubectl
+	sudo systemctl enable kubelet && systemctl start kubelet
 
-	systemctl daemon-reload
-	systemctl restart kubelet
+	sudo systemctl daemon-reload
+	sudo systemctl restart kubelet
 fi
