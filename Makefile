@@ -9,8 +9,6 @@ bash: ## Configures bash
 	ln -sf $(CURDIR)/bash/.bash_logout $(HOME)/.bash_logout
 	ln -sf $(CURDIR)/bash/.inputrc $(HOME)/.inputrc
 	ln -sf $(CURDIR)/bash/.bash_aliases $(HOME)/.bash_aliases
-	sudo apt update && sudo apt install -y bash-completion
-	source $(HOME)/.bash_profile
 
 .PHONY: brew
 brew: ## Installs homebrew
@@ -42,7 +40,6 @@ git: ## Configures git
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
-	source $(HOME)/.bash_profile
 
 GO_VERSION ?= "1.10.3"
 GO_ARCH    ?= "linux-amd64"
