@@ -220,13 +220,13 @@ let g:ale_fixers                     = {
 " augroup shell
 " autocmd!
 " autocmd BufNewFile,BufRead *.sh,*.bash
-" \ setlocal ts=2 |
-" \ setlocal sw=2 |
-" \ setlocal expandtab
+" \ setlocal ts=4 |
+" \ setlocal sw=4 |
+" \ setlocal noexpandtab
 " autocmd FileType sh,conf
-" \ setlocal ts=2 |
-" \ setlocal sw=2 |
-" \ setlocal expandtab
+" \ setlocal ts=4 |
+" \ setlocal sw=4 |
+" \ setlocal noexpandtab
 " augroup END
 
 " ====================
