@@ -20,7 +20,7 @@ if command -v yum &>/dev/null; then
 	gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 	EOF'
 
-	setenforce 0
+	sudo setenforce 0
 	sudo yum install -y kubelet kubeadm kubectl
 	sudo systemctl enable kubelet && systemctl start kubelet
 
