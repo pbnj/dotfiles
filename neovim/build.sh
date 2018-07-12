@@ -4,6 +4,7 @@ set -e
 
 git clone https://github.com/neovim/neovim "$HOME/neovim"
 
+(
 cd "$HOME/neovim"
 
 command -v apt-get &>/dev/null && sudo apt-get install -y ninja-build libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
@@ -11,3 +12,4 @@ command -v yum &>/dev/null && sudo yum -y install ninja-build libtool autoconf a
 
 make
 sudo make install
+)
