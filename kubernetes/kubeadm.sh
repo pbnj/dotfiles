@@ -10,7 +10,7 @@ if command -v yum &>/dev/null; then
 	sudo systemctl enable docker
 	sudo systemctl start docker
 
-	cat <<EOF >/etc/yum.repos.d/kubernetes.repo
+	sudo cat <<EOF >/etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
