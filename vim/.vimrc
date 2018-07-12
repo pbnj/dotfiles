@@ -1,103 +1,159 @@
-" Inspired by: https://dougblack.io/words/a-good-vimrc.html
 set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim'           , { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'
+if !has('nvim')
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'Shougo/vimshell'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
+"" General
 Plug 'bling/vim-airline'
-Plug 'cespare/vim-toml'
-Plug 'chriskempson/base16-vim'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ekalinin/Dockerfile.vim'        , { 'for' : 'Dockerfile' }
-Plug 'elzr/vim-json'                  , { 'for' : 'json' }
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'                   , { 'do' : ':GoInstallBinaries' }
 Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'honza/vim-snippets'
-Plug 'kien/ctrlp.vim'
-Plug 'moll/vim-node'
-Plug 'mxw/vim-jsx'
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier'          , { 'do' : 'npm install' }
-Plug 'raimondi/delimitmate'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'sirver/ultisnips'
-Plug 'stephpy/vim-yaml'
+Plug 'Shougo/vimshell'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'yggdroot/indentline'
+
+"" Git
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
-Plug 'zchee/deoplete-go'              , { 'do' : 'make' }
+
+"" Themes
+" Plug 'flazz/vim-colorschemes'
+" Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
+
+"" Languages
+" Arduino
+Plug 'sudar/vim-arduino-syntax'
+" CSS
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'ap/vim-css-color', { 'for': 'css' }
+" Dart
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+" Docker
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+" Go
+Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
+Plug 'zchee/vim-vgo', { 'for': 'go' }
+Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
+" Jenkins
+Plug 'martinda/Jenkinsfile-vim-syntax'
+" Hashicorp
+Plug 'b4b4r07/vim-hcl', { 'for': 'hcl' }
+Plug 'fatih/vim-hclfmt', { 'for': 'hcl', 'do': 'go get -u -v github.com/fatih/hclfmt' }
+Plug 'hashivim/vim-hashicorp-tools'
+" Plug 'hashivim/vim-vaultproject'
+" Plug 'hashivim/vim-vagrant'
+" Plug 'hashivim/vim-terraform'
+" Plug 'hashivim/vim-packer'
+" Plug 'hashivim/vim-nomadproject'
+" Plug 'hashivim/vim-consul'
+" HTML
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/html5.vim', { 'for': 'html' }
+" Kubernetes
+Plug 'c9s/vikube.vim'
+Plug 'andrewstuart/vim-kubernetes'
+Plug 'technosophos/vim-kubernetes-snippets'
+" Markdown
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'shime/vim-livedown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+" Misc
+Plug 'honza/vim-snippets'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'raimondi/delimitmate'
+Plug 'sirver/ultisnips'
+Plug 'w0rp/ale'
+" Node
+Plug 'moll/vim-node' " Vim utilities for node projects
+" JavaScript
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" JSON
+Plug 'elzr/vim-json', { 'for': 'json' }
+" Python
+Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+" Ruby
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+" TOML
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+" TravisCI
+Plug 'keith/travis.vim'
+" YAML
+Plug 'stephpy/vim-yaml', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
-syntax enable
-colorscheme base16-default-dark
 filetype plugin indent on
+syntax enable
 
-" Generic
-autocmd BufNewFile,BufRead *.fish set ft=sh    " treat *.fish as shell for syntax highlighting and grammar
-autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
-autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
-
-autocmd VimEnter *.js set sts=2 sw=2 expandtab smarttab
-autocmd VimEnter *.json set sts=2 sw=2 expandtab smarttab
-autocmd VimEnter *.yaml set sts=2 sw=2 expandtab smarttab
-autocmd VimEnter *.md set sts=2 sw=2 expandtab smarttab
-
-augroup NERD
-    au!
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-augroup END
-
-let g:NERDSpaceDelims                      = 1
-let g:UltiSnipsExpandTrigger               = "<tab>"
-let mapleader                              = ","
-let maplocalleader                         = ",,"
-" Powerline theme for vim/neovim
-let g:airline#extensions#tabline#enabled   = 1
-" let g:airline_powerline_fonts              = 1
-let g:airline_theme                        = "base16_default"
-
+set autochdir
+set autoread
 set autowrite
 set backspace=indent,eol,start
 set clipboard=unnamed
 set cursorline
 set encoding=utf8
 set hlsearch
+set ignorecase
 set incsearch
 set laststatus=2
 set list
-set listchars=tab:\|\ ,
 set mouse=a
 set number
-set relativenumber
 set showcmd
 set showmatch
+set smartcase
+set smartindent
+set smarttab
 set splitbelow
 set splitright
-set termguicolors
 set wildmenu
+
+set tabstop=4
+set shiftwidth=4
+
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level           = 1
+let g:NERDSpaceDelims                     = 1
+let g:UltiSnipsExpandTrigger              = "<tab>"
+let g:airline#extensions#tabline#enabled  = 1
+let mapleader                             = ","
+let maplocalleader                        = ",,"
+
+" Generic
+" Make tab key switch between windows
+" autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
+" map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
+
+augroup format
+  autocmd!
+  autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
+  autocmd BufWritePre * :normal migg=G`i
+augroup End
+
+
+" set termguicolors " Enable for iTerm / Disable for Terminal.app
+" set t_Co=256
+set background=light
+colorscheme PaperColor
 
 " ==============================
 " Settings: Autocompletion
@@ -115,11 +171,19 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " Settings: Keybindings
 " ==============================
 " Generic
-map <C-e> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeToggle<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
+
+" Split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" Enabling folding with <space>
+nnoremap <space> za
 
 " Git
 nmap <leader>gs :Gstatus<CR>
@@ -129,13 +193,105 @@ nmap <leader>gd :Gdiff<CR>
 nmap <leader>gp :Gpush<CR>
 
 " Terminal
-tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc> <C-\><C-n>
+
+" FZF
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+
+" ==============================
+" Settings: Ale
+" ==============================
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fix_on_save                = 1
+let g:ale_completion_enabled         = 1
+let g:ale_sign_column_always         = 1
+let g:ale_fixers                     = {
+      \ 'javascript': ['prettier'],
+      \ 'sh': ['shfmt']
+      \ }
+
+" ====================
+" Language: Shell
+" ====================
+" augroup shell
+" autocmd!
+" autocmd BufNewFile,BufRead *.sh,*.bash
+" \ setlocal ts=2 |
+" \ setlocal sw=2 |
+" \ setlocal expandtab
+" autocmd FileType sh,conf
+" \ setlocal ts=2 |
+" \ setlocal sw=2 |
+" \ setlocal expandtab
+" augroup END
+
+" ====================
+" Language: Config
+" ====================
+let g:vim_json_syntax_conceal = 0
+augroup config
+  autocmd!
+  autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml,*.json
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+  autocmd FileType toml,yml,yaml,json
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
+
+augroup makefile
+  autocmd!
+  autocmd FileType make
+        \ setlocal ts=4 |
+        \ setlocal sw=4 |
+        \ setlocal noexpandtab
+augroup END
+
+" ====================
+" Language: JS|TS|VUE
+" ====================
+augroup node
+  autocmd!
+  autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
+
+" ====================
+" Language: MARKDOWN
+" ====================
+let g:vim_markdown_conceal          = 0
+let g:vim_markdown_folding_disabled = 1
+augroup markdown
+  autocmd!
+  autocmd BufNewFile,BufRead *.md
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
+
+" ====================
+" Language: VIM
+" ====================
+augroup vimrc
+  autocmd!
+  autocmd BufNewFile,BufRead *.vim
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab
+augroup END
 
 " ==============================
 " Language: GO
 " All of these vim-go configurations came from: https://github.com/fatih/vim-go-tutorial
 " ==============================
-
 " For autocompletion
 
 function! s:build_go_files()
@@ -147,26 +303,23 @@ function! s:build_go_files()
   endif
 endfunction
 
-
 augroup go
   autocmd!
-
+  autocmd FileType go
+        \ setlocal ts=4 |
+        \ setlocal sw=4 |
+        \ setlocal noexpandtab
   autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
   autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
-
   autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
-
+  autocmd FileType go nmap <silent> <Leader>d <Plug>(go-doc-split)
   autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
   autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
-
   autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
   autocmd FileType go nmap <silent> <leader>t  <Plug>(go-test)
   autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
   autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
-
   autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
-
-  " I like these more!
   autocmd Filetype go command! -bang A  call go#alternate#Switch(<bang>0, 'edit')
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
@@ -197,19 +350,17 @@ let g:go_highlight_extra_types       = 1
 let g:go_highlight_build_constraints = 1
 
 " ==============================
-" Language: JS
-" From: https://prettier.io/docs/en/vim.html
+" Language: PYTHON
+" From: https://github.com/python-mode/python-mode
 " ==============================
-let g:prettier#autoformat                             = 0             " autosave files that have @format
-autocmd BufWritePre *.js,*.css,*.scss,*.less,*.json,*.md Prettier
-let g:prettier#config#print_width                     = 80            " max line length for wrapping
-let g:prettier#config#tab_width                       = 2             " number of spaces for indentation
-let g:prettier#config#use_tabs                        = 'false'       " spaces vs tabs
-let g:prettier#config#semi                            = 'false'       " semi colons
-let g:prettier#config#single_quote                    = 'true'        " single vs double quotes
-let g:prettier#config#bracket_spacing                 = 'false'       " print space inside parens
-let g:prettier#config#jsx_bracket_same_line           = 'false'       " put > on last line or on new line
-let g:prettier#config#trailing_comma                  = 'es5'         " none|es5|all
-let g:prettier#config#parser                          = 'babylon'     " flow|babylon|typescript|postcss
-let g:prettier#config#config_precedence               = 'prefer-file' " cli-override|file-override|prefer-file
-let g:prettier#config#prose_wrap                      = 'preserve'    " always|never|preserve
+let g:pymode_python = 'python3'
+augroup python
+  autocmd!
+  autocmd BufNewFile,BufRead *.py
+        \ setlocal ts=4 |
+        \ setlocal sw=4 |
+        \ setlocal textwidth=79 |
+        \ setlocal expandtab |
+        \ setlocal autoindent |
+        \ setlocal fileformat=unix
+augroup END
