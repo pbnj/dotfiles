@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
+
 set -e
 set -x
 
