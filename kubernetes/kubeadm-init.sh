@@ -5,6 +5,9 @@
 set -e
 set -x
 
+## Step 0: Prereqs
+swapoff -a
+
 ## Step 1: check if we have connectivity with gcr.io registries. If not, this script will error out.
 kubeadm config images pull
 
