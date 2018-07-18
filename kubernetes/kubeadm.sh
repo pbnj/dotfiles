@@ -6,7 +6,6 @@ set -e
 set -x
 
 if command -v yum &>/dev/null; then
-	sudo -i
 	echo "## INSTALL DOCKER..."
 	yum install -y docker
 	systemctl enable docker
@@ -27,7 +26,6 @@ EOF
 fi
 
 if command -v apt &>/dev/null; then
-	sudo -i
 	echo "## INSTALL DOCKER..."
 	apt-get update
 	apt-get install -y apt-transport-https ca-certificates curl software-properties-common
@@ -36,7 +34,7 @@ if command -v apt &>/dev/null; then
 		. /etc/os-release
 		echo "$ID"
 	) $(lsb_release -cs) stable"
-	apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
+	apt-get update && apt-get install -y --allow-downgrades docker-ce="$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')"
 
 	echo "## INSTALL KUBEADM, KUBECTL, KUBELET..."
 	apt-get update && apt-get install -y apt-transport-https curl
