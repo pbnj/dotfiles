@@ -15,6 +15,7 @@ Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell'
@@ -74,7 +75,6 @@ Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 " Misc
 Plug 'honza/vim-snippets'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'raimondi/delimitmate'
 Plug 'sirver/ultisnips'
 Plug 'w0rp/ale'
@@ -97,7 +97,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 " TravisCI
 Plug 'keith/travis.vim'
 " YAML
-Plug 'stephpy/vim-yaml', { 'for': ['yaml', 'yml'] }
+Plug 'chase/vim-ansible-yaml', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
@@ -130,6 +130,8 @@ set wildmenu
 set tabstop=4
 set shiftwidth=4
 
+let g:better_whitespace_enabled           = 1
+let g:strip_whitespace_on_save            = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level           = 1
 let g:NERDSpaceDelims                     = 1
@@ -143,10 +145,17 @@ let maplocalleader                        = ",,"
 " autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 " map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
+function! Format()
+  " Don't format if filetype is blank
+  if &ft==''
+    return
+  endif
+  normal migg=G`i
+endfunction
+
 augroup format
   autocmd!
-  autocmd BufEnter * EnableStripWhitespaceOnSave " strip trailing whitespace on save
-  autocmd BufWritePre * :normal migg=G`i
+  autocmd BufWritePre,BufEnter * call Format()
 augroup End
 
 
