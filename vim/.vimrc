@@ -33,7 +33,7 @@ Plug 'tpope/vim-surround'
 "" Themes
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
-Plug 'rakr/vim-one'
+" Plug 'rakr/vim-one'
 Plug 'NLKNguyen/papercolor-theme'
 
 "" Languages
@@ -162,7 +162,8 @@ augroup End
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
 " set t_Co=256
 set background=light
-colorscheme PaperColor
+" colorscheme PaperColor
+colorscheme default
 
 " ==============================
 " Settings: Autocompletion
