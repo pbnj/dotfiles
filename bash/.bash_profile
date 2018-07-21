@@ -35,6 +35,9 @@ fi
 if [ -d "/usr/local/go" ]; then
 	export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 fi
+if [ -d "$HOME/.gimme/envs" ]; then
+	source "$HOME/.gimme/envs/latest.env"
+fi
 
 ## NVM ##
 if [ -d "$HOME/.nvm" ]; then
