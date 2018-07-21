@@ -11,7 +11,17 @@ if command -v yum &>/dev/null; then
 	sudo yum -y install ShellCheck
 fi
 
+if command -v apt &>/dev/null; then
+	sudo apt-get update
+	sudo apt-get install -y \
+		libyaml-dev
+		python3
+		python3-pip
+fi
+
 if command -v go &>/dev/null; then
 	echo "### Installing shfmt..."
 	go get -u mvdan.cc/sh/cmd/shfmt
 fi
+
+
