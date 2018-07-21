@@ -45,10 +45,11 @@ GO_VERSION ?= "1.10.3"
 GO_ARCH    ?= "linux-amd64"
 .PHONY: go
 go: ## installs go
-	mkdir -p $(HOME)/go
-	curl -LO https://storage.googleapis.com/golang/go$(GO_VERSION).$(GO_ARCH).tar.gz
-	sudo tar -C /usr/local -xzf go$(GO_VERSION).$(GO_ARCH).tar.gz
-	rm -rf go$(GO_VERSION).$(GO_ARCH).tar.gz
+	#mkdir -p $(HOME)/go
+	#curl -LO https://storage.googleapis.com/golang/go$(GO_VERSION).$(GO_ARCH).tar.gz
+	#sudo tar -C /usr/local -xzf go$(GO_VERSION).$(GO_ARCH).tar.gz
+	#rm -rf go$(GO_VERSION).$(GO_ARCH).tar.gz
+	sh go/install.sh
 
 .PHONY: rust
 rust: ## installs rust
