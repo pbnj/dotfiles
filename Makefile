@@ -30,8 +30,7 @@ vim-plug: ## Install vim-plug
 
 .PHONY: tmux
 tmux: ## Install tmux & config
-	# sh $(CURDIR)/tmux/build.sh
-	# sh $(CURDIR)/tmux/tmux-plugins.sh
+	sh $(CURDIR)/tmux/build.sh
 	ln -sf $(CURDIR)/tmux/.tmux.conf $(HOME)/.tmux.conf
 
 GIT_VERSION = $(shell git version | cut -d" " -f3)
