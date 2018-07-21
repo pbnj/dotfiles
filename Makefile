@@ -16,12 +16,13 @@ brew: ## Installs homebrew
 
 .PHONY: neovim
 neovim: ## configures neovim
-	ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.config/nvim/init.vim
-	sh $(CURDIR)/neovim/build.sh
+	sh $(CURDIR)/vim/neovim/build.sh
+	mkdir -p $(HOME)/.config/nvim
+	ln -sf $(CURDIR)/vim/.vimrc $(HOME)/.config/nvim/init.vim
 
 .PHONY: vim
 vim: ## configures vim
-	ln -sf $(CURDIR)/neovim/init.vim $(HOME)/.vimrc
+	ln -sf $(CURDIR)/vim/.vimrc $(HOME)/.vimrc
 	sh $(CURDIR)/vim/build.sh
 
 .PHONY: vim-plug
