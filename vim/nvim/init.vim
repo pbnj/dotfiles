@@ -16,6 +16,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
+" Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell'
@@ -98,6 +99,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/travis.vim'
 " YAML
 Plug 'chase/vim-ansible-yaml', { 'for': ['yaml', 'yml'] }
+" Plug 'tarekbecker/vim-yaml-formatter', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
@@ -145,19 +147,10 @@ let maplocalleader                        = ",,"
 " autocmd BufEnter * silent! lcd %:p:h           " auto change directory based on current window
 " map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
-function! Format()
-  " Don't format if filetype is blank
-  if &ft==''
-    return
-  endif
-  normal migg=G`i
-endfunction
-
-augroup format
-  autocmd!
-  autocmd BufWritePre,BufEnter * call Format()
-augroup End
-
+" augroup fmt
+  " autocmd!
+  " " autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
 " set t_Co=256
@@ -220,9 +213,9 @@ let g:ale_fix_on_save                = 1
 let g:ale_completion_enabled         = 1
 let g:ale_sign_column_always         = 1
 let g:ale_fixers                     = {
-      \ 'javascript': ['prettier'],
-      \ 'sh': ['shfmt']
-      \ }
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'sh': ['shfmt'],
+      \}
 
 " ====================
 " Language: Shell
