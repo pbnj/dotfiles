@@ -14,7 +14,7 @@ set incsearch
 set laststatus=2
 set list
 set listchars=
-set listchars+=tab:\|\ 
+set listchars+=tab:\|\
 set listchars+=trail:·
 set listchars+=extends:»
 set listchars+=precedes:«
@@ -63,7 +63,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Section: Commands
-command! MakeTags !ctags -R . " make ctags
+command! MakeTags !ctags -R .
 
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
