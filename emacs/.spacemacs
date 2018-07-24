@@ -49,7 +49,6 @@ values."
      html
      javascript
      markdown
-     markdown
      org
      pandoc
      python
