@@ -1,0 +1,82 @@
+set nocompatible
+syntax on
+filetype plugin indent on
+
+set autochdir
+set autoindent
+set autoread
+set autowrite
+set backspace=indent,eol,start
+set clipboard=unnamed
+set encoding=utf8
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set list
+set listchars=
+set listchars+=tab:\|\ 
+set listchars+=trail:·
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
+set linebreak
+set mouse=a
+set number
+set relativenumber
+set scrolloff=1
+set showcmd
+set showmatch
+set smartcase
+set smartindent
+set smarttab
+set splitbelow
+set splitright
+if exists("syntax_on") || exists("syntax_manual")
+else
+	syntax on
+endif
+set visualbell
+set wildmenu
+set wildmode=longest:full,full
+set wildignore+=tags,.*.un~,*.pyc
+
+let mapleader = " "
+
+" Section: Mappings
+noremap <SPACE> <Nop>
+
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Section: Commands
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  let isfirst = 1
+  let words = []
+  for word in split(a:cmdline)
+    if isfirst
+      let isfirst = 0  " don't change first word (shell command)
+    else
+      if word[0] =~ '\v[%#<]'
+        let word = expand(word)
+      endif
+      let word = shellescape(word, 1)
+    endif
+    call add(words, word)
+  endfor
+  let expanded_cmdline = join(words)
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:  ' . a:cmdline)
+  call setline(2, 'Expanded to:  ' . expanded_cmdline)
+  call append(line('$'), substitute(getline(2), '.', '=', 'g'))
+  silent execute '$read !'. expanded_cmdline
+  1
+endfunction
+command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
