@@ -31,12 +31,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 
-"" Themes
-" Plug 'flazz/vim-colorschemes'
-" Plug 'rafi/awesome-vim-colorschemes'
-" Plug 'rakr/vim-one'
-Plug 'NLKNguyen/papercolor-theme'
-
 "" Languages
 " Arduino
 Plug 'sudar/vim-arduino-syntax'
@@ -57,12 +51,6 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'b4b4r07/vim-hcl', { 'for': 'hcl' }
 Plug 'fatih/vim-hclfmt', { 'for': 'hcl', 'do': 'go get -u -v github.com/fatih/hclfmt' }
 Plug 'hashivim/vim-hashicorp-tools'
-" Plug 'hashivim/vim-vaultproject'
-" Plug 'hashivim/vim-vagrant'
-" Plug 'hashivim/vim-terraform'
-" Plug 'hashivim/vim-packer'
-" Plug 'hashivim/vim-nomadproject'
-" Plug 'hashivim/vim-consul'
 " HTML
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -111,7 +99,6 @@ set autoread
 set autowrite
 set backspace=indent,eol,start
 set clipboard=unnamed
-set cursorline
 set encoding=utf8
 set hlsearch
 set ignorecase
@@ -356,14 +343,14 @@ let g:go_highlight_build_constraints = 1
 " Language: PYTHON
 " From: https://github.com/python-mode/python-mode
 " ==============================
-let g:pymode_python = 'python3'
-augroup python
-  autocmd!
-  autocmd BufNewFile,BufRead *.py
-        \ setlocal ts=4 |
-        \ setlocal sw=4 |
-        \ setlocal textwidth=79 |
-        \ setlocal expandtab |
-        \ setlocal autoindent |
-        \ setlocal fileformat=unix
-augroup END
+" let g:pymode_python = 'python3'
+" augroup python
+  " autocmd!
+  " autocmd BufNewFile,BufRead *.py
+        " \ setlocal ts=4 |
+        " \ setlocal sw=4 |
+        " \ setlocal textwidth=79 |
+        " \ setlocal expandtab |
+        " \ setlocal autoindent |
+        " \ setlocal fileformat=unix
+" augroup END
