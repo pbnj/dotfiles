@@ -3,8 +3,11 @@
 set -e
 set -x
 
-sudo curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-sudo chmod +x /usr/local/bin/gimme
+GO_STABLE_VERSION="$(curl https://golang.org/VERSION?m=text)"
+GO_TAR_GZ="${GO_STABLE_VERSION}.linux-amd64.tar.gz"
+GO_URL_DL="https://dl.google.com/go/${GO_TAR_GZ}"
 
-gimme stable
-source "$HOME/.gimme/envs/latest.env"
+curl -LO "${GO_URL_DL}"
+sudo tar -C /usr/local -xzvf $GO_TAR_GZ
+
+source "$HOME/.bash_profile"
