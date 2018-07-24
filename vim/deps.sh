@@ -14,8 +14,9 @@ fi
 if command -v apt &>/dev/null; then
 	sudo apt-get update
 	sudo apt-get install -y \
-		libyaml-dev
-		python3
+		libyaml-dev \
+		pyaml \
+		python3 \
 		python3-pip
 fi
 
