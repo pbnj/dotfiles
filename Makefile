@@ -52,8 +52,8 @@ go: ## installs go
 	#mkdir -p $(HOME)/go
 	#curl -LO https://storage.googleapis.com/golang/go$(GO_VERSION).$(GO_ARCH).tar.gz
 	#sudo tar -C /usr/local -xzf go$(GO_VERSION).$(GO_ARCH).tar.gz
-	#rm -rf go$(GO_VERSION).$(GO_ARCH).tar.gz
-	sh go/install.sh
+	sh $(CURDIR)/go/install.sh
+	rm -rf $(CURDIR)/go$(GO_VERSION).$(GO_ARCH).tar.gz
 
 .PHONY: rust
 rust: ## installs rust
