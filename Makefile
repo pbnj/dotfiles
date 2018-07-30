@@ -2,6 +2,9 @@
 .PHONY: all
 all: bash neovim vim tmux git
 
+.PHONY: bootstrap
+	sh $(CURDIR)/bash/bootstrap.sh
+
 .PHONY: bash
 bash: ## Configures bash
 	ln -sf $(CURDIR)/bash/.bash_profile $(HOME)/.bash_profile
@@ -37,6 +40,7 @@ tmux: ## Install tmux & config
 GIT_VERSION = $(shell git version | cut -d" " -f3)
 .PHONY: git
 git: ## Configures git
+	sh $(CURDIR)/git/install.sh
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
