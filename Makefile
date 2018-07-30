@@ -2,6 +2,9 @@
 .PHONY: all
 all: bash neovim vim tmux git
 
+.PHONY: bootstrap
+	sh $(CURDIR)/bash/bootstrap.sh
+
 .PHONY: bash
 bash: ## Configures bash
 	ln -sf $(CURDIR)/bash/.bash_profile $(HOME)/.bash_profile
@@ -37,6 +40,7 @@ tmux: ## Install tmux & config
 GIT_VERSION = $(shell git version | cut -d" " -f3)
 .PHONY: git
 git: ## Configures git
+	sh $(CURDIR)/git/install.sh
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
@@ -48,8 +52,8 @@ go: ## installs go
 	#mkdir -p $(HOME)/go
 	#curl -LO https://storage.googleapis.com/golang/go$(GO_VERSION).$(GO_ARCH).tar.gz
 	#sudo tar -C /usr/local -xzf go$(GO_VERSION).$(GO_ARCH).tar.gz
-	#rm -rf go$(GO_VERSION).$(GO_ARCH).tar.gz
-	sh go/install.sh
+	sh $(CURDIR)/go/install.sh
+	rm -rf $(CURDIR)/go$(GO_VERSION).$(GO_ARCH).tar.gz
 
 .PHONY: rust
 rust: ## installs rust

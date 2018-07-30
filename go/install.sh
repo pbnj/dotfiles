@@ -10,4 +10,5 @@ GO_URL_DL="https://dl.google.com/go/${GO_TAR_GZ}"
 curl -LO "${GO_URL_DL}"
 sudo tar -C /usr/local -xzvf $GO_TAR_GZ
 
-source "$HOME/.bash_profile"
+echo "To complete Go install, run:"
+echo "\tsource $HOME/.bash_profile"
