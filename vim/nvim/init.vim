@@ -222,61 +222,61 @@ let g:ale_fixers                     = {
 " ====================
 " Language: Config
 " ====================
-let g:vim_json_syntax_conceal = 0
-augroup config
-  autocmd!
-  autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml,*.json
-        \ setlocal ts=2 |
-        \ setlocal sw=2 |
-        \ setlocal expandtab
-  autocmd FileType toml,yml,yaml,json
-        \ setlocal ts=2 |
-        \ setlocal sw=2 |
-        \ setlocal expandtab
-augroup END
-
-augroup makefile
-  autocmd!
-  autocmd FileType make
-        \ setlocal ts=4 |
-        \ setlocal sw=4 |
-        \ setlocal noexpandtab
-augroup END
+" let g:vim_json_syntax_conceal = 0
+" augroup config
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.toml,*.yml,*.yaml,*.json
+"         \ setlocal ts=2 |
+"         \ setlocal sw=2 |
+"         \ setlocal expandtab
+"   autocmd FileType toml,yml,yaml,json
+"         \ setlocal ts=2 |
+"         \ setlocal sw=2 |
+"         \ setlocal expandtab
+" augroup END
+" 
+" augroup makefile
+"   autocmd!
+"   autocmd FileType make
+"         \ setlocal ts=4 |
+"         \ setlocal sw=4 |
+"         \ setlocal noexpandtab
+" augroup END
 
 " ====================
 " Language: JS|TS|VUE
 " ====================
-augroup node
-  autocmd!
-  autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
-        \ setlocal ts=2 |
-        \ setlocal sw=2 |
-        \ setlocal expandtab
-augroup END
+" augroup node
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.js,*.ts,*.jsx,*.tsx,*.vue
+"         \ setlocal ts=2 |
+"         \ setlocal sw=2 |
+"         \ setlocal expandtab
+" augroup END
 
 " ====================
 " Language: MARKDOWN
 " ====================
-let g:vim_markdown_conceal          = 0
-let g:vim_markdown_folding_disabled = 1
-augroup markdown
-  autocmd!
-  autocmd BufNewFile,BufRead *.md
-        \ setlocal ts=2 |
-        \ setlocal sw=2 |
-        \ setlocal expandtab
-augroup END
+" let g:vim_markdown_conceal          = 0
+" let g:vim_markdown_folding_disabled = 1
+" augroup markdown
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.md
+"         \ setlocal ts=2 |
+"         \ setlocal sw=2 |
+"         \ setlocal expandtab
+" augroup END
 
 " ====================
 " Language: VIM
 " ====================
-augroup vimrc
-  autocmd!
-  autocmd BufNewFile,BufRead *.vim
-        \ setlocal ts=2 |
-        \ setlocal sw=2 |
-        \ setlocal expandtab
-augroup END
+" augroup vimrc
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.vim
+"         \ setlocal ts=2 |
+"         \ setlocal sw=2 |
+"         \ setlocal expandtab
+" augroup END
 
 " ==============================
 " Language: GO
