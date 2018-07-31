@@ -5,8 +5,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
 if !has('nvim')
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 "" General
@@ -16,7 +16,6 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
-" Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/vimshell'
@@ -24,6 +23,10 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yggdroot/indentline'
+
+"" Themes
+Plug 'rakr/vim-one'
+" Plug 'NLKNguyen/papercolor-theme'
 
 "" Git
 Plug 'airblade/vim-gitgutter'
@@ -34,60 +37,78 @@ Plug 'tpope/vim-surround'
 "" Languages
 " Arduino
 Plug 'sudar/vim-arduino-syntax'
+
 " CSS
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'ap/vim-css-color', { 'for': 'css' }
+
 " Dart
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+" Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+
 " Docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+
 " Go
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
 Plug 'zchee/vim-vgo', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
+
 " Jenkins
 Plug 'martinda/Jenkinsfile-vim-syntax'
+
 " Hashicorp
 Plug 'b4b4r07/vim-hcl', { 'for': 'hcl' }
 Plug 'fatih/vim-hclfmt', { 'for': 'hcl', 'do': 'go get -u -v github.com/fatih/hclfmt' }
 Plug 'hashivim/vim-hashicorp-tools'
+
 " HTML
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
+
 " Kubernetes
 Plug 'c9s/vikube.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'technosophos/vim-kubernetes-snippets'
+
 " Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+
 " Misc
 Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
 Plug 'sirver/ultisnips'
 Plug 'w0rp/ale'
+
 " Node
 Plug 'moll/vim-node' " Vim utilities for node projects
+
 " JavaScript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
 " JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
+
 " Python
 Plug 'python-mode/python-mode', { 'branch': 'develop', 'for': 'python' }
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
+
 " Ruby
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+
 " TOML
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+
 " TravisCI
 Plug 'keith/travis.vim'
+
 " YAML
 Plug 'chase/vim-ansible-yaml', { 'for': ['yaml', 'yml'] }
-" Plug 'tarekbecker/vim-yaml-formatter', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
@@ -135,22 +156,21 @@ let maplocalleader                        = ",,"
 " map <Tab> <C-W>W:cd %:p:h<CR>:<CR>
 
 " augroup fmt
-  " autocmd!
-  " " autocmd BufWritePre * undojoin | Neoformat
+" autocmd!
+" " autocmd BufWritePre * undojoin | Neoformat
 " augroup END
 
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
 " set t_Co=256
 set background=light
-" colorscheme PaperColor
-colorscheme default
+colorscheme one
 
 " ==============================
 " Settings: Autocompletion
 " ==============================
 let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
+	let g:deoplete#omni#input_patterns = {}
 endif
 " let g:deoplete#disable_auto_complete = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -188,9 +208,9 @@ nmap <leader>gp :Gpush<CR>
 " FZF
 nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit'
-      \ }
+			\ 'ctrl-s': 'split',
+			\ 'ctrl-v': 'vsplit'
+			\ }
 
 " ==============================
 " Settings: Ale
@@ -200,9 +220,11 @@ let g:ale_fix_on_save                = 1
 let g:ale_completion_enabled         = 1
 let g:ale_sign_column_always         = 1
 let g:ale_fixers                     = {
-      \ 'javascript': ['prettier', 'eslint'],
-      \ 'sh': ['shfmt'],
-      \}
+			\ "*": ['trim_whitespace', 'remove_trailing_lines'],
+			\ 'javascript': ['prettier', 'eslint'],
+			\ 'sh': ['shfmt'],
+			\ 'yaml': ['prettier'],
+			\}
 
 " ====================
 " Language: Shell
@@ -234,7 +256,7 @@ let g:ale_fixers                     = {
 "         \ setlocal sw=2 |
 "         \ setlocal expandtab
 " augroup END
-" 
+"
 " augroup makefile
 "   autocmd!
 "   autocmd FileType make
@@ -285,35 +307,35 @@ let g:ale_fixers                     = {
 " For autocompletion
 
 function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
+	let l:file = expand('%')
+	if l:file =~# '^\f\+_test\.go$'
+		call go#test#Test(0, 1)
+	elseif l:file =~# '^\f\+\.go$'
+		call go#cmd#Build(0)
+	endif
 endfunction
 
 augroup go
-  autocmd!
-  autocmd FileType go
-        \ setlocal ts=4 |
-        \ setlocal sw=4 |
-        \ setlocal noexpandtab
-  autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
-  autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
-  autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
-  autocmd FileType go nmap <silent> <Leader>d <Plug>(go-doc-split)
-  autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
-  autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
-  autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
-  autocmd FileType go nmap <silent> <leader>t  <Plug>(go-test)
-  autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
-  autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
-  autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
-  autocmd Filetype go command! -bang A  call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+	autocmd!
+	autocmd FileType go
+				\ setlocal ts=4 |
+				\ setlocal sw=4 |
+				\ setlocal noexpandtab
+	autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
+	autocmd FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
+	autocmd FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
+	autocmd FileType go nmap <silent> <Leader>d <Plug>(go-doc-split)
+	autocmd FileType go nmap <silent> <Leader>i <Plug>(go-info)
+	autocmd FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
+	autocmd FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
+	autocmd FileType go nmap <silent> <leader>t  <Plug>(go-test)
+	autocmd FileType go nmap <silent> <leader>r  <Plug>(go-run)
+	autocmd FileType go nmap <silent> <leader>e  <Plug>(go-install)
+	autocmd FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
+	autocmd Filetype go command! -bang A  call go#alternate#Switch(<bang>0, 'edit')
+	autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+	autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+	autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
 map <C-n> :cnext<CR>
@@ -345,12 +367,12 @@ let g:go_highlight_build_constraints = 1
 " ==============================
 " let g:pymode_python = 'python3'
 " augroup python
-  " autocmd!
-  " autocmd BufNewFile,BufRead *.py
-        " \ setlocal ts=4 |
-        " \ setlocal sw=4 |
-        " \ setlocal textwidth=79 |
-        " \ setlocal expandtab |
-        " \ setlocal autoindent |
-        " \ setlocal fileformat=unix
+" autocmd!
+" autocmd BufNewFile,BufRead *.py
+" \ setlocal ts=4 |
+" \ setlocal sw=4 |
+" \ setlocal textwidth=79 |
+" \ setlocal expandtab |
+" \ setlocal autoindent |
+" \ setlocal fileformat=unix
 " augroup END
