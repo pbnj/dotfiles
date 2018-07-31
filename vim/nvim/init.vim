@@ -65,11 +65,6 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 
-" Kubernetes
-Plug 'c9s/vikube.vim'
-Plug 'andrewstuart/vim-kubernetes'
-Plug 'technosophos/vim-kubernetes-snippets'
-
 " Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'shime/vim-livedown', { 'for': 'markdown' }
@@ -108,7 +103,7 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'keith/travis.vim'
 
 " YAML
-Plug 'chase/vim-ansible-yaml', { 'for': ['yaml', 'yml'] }
+" Plug 'chase/vim-ansible-yaml', { 'for': ['yaml', 'yml'] }
 
 call plug#end()
 
