@@ -24,5 +24,3 @@ if command -v go &>/dev/null; then
 	echo "### Installing shfmt..."
 	go get -u mvdan.cc/sh/cmd/shfmt
 fi
-
-
