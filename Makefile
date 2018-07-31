@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := help
+
 .PHONY: all
-all: bash neovim vim tmux git
+all: bash tmux git neovim go node
 
 .PHONY: bootstrap
 	sh $(CURDIR)/bash/bootstrap.sh
@@ -14,17 +15,17 @@ bash: ## Configures bash
 	ln -sf $(CURDIR)/bash/.bash_aliases $(HOME)/.bash_aliases
 
 .PHONY: brew
-brew: ## Installs homebrew
+brew: ## Install homebrew
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 .PHONY: neovim
-neovim: ## configures neovim
+neovim: vim-plug ## Install neovim
 	sh $(CURDIR)/vim/neovim/build.sh
-	mkdir -p $(HOME)/.config/nvim
-	ln -sf $(CURDIR)/vim/.vimrc $(HOME)/.config/nvim/init.vim
+	mkdir -p $(HOME)/.config
+	ln -sf $(CURDIR)/vim/nvim $(HOME)/.config/nvim
 
 .PHONY: vim
-vim: ## configures vim
+vim: ## Install vim
 	ln -sf $(CURDIR)/vim/.vimrc $(HOME)/.vimrc
 	sh $(CURDIR)/vim/build.sh
 
@@ -33,31 +34,31 @@ vim-plug: ## Install vim-plug
 	sh $(CURDIR)/vim/vim-plug.sh
 
 .PHONY: tmux
-tmux: ## Install tmux & config
+tmux: ## Install tmux
 	sh $(CURDIR)/tmux/build.sh
 	ln -sf $(CURDIR)/tmux/.tmux.conf $(HOME)/.tmux.conf
 
 GIT_VERSION = $(shell git version | cut -d" " -f3)
 .PHONY: git
-git: ## Configures git
+git: ## Install git
 	sh $(CURDIR)/git/install.sh
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
 
-GO_VERSION ?= "1.10.3"
-GO_ARCH    ?= "linux-amd64"
 .PHONY: go
-go: ## installs go
-	#mkdir -p $(HOME)/go
-	#curl -LO https://storage.googleapis.com/golang/go$(GO_VERSION).$(GO_ARCH).tar.gz
-	#sudo tar -C /usr/local -xzf go$(GO_VERSION).$(GO_ARCH).tar.gz
+go: ## Install go
 	sh $(CURDIR)/go/install.sh
-	rm -rf $(CURDIR)/go$(GO_VERSION).$(GO_ARCH).tar.gz
+	sh $(CURDIR)/go/install-pkgs.sh
 
 .PHONY: rust
-rust: ## installs rust
+rust: ## Install rust
 	sh <(curl https://sh.rustup.rs -sSf)
+
+.PHONY: node
+nvm: ## Install Node Version Manager and Node
+	sh $(CURDIR)/nvm/install.sh
+	sh $(CURDIR)/nvm/install-pkgs.sh
 
 .PHONY: help
 help: ## prints help
