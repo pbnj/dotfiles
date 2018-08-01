@@ -61,9 +61,7 @@ if type _git &>/dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion
 fi
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
-	echo "Starting SSH Agent"
 	eval $(ssh-agent -s)
-	echo "Adding SSH Identities"
 	ssh-add
 fi
 
