@@ -46,7 +46,7 @@ Plug 'ap/vim-css-color', { 'for': 'css' }
 " Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 
 " Docker
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
@@ -123,6 +123,7 @@ set laststatus=2
 set list
 set mouse=a
 set number
+set scrolloff=1
 set showcmd
 set showmatch
 set smartcase
