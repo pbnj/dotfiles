@@ -10,7 +10,6 @@ all: bash tmux git neovim go node
 bash: ## Configures bash
 	ln -sf $(CURDIR)/bash/.bash_profile $(HOME)/.bash_profile
 	ln -sf $(CURDIR)/bash/.bash_prompt.simple $(HOME)/.bash_prompt
-	ln -sf $(CURDIR)/bash/.bash_logout $(HOME)/.bash_logout
 	ln -sf $(CURDIR)/bash/.inputrc $(HOME)/.inputrc
 	ln -sf $(CURDIR)/bash/.bash_aliases $(HOME)/.bash_aliases
 
