@@ -8,7 +8,7 @@
 
 # All SpaceVim option below [option] section
 [options]
-  # bootstrap_before = "custom#before"
+  bootstrap_before = "custom#before"
   bootstrap_after = "custom#after"
   buffer_index_type = 4
   colorscheme = "one"
