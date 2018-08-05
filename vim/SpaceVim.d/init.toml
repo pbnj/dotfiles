@@ -12,7 +12,7 @@
   bootstrap_after = "custom#after"
   buffer_index_type = 4
   colorscheme = "one"
-  colorscheme_bg = "light"
+  colorscheme_bg = "dark"
   enable_ale = true
   enable_guicolors = true
   enable_neomake = false
@@ -60,6 +60,9 @@
 
 [[layers]]
   name = "lang#toml"
+
+[[layers]]
+  name = "tmux"
 
 [[layers]]
 # npm -g install remark
