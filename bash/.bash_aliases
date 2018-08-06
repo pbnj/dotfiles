@@ -22,6 +22,7 @@ alias ls="command ls ${colorflag}"
 alias grep="grep --color=auto"
 alias nv="nvim"
 alias vi="vim"
+alias cls="printf \"\033c\""
 
 # Git
 alias g="git"
