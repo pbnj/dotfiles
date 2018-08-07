@@ -9,7 +9,9 @@ if command -v apt-get &>/dev/null; then
         automake \
         cmake \
         g++ \
+        gettext \
         libtool \
+        libtool-bin \
         make \
         ninja-build \
         pkg-config \
@@ -43,5 +45,5 @@ git clone https://github.com/neovim/neovim "$HOME/neovim"
     rm -rf "$HOME/neovim"
 )
 
-pip3 install --upgarde pip --user
+pip3 install --upgrade pip --user
 pip3 install --upgrade neovim --user

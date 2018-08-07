@@ -17,6 +17,11 @@ bash: ## Configures bash
 brew: ## Install homebrew
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+.PHONY: spacevim
+spacevim: ## Install spacevim
+	sh $(CURDIR)/vim/SpaceVim.d/install.sh
+	ln -sf $(CURDIR)/vim/SpaceVim.d $(HOME)/.SpaceVim.d
+
 .PHONY: neovim
 neovim: vim-plug ## Install neovim
 	sh $(CURDIR)/vim/neovim/build.sh
