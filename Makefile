@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 .PHONY: all
-all: bash tmux git neovim go node
+all: bash tmux git ssh neovim go node
 
 .PHONY: bootstrap
 	sh $(CURDIR)/bash/bootstrap.sh
@@ -49,6 +49,10 @@ git: ## Install git
 	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	curl -o $(HOME)/.git-completion.bash https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-completion.bash
 	ln -sf $(CURDIR)/git/.gitconfig $(HOME)/.gitconfig
+
+.PHONY: ssh
+ssh: ## Configure ssh
+	cp $(CURDIR)/ssh/config $(HOME)/.ssh/config
 
 .PHONY: go
 go: ## Install go
