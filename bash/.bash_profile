@@ -61,10 +61,14 @@ if type _git &>/dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion
 	complete -o default -o nospace -F _git g
 fi
 
+export SSH_ENV="$HOME/.ssh/environment"
 if [ -z "$SSH_AUTH_SOCK" ]; then
-	eval $(ssh-agent -s)
-	ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
-	ssh-add
+	/usr/bin/ssh-agent >"$SSH_ENV"
+	chmod 600 "$SSH_ENV"
+	source "$SSH_ENV"
+	/usr/bin/ssh-add
+else
+	source "$SSH_ENV"
 fi
 
 ## BREW ##
