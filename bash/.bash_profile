@@ -1,4 +1,4 @@
-##### SETTINGS #####
+## SETTINGS
 for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
@@ -23,15 +23,15 @@ for option in autocd globstar; do
 	shopt -s "$option" 2>/dev/null
 done
 
-## COMPLETION ##
+## COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-## RUST ##
+## RUST
 if [ -d "$HOME/.cargo" ]; then
 	export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-## GO ##
+## GO
 if [ -d "/usr/local/go" ]; then
 	export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 fi
@@ -40,19 +40,19 @@ if [ -d "$HOME/.gimme/envs" ]; then
 	export PATH="$HOME/go/bin:$PATH"
 fi
 
-## NVM ##
+## NVM
 if [ -d "$HOME/.nvm" ]; then
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                   # This loads nvm
 	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 fi
 
-## HUB ##
+## HUB
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
 
-## GIT ##
+## GIT
 if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
 	source "/usr/local/etc/bash_completion.d/git-completion.bash"
 fi
@@ -61,7 +61,7 @@ if type _git &>/dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion
 	complete -o default -o nospace -F _git g
 fi
 
-export SSH_ENV="$HOME/.ssh/environment"
+export SSH_ENV="$HOME/.ssh/env"
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	/usr/bin/ssh-agent >"$SSH_ENV"
 	chmod 600 "$SSH_ENV"
@@ -69,11 +69,6 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 	/usr/bin/ssh-add
 else
 	source "$SSH_ENV"
-fi
-
-## BREW ##
-if [ -f "$HOME/.config/brew" ]; then
-	source "$HOME/.config/brew"
 fi
 
 ## KUBECTL ##
