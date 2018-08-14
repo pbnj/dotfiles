@@ -5,7 +5,7 @@ done
 unset file
 
 # Prevent bash from escaping '$' when bash-completion is installed and <TAB> is pressed
-shopt -s direxpand
+# shopt -s direxpand
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -61,14 +61,27 @@ if type _git &>/dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion
 	complete -o default -o nospace -F _git g
 fi
 
-export SSH_ENV="$HOME/.ssh/env"
-if [ -z "$SSH_AUTH_SOCK" ]; then
-	/usr/bin/ssh-agent >"$SSH_ENV"
-	chmod 600 "$SSH_ENV"
-	source "$SSH_ENV"
-	/usr/bin/ssh-add
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+     echo "Initialising new SSH agent..."
+     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+     echo succeeded
+     chmod 600 "${SSH_ENV}"
+     . "${SSH_ENV}" > /dev/null
+     /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+         start_agent;
+     }
 else
-	source "$SSH_ENV"
+     start_agent;
 fi
 
 ## KUBECTL ##
