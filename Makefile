@@ -24,7 +24,7 @@ spacevim: ## Install spacevim
 
 .PHONY: neovim
 neovim: vim-plug ## Install neovim
-	sh $(CURDIR)/vim/neovim/build.sh
+	sh $(CURDIR)/vim/nvim/build.sh
 	mkdir -p $(HOME)/.config
 	ln -sf $(CURDIR)/vim/nvim $(HOME)/.config/nvim
 
