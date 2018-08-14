@@ -12,7 +12,7 @@
   bootstrap_after = "custom#after"
   buffer_index_type = 4
   colorscheme = "one"
-  colorscheme_bg = "dark"
+  colorscheme_bg = "light"
   enable_ale = true
   enable_guicolors = true
   enable_neomake = false
