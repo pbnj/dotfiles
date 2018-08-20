@@ -1,5 +1,11 @@
 function! custom#before() abort
 
+  let g:spacevim_custom_plugins = [
+        \ ['hashivim/vim-hashicorp-tools'],
+        \ ]
+
+  let g:terraform_fmt_on_save=1
+
   let g:ale_fix_on_save = 1
   let g:ale_fixers      = {
     \ "*": ['trim_whitespace', 'remove_trailing_lines'],
