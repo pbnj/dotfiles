@@ -61,6 +61,7 @@ if type _git &>/dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion
 	complete -o default -o nospace -F _git g
 fi
 
+## SSH
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent() {
@@ -72,8 +73,7 @@ function start_agent() {
 	/usr/bin/ssh-add
 }
 
-# Source SSH settings, if applicable
-
+## Source SSH settings, if applicable
 if [ -f "${SSH_ENV}" ]; then
 	. "${SSH_ENV}" >/dev/null
 	#ps ${SSH_AGENT_PID} doesn't work under cywgin
@@ -83,6 +83,20 @@ if [ -f "${SSH_ENV}" ]; then
 else
 	start_agent
 fi
+
+## SSH AUTO-COMPLETION
+sh() 
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
+
+    COMPREPLY=( $(compgen -W "$opts" -- ${cur}) )
+    return 0
+}
+complete -F _ssh ssh
 
 ## AWS
 AWS_COMP="$(which aws_completer)"
