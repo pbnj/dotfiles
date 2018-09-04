@@ -18,10 +18,13 @@
   enable_neomake = false
   enable_powerline_fonts = false
   enable_statusline_display_mode = false
-  enable_tabline_filetype_icon = true
   filemanager = "nerdtree"
   statusline_inactive_separator = "arrow"
   statusline_separator = "nil"
+
+# [[layers]]
+  # name = "core#statusline"
+  # enable = false
 
 [[layers]]
   name = "colorscheme"
