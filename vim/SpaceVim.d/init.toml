@@ -16,6 +16,7 @@
   enable_ale = true
   enable_guicolors = true
   enable_neomake = false
+  enable_powerline_fonts = false
   enable_statusline_display_mode = false
   enable_tabline_filetype_icon = true
   filemanager = "nerdtree"
