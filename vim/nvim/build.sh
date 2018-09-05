@@ -21,6 +21,7 @@ if command -v apt-get &>/dev/null; then
 fi
 
 if command -v yum &>/dev/null; then
+    sudo yum update -y
     sudo yum -y install \
          autoconf \
          automake \
@@ -36,6 +37,9 @@ if command -v yum &>/dev/null; then
          unzip
 fi
 
+if [ -d "$HOME/neovim" ]; then
+	rm -rf "$HOME/neovim"
+fi
 git clone https://github.com/neovim/neovim "$HOME/neovim"
 
 (

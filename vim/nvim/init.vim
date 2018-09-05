@@ -25,7 +25,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yggdroot/indentline'
 
 "" Themes
-Plug 'rakr/vim-one'
+" Plug 'rakr/vim-one'
 " Plug 'NLKNguyen/papercolor-theme'
 
 "" Git
@@ -36,7 +36,7 @@ Plug 'tpope/vim-surround'
 
 "" Languages
 " Arduino
-Plug 'sudar/vim-arduino-syntax'
+" Plug 'sudar/vim-arduino-syntax'
 
 " CSS
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
@@ -50,7 +50,7 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 " Go
 Plug 'fatih/vim-go', { 'do': 'GoInstallBinaries', 'for': 'go' }
-Plug 'zchee/vim-vgo', { 'for': 'go' }
+" Plug 'zchee/vim-vgo', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do' : 'make', 'for': 'go' }
 
 " Jenkins
@@ -159,7 +159,7 @@ let maplocalleader                        = ",,"
 " set termguicolors " Enable for iTerm / Disable for Terminal.app
 " set t_Co=256
 set background=light
-colorscheme one
+" colorscheme one
 
 " ==============================
 " Settings: Autocompletion
