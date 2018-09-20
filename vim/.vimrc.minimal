@@ -13,12 +13,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
-set listchars=
-set listchars+=tab:\|\
-set listchars+=trail:·
-set listchars+=extends:»
-set listchars+=precedes:«
-set listchars+=nbsp:⣿
+set listchars=tab:\|-,trail:-,extends:>,precedes:<
 set linebreak
 set mouse=a
 set number
@@ -32,24 +27,20 @@ set smartindent
 set smarttab
 set splitbelow
 set splitright
-if exists("syntax_on") || exists("syntax_manual")
-else
-	syntax on
-endif
 set visualbell
 set wildmenu
 set wildmode=longest:full,full
 set wildignore+=tags,.*.un~,*.pyc
 
-let mapleader = " "
+let mapleader = ","
 
 " https://www.youtube.com/watch?time_continue=2122&v=XA2WjJbmmoM
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+" let g:netrw_list_hide=netrw_gitignore#Hide()
+" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " Section: Mappings
 noremap <SPACE> <Nop>
@@ -65,28 +56,28 @@ nnoremap <C-H> <C-W><C-H>
 " Section: Commands
 command! MakeTags !ctags -R .
 
-command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
-function! s:RunShellCommand(cmdline)
-  let isfirst = 1
-  let words = []
-  for word in split(a:cmdline)
-    if isfirst
-      let isfirst = 0  " don't change first word (shell command)
-    else
-      if word[0] =~ '\v[%#<]'
-        let word = expand(word)
-      endif
-      let word = shellescape(word, 1)
-    endif
-    call add(words, word)
-  endfor
-  let expanded_cmdline = join(words)
-  botright new
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-  call setline(1, 'You entered:  ' . a:cmdline)
-  call setline(2, 'Expanded to:  ' . expanded_cmdline)
-  call append(line('$'), substitute(getline(2), '.', '=', 'g'))
-  silent execute '$read !'. expanded_cmdline
-  1
-endfunction
-command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
+" command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+" function! s:RunShellCommand(cmdline)
+"   let isfirst = 1
+"   let words = []
+"   for word in split(a:cmdline)
+"     if isfirst
+"       let isfirst = 0  " don't change first word (shell command)
+"     else
+"       if word[0] =~ '\v[%#<]'
+"         let word = expand(word)
+"       endif
+"       let word = shellescape(word, 1)
+"     endif
+"     call add(words, word)
+"   endfor
+"   let expanded_cmdline = join(words)
+"   botright new
+"   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+"   call setline(1, 'You entered:  ' . a:cmdline)
+"   call setline(2, 'Expanded to:  ' . expanded_cmdline)
+"   call append(line('$'), substitute(getline(2), '.', '=', 'g'))
+"   silent execute '$read !'. expanded_cmdline
+"   1
+" endfunction
+" command! -complete=file -nargs=* Git call s:RunShellCommand('git '.<q-args>)
