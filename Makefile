@@ -20,7 +20,7 @@ brew: ## Install homebrew
 .PHONY: spacevim
 spacevim: ## Install spacevim
 	sh $(CURDIR)/vim/SpaceVim.d/install.sh
-	ln -sf $(CURDIR)/vim/SpaceVim.d $(HOME)/.SpaceVim.d
+	cp -r $(CURDIR)/vim/SpaceVim.d $(HOME)/.SpaceVim.d
 
 .PHONY: neovim
 neovim: vim-plug ## Install neovim
