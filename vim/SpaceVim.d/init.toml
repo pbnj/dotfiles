@@ -17,10 +17,7 @@
   enable_guicolors = true
   enable_neomake = false
   enable_powerline_fonts = false
-  enable_statusline_display_mode = false
   filemanager = "nerdtree"
-  statusline_inactive_separator = "nil"
-  statusline_separator = "nil"
 
 [[layers]]
   name = "core#statusline"
