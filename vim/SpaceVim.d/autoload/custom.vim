@@ -21,6 +21,9 @@ endfunction
 function! custom#after() abort
   call SpaceVim#logger#info('custom#after called')
 
+  let g:airline_left_sep=''
+  let g:airline_right_sep=''
+
   set guicursor+=a:blinkon0 " disable blinking cursor
   set wrap
 
