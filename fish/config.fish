@@ -5,7 +5,7 @@ bass source $HOME/.gimme/envs/latest.env
 set -xg GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
-set -x PATH /sbin $PATH
+set -x PATH /sbin $HOME/.local/bin $PATH
 
 source $OMF_PATH/pkg/fish-ssh-agent/init.fish
 
