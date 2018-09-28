@@ -18,10 +18,12 @@
   enable_neomake = false
   enable_powerline_fonts = false
   filemanager = "nerdtree"
+  statusline_separator = "nil"
+  statusline_inactive_separator = "bar"
 
 [[layers]]
   name = "core#statusline"
-  enable = false
+  enable = true
 
 [[layers]]
   name = "colorscheme"
@@ -44,6 +46,9 @@
 
 [[layers]]
   name = "VersionControl"
+
+[[layers]]
+  name = "lang#dockerfile"
 
 [[layers]]
   name = "lang#go"
