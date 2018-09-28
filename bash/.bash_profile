@@ -5,7 +5,7 @@ done
 unset file
 
 # Prevent bash from escaping '$' when bash-completion is installed and <TAB> is pressed
-shopt -s direxpand
+# shopt -s direxpand
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
