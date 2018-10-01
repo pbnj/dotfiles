@@ -4,24 +4,13 @@ for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
 done
 unset file
 
-# Prevent bash from escaping '$' when bash-completion is installed and <TAB> is pressed
-# shopt -s direxpand
-
-# Case-insensitive globbing (used in pathname expansion)
+shopt -s direxpand
 shopt -s nocaseglob
-
-# Append to the Bash history file, rather than overwriting it
 shopt -s histappend
-
-# Autocorrect typos in path names when using `cd`
+shopt -s dirspell
 shopt -s cdspell
-
-# Enable some Bash 4 features when possible:
-# * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
-# * Recursive globbing, e.g. `echo **/*.txt`
-for option in autocd globstar; do
-	shopt -s "$option" 2>/dev/null
-done
+shopt -s autocd 
+shopt -s globstar
 
 ## COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
