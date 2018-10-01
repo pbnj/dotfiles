@@ -4,13 +4,10 @@ for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
 done
 unset file
 
-shopt -s direxpand
-shopt -s nocaseglob
-shopt -s histappend
-shopt -s dirspell
-shopt -s cdspell
-shopt -s autocd 
-shopt -s globstar
+for opt in direxpand nocaseglob histappend dirspell cdspell autocd globstar; do
+  shopt -s $opt &>/dev/null;
+done
+unset opt
 
 ## COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
