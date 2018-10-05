@@ -6,8 +6,8 @@
 # License: GPLv3
 #=============================================================================
 
-# All SpaceVim option below [option] section
 [options]
+  background = "light"
   bootstrap_before = "custom#before"
   bootstrap_after = "custom#after"
   buffer_index_type = 4
@@ -16,10 +16,21 @@
   enable_ale = true
   enable_guicolors = true
   enable_neomake = false
-  enable_powerline_fonts = false
+  enable_statusline_display_mode = false
+  enable_tabline_filetype_icon = true
   filemanager = "nerdtree"
+  statusline_inactive_separator = "nil"
   statusline_separator = "nil"
-  statusline_inactive_separator = "bar"
+
+[[layers]]
+  name = "autocomplete"
+  auto-completion-return-key-behavior = "complete"
+  auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+  name = "shell"
+  default_position = "bottom"
+  default_height = 20
 
 [[layers]]
   name = "colorscheme"
@@ -31,31 +42,20 @@
   name = "fzf"
 
 [[layers]]
-  name = 'autocomplete'
-  auto-completion-return-key-behavior = "complete"
-  auto-completion-tab-key-behavior = "smart"
+  name = "default"
 
 [[layers]]
-  name = 'shell'
-  default_position = 'bottom'
-  default_height = 30
+  name = "checkers"
 
 [[layers]]
-  name = "VersionControl"
+  name = "git"
 
 [[layers]]
-  name = "lang#dockerfile"
+  name = "github"
 
+# Languages
 [[layers]]
   name = "lang#go"
-
-[[layers]]
-# npm install --global vscode-html-languageserver-bin
-  name = "lang#html"
-
-[[layers]]
-  name = "lang#javascript"
-  auto_fix = true
 
 [[layers]]
   name = "lang#json"
@@ -67,47 +67,11 @@
   name = "lang#toml"
 
 [[layers]]
-  name = "tmux"
-
-[[layers]]
-# npm -g install remark
-# npm -g install remark-cli
-# npm -g install remark-stringify
   name = "lang#markdown"
-
-[[layers]]
-# pip install --user flake8
-# pip install --user yapf
-# pip install --user autoflake
-# pip install --user isort
-  name = "lang#python"
-
-[[layers]]
-# gem install rubocop
-  name = "lang#ruby"
-
-[[layers]]
-# npm i -g typescript
-  name = "lang#typescript"
 
 [[layers]]
   name = "lang#vim"
 
-[[layers]]
-# npm install -g javascript-typescript-langserver
-# go get -u github.com/sourcegraph/go-langserver
-# npm install --save vscode-html-languageservice
-  name = "lsp"
-  filetypes = [ "go" ]
-
-[[layers]]
-  name = "git"
-
-[[layers]]
-  name = "github"
-
-[[layers]]
-  name = "default"
-
-[[layers]]
-  name = "checkers"
+# Custom Plugins
+[[custom_plugins]]
+  name = "hashivim/vim-hashicorp-tools"
