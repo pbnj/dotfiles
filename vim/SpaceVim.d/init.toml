@@ -22,10 +22,6 @@
   statusline_inactive_separator = "bar"
 
 [[layers]]
-  name = "core#statusline"
-  enable = true
-
-[[layers]]
   name = "colorscheme"
 
 [[layers]]
