@@ -12,6 +12,11 @@ unset opt
 ## COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+## PYTHON
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
 ## RUST
 if [ -d "$HOME/.cargo" ]; then
 	export PATH="$HOME/.cargo/bin:$PATH"
