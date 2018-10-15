@@ -70,7 +70,7 @@ let g:ale_fixers                     = {
 let g:NERDSpaceDelims = 1
 
 " fugitive
-nnoremap <leader>ga :Git add<CR>
+nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
 nnoremap <leader>gt :Gcommit -v -q %:p<CR>
