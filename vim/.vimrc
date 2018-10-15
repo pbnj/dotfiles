@@ -33,7 +33,6 @@ set encoding=utf8
 set foldmethod=syntax
 set hlsearch
 set ignorecase
-set incsearch
 set laststatus=2
 set list
 set mouse=a
