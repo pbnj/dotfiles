@@ -36,6 +36,7 @@ set ignorecase
 set laststatus=2
 set list
 set mouse=a
+set nobackup
 set number
 set number
 set showcmd
