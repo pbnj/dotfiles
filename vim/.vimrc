@@ -36,6 +36,7 @@ set ignorecase
 set laststatus=2
 set list
 set mouse=a
+set nobackup
 set number
 set number
 set showcmd
@@ -45,7 +46,7 @@ let mapleader = ' '
 nnoremap <SPACE> <Nop>
 
 " keybindings
-map <C-f> :NERDTreeToggle<CR>
+nnoremap <leader>ft :NERDTreeToggle<CR>
 nnoremap gV `[v`]
 nnoremap j gj
 nnoremap k gk
