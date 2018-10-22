@@ -104,7 +104,5 @@ if command -v minikube &>/dev/null; then
 	source <(minikube completion bash)
 fi
 
-## FZF
-if [ -f ~/.fzf.bash ]; then
-	source ~/.fzf.bash
-fi
+## ALIAS COMPLETION
+[ -f "$HOME/.alias_completion" ] && source "$HOME/.alias_completion"
