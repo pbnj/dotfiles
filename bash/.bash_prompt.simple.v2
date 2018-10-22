@@ -1,30 +1,5 @@
 #!/bin/bash
 
-if tput setaf 1 &>/dev/null; then
-  tput sgr0; # reset colors
-  BOLD=$(tput bold);
-  RESET=$(tput sgr0);
-  BLACK=$(tput setaf 0);
-  RED=$(tput setaf 1);
-  GREEN=$(tput setaf 2);
-  YELLOW=$(tput setaf 3);
-  BLUE=$(tput setaf 4);
-  MAGENTA=$(tput setaf 5);
-  CYAN=$(tput setaf 6);
-  WHITE=$(tput setaf 7);
-else
-  BOLD='';
-  RESET="\\e[0m";
-  BLACK="\\e[0;30m";
-  RED="\\e[0;31m";
-  GREEN="\\e[0;32m";
-  YELLOW="\\e[0;33m";
-  BLUE="\\e[0;34m";
-  MAGENTA="\\e[0;35m";
-  CYAN="\\e[0;36m";
-  WHITE="\\e[0;37m";
-fi
-
 if [ -f "$HOME/.git-prompt.sh" ]; then
   source "$HOME/.git-prompt.sh"
   export GIT_PS1_SHOWDIRTYSTATE="true"
@@ -34,16 +9,16 @@ if [ -f "$HOME/.git-prompt.sh" ]; then
 fi
 
 function context_date {
-  echo "[${BOLD}${CYAN}$(date "+%Y-%m-%d %I:%M:%S %p")${RESET}]"
+  echo "[$(date "+%Y-%m-%d %I:%M:%S %p")]"
 }
 
 function context_userhostdir {
-  echo "[${BOLD}${YELLOW}\u${RESET}@${BOLD}${BLUE}\h${RESET}:${BOLD}${MAGENTA}\w${RESET}]"
+  echo "[\u@\h:\w]"
 }
 
 function context_kubectl {
   if command -v kubectl &>/dev/null && [ -n "$(kubectl config current-context)" ]; then
-    echo "[${BOLD}${RED}$(kubectl config current-context)${RESET}]"
+    echo "[$(kubectl config current-context)]"
   fi
 }
 
