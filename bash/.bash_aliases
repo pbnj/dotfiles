@@ -9,7 +9,7 @@ alias mv='mv -i'
 
 # Detect which `ls` flavor is in use
 alias sudo='sudo '
-alias l="ls -alFh --color"
+alias l="ls -alFh --color --group-directories-first"
 alias grep="grep --color=auto"
 alias nv="nvim"
 alias vi="vim"
