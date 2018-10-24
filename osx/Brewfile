@@ -9,6 +9,7 @@
 # brew 'hub'
 # brew 'hugo'
 brew 'bash'
+brew 'coreutils'
 brew 'gimme'
 brew 'git'
 brew 'htop'
