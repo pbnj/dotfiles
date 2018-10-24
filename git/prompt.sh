@@ -3,5 +3,6 @@
 set -e
 set -x
 
+GIT_VERSION="v$(git version | cut -d' ' -f3)"
 
-curl -l -o $HOME/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+curl -lo "$HOME/.git-prompt.sh" https://raw.githubusercontent.com/git/git/$GIT_VERSION/contrib/completion/git-prompt.sh
