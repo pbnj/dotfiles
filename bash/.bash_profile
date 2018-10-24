@@ -9,6 +9,11 @@ for opt in direxpand nocaseglob histappend dirspell cdspell autocd globstar; do
 done
 unset opt
 
+## GNU UTILS
+if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
+	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
+
 ## COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
