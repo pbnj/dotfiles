@@ -111,3 +111,4 @@ fi
 
 ## ALIAS COMPLETION
 [ -f "$HOME/.alias_completion" ] && source "$HOME/.alias_completion"
+[ -f "$HOME/.dotfiles/bash/.alias_completion" ] && source "$HOME/.dotfiles/bash/.alias_completion"
