@@ -17,7 +17,7 @@ function context_userhostdir {
 }
 
 function context_kubectl {
-  if command -v kubectl &>/dev/null && [ -n "$(kubectl config current-context)" ]; then
+  if kubectl config current-context &>/dev/null; then
     echo "[$(kubectl config current-context)]"
   fi
 }
