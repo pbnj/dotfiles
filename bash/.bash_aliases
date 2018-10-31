@@ -9,11 +9,9 @@ alias mv='mv -i'
 
 # Detect which `ls` flavor is in use
 alias sudo='sudo '
-alias l="ls -alFh --color --group-directories-first"
+alias l="ls --group-directories-first --color=auto -alFh"
+alias ls="ls --group-directories-first --color=auto -alFh"
 alias grep="grep --color=auto"
-alias nv="nvim"
-alias vi="vim"
-alias cls="printf \"\033c\""
 
 # Git
 alias g="git"
@@ -32,29 +30,33 @@ alias gp="git push"
 alias gpull="git pull"
 alias gpush="git push"
 alias grv="git remote -v"
-alias gs="git status"
+alias gs="git status -s"
 
 ## HUB
 command -v hub &>/dev/null && eval "$(hub alias -s)"
 
 # Kubernetes
-alias k="kubectl"
-alias kc="kubectl config"
-alias kd="kubectl delete"
-alias kdd="kubectl delete deploy"
-alias kdp="kubectl delete po"
-alias kg="kubectl get"
-alias kgd="kubectl get deploy"
-alias kgp="kubectl get po"
+if command -v kubectl &>/dev/null; then
+  alias k="kubectl"
+  alias kc="kubectl config"
+  alias kd="kubectl describe"
+  alias kdd="kubectl describe deploy"
+  alias kdp="kubectl describe pod"
+  alias kg="kubectl get"
+  alias kgd="kubectl get deploy"
+  alias kgp="kubectl get pod"
+fi
 
 # Docker
-alias d="docker"
-alias db="docker build"
-alias di="docker images"
-alias dps="docker ps"
-alias dpsa="docker ps -aq"
-alias drm="docker rm"
-alias drmi="docker rmi"
+if command -v docker &>/dev/null; then
+  alias d="docker"
+  alias db="docker build"
+  alias di="docker images"
+  alias dps="docker ps"
+  alias dpsa="docker ps -aq"
+  alias drm="docker rm"
+  alias drmi="docker rmi"
+fi
 
 # macOS
 command -v brew &>/dev/null && alias bubu="brew outdated && brew update && brew upgrade && brew cleanup"
