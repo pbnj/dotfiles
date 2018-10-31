@@ -14,9 +14,6 @@ if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
 	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
-## COMPLETION
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-
 ## PYTHON
 if [ -d "$HOME/.local/bin" ]; then
 	export PATH="$HOME/.local/bin:$PATH"
@@ -110,5 +107,7 @@ if command -v minikube &>/dev/null; then
 fi
 
 ## ALIAS COMPLETION
-[ -f "$HOME/.alias_completion" ] && source "$HOME/.alias_completion"
-[ -f "$HOME/.dotfiles/bash/.alias_completion" ] && source "$HOME/.dotfiles/bash/.alias_completion"
+[ -f /etc/profile.d/bash_completion.sh ] && source /etc/profile.d/bash_completion.sh
+[ -f /etc/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
+[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
+

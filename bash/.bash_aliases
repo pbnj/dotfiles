@@ -8,32 +8,10 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # Detect which `ls` flavor is in use
-alias sudo='sudo '
+alias sudo='sudo'
 alias l="ls --group-directories-first --color=auto -alFh"
 alias ls="ls --group-directories-first --color=auto -alFh"
 alias grep="grep --color=auto"
-
-# Git
-alias g="git"
-alias ga="git add"
-alias gaa="git add --all"
-alias gb="git branch"
-alias gcam="git commit -am"
-alias gcb="git checkout -b"
-alias gcl="git clone"
-alias gcm="git commit -m"
-alias gco="git checkout"
-alias gd="git diff"
-alias gl="git pull"
-alias glg="git log"
-alias gp="git push"
-alias gpull="git pull"
-alias gpush="git push"
-alias grv="git remote -v"
-alias gs="git status -s"
-
-## HUB
-command -v hub &>/dev/null && eval "$(hub alias -s)"
 
 # Kubernetes
 if command -v kubectl &>/dev/null; then
@@ -57,10 +35,3 @@ if command -v docker &>/dev/null; then
   alias drm="docker rm"
   alias drmi="docker rmi"
 fi
-
-# macOS
-command -v brew &>/dev/null && alias bubu="brew outdated && brew update && brew upgrade && brew cleanup"
-## macOS has no `md5sum`, so use `md5` as a fallback
-command -v md5sum &>/dev/null || alias md5sum="md5"
-## macOS has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum &>/dev/null || alias sha1sum="shasum"
