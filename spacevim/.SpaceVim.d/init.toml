@@ -11,13 +11,14 @@
   bootstrap_before = "custom#before"
   bootstrap_after = "custom#after"
   buffer_index_type = 4
-  colorscheme = "one"
+  # colorscheme = "default"
   colorscheme_bg = "dark"
   enable_ale = true
   enable_guicolors = true
   enable_neomake = false
   enable_statusline_display_mode = false
   enable_tabline_filetype_icon = true
+  enable_cursorline = false
   filemanager = "nerdtree"
   statusline_inactive_separator = "nil"
   statusline_separator = "nil"
