@@ -21,6 +21,7 @@
   filemanager = "nerdtree"
   statusline_inactive_separator = "nil"
   statusline_separator = "nil"
+  terminal_cursor_shape = 0
 
 [[layers]]
   name = "autocomplete"
