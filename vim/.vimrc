@@ -1,0 +1,30 @@
+filetype plugin indent on
+
+set autoindent
+set backspace=2
+set cursorline
+set foldmethod=syntax
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set lazyredraw
+set list
+set listchars=tab:>-,trail:-,precedes:<,extends:>
+set nobackup
+set nocompatible
+set noswapfile
+set number
+set ruler
+set showcmd
+set showmode
+set smartcase
+set smartindent
+set sts=0
+set sw=4
+set ts=4
+set ttyfast
+set visualbell
+set wildmode=longest,list
+set wrap
