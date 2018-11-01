@@ -11,7 +11,7 @@
   bootstrap_before = "custom#before"
   bootstrap_after = "custom#after"
   buffer_index_type = 4
-  # colorscheme = "default"
+  colorscheme = "one"
   colorscheme_bg = "dark"
   enable_ale = true
   enable_guicolors = true

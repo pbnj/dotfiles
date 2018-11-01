@@ -6,7 +6,7 @@ function! custom#before() abort
 
   let g:ale_fix_on_save = 1
   let g:ale_fixers      = {
-    \ "*": ['trim_whitespace', 'remove_trailing_lines'],
+    \ '*': ['trim_whitespace', 'remove_trailing_lines'],
     \ 'javascript': ['prettier', 'eslint'],
     \ 'markdown': ['prettier'],
     \ 'json': ['prettier'],
@@ -24,6 +24,6 @@ function! custom#after() abort
   nnoremap j gj
   nnoremap k gk
 
-  let g:NERDTreeWinPos = "left"
+  let g:NERDTreeWinPos = 'left'
 
 endfunction
