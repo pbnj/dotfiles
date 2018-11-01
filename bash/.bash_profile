@@ -106,6 +106,9 @@ if command -v minikube &>/dev/null; then
 	source <(minikube completion bash)
 fi
 
+## FZF
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+
 ## ALIAS COMPLETION
 [ -f /etc/profile.d/bash_completion.sh ] && source /etc/profile.d/bash_completion.sh
 [ -f /etc/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
