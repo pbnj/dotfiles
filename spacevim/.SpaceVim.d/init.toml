@@ -7,12 +7,12 @@
 #=============================================================================
 
 [options]
-  background = "dark"
+  background = "light"
   bootstrap_before = "custom#before"
   bootstrap_after = "custom#after"
   buffer_index_type = 4
   colorscheme = "one"
-  colorscheme_bg = "dark"
+  colorscheme_bg = "light"
   enable_ale = true
   enable_guicolors = true
   enable_neomake = false
@@ -77,3 +77,9 @@
 # Custom Plugins
 [[custom_plugins]]
   name = "hashivim/vim-hashicorp-tools"
+
+[[custom_plugins]]
+  name = "vim-syntastic/syntastic"
+
+[[custom_plugins]]
+  name = "airblade/vim-gitgutter"
