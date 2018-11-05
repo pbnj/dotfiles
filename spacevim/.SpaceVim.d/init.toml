@@ -8,18 +8,19 @@
 
 [options]
   background = "light"
-  bootstrap_before = "custom#before"
   bootstrap_after = "custom#after"
+  bootstrap_before = "custom#before"
   buffer_index_type = 4
   colorscheme = "one"
   colorscheme_bg = "light"
   enable_ale = true
+  enable_cursorline = false
   enable_guicolors = true
   enable_neomake = false
   enable_statusline_display_mode = false
   enable_tabline_filetype_icon = true
-  enable_cursorline = false
   filemanager = "nerdtree"
+  relativenumber = 0
   statusline_inactive_separator = "nil"
   statusline_separator = "nil"
   terminal_cursor_shape = 0
@@ -83,3 +84,6 @@
 
 [[custom_plugins]]
   name = "airblade/vim-gitgutter"
+
+[[custom_plugins]]
+  name = "tpope/vim-fugitive"
