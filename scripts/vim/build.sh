@@ -44,9 +44,6 @@ git clone https://github.com/vim/vim "$HOME/vim"
 	cd "$HOME/vim"
 	git pull
 	git fetch
-	cd src
-	make distclean
-	cd ..
 
 	./configure \
 		--disable-netbeans \
@@ -59,7 +56,7 @@ git clone https://github.com/vim/vim "$HOME/vim"
 		--enable-multibyte \
 		--enable-perlinterp=dynamic \
 		--enable-python3interp \
-		--prefix=/usr/local/bin \
+		--prefix=/usr/local \
 		--with-compiledby="Peter Benjamin" \
 		--with-features=huge \
 		--with-luajit \
