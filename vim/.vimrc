@@ -3,19 +3,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
 Plug 'elzr/vim-json'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'flazz/vim-colorschemes'
+Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'plasticboy/vim-markdown'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
@@ -41,13 +46,18 @@ set showcmd
 set showmode
 set smartcase
 set smartindent
-set softtabstop=0
-set shiftwidth=4
-set tabstop=4
 set ttyfast
 set wrap
 
-let mapleader = ','
+let g:mapleader = ','
+
+"""""""""""""""""""""
+"      Languages    "
+"""""""""""""""""""""
+augroup markdown
+  autocmd!
+  autocmd filetype markdown setlocal ts=2 sts=2 sw=2 et
+augroup END
 
 """""""""""""""""""""
 "      Plugins      "
@@ -70,6 +80,17 @@ let g:terraform_fmt_on_save=1
 " nerdtree
 let g:NERDSpaceDelims = 1
 map <C-f> :NERDTreeToggle<CR>
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_new_list_item_indent = 2
+
+" vim-markdown-toc
+let g:vmt_list_item_char='-'
 
 " vim-go
 let g:go_fmt_command = "goimports"
