@@ -13,7 +13,28 @@ fi
 if command -v yum &>/dev/null; then
 	sudo yum update
 	sudo yum groupinstall 'Development tools'
-	sudo yum install -y ncurses ncurses-devel
+	sudo yum install -y \
+		ctags \
+		git \
+		lua \
+		lua-devel \
+		luajit \
+		luajit-devel \
+		ncurses \
+		ncurses-devel \
+		perl \
+		perl-ExtUtils-CBuilder \
+		perl-ExtUtils-Embed \
+		perl-ExtUtils-ParseXS \
+		perl-ExtUtils-XSpp \
+		perl-devel \
+		python \
+		python-devel \
+		python3 \
+		python3-devel \
+		ruby \
+		ruby-devel \
+		tcl-devel
 fi
 
 sudo rm -rf /usr/local/share/vim /usr/bin/vim
