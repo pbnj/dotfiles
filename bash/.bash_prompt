@@ -13,7 +13,7 @@ function context_date {
 }
 
 function context_userhostdir {
-  echo "[\u@\h:\w]"
+  echo "[\u@\h:\W]"
 }
 
 function context_kubectl {
