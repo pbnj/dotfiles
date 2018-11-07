@@ -28,7 +28,6 @@ git clone https://github.com/tpope/vim-commentary
 git clone https://github.com/tpope/vim-dadbod
 git clone https://github.com/tpope/vim-dispatch
 git clone https://github.com/tpope/vim-fugitive
-git clone https://github.com/tpope/vim-pathogen
 git clone https://github.com/tpope/vim-sensible
 git clone https://github.com/tpope/vim-sleuth
 git clone https://github.com/tpope/vim-surround
