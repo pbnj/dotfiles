@@ -1,33 +1,86 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
+if has('autocmd')
+  filetype plugin indent on
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
+
+if !has('nvim') && &ttimeoutlen == -1
+  set ttimeout
+  set ttimeoutlen=100
+endif
+
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j " Delete comment character when joining commented lines
+endif
+
+if has('path_extra')
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+set sessionoptions-=options
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+  set t_Co=16
+endif
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 
 set autoindent
+set autoread
+set backspace=indent,eol,start
+set complete-=i
+set display+=lastline
+set encoding=utf-8
 set foldmethod=syntax
 set hidden
+set history=1000
 set hlsearch
 set ignorecase
+set incsearch
 set laststatus=2
 set lazyredraw
 set list
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set nobackup
 set noswapfile
+set nrformats-=octal
 set number
 set ruler
+set scrolloff=1
 set showcmd
 set showmode
+set sidescrolloff=5
 set smartcase
 set smartindent
-set splitright
+set smarttab
 set splitbelow
+set splitright
+set tabpagemax=50
 set ttyfast
+set wildmenu
 set wrap
 
 let g:mapleader = ','
 
 """""""""""""""""""""
-"      Languages    "
+"   Keybindings     "
+"""""""""""""""""""""
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+"""""""""""""""""""""
+"     Languages     "
 """""""""""""""""""""
 augroup markdown
   autocmd!
@@ -71,10 +124,6 @@ let g:ale_fixers      = {
 
 " hashicorp
 let g:terraform_fmt_on_save=1
-
-" nerdtree
-let g:NERDSpaceDelims = 1
-map <C-f> :NERDTreeToggle<CR>
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
