@@ -5,6 +5,7 @@
 <!-- vim-markdown-toc GFM -->
 
 - [Prerequisites](#prerequisites)
+- [Build](#build)
 - [Getting Started](#getting-started)
 - [Managing Packages](#managing-packages)
 - [Update Packages](#update-packages)
@@ -22,6 +23,14 @@
   - git
 - Optional:
   - GNU stow
+
+## Build
+
+To build vim 8:
+
+```sh
+./scripts/vim/build.sh
+```
 
 ## Getting Started
 
