@@ -1,33 +1,6 @@
-call plug#begin('~/.vim/plugged')
-
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'cespare/vim-toml'
-Plug 'cespare/vim-toml'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'elzr/vim-json'
-Plug 'elzr/vim-json'
-Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
-Plug 'flazz/vim-colorschemes'
-Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'plasticboy/vim-markdown'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
-
-call plug#end()
-
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+syntax on
 filetype plugin indent on
 
 set autoindent
@@ -46,6 +19,8 @@ set showcmd
 set showmode
 set smartcase
 set smartindent
+set splitright
+set splitbelow
 set ttyfast
 set wrap
 
@@ -59,20 +34,40 @@ augroup markdown
   autocmd filetype markdown setlocal ts=2 sts=2 sw=2 et
 augroup END
 
+augroup yaml
+  autocmd!
+  autocmd filetype yaml setlocal ts=2 sts=2 sw=2 et
+augroup END
+
+augroup json
+  autocmd!
+  autocmd filetype json setlocal ts=2 sts=2 sw=2 et
+augroup END
+
+augroup sh
+  autocmd!
+  autocmd filetype sh setlocal ts=2 sts=2 sw=2 et
+augroup END
+
+augroup vim
+  autocmd!
+  autocmd filetype vim setlocal ts=2 sts=2 sw=2 et
+augroup END
+
 """""""""""""""""""""
 "      Plugins      "
 """""""""""""""""""""
 
 " ale
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 let g:ale_fixers      = {
-\ '*': ['trim_whitespace', 'remove_trailing_lines'],
-\ 'javascript': ['prettier', 'eslint'],
-\ 'markdown': ['prettier'],
-\ 'json': ['prettier'],
-\ 'sh': ['shfmt'],
-\ 'yaml': ['prettier'],
-\}
+      \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'markdown': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'sh': ['shfmt'],
+      \ 'yaml': ['prettier'],
+      \}
 
 " hashicorp
 let g:terraform_fmt_on_save=1
@@ -80,6 +75,12 @@ let g:terraform_fmt_on_save=1
 " nerdtree
 let g:NERDSpaceDelims = 1
 map <C-f> :NERDTreeToggle<CR>
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
