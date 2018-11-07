@@ -57,7 +57,7 @@ git clone https://github.com/vim/vim "$HOME/vim"
 		--enable-perlinterp=dynamic \
 		--enable-python3interp \
 		--prefix=/usr/local \
-		--with-compiledby="Peter Benjamin" \
+		--with-compiledby="$(whoami)" \
 		--with-features=huge \
 		--with-luajit \
 		--with-tlib=ncurses \
