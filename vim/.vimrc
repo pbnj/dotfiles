@@ -1,38 +1,5 @@
-if has('autocmd')
-  filetype plugin indent on
-endif
-
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
-
-if !has('nvim') && &ttimeoutlen == -1
-  set ttimeout
-  set ttimeoutlen=100
-endif
-
-if v:version > 703 || v:version == 703 && has("patch541")
-  set formatoptions+=j " Delete comment character when joining commented lines
-endif
-
-if has('path_extra')
-  setglobal tags-=./tags tags-=./tags; tags^=./tags;
-endif
-
-if !empty(&viminfo)
-  set viminfo^=!
-endif
-set sessionoptions-=options
-
-" Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
-  set t_Co=16
-endif
-
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
+filetype plugin indent on
+syntax enable
 
 set autoindent
 set autoread
@@ -82,30 +49,30 @@ endif
 """""""""""""""""""""
 "     Languages     "
 """""""""""""""""""""
-augroup markdown
-  autocmd!
-  autocmd filetype markdown setlocal ts=2 sts=2 sw=2 et
-augroup END
+" augroup markdown
+"   autocmd!
+"   autocmd filetype markdown setlocal ts=2 sts=2 sw=2 et
+" augroup END
 
-augroup yaml
-  autocmd!
-  autocmd filetype yaml setlocal ts=2 sts=2 sw=2 et
-augroup END
+" augroup yaml
+"   autocmd!
+"   autocmd filetype yaml setlocal ts=2 sts=2 sw=2 et
+" augroup END
 
-augroup json
-  autocmd!
-  autocmd filetype json setlocal ts=2 sts=2 sw=2 et
-augroup END
+" augroup json
+"   autocmd!
+"   autocmd filetype json setlocal ts=2 sts=2 sw=2 et
+" augroup END
 
-augroup sh
-  autocmd!
-  autocmd filetype sh setlocal ts=2 sts=2 sw=2 et
-augroup END
+" augroup sh
+"   autocmd!
+"   autocmd filetype sh setlocal ts=2 sts=2 sw=2 et
+" augroup END
 
-augroup vim
-  autocmd!
-  autocmd filetype vim setlocal ts=2 sts=2 sw=2 et
-augroup END
+" augroup vim
+"   autocmd!
+"   autocmd filetype vim setlocal ts=2 sts=2 sw=2 et
+" augroup END
 
 """""""""""""""""""""
 "      Plugins      "
