@@ -4,7 +4,7 @@ function! custom#before() abort
   set foldmethod=syntax
   let g:terraform_fmt_on_save=1
 
-  let g:ale_fix_on_save = 1
+  " let g:ale_fix_on_save = 1
   let g:ale_fixers      = {
     \ '*': ['trim_whitespace', 'remove_trailing_lines'],
     \ 'javascript': ['prettier', 'eslint'],
