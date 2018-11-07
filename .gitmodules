@@ -1,0 +1,72 @@
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-gitgutter"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-toml"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-toml
+	url = https://github.com/cespare/vim-toml
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/Dockerfile.vim"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-json"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/supertab"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-go"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/tabular"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-hashicorp-tools"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/fzf"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/fzf.vim"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-markdown-toc"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-markdown"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-apathy"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-apathy
+	url = https://github.com/tpope/vim-apathy
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-commentary"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-dadbod"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-dispatch"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-fugitive"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-sensible"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-sleuth"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-surround"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-vinegar"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-airline"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/syntastic"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "/home/pb250031/.dotfiles/vim/.vim/pack/pb/start/ale"]
+	path = /home/pb250031/.dotfiles/vim/.vim/pack/pb/start/ale
+	url = https://github.com/w0rp/ale
