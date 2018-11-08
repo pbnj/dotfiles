@@ -73,3 +73,6 @@
 [submodule "vim/.vim/pack/pb/start/emmet-vim"]
 	path = vim/.vim/pack/pb/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim
+[submodule "neovim/.config/nvim/pack/pb/start/emmet-vim"]
+	path = neovim/.config/nvim/pack/pb/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim
