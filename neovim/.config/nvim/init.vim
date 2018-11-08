@@ -36,6 +36,10 @@ set ttyfast
 set wildmenu
 set wrap
 
+if has('nvim')
+  set inccommand=split
+endif
+
 let g:mapleader = ','
 
 """""""""""""""""""""
