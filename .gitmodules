@@ -1,0 +1,75 @@
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-gitgutter"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-toml"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-toml
+	url = https://github.com/cespare/vim-toml
+[submodule "neovim/.config/nvim/pack/bundles/start/Dockerfile.vim"]
+	path = neovim/.config/nvim/pack/bundles/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-json"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "neovim/.config/nvim/pack/bundles/start/supertab"]
+	path = neovim/.config/nvim/pack/bundles/start/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-go"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "neovim/.config/nvim/pack/bundles/start/tabular"]
+	path = neovim/.config/nvim/pack/bundles/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-hashicorp-tools"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools
+[submodule "neovim/.config/nvim/pack/bundles/start/fzf"]
+	path = neovim/.config/nvim/pack/bundles/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "neovim/.config/nvim/pack/bundles/start/fzf.vim"]
+	path = neovim/.config/nvim/pack/bundles/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "neovim/.config/nvim/pack/bundles/start/emmet-vim"]
+	path = neovim/.config/nvim/pack/bundles/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-markdown-toc"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-markdown"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-apathy"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-apathy
+	url = https://github.com/tpope/vim-apathy
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-commentary"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-dadbod"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-dispatch"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-fugitive"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-sensible"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-sleuth"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-surround"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-vinegar"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "neovim/.config/nvim/pack/bundles/start/vim-airline"]
+	path = neovim/.config/nvim/pack/bundles/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "neovim/.config/nvim/pack/bundles/start/syntastic"]
+	path = neovim/.config/nvim/pack/bundles/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "neovim/.config/nvim/pack/bundles/start/ale"]
+	path = neovim/.config/nvim/pack/bundles/start/ale
+	url = https://github.com/w0rp/ale
