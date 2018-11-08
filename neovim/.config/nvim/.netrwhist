@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/pb250031/.dotfiles/neovim/.config/nvim/pack/pb/start'
+let g:netrw_dirhist_2='/Users/pb250031/.dotfiles/neovim/.config/nvim/pack/pb'
+let g:netrw_dirhist_3='/Users/pb250031/.dotfiles/neovim/.config/nvim/pack'
+let g:netrw_dirhist_4='/Users/pb250031/.dotfiles/neovim/.config/nvim'
+let g:netrw_dirhist_5='/Users/pb250031/.dotfiles/neovim/.config'
+let g:netrw_dirhist_6='/Users/pb250031/.dotfiles/neovim'
+let g:netrw_dirhist_7='/Users/pb250031/.dotfiles'
