@@ -1,6 +1,7 @@
 filetype plugin indent on
 syntax enable
 
+set autochdir
 set autoindent
 set autoread
 set backspace=indent,eol,start
