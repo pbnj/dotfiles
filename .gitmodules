@@ -73,3 +73,78 @@
 [submodule "neovim/.config/nvim/pack/bundles/start/ale"]
 	path = neovim/.config/nvim/pack/bundles/start/ale
 	url = https://github.com/w0rp/ale
+[submodule "vim/pack/bundles/start/vim-gitgutter"]
+	path = vim/pack/bundles/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/pack/bundles/start/vim-toml"]
+	path = vim/pack/bundles/start/vim-toml
+	url = https://github.com/cespare/vim-toml
+[submodule "vim/pack/bundles/start/Dockerfile.vim"]
+	path = vim/pack/bundles/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "vim/pack/bundles/start/vim-json"]
+	path = vim/pack/bundles/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "vim/pack/bundles/start/supertab"]
+	path = vim/pack/bundles/start/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "vim/pack/bundles/start/vim-go"]
+	path = vim/pack/bundles/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "vim/pack/bundles/start/tabular"]
+	path = vim/pack/bundles/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "vim/pack/bundles/start/vim-hashicorp-tools"]
+	path = vim/pack/bundles/start/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools
+[submodule "vim/pack/bundles/start/fzf"]
+	path = vim/pack/bundles/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "vim/pack/bundles/start/fzf.vim"]
+	path = vim/pack/bundles/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/pack/bundles/start/emmet-vim"]
+	path = vim/pack/bundles/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim
+[submodule "vim/pack/bundles/start/vim-markdown-toc"]
+	path = vim/pack/bundles/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "vim/pack/bundles/start/vim-markdown"]
+	path = vim/pack/bundles/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/pack/bundles/start/vim-apathy"]
+	path = vim/pack/bundles/start/vim-apathy
+	url = https://github.com/tpope/vim-apathy
+[submodule "vim/pack/bundles/start/vim-commentary"]
+	path = vim/pack/bundles/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "vim/pack/bundles/start/vim-dadbod"]
+	path = vim/pack/bundles/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "vim/pack/bundles/start/vim-dispatch"]
+	path = vim/pack/bundles/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "vim/pack/bundles/start/vim-fugitive"]
+	path = vim/pack/bundles/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/pack/bundles/start/vim-sensible"]
+	path = vim/pack/bundles/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "vim/pack/bundles/start/vim-sleuth"]
+	path = vim/pack/bundles/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "vim/pack/bundles/start/vim-surround"]
+	path = vim/pack/bundles/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/pack/bundles/start/vim-vinegar"]
+	path = vim/pack/bundles/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "vim/pack/bundles/start/vim-airline"]
+	path = vim/pack/bundles/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/pack/bundles/start/syntastic"]
+	path = vim/pack/bundles/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "vim/pack/bundles/start/ale"]
+	path = vim/pack/bundles/start/ale
+	url = https://github.com/w0rp/ale
