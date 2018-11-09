@@ -94,10 +94,6 @@ let g:ale_fixers = {
       \ 'yaml': ['prettier'],
       \}
 
-let g:ale_linters = {
-      \ 'sh': 'shellcheck',
-      \}
-
 " hashicorp
 let g:terraform_fmt_on_save=1
 
