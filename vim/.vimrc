@@ -1,6 +1,7 @@
 filetype plugin indent on
 syntax enable
 
+set autochdir
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -35,6 +36,10 @@ set tabpagemax=50
 set ttyfast
 set wildmenu
 set wrap
+
+if has('nvim')
+  set inccommand=split
+endif
 
 let g:mapleader = ','
 
@@ -80,13 +85,17 @@ endif
 
 " ale
 " let g:ale_fix_on_save = 1
-let g:ale_fixers      = {
+let g:ale_fixers = {
       \ '*': ['trim_whitespace', 'remove_trailing_lines'],
-      \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascript': ['prettier'],
       \ 'markdown': ['prettier'],
       \ 'json': ['prettier'],
       \ 'sh': ['shfmt'],
       \ 'yaml': ['prettier'],
+      \}
+
+let g:ale_linters = {
+      \ 'sh': 'shellcheck',
       \}
 
 " hashicorp
@@ -124,7 +133,6 @@ let g:go_highlight_generate_tags = 1
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
-
 
 augroup go
   autocmd!
