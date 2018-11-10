@@ -13,6 +13,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'plasticboy/vim-markdown'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -23,6 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
+
 
 call plug#end()
 
