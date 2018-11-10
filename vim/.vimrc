@@ -1,3 +1,31 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
+Plug 'ervandew/supertab'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'w0rp/ale'
+
+call plug#end()
+
 filetype plugin indent on
 syntax enable
 
