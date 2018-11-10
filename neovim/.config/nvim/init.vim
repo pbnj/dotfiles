@@ -1,1 +1,1 @@
-vim/.vimrc
+/Users/peterbenjamin/.dotfiles/vim/.vimrc
