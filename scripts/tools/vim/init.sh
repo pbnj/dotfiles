@@ -7,28 +7,29 @@
 set -e
 set -x
 
-git submodule add https://github.com/airblade/vim-gitgutter       vim/.vim/pack/bundles/start/vim-gitgutter
-git submodule add https://github.com/cespare/vim-toml             vim/.vim/pack/bundles/start/vim-toml
-git submodule add https://github.com/ekalinin/Dockerfile.vim      vim/.vim/pack/bundles/start/Dockerfile.vim
-git submodule add https://github.com/elzr/vim-json                vim/.vim/pack/bundles/start/vim-json
-git submodule add https://github.com/ervandew/supertab            vim/.vim/pack/bundles/start/supertab
-git submodule add https://github.com/fatih/vim-go                 vim/.vim/pack/bundles/start/vim-go
-git submodule add https://github.com/godlygeek/tabular            vim/.vim/pack/bundles/start/tabular
-git submodule add https://github.com/hashivim/vim-hashicorp-tools vim/.vim/pack/bundles/start/vim-hashicorp-tools
-git submodule add https://github.com/junegunn/fzf                 vim/.vim/pack/bundles/start/fzf
-git submodule add https://github.com/junegunn/fzf.vim             vim/.vim/pack/bundles/start/fzf.vim
-git submodule add https://github.com/mattn/emmet-vim              vim/.vim/pack/bundles/start/emmet-vim
-git submodule add https://github.com/mzlogin/vim-markdown-toc     vim/.vim/pack/bundles/start/vim-markdown-toc
-git submodule add https://github.com/plasticboy/vim-markdown      vim/.vim/pack/bundles/start/vim-markdown
-git submodule add https://github.com/tpope/vim-apathy             vim/.vim/pack/bundles/start/vim-apathy
-git submodule add https://github.com/tpope/vim-commentary         vim/.vim/pack/bundles/start/vim-commentary
-git submodule add https://github.com/tpope/vim-dadbod             vim/.vim/pack/bundles/start/vim-dadbod
-git submodule add https://github.com/tpope/vim-dispatch           vim/.vim/pack/bundles/start/vim-dispatch
-git submodule add https://github.com/tpope/vim-fugitive           vim/.vim/pack/bundles/start/vim-fugitive
-git submodule add https://github.com/tpope/vim-sensible           vim/.vim/pack/bundles/start/vim-sensible
-git submodule add https://github.com/tpope/vim-sleuth             vim/.vim/pack/bundles/start/vim-sleuth
-git submodule add https://github.com/tpope/vim-surround           vim/.vim/pack/bundles/start/vim-surround
-git submodule add https://github.com/tpope/vim-vinegar            vim/.vim/pack/bundles/start/vim-vinegar
-git submodule add https://github.com/vim-airline/vim-airline      vim/.vim/pack/bundles/start/vim-airline
-git submodule add https://github.com/vim-syntastic/syntastic      vim/.vim/pack/bundles/start/syntastic
-git submodule add https://github.com/w0rp/ale                     vim/.vim/pack/bundles/start/ale
+[ -d "$HOME/.vim/" ] && rm -rf "$HOME/.vim"
+mkdir -p "$HOME/.vim/pack/bundles/start"
+
+git clone https://github.com/airblade/vim-gitgutter       $HOME/.vim/pack/bundles/start/vim-gitgutter
+git clone https://github.com/cespare/vim-toml             $HOME/.vim/pack/bundles/start/vim-toml
+git clone https://github.com/ekalinin/Dockerfile.vim      $HOME/.vim/pack/bundles/start/Dockerfile.vim
+git clone https://github.com/elzr/vim-json                $HOME/.vim/pack/bundles/start/vim-json
+git clone https://github.com/ervandew/supertab            $HOME/.vim/pack/bundles/start/supertab
+git clone https://github.com/fatih/vim-go                 $HOME/.vim/pack/bundles/start/vim-go
+git clone https://github.com/godlygeek/tabular            $HOME/.vim/pack/bundles/start/tabular
+git clone https://github.com/hashivim/vim-hashicorp-tools $HOME/.vim/pack/bundles/start/vim-hashicorp-tools
+git clone https://github.com/junegunn/fzf                 $HOME/.vim/pack/bundles/start/fzf
+git clone https://github.com/junegunn/fzf.vim             $HOME/.vim/pack/bundles/start/fzf.vim
+git clone https://github.com/mattn/emmet-vim              $HOME/.vim/pack/bundles/start/emmet-vim
+git clone https://github.com/mzlogin/vim-markdown-toc     $HOME/.vim/pack/bundles/start/vim-markdown-toc
+git clone https://github.com/plasticboy/vim-markdown      $HOME/.vim/pack/bundles/start/vim-markdown
+git clone https://github.com/tpope/vim-apathy             $HOME/.vim/pack/bundles/start/vim-apathy
+git clone https://github.com/tpope/vim-commentary         $HOME/.vim/pack/bundles/start/vim-commentary
+git clone https://github.com/tpope/vim-dispatch           $HOME/.vim/pack/bundles/start/vim-dispatch
+git clone https://github.com/tpope/vim-fugitive           $HOME/.vim/pack/bundles/start/vim-fugitive
+git clone https://github.com/tpope/vim-sensible           $HOME/.vim/pack/bundles/start/vim-sensible
+git clone https://github.com/tpope/vim-sleuth             $HOME/.vim/pack/bundles/start/vim-sleuth
+git clone https://github.com/tpope/vim-surround           $HOME/.vim/pack/bundles/start/vim-surround
+git clone https://github.com/tpope/vim-vinegar            $HOME/.vim/pack/bundles/start/vim-vinegar
+git clone https://github.com/vim-airline/vim-airline      $HOME/.vim/pack/bundles/start/vim-airline
+git clone https://github.com/w0rp/ale                     $HOME/.vim/pack/bundles/start/ale
