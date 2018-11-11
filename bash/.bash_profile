@@ -4,19 +4,6 @@ for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
 done
 unset file
 
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-  # GIT_PROMPT_ONLY_IN_REPO=1
-  GIT_PROMPT_SHOW_UPSTREAM=1
-  # GIT_PROMPT_SHOW_UNTRACKED_FILES=normal # can be no, normal or all; determines counting of untracked files
-  # GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0 # uncomment to avoid printing the number of changed files
-  # GIT_PROMPT_START=...    # uncomment for custom prompt start sequence
-  # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
-  # GIT_PROMPT_THEME_FILE=~/.git-prompt-colors.sh
-  # GIT_PROMPT_THEME=Solarized
-  GIT_PROMPT_THEME=TruncatedPwd_WindowTitle
-  source "$HOME/.bash-git-prompt/gitprompt.sh"
-fi
-
 for opt in direxpand nocaseglob histappend dirspell cdspell autocd globstar; do
   shopt -s $opt &>/dev/null
 done
@@ -29,16 +16,13 @@ fi
 
 ## PYTHON
 if [ -d "$HOME/.local/bin" ]; then
-  export PATH="$HOME/.local/bin:$PATH"
+  export PATH="$PATH:$HOME/.local/bin"
 fi
 if [ -d "$HOME/Library/Python/3.7/bin" ]; then
-  export PATH="$HOME/Library/Python/3.7/bin"
-fi
-if [ -d "$HOME/Library/Python/3.7/bin" ]; then
-  export PATH="$HOME/Library/Python/3.7/bin"
+  export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 fi
 if [ -d "$HOME/Library/Python/2.7/bin" ]; then
-  export PATH="$HOME/Library/Python/2.7/bin"
+  export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 fi
 
 ## RUST
