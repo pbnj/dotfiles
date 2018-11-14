@@ -21,6 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
@@ -38,7 +39,6 @@ set backspace=indent,eol,start
 set complete-=i
 set display+=lastline
 set encoding=utf-8
-set foldmethod=syntax
 set hidden
 set history=1000
 set hlsearch
@@ -114,14 +114,13 @@ endif
 """""""""""""""""""""
 
 " ale
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \ '*': ['trim_whitespace', 'remove_trailing_lines'],
       \ 'javascript': ['prettier'],
       \ 'markdown': ['prettier'],
-      \ 'json': ['prettier'],
+      \ 'json': ['jq'],
       \ 'sh': ['shfmt'],
-      \ 'yaml': ['prettier'],
       \}
 
 " hashicorp
