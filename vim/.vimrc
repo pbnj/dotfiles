@@ -123,6 +123,10 @@ let g:ale_fixers = {
       \ 'json': ['jq'],
       \ 'sh': ['shfmt'],
       \}
+let g:ale_linters = {
+      \ 'go': ['golangserver'],
+      \ 'sh': ['language-server'],
+      \}
 
 " hashicorp
 let g:terraform_fmt_on_save=1
