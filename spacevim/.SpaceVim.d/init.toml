@@ -48,6 +48,9 @@
 [[layers]]
   name = "github"
 
+[[layers]]
+  name = "lsp"
+
 # Languages
 [[layers]]
   name = "lang#go"
