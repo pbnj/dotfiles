@@ -72,7 +72,4 @@
   name = "hashivim/vim-hashicorp-tools"
 
 [[custom_plugins]]
-  name = "vim-syntastic/syntastic"
-
-[[custom_plugins]]
   name = "airblade/vim-gitgutter"
