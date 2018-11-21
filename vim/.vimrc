@@ -1,18 +1,18 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'cespare/vim-toml'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'elzr/vim-json'
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mzlogin/vim-markdown-toc'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
@@ -25,7 +25,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
-
 
 call plug#end()
 
@@ -57,6 +56,7 @@ set scrolloff=1
 set showcmd
 set showmode
 set sidescrolloff=5
+set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
@@ -114,18 +114,14 @@ endif
 """""""""""""""""""""
 
 " ale
-let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
       \ '*': ['trim_whitespace', 'remove_trailing_lines'],
+      \ 'go': ['goimports', 'gofmt'],
       \ 'javascript': ['prettier'],
       \ 'markdown': ['prettier'],
       \ 'json': ['jq'],
       \ 'sh': ['shfmt'],
-      \}
-let g:ale_linters = {
-      \ 'go': ['golangserver'],
-      \ 'sh': ['language-server'],
       \}
 
 " hashicorp
