@@ -8,7 +8,7 @@ Plug 'ervandew/supertab'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mzlogin/vim-markdown-toc'
@@ -126,12 +126,6 @@ let g:ale_fixers = {
 
 " hashicorp
 let g:terraform_fmt_on_save=1
-
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " vim-json
 let g:vim_json_syntax_conceal = 0
