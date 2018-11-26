@@ -44,7 +44,9 @@ git clone https://github.com/neovim/neovim "$HOME/neovim"
 
 (
     cd "$HOME/neovim"
-    make
+    rm -r build
+    make clean
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
     rm -rf "$HOME/neovim"
 )
