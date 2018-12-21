@@ -69,6 +69,7 @@ set wrap
 
 if has('nvim')
   set inccommand=split
+  tnoremap <Esc> <C-\><C-n>
 endif
 
 let g:mapleader = ','
