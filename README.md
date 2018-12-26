@@ -20,13 +20,10 @@ Minimalistic (may be even brutally so):
 
 With `stow`:
 
-    ```sh
     stow {bash,vim,tmux}
-    ```
     
 Without `stow`:
 
-    ```sh
     for file in $(ls $HOME/.dotfiles/bash)
     do
       ln -s $file $HOME/$file
@@ -34,7 +31,6 @@ Without `stow`:
     unset $file
     
     ln -s $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
-    ```
     
 ## Optional
 
