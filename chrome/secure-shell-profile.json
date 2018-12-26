@@ -1,0 +1,16 @@
+{
+  "magic": "nassh-prefs",
+  "version": 1,
+  "hterm": {
+    "default": {
+      "alt-backspace-is-meta-backspace": true,
+      "desktop-notification-bell": true,
+      "background-color": "rgba(0, 0, 0, 1)",
+      "enable-blink": false,
+      "font-family": "\"Source Code Pro\", \"DejaVu Sans Mono\", \"Noto Sans Mono\", \"Everson Mono\", FreeMono, Menlo, Terminal, monospace",
+      "font-size": "13",
+      "foreground-color": "rgba(255, 255, 255, 1)",
+      "user-css-text": "@font-face {\n  font-family: \"Source Code Pro\";\n  src: url(\"https://cdn.rawgit.com/ryanoasis/nerd-fonts/1.2.0/patched-fonts/SourceCodePro/Regular/complete/Sauce Code Pro Nerd Font Complete.ttf\");\n}"
+    }
+  }
+}
