@@ -1,9 +1,5 @@
 $include /etc/inputrc
 
-# set editing-mode vi
-# set show-mode-in-prompt on
-# set vi-cmd-mode-string ":"
-# set vi-ins-mode-string "+"
 set completion-ignore-case On
 set completion-query-items 0
 set mark-symlinked-directories on
