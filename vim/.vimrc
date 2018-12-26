@@ -83,34 +83,6 @@ if maparg('<C-L>', 'n') ==# ''
 endif
 
 """""""""""""""""""""
-"     Languages     "
-"""""""""""""""""""""
-" augroup markdown
-"   autocmd!
-"   autocmd filetype markdown setlocal ts=2 sts=2 sw=2 et
-" augroup END
-
-" augroup yaml
-"   autocmd!
-"   autocmd filetype yaml setlocal ts=2 sts=2 sw=2 et
-" augroup END
-
-" augroup json
-"   autocmd!
-"   autocmd filetype json setlocal ts=2 sts=2 sw=2 et
-" augroup END
-
-" augroup sh
-"   autocmd!
-"   autocmd filetype sh setlocal ts=2 sts=2 sw=2 et
-" augroup END
-
-" augroup vim
-"   autocmd!
-"   autocmd filetype vim setlocal ts=2 sts=2 sw=2 et
-" augroup END
-
-"""""""""""""""""""""
 "      Plugins      "
 """""""""""""""""""""
 
