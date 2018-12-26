@@ -28,7 +28,7 @@ Without `stow`:
     do
       ln -s $file $HOME/$file
     done
-    unset $file
+    unset file
     
     ln -s $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
     
