@@ -120,6 +120,8 @@
 	autocorrect = 1
 [push]
 	default = simple
+[url "git@github.com"]
+	insteadOf = https://github.com
 ; [commit]
 	; gpgsign = true
 [hub]
