@@ -114,16 +114,21 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	editor = vim
+
 [color]
 	ui = auto
+
 [help]
 	autocorrect = 1
+
 [push]
 	default = simple
-[url "git@github.com"]
-	insteadOf = https://github.com
+
+; [url "git@github.com"]
+; 	insteadOf = https://github.com
+
 ; [commit]
-	; gpgsign = true
+; 	gpgsign = true
 [hub]
 	host = github.com
 	protocol = ssh
