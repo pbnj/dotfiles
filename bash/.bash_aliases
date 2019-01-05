@@ -7,7 +7,5 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# Detect which `ls` flavor is in use
-alias sudo='sudo'
-alias ls="ls -alFh"
 alias grep="grep --color=auto"
+alias ls="ls -alFh --color=auto --group-directories-first"

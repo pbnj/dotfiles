@@ -120,11 +120,10 @@
 	autocorrect = 1
 [push]
 	default = simple
-[url "git@github.com:"]
-	insteadOf = "https://github.com/"
-	insteadOf = "github:"
-	insteadOf = "git://github.com/"
-[url "git@gitlab.com:"]
-	insteadOf = "https://gitlab.com/"
 ; [commit]
 	; gpgsign = true
+[hub]
+	host = github.com
+	protocol = ssh
+[credential]
+	helper = store
