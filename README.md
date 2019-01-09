@@ -14,23 +14,22 @@ Minimalistic (may be even brutally so):
 
 - bash: no zsh/fish frameworks or fancy prompts. Few aliases and simple bash prompt.
 - vim: no plugins or `.vimrc` even.
-- tmux: basic key bindings/shortcuts.
+- tmux: no custom key bindings or fancy status bars.
 
 ## Getting Started
 
 With `stow`:
 
-    stow {bash,vim,tmux}
+```
+stow {bash,tmux}
+```
     
 Without `stow`:
 
-    for file in $(ls $HOME/.dotfiles/bash)
-    do
-      ln -s $file $HOME/$file
-    done
-    unset file
-    
-    ln -s $HOME/.dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
+```
+cp -rs bash/* $HOME/
+cp -s tmux/* $HOME/
+```
     
 ## Optional
 
