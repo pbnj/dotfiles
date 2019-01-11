@@ -112,6 +112,15 @@ fi
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 
 ## ALIAS COMPLETION
-[ -f /etc/profile.d/bash_completion.sh ] && source /etc/profile.d/bash_completion.sh
-[ -f /etc/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
-[ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
+# [ -f /etc/profile.d/bash_completion.sh ] && source /etc/profile.d/bash_completion.sh
+# [ -f /etc/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
+# [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
+
+## BREW
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+if type brew 2&>/dev/null; then
+  source "$(brew --prefix)/etc/bash_completion"
+else
+  echo "run: brew install git bash-completion"
+fi
