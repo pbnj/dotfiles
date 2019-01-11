@@ -119,7 +119,7 @@ fi
 ## BREW
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-if type brew 2&>/dev/null; then
+if command -v brew &>/dev/null; then
   source "$(brew --prefix)/etc/bash_completion"
 else
   echo "run: brew install git bash-completion"
