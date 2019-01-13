@@ -1,5 +1,5 @@
 ## SETTINGS
-for file in ~/.{path,bash_prompt,bash_completion.d,exports,bash_aliases,functions,extra}; do
+for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -52,60 +52,50 @@ if command -v hub &>/dev/null; then
 fi
 
 ## GIT
-if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
-  source "/usr/local/etc/bash_completion.d/git-completion.bash"
+if [ -f "/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+	__GIT_PROMPT_DIR="/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share"
+	source "/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
-## SSH
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent() {
-  echo "Initialising new SSH agent..."
-  /usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
-  echo succeeded
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" >/dev/null
-  /usr/bin/ssh-add
-}
-
-## Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" >/dev/null
-  #ps ${SSH_AGENT_PID} doesn't work under cywgin
-  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null || {
-    start_agent
-  }
-else
-  start_agent
-fi
-
-## SSH AUTO-COMPLETION
-sh() {
-  local cur prev opts
-  COMPREPLY=()
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  prev="${COMP_WORDS[COMP_CWORD - 1]}"
-  opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
-
-  COMPREPLY=($(compgen -W "$opts" -- ${cur}))
-  return 0
-}
-complete -F _ssh ssh
-
-## AWS
-AWS_COMP="$(which aws_completer)"
-if [ -n "$AWS_COMP" ]; then
-  complete -C "$AWS_COMP" aws
-fi
+# ## SSH
+# SSH_ENV="$HOME/.ssh/environment"
+#
+# function start_agent() {
+#   echo "Initialising new SSH agent..."
+#   /usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
+#   echo succeeded
+#   chmod 600 "${SSH_ENV}"
+#   . "${SSH_ENV}" >/dev/null
+#   /usr/bin/ssh-add
+# }
+# 
+# ## Source SSH settings, if applicable
+# if [ -f "${SSH_ENV}" ]; then
+#   . "${SSH_ENV}" >/dev/null
+#   #ps ${SSH_AGENT_PID} doesn't work under cywgin
+#   ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null || {
+#     start_agent
+#   }
+# else
+#   start_agent
+# fi
+#
+# ## SSH AUTO-COMPLETION
+# sh() {
+#   local cur prev opts
+#   COMPREPLY=()
+#   cur="${COMP_WORDS[COMP_CWORD]}"
+#   prev="${COMP_WORDS[COMP_CWORD - 1]}"
+#   opts=$(grep '^Host' ~/.ssh/config ~/.ssh/config.d/* 2>/dev/null | grep -v '[?*]' | cut -d ' ' -f 2-)
+# 
+#   COMPREPLY=($(compgen -W "$opts" -- ${cur}))
+#   return 0
+# }
+# complete -F _ssh ssh
 
 ## KUBECTL
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion bash)
-fi
-
-## MINIKUBE
-if command -v minikube &>/dev/null; then
-  source <(minikube completion bash)
 fi
 
 ## FZF
@@ -117,10 +107,6 @@ fi
 # [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 
 ## BREW
+[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+command -v brew &>/dev/null && source "$(brew --prefix)/etc/bash_completion"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-if command -v brew &>/dev/null; then
-  source "$(brew --prefix)/etc/bash_completion"
-else
-  echo "run: brew install git bash-completion"
-fi
