@@ -3,6 +3,7 @@
 ## Brews
 
 brew 'bash'
+brew 'bash-git-prompt'
 brew 'coreutils'
 brew 'docker'
 brew 'fzf'
@@ -13,8 +14,10 @@ brew 'hub'
 brew 'hugo'
 brew 'jq'
 brew 'kubernetes-cli'
+brew 'make'
 brew 'stow'
 brew 'terraform'
+brew 'tmux'
 brew 'vault'
 brew 'vim'
 
