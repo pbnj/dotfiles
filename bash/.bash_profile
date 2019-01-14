@@ -31,12 +31,10 @@ if [ -d "$HOME/.cargo" ]; then
 fi
 
 ## GO
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 if [ -d "/usr/local/go" ]; then
-  export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
-fi
-if [ -d "$HOME/.gimme/envs" ]; then
-  source "$HOME/.gimme/envs/latest.env"
-  export PATH="$HOME/go/bin:$PATH"
+	export PATH="/usr/local/go/bin:$PATH"
 fi
 
 ## NVM
