@@ -15,11 +15,13 @@ brew 'hugo'
 brew 'jq'
 brew 'kubernetes-cli'
 brew 'make'
+brew 'shellcheck'
 brew 'stow'
 brew 'terraform'
 brew 'tmux'
 brew 'vault'
 brew 'vim'
+brew 'yamllint'
 
 ## Casks
 # tap 'caskroom/cask'
