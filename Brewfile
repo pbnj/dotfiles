@@ -5,6 +5,7 @@
 brew 'bash'
 brew 'bash-git-prompt'
 brew 'coreutils'
+brew 'dep'
 brew 'docker'
 brew 'fzf'
 brew 'git'
