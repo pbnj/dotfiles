@@ -49,19 +49,6 @@ if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
 
-## GIT
-if [ -f "/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-	__GIT_PROMPT_DIR="/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share"
-	source "/home/linuxbrew/.linuxbrew/opt/bash-git-prompt/share/gitprompt.sh"
-fi
-
-if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-	__GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
-	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
-fi
-
-export GIT_PROMPT_THEME=Solarized_UserHost
-
 ## KUBECTL
 if command -v kubectl &>/dev/null; then
 	source <(kubectl completion bash)
