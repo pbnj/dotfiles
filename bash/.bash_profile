@@ -60,6 +60,8 @@ if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 	source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
+export GIT_PROMPT_THEME=Solarized_UserHost
+
 ## KUBECTL
 if command -v kubectl &>/dev/null; then
 	source <(kubectl completion bash)
