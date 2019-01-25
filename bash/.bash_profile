@@ -56,7 +56,3 @@ fi
 
 ## FZF
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
-
-## BREW
-[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-command -v brew &>/dev/null && source "$(brew --prefix)/etc/bash_completion"
