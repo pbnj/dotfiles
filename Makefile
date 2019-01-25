@@ -28,9 +28,12 @@ tmux: stow ## Install tmux
 	stow --dir=$(CURDIR)/tmux
 
 GIT_VERSION = $(shell git version | cut -d" " -f3)
+.PHONY: git-prompt
+git-prompt: ## Install git-prompt
+	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
+
 .PHONY: git
 git: stow ## Install git
-	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 	stow --dir=$(CURDIR)/git
 
 .PHONY: go
@@ -48,7 +51,7 @@ endif
 
 .PHONY: stow
 stow: brew ## Installs stow
-ifeq (, $(shell which brew))
+ifeq ($(OSTYPE), "Darwin")
 	brew install stow
 else
 	sudo apt-get update
