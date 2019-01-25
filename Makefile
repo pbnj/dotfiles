@@ -26,6 +26,7 @@ install-neovim: ## Installs neovim
 	sudo add-apt-repository ppa:neovim-ppa/stable
 	sudo apt-get update
 	sudo apt-get install neovim
+	sudo apt-get install python-pip python3-pip
 
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
