@@ -19,6 +19,14 @@ endif
 neovim: stow ## Install neovim
 	stow --dir=$(CURDIR)/neovim
 
+.PHONY: install-neovim
+install-neovim: ## Installs neovim
+	sudo apt-get update
+	sudo apt-get install software-properties-common python-software-properties
+	sudo add-apt-repository ppa:neovim-ppa/stable
+	sudo apt-get update
+	sudo apt-get install neovim
+
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
 	sh $(CURDIR)/scripts/tools/vim/plug.sh
