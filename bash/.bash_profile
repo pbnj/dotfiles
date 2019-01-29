@@ -1,5 +1,5 @@
 ## SETTINGS
-for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra}; do
+for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra,profile}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
