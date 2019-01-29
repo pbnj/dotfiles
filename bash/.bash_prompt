@@ -12,9 +12,9 @@ fi
 function context_kubectl() {
 
 	if kubectl config current-context &>/dev/null; then
-		echo "[$(kubectl config current-context)]"
+		echo "($(kubectl config current-context))"
 	fi
 
 }
 
-PROMPT_COMMAND='__git_ps1 "\n\u@\h:\W" "$(context_kubectl)" "\n\\\$ "'
+PROMPT_COMMAND='__git_ps1 "\n\u@\h:\W $(context_kubectl)" "\n\\\$ "'
