@@ -43,7 +43,16 @@ git-prompt: ## Install git-prompt
 
 .PHONY: git
 git: stow ## Install git
+	sudo apt-get install software-properties-common python-software-properties
+	sudo add-apt-repository ppa:git-core/ppa
+	sudo apt-get update
+	sudo apt-get install git
 	stow --dir=$(CURDIR)/git
+
+.PHONY: git-flow
+git-flow: ## Install git-flow
+	sudo apt install git-flow
+	sudo curl -L -o /etc/bash_completion.d/git-flow-completion.bash https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
 
 .PHONY: go
 GO_VERSION := $(shell curl -fsSL https://golang.org/VERSION?m=text)
