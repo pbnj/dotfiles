@@ -1,5 +1,5 @@
 ## SETTINGS
-for file in ~/.{path,bash_prompt,exports,bash_aliases,functions,extra,profile}; do
+for file in ~/.{bash_prompt,exports,bash_aliases}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -37,13 +37,6 @@ if [ -d "/usr/local/go" ]; then
 	export PATH="/usr/local/go/bin:$PATH"
 fi
 
-## NVM
-if [ -d "$HOME/.nvm" ]; then
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                   # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-fi
-
 ## HUB
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
@@ -56,3 +49,6 @@ fi
 
 ## FZF
 [ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
+
+## BASHRC
+source "$HOME/.bashrc"
