@@ -8,15 +8,15 @@ set -e
 sudo apt update && sudo apt install -y \
     build-essential \
     libssl-dev \
-    libpam-dev
+    libpam-dev \
     wget \
     curl
 
 wget https://dl.duosecurity.com/duo_unix-latest.tar.gz
 tar zxf duo_unix-latest.tar.gz
-cd duo_unix-1.10.1
+cd duo_unix-latest
 
-./configure --with-pam --prefix=/usr && sudo make && sudo make install
+./configure --with-pam --prefix=/usr && make && sudo make install
 
 rm -rf duo_unix*
 
@@ -35,7 +35,7 @@ rm -rf duo_unix*
 #   AuthenticationMethods publickey,keyboard-interactive
 
 # otherwise, edit /etc/pam.d/sshd to add:
-sudo -i echo "auth required pam_duo.so" >> /etc/pam.d/sshd # sometimes pam_duo.so is in /lib64/security instead of lib/security
+sudo -i echo "auth required /lib64/security/pam_duo.so" >> /etc/pam.d/sshd # sometimes pam_duo.so is in /lib64/security instead of lib/security
 sudo -i echo "UsePAM yes" >> /etc/ssh/sshd_config
 sudo -i echo "ChallengeResponseAuthentication yes" >> /etc/ssh/sshd_config
 sudo -i echo "UseDNS no" >> /etc/ssh/sshd_config
