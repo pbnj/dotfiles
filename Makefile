@@ -28,10 +28,6 @@ install-neovim: ## Installs neovim
 	sudo apt-get install neovim
 	sudo apt-get install python-pip python3-pip
 
-.PHONY: vim-plug
-vim-plug: ## Install vim-plug
-	sh $(CURDIR)/scripts/tools/vim/plug.sh
-
 .PHONY: tmux
 tmux: stow ## Install tmux
 	stow --dir=$(CURDIR)/tmux
