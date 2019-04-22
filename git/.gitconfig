@@ -94,6 +94,7 @@
 	# patchit = "!f() { curl -L $1.patch | git am --whitespace=fix; }; f"
 	patchit-please = "!f() { echo $1.patch | sed s_pull/[0-9]*/commits_commit_ | xargs curl -L | git am -3 --whitespace=fix; }; f"
 	# patchit-please = "!f() { curl -L $1.patch | git am -3 --whitespace=fix; }; f"
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -127,6 +128,3 @@
 [hub]
 	host = github.com
 	protocol = ssh
-
-[credential]
-	helper = store
