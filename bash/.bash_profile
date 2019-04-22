@@ -29,3 +29,6 @@ command -v kubectl &> /dev/null && source <(kubectl completion bash)
 
 ## RUST
 export PATH="$HOME/.cargo/bin:$PATH"
+
+## BASH COMPLETION
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
