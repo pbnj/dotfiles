@@ -28,9 +28,6 @@
 [submodule "vim/.vim/pack/pb/start/vim-markdown-toc"]
 	path = vim/.vim/pack/pb/start/vim-markdown-toc
 	url = https://github.com/mzlogin/vim-markdown-toc
-[submodule "vim/.vim/pack/pb/start/vim-markdown"]
-	path = vim/.vim/pack/pb/start/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown
 [submodule "vim/.vim/pack/pb/start/vim-apathy"]
 	path = vim/.vim/pack/pb/start/vim-apathy
 	url = https://github.com/tpope/vim-apathy
