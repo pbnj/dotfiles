@@ -112,63 +112,63 @@
 [submodule "vim/.vim/pack/petermbenjamin/start/vim-airline"]
 	path = vim/.vim/pack/petermbenjamin/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-gitgutter"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-gitgutter
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-gitgutter"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-toml"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-toml
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-toml"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-toml
 	url = https://github.com/cespare/vim-toml
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/Dockerfile.vim"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/Dockerfile.vim
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/Dockerfile.vim"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/Dockerfile.vim
 	url = https://github.com/ekalinin/Dockerfile.vim
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-json"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-json
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-json"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-json
 	url = https://github.com/elzr/vim-json
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/supertab"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/supertab
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/supertab"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/supertab
 	url = https://github.com/ervandew/supertab
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-go"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-go
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-go"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-go
 	url = https://github.com/fatih/vim-go
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/tabular"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/tabular
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/tabular"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-hashicorp-tools"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-hashicorp-tools
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-hashicorp-tools"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-hashicorp-tools
 	url = https://github.com/hashivim/vim-hashicorp-tools
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-markdown-toc"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-markdown-toc
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-markdown-toc"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-markdown-toc
 	url = https://github.com/mzlogin/vim-markdown-toc
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-markdown"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-markdown
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-markdown"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-apathy"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-apathy
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-apathy"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-apathy
 	url = https://github.com/tpope/vim-apathy
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-commentary"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-commentary
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-commentary"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-dadbod"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-dadbod
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-dadbod"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-dispatch"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-dispatch
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-dispatch"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-fugitive"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-fugitive
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-fugitive"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-sensible"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-sensible
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-sensible"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-sleuth"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-sleuth
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-sleuth"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-surround"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-surround
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-surround"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-vinegar"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-vinegar
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-vinegar"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
-[submodule "nvim/.local/share/nvim/petermbenjamin/start/vim-airline"]
-	path = nvim/.local/share/nvim/petermbenjamin/start/vim-airline
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-airline"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
