@@ -172,3 +172,6 @@
 [submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-airline"]
 	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/.vim/pack/petermbenjamin/start/vim-markdown"]
+	path = vim/.vim/pack/petermbenjamin/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
