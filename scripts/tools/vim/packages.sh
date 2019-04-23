@@ -16,6 +16,7 @@ git submodule add https://github.com/fatih/vim-go                 vim/.vim/pack/
 git submodule add https://github.com/godlygeek/tabular            vim/.vim/pack/petermbenjamin/start/tabular
 git submodule add https://github.com/hashivim/vim-hashicorp-tools vim/.vim/pack/petermbenjamin/start/vim-hashicorp-tools
 git submodule add https://github.com/mzlogin/vim-markdown-toc     vim/.vim/pack/petermbenjamin/start/vim-markdown-toc
+git submodule add https://github.com/plasticboy/vim-markdown 	  vim/.vim/pack/petermbenjamin/start/vim-markdown
 git submodule add https://github.com/tpope/vim-apathy             vim/.vim/pack/petermbenjamin/start/vim-apathy
 git submodule add https://github.com/tpope/vim-commentary         vim/.vim/pack/petermbenjamin/start/vim-commentary
 git submodule add https://github.com/tpope/vim-dadbod             vim/.vim/pack/petermbenjamin/start/vim-dadbod
@@ -46,6 +47,7 @@ git submodule add https://github.com/fatih/vim-go                 nvim/.local/sh
 git submodule add https://github.com/godlygeek/tabular            nvim/.local/share/nvim/site/pack/petermbenjamin/start/tabular
 git submodule add https://github.com/hashivim/vim-hashicorp-tools nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-hashicorp-tools
 git submodule add https://github.com/mzlogin/vim-markdown-toc     nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-markdown-toc
+git submodule add https://github.com/plasticboy/vim-markdown 	  nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-markdown
 git submodule add https://github.com/tpope/vim-apathy             nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-apathy
 git submodule add https://github.com/tpope/vim-commentary         nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-commentary
 git submodule add https://github.com/tpope/vim-dadbod             nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-dadbod
