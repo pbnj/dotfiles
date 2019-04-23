@@ -4,8 +4,12 @@ My dotfiles
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Optional](#optional)
+<!-- vim-markdown-toc GFM -->
+
+* [Getting Started](#getting-started)
+* [Optional](#optional)
+
+<!-- vim-markdown-toc -->
 
 ## Getting Started
 
