@@ -14,7 +14,7 @@ My dotfiles
 ## Getting Started
 
 ```
-stow {bash,git}
+stow {bash,git,nvim}
 ```
 
 ## Optional
