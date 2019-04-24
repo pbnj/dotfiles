@@ -175,3 +175,6 @@
 [submodule "vim/.vim/pack/petermbenjamin/start/vim-markdown"]
 	path = vim/.vim/pack/petermbenjamin/start/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown
+[submodule "nvim/.local/share/nvim/site/pack/petermbenjamin/start/vison"]
+	path = nvim/.local/share/nvim/site/pack/petermbenjamin/start/vison
+	url = https://github.com/Quramy/vison
