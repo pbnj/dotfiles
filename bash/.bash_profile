@@ -17,6 +17,7 @@ fi
 ## GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export GO111MODULE=on
 if [ -d "/usr/local/go" ]; then
 	export PATH="$PATH:/usr/local/go/bin"
 fi
