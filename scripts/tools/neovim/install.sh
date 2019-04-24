@@ -6,5 +6,4 @@ sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 sudo apt install -y neovim
 
-mkdir -p $HOME/.config/nvim/
-cp ./init.vim $HOME/.config/nvim/init.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
