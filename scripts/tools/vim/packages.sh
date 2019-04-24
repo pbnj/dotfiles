@@ -7,26 +7,26 @@ set -x
 # Packages under this path will be autoloaded
 # For more info: https://shapeshed.com/vim-packages/
 
-git submodule add https://github.com/airblade/vim-gitgutter 	  vim/.vim/pack/petermbenjamin/start/vim-gitgutter
-git submodule add https://github.com/cespare/vim-toml       	  vim/.vim/pack/petermbenjamin/start/vim-toml
-git submodule add https://github.com/ekalinin/Dockerfile.vim      vim/.vim/pack/petermbenjamin/start/Dockerfile.vim
-git submodule add https://github.com/elzr/vim-json                vim/.vim/pack/petermbenjamin/start/vim-json
-git submodule add https://github.com/ervandew/supertab            vim/.vim/pack/petermbenjamin/start/supertab
-git submodule add https://github.com/fatih/vim-go                 vim/.vim/pack/petermbenjamin/start/vim-go
-git submodule add https://github.com/godlygeek/tabular            vim/.vim/pack/petermbenjamin/start/tabular
-git submodule add https://github.com/hashivim/vim-hashicorp-tools vim/.vim/pack/petermbenjamin/start/vim-hashicorp-tools
-git submodule add https://github.com/mzlogin/vim-markdown-toc     vim/.vim/pack/petermbenjamin/start/vim-markdown-toc
-git submodule add https://github.com/plasticboy/vim-markdown 	  vim/.vim/pack/petermbenjamin/start/vim-markdown
-git submodule add https://github.com/tpope/vim-apathy             vim/.vim/pack/petermbenjamin/start/vim-apathy
-git submodule add https://github.com/tpope/vim-commentary         vim/.vim/pack/petermbenjamin/start/vim-commentary
-git submodule add https://github.com/tpope/vim-dadbod             vim/.vim/pack/petermbenjamin/start/vim-dadbod
-git submodule add https://github.com/tpope/vim-dispatch           vim/.vim/pack/petermbenjamin/start/vim-dispatch
-git submodule add https://github.com/tpope/vim-fugitive           vim/.vim/pack/petermbenjamin/start/vim-fugitive
-git submodule add https://github.com/tpope/vim-sensible           vim/.vim/pack/petermbenjamin/start/vim-sensible
-git submodule add https://github.com/tpope/vim-sleuth             vim/.vim/pack/petermbenjamin/start/vim-sleuth
-git submodule add https://github.com/tpope/vim-surround           vim/.vim/pack/petermbenjamin/start/vim-surround
-git submodule add https://github.com/tpope/vim-vinegar            vim/.vim/pack/petermbenjamin/start/vim-vinegar
-git submodule add https://github.com/vim-airline/vim-airline      vim/.vim/pack/petermbenjamin/start/vim-airline
+# git submodule add https://github.com/airblade/vim-gitgutter 	  vim/.vim/pack/petermbenjamin/start/vim-gitgutter
+# git submodule add https://github.com/cespare/vim-toml       	  vim/.vim/pack/petermbenjamin/start/vim-toml
+# git submodule add https://github.com/ekalinin/Dockerfile.vim      vim/.vim/pack/petermbenjamin/start/Dockerfile.vim
+# git submodule add https://github.com/elzr/vim-json                vim/.vim/pack/petermbenjamin/start/vim-json
+# git submodule add https://github.com/ervandew/supertab            vim/.vim/pack/petermbenjamin/start/supertab
+# git submodule add https://github.com/fatih/vim-go                 vim/.vim/pack/petermbenjamin/start/vim-go
+# git submodule add https://github.com/godlygeek/tabular            vim/.vim/pack/petermbenjamin/start/tabular
+# git submodule add https://github.com/hashivim/vim-hashicorp-tools vim/.vim/pack/petermbenjamin/start/vim-hashicorp-tools
+# git submodule add https://github.com/mzlogin/vim-markdown-toc     vim/.vim/pack/petermbenjamin/start/vim-markdown-toc
+# git submodule add https://github.com/plasticboy/vim-markdown 	  vim/.vim/pack/petermbenjamin/start/vim-markdown
+# git submodule add https://github.com/tpope/vim-apathy             vim/.vim/pack/petermbenjamin/start/vim-apathy
+# git submodule add https://github.com/tpope/vim-commentary         vim/.vim/pack/petermbenjamin/start/vim-commentary
+# git submodule add https://github.com/tpope/vim-dadbod             vim/.vim/pack/petermbenjamin/start/vim-dadbod
+# git submodule add https://github.com/tpope/vim-dispatch           vim/.vim/pack/petermbenjamin/start/vim-dispatch
+# git submodule add https://github.com/tpope/vim-fugitive           vim/.vim/pack/petermbenjamin/start/vim-fugitive
+# git submodule add https://github.com/tpope/vim-sensible           vim/.vim/pack/petermbenjamin/start/vim-sensible
+# git submodule add https://github.com/tpope/vim-sleuth             vim/.vim/pack/petermbenjamin/start/vim-sleuth
+# git submodule add https://github.com/tpope/vim-surround           vim/.vim/pack/petermbenjamin/start/vim-surround
+# git submodule add https://github.com/tpope/vim-vinegar            vim/.vim/pack/petermbenjamin/start/vim-vinegar
+# git submodule add https://github.com/vim-airline/vim-airline      vim/.vim/pack/petermbenjamin/start/vim-airline
 
 # updating packages
 # git submodule update --remote --merge
@@ -58,4 +58,5 @@ git submodule add https://github.com/tpope/vim-sleuth             nvim/.local/sh
 git submodule add https://github.com/tpope/vim-surround           nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-surround
 git submodule add https://github.com/tpope/vim-vinegar            nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-vinegar
 git submodule add https://github.com/vim-airline/vim-airline      nvim/.local/share/nvim/site/pack/petermbenjamin/start/vim-airline
+git submodule add https://github.com/Quramy/vison 		  nvim/.local/share/nvim/site/pack/petermbenjamin/start/vison
 
