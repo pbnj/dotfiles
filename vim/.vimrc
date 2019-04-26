@@ -1,6 +1,32 @@
 set nocompatible
 syntax enable
-filetype plugin on
+filetype plugin on 
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'cespare/vim-toml'             , { 'for': 'toml' }
+Plug 'ekalinin/Dockerfile.vim'      , { 'for': 'dockerfile' }
+Plug 'elzr/vim-json'                , { 'for': 'json' }
+Plug 'fatih/vim-go'                 , { 'for': 'go'           , 'do': ':GoUpdateBinaries' }
+Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'mzlogin/vim-markdown-toc'     , { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown'      , { 'for': 'markdown' }
+Plug 'rust-lang/rust.vim'           , { 'for': 'rust' }
+Plug 'Quramy/vison'                 , { 'for': 'json' }
+Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
 
 set autowrite
 set backspace=indent,eol,start
@@ -8,7 +34,7 @@ set hidden
 set incsearch
 set laststatus=2
 set list
-set listchars+=eol:¬,extends:≥,precedes:≤,tab:>-,trail:-
+set listchars=eol:¬,trail:-,tab:>-,precedes:≤,extends:≥
 set number
 set path+=**
 set scrolloff=1
@@ -24,25 +50,15 @@ let g:netrw_altv=1
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_json_syntax_conceal = 0
+
 map j gj
 map k gk
-nnoremap <leader>b :b <C-d>
-nnoremap <leader>g :grep<space>
 
 " https://www.vi-improved.org/recommendations/
 if executable("ripgrep")
   set grepprg=rg\ --smart-case
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-
-function! StripTrailingWhitespace()
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
-    %s/\s\+$//e
-    normal 'yz<CR>
-    normal `z
-  endif
-endfunction
