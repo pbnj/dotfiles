@@ -38,6 +38,14 @@ set showcmd
 set smartcase
 set wildmenu
 
+let mapleader=","
+
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_json_syntax_conceal = 0
