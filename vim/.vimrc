@@ -34,7 +34,7 @@ set hidden
 set incsearch
 set laststatus=2
 set list
-set listchars=eol:¬,trail:-,tab:>-,precedes:≤,extends:≥
+set listchars=trail:-,tab:>-,precedes:≤,extends:≥
 set number
 set path+=**
 set scrolloff=1
