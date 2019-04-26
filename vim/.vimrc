@@ -1,6 +1,6 @@
 set nocompatible
 syntax enable
-filetype plugin on 
+filetype plugin on
 
 call plug#begin('~/.vim/plugged')
 
