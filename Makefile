@@ -15,6 +15,10 @@ ifneq (, $(shell which brew)) ## if brew is not installed
 endif
 endif
 
+.PHONY: vim-plug
+vim-plug: ## Install vim-plug
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 .PHONY: neovim
 neovim: stow ## Install neovim
 	stow --dir=$(CURDIR)/neovim
