@@ -23,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 
@@ -58,7 +59,7 @@ map j gj
 map k gk
 
 " https://www.vi-improved.org/recommendations/
-if executable("ripgrep")
-  set grepprg=rg\ --smart-case
+if executable("rg")
+  set grepprg=rg\ --smart-case\ --vimgrep
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
