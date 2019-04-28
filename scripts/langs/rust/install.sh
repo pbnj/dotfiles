@@ -3,4 +3,4 @@
 set -e
 set -x
 
-sh <(curl https://sh.rustup.rs -sSf)
+curl https://sh.rustup.rs -sSf | sh
