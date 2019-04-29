@@ -77,8 +77,6 @@ set textwidth=80
 set wildmenu
 set wrapmargin=2
 
-let mapleader=","
-
 map j gj
 map k gk
 
