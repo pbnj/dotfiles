@@ -24,9 +24,6 @@ if has('nvim')
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-airline/vim-airline'
-  Plug 'scrooloose/nerdtree'
-  map <Leader>e :NERDTreeToggle<CR>
-  Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Config Files
   Plug 'cespare/vim-toml' , { 'for': 'toml' }
