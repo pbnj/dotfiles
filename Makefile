@@ -7,6 +7,12 @@ all: bash tmux git go nvm
 bash: stow ## Configures bash
 	stow --dir=$(CURDIR)/bash
 
+.PHONY: rust
+rust: ## Install rust toolchain
+	curl https://sh.rustup.rs -sSf | sh -s -- -y
+	sh scripts/langs/rust/toolchain.sh
+	sh scripts/langs/rust/cargo.sh
+
 .PHONY: brew
 brew: ## Install homebrew
 ifeq ($(UNAME), Darwin) ## if OS is macOS
