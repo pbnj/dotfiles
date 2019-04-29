@@ -50,6 +50,7 @@ if has('nvim')
   let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \   'rust': ['rustfmt'],
+  \   'markdown': ['prettier'],
   \   'yaml': ['prettier'],
   \   'go': ['goimports'],
   \}
@@ -61,7 +62,6 @@ endif " nvim-specific configs
 
 set autowrite
 set backspace=indent,eol,start
-set colorcolumn=80
 set hidden
 set ignorecase
 set incsearch
@@ -73,11 +73,8 @@ set relativenumber
 set scrolloff=1
 set showcmd
 set smartcase
-set textwidth=80
 set wildmenu
 set wrapmargin=2
-
-let mapleader=","
 
 map j gj
 map k gk
