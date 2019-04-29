@@ -20,8 +20,8 @@ vim-plug: ## Install vim-plug
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 .PHONY: neovim
-neovim: stow ## Install neovim
-	stow --dir=$(CURDIR)/nvim
+neovim: ## Install neovim
+	stow nvim
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 .PHONY: install-neovim
