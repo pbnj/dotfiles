@@ -7,9 +7,11 @@ if has('nvim')
 
   " General
   Plug 'airblade/vim-gitgutter'
-  Plug 'ekalinin/Dockerfile.vim'      , { 'for': 'dockerfile' }
+  Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
   Plug 'godlygeek/tabular'
   Plug 'hashivim/vim-hashicorp-tools'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/fzf'
   Plug 'tpope/vim-apathy'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dadbod'
@@ -22,23 +24,22 @@ if has('nvim')
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-airline/vim-airline'
-  Plug 'junegunn/fzf'
   Plug 'scrooloose/nerdtree'
-  map <leader>e :NERDTreeToggle<CR>
+  map <Leader>e :NERDTreeToggle<CR>
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " Config Files
-  Plug 'cespare/vim-toml'             , { 'for': 'toml' }
-  Plug 'Quramy/vison'                 , { 'for': 'json' }
-  Plug 'elzr/vim-json'                , { 'for': 'json' }
+  Plug 'cespare/vim-toml' , { 'for': 'toml' }
+  Plug 'Quramy/vison'     , { 'for': 'json' }
+  Plug 'elzr/vim-json'    , { 'for': 'json' }
   let g:vim_json_syntax_conceal = 0
 
   " Langs
-  Plug 'racer-rust/vim-racer'         , { 'for': 'rust' }
+  Plug 'racer-rust/vim-racer', { 'for': 'rust' }
   Plug 'rust-lang/rust.vim'
-  Plug 'fatih/vim-go'                 , { 'for': 'go'           , 'do': ':GoUpdateBinaries' }
-  Plug 'mzlogin/vim-markdown-toc'     , { 'for': 'markdown' }
-  Plug 'plasticboy/vim-markdown'      , { 'for': 'markdown' }
+  Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+  Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
   let g:vim_markdown_conceal = 0
   let g:vim_markdown_folding_disabled = 1
 
