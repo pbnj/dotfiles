@@ -27,11 +27,13 @@ neovim: ## Install neovim
 .PHONY: install-neovim
 install-neovim: ## Installs neovim
 	sudo apt-get update
-	sudo apt-get install software-properties-common python-software-properties
+	sudo apt-get install software-properties-common
 	sudo add-apt-repository ppa:neovim-ppa/stable
 	sudo apt-get update
 	sudo apt-get install neovim
 	sudo apt-get install python-pip python3-pip
+	pip install neovim
+	pip3 install neovim
 
 .PHONY: tmux
 tmux: stow ## Install tmux
