@@ -46,22 +46,22 @@ augroup END
 augroup yaml
 	autocmd!
 	autocmd FileType yaml setlocal
-		\ ts=2
-		\ sts=2
-		\ sw=2
-		\ expandtab
-		\ formatprg=prettier\ --parser\ yaml\ --prose-wrap=always\ --write
+	\ ts=2
+	\ sts=2
+	\ sw=2
+	\ expandtab
+	\ formatprg=prettier\ --parser\ yaml\ --prose-wrap=always\ --write
 augroup END
 
 " markdown
 augroup markdown
 	autocmd!
 	autocmd FileType markdown setlocal
-		\ ts=2
-		\ sts=2
-		\ sw=2
-		\ expandtab
-		\ formatprg=pandoc\ --from\ gfm\ --to\ gfm\ --columns=80
+	\ ts=2
+	\ sts=2
+	\ sw=2
+	\ expandtab
+	\ formatprg=pandoc\ --from\ gfm\ --to\ gfm\ --columns=80
 augroup END
 
 " https://www.vi-improved.org/recommendations/
