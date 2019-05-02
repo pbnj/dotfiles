@@ -100,10 +100,12 @@ let g:vim_json_syntax_conceal = 0
 " Langs
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
+
+"" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = "goimports"
-" Plug 'myitcv/govim', { 'for': 'go' }
+
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_conceal = 0
