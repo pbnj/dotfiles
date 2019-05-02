@@ -4,6 +4,9 @@ filetype plugin on
 
 call plug#begin('~/.vim/plugged')
 
+set mouse=a
+set ttymouse=sgr
+
 " General
 Plug 'airblade/vim-gitgutter'
 Plug 'Chiel92/vim-autoformat'
@@ -12,6 +15,7 @@ Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
@@ -33,9 +37,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
 let g:lsp_preview_keep_focus = 0
-let g:lsp_async_completion = 1
 " Debugging LSP
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vim-lsp.log')
@@ -67,6 +69,14 @@ if executable('rls')
         \ })
 endif
 
+if executable('bash-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'bash-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+        \ 'whitelist': ['sh'],
+        \ })
+endif
+
 " let g:ale_completion_enabled = 1 " must be set before w0rp/ale is loaded per docs
 " let g:ale_set_quickfix = 1 " in order to navigate with :cnext, :cprevious, :cfirst, :clast, :clist
 " let g:ale_fix_on_save = 1
@@ -77,6 +87,7 @@ endif
 "             \   'markdown': ['prettier'],
 "             \   'yaml': ['prettier'],
 "             \   'go': ['goimports'],
+"             \   'sh': ['shfmt'],
 "             \}
 " Plug 'w0rp/ale'
 
@@ -90,7 +101,9 @@ let g:vim_json_syntax_conceal = 0
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'myitcv/govim'
+let g:go_gocode_unimported_packages = 1
+let g:go_fmt_command = "goimports"
+" Plug 'myitcv/govim', { 'for': 'go' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_conceal = 0
@@ -107,7 +120,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
-set mouse=a
 set nobackup
 set noswapfile
 set nowritebackup
@@ -117,7 +129,6 @@ set relativenumber
 set scrolloff=1
 set showcmd
 set smartcase
-set ttymouse=sgr
 set wildmenu
 
 map j gj
