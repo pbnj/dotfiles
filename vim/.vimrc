@@ -11,6 +11,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set list
+set listchars=tab:>\ ,trail:-
 set nobackup
 set noswapfile
 set nowritebackup
