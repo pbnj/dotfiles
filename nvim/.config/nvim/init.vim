@@ -24,9 +24,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
+
+" NERDTree
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 map <Leader>e :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
 
 " Language Server Protocol Settings
 
