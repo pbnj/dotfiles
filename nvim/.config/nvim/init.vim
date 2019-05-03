@@ -34,28 +34,19 @@ let g:NERDTreeShowHidden=1
 " Language Server Protocol Settings
 
 " LanguageClient-neovim
+" :UpdateRemotePlugins
+Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
 
-" curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-" source $HOME/.bash_profile
-" nvm install --lts
-" npm i -g yarn || curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-autocmd FileType json syntax match Comment +\/\/.\+$+
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'go': ['gopls'],
+    \ }
 
-" " :UpdateRemotePlugins
-" Plug 'autozimu/LanguageClient-neovim', {
-"       \ 'branch': 'next',
-"       \ 'do': 'bash install.sh',
-"       \ }
-
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'go': ['gopls'],
-"     \ }
-
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Config Files
 Plug 'cespare/vim-toml' , { 'for': 'toml' }
