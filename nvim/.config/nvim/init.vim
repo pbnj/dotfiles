@@ -45,6 +45,8 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['gopls'],
     \ }
 
+set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+set completefunc=LanguageClient#complete
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
