@@ -35,27 +35,27 @@ let g:NERDTreeShowHidden=1
 
 " LanguageClient-neovim
 
-" curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-" source $HOME/.bash_profile
-" nvm install --lts
-" npm i -g yarn || curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-autocmd FileType json syntax match Comment +\/\/.\+$+
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" " curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+" " source $HOME/.bash_profile
+" " nvm install --lts
+" " npm i -g yarn || curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+" autocmd FileType json syntax match Comment +\/\/.\+$+
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" " :UpdateRemotePlugins
-" Plug 'autozimu/LanguageClient-neovim', {
-"       \ 'branch': 'next',
-"       \ 'do': 'bash install.sh',
-"       \ }
+" :UpdateRemotePlugins
+Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
 
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'go': ['gopls'],
-"     \ }
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'go': ['gopls'],
+    \ }
 
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 " Config Files
 Plug 'cespare/vim-toml' , { 'for': 'toml' }
@@ -74,6 +74,7 @@ let g:go_fmt_command = "goimports"
 
 " " Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+let g:vmt_list_item_char = "-"
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
