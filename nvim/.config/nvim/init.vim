@@ -34,15 +34,6 @@ let g:NERDTreeShowHidden=1
 " Language Server Protocol Settings
 
 " LanguageClient-neovim
-
-" " curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-" " source $HOME/.bash_profile
-" " nvm install --lts
-" " npm i -g yarn || curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-" autocmd FileType json syntax match Comment +\/\/.\+$+
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 " :UpdateRemotePlugins
 Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
