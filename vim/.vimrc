@@ -94,6 +94,7 @@ set showcmd
 set smartcase
 set wildmenu
 
+let mapleader = ","
 map j gj
 map k gk
 
