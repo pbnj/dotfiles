@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
+Plug 'NLKNguyen/papercolor-theme'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
@@ -80,12 +81,14 @@ let g:vim_markdown_folding_disabled = 1
 call plug#end()
 
 set autowrite
+set background=light
 set backspace=indent,eol,start
 set hidden
 set ignorecase
 set incsearch
 set laststatus=2
 set list
+set listchars=tab:\|\ ,trail:-
 set nobackup
 set noswapfile
 set nowritebackup
@@ -96,6 +99,8 @@ set scrolloff=1
 set showcmd
 set smartcase
 set wildmenu
+
+colorscheme PaperColor
 
 map j gj
 map k gk
