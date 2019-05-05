@@ -13,12 +13,15 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
 Plug 'rhysd/git-messenger.vim'
-nmap <Leader>gm <Plug>(git-messenger)
+nnoremap <Leader>gm <Plug>(git-messenger)
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit %<CR>
+nnoremap <Leader>gp :Gpush<CR>
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
@@ -94,7 +97,6 @@ set showcmd
 set smartcase
 set wildmenu
 
-let mapleader = ","
 map j gj
 map k gk
 
