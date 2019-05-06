@@ -31,14 +31,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'NLKNguyen/papercolor-theme'
 
-" NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
-map <Leader>e :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden=1
-
-" Language Server Protocol Settings
-
+" " Language Server Protocol Settings
 " LanguageClient-neovim
 " :UpdateRemotePlugins
 Plug 'autozimu/LanguageClient-neovim', {
@@ -53,6 +46,7 @@ let g:LanguageClient_serverCommands = {
 
 set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 set completefunc=LanguageClient#complete
+
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
@@ -68,6 +62,8 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 
 " " Go
+" Plug 'myitcv/govim'
+" let g:govim_format_on_save = "goimports"
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports"
 
@@ -100,10 +96,18 @@ set showcmd
 set smartcase
 set wildmenu
 
-colorscheme PaperColor
+" colorscheme PaperColor
 
 map j gj
 map k gk
+
+" netrw
+let g:netrw_altv = 1
+let g:netrw_banner = 0
+let g:netrw_browse_split = 1
+let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
+nnoremap <Leader>e :Lexplore<CR>
 
 " Autocomplete on TAB
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
