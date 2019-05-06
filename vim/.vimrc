@@ -62,8 +62,6 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 
 " " Go
-" Plug 'myitcv/govim'
-" let g:govim_format_on_save = "goimports"
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports"
 
@@ -77,7 +75,6 @@ let g:vim_markdown_folding_disabled = 1
 call plug#end()
 
 set autowrite
-set background=light
 set backspace=indent,eol,start
 set hidden
 set ignorecase
