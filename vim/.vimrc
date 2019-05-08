@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'airblade/vim-gitgutter'
-Plug 'Chiel92/vim-autoformat'
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
@@ -32,23 +31,24 @@ Plug 'vim-airline/vim-airline'
 Plug 'NLKNguyen/papercolor-theme'
 
 " " Language Server Protocol Settings
-" LanguageClient-neovim
-" :UpdateRemotePlugins
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'go': ['gopls'],
-    \ }
-
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-set completefunc=LanguageClient#complete
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" " ALE
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+            \ 'go': ['golint', 'gopls'],
+            \ 'yaml': ['yaml-language-server'],
+            \}
+Plug 'w0rp/ale'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'go': ['goimports'],
+            \ 'rust': ['rustfmt'],
+            \ 'sh': ['shfmt'],
+            \ 'yaml': ['prettier'],
+            \ 'json': ['prettier'],
+            \ 'markdown': ['prettier'],
+            \}
 
 " Config Files
 Plug 'cespare/vim-toml' , { 'for': 'toml' }
@@ -63,7 +63,6 @@ Plug 'rust-lang/rust.vim'
 
 " " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_fmt_command = "goimports"
 
 " " Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
@@ -75,6 +74,7 @@ let g:vim_markdown_folding_disabled = 1
 call plug#end()
 
 set autowrite
+set background=light
 set backspace=indent,eol,start
 set hidden
 set ignorecase
@@ -93,7 +93,7 @@ set showcmd
 set smartcase
 set wildmenu
 
-" colorscheme PaperColor
+colorscheme PaperColor
 
 map j gj
 map k gk
