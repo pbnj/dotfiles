@@ -4,8 +4,28 @@ set -e
 set -x
 
 if command -v apt &>/dev/null; then
-	sudo apt-get remove --purge vim vim-runtime vim-gnome vim-tiny vim-gui-common
-	sudo apt-get install liblua5.1-dev luajit libluajit-5.1 python-dev ruby-dev libperl-dev libncurses5-dev libatk1.0-dev libx11-dev libxpm-dev libxt-dev
+	# Removing old packages
+	sudo apt-get remove --purge \
+		vim \
+		vim-gnome \
+		vim-gui-common \
+		vim-runtime \
+		vim-tiny
+
+	# Installing build dependencies
+	sudo apt-get install -y \
+		libatk1.0-dev \
+		liblua5.1-dev \
+		libluajit-5.1 \
+		libncurses5-dev \
+		libperl-dev \
+		libx11-dev \
+		libxpm-dev \
+		libxt-dev \
+		luajit \
+		python-dev \
+		ruby-dev
+
 	#Optional: so vim can be uninstalled again via `dpkg -r vim`
 	sudo apt-get install checkinstall
 fi
