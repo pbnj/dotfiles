@@ -76,6 +76,7 @@ call plug#end()
 set autowrite
 set background=light
 set backspace=indent,eol,start
+set colorcolumn=+2
 set hidden
 set ignorecase
 set incsearch
