@@ -1,7 +1,7 @@
 UNAME := $(shell uname)
 
 .PHONY: all
-all: bash tmux git go nvm
+all: stow bash tmux git vim go nvm
 
 .PHONY: bash
 bash: stow ## Configures bash
@@ -23,12 +23,19 @@ endif
 
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.vim/autoload/plug.vim \
+		--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+.PHONY: vim
+vim: ## Install vim
+	sh $(CURDIR)/scripts/tools/vim/build.sh
+	stow --dir=$(CURDIR)/vim
 
 .PHONY: neovim
 neovim: ## Install neovim
 	stow nvim
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim \
+		--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 .PHONY: install-neovim
 install-neovim: ## Installs neovim
@@ -48,11 +55,12 @@ tmux: stow ## Install tmux
 GIT_VERSION = $(shell git version | cut -d" " -f3)
 .PHONY: git-prompt
 git-prompt: ## Install git-prompt
-	curl -o $(HOME)/.git-prompt.sh https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
+	curl -o $(HOME)/.git-prompt.sh \
+		https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
 
 .PHONY: git
 git: stow ## Install git
-	sudo apt-get install software-properties-common python-software-properties
+	sudo apt-get install software-properties-common
 	sudo add-apt-repository ppa:git-core/ppa
 	sudo apt-get update
 	sudo apt-get install git
@@ -61,7 +69,8 @@ git: stow ## Install git
 .PHONY: git-flow
 git-flow: ## Install git-flow
 	sudo apt install git-flow
-	sudo curl -L -o /etc/bash_completion.d/git-flow-completion.bash https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
+	sudo curl -L -o /etc/bash_completion.d/git-flow-completion.bash \
+		https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
 
 .PHONY: go
 GO_VERSION := $(shell curl -fsSL https://golang.org/VERSION?m=text)
@@ -77,7 +86,7 @@ ifeq (, $(shell which nvm))
 endif
 
 .PHONY: stow
-stow: brew ## Installs stow
+stow: ## Installs stow
 ifeq ($(OSTYPE), "Darwin")
 	brew install stow
 else
@@ -94,6 +103,15 @@ fzf: ## Installs fzf
 kubectl: ## Install kubectl
 	./scripts/tools/kubernetes/kubectl.sh
 
+.PHONY: docker
+docker: ## Install docker
+	curl -fsSL https://get.docker.com | sh
+
 .PHONY: ssh-tunnel
 ssh-tunnel: ## Creates ssh tunnel
-	/usr/bin/ssh -i ~/.ssh/td_rsa -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -o "ExitOnForwardFailure=yes" -NR 2222:localhost:22 $(SSH_TARGET)
+	/usr/bin/ssh \
+		-i ~/.ssh/td_rsa \
+		-o "ServerAliveInterval 30" \
+		-o "ServerAliveCountMax 3" \
+		-o "ExitOnForwardFailure=yes" \
+		-NR 2222:localhost:22 $(SSH_TARGET)
