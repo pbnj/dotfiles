@@ -93,3 +93,7 @@ fzf: ## Installs fzf
 .PHONY: kubectl
 kubectl: ## Install kubectl
 	./scripts/tools/kubernetes/kubectl.sh
+
+.PHONY: ssh-tunnel
+ssh-tunnel: ## Creates ssh tunnel
+	/usr/bin/ssh -i ~/.ssh/td_rsa -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -o "ExitOnForwardFailure=yes" -NR 2222:localhost:22 $(SSH_TARGET)
