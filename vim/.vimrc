@@ -96,7 +96,7 @@ set showcmd
 set smartcase
 set wildmenu
 
-highlight ColorColumn ctermbg=DarkGrey guibg=DarkGrey
+highlight ColorColumn ctermbg=darkgray
 
 map j gj
 map k gk
