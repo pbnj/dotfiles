@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'airblade/vim-gitgutter'
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
@@ -74,7 +77,6 @@ let g:vim_markdown_folding_disabled = 1
 call plug#end()
 
 set autowrite
-set background=light
 set backspace=indent,eol,start
 set colorcolumn=+2
 set hidden
@@ -94,7 +96,7 @@ set showcmd
 set smartcase
 set wildmenu
 
-colorscheme PaperColor
+highlight ColorColumn ctermbg=DarkGrey guibg=DarkGrey
 
 map j gj
 map k gk
