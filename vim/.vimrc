@@ -98,6 +98,7 @@ set relativenumber
 set scrolloff=1
 set showcmd
 set smartcase
+set textwidth=78
 set wildmenu
 
 highlight ColorColumn ctermbg=darkgray
