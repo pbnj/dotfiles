@@ -14,3 +14,20 @@ export LC_TIME="en_US.UTF-8"
 export HISTCONTROL=ignoredups;
 export MANPAGER="less -X";
 
+# GO
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+if [ -d "/usr/local/go" ]; then
+	export PATH="$PATH:/usr/local/go/bin"
+fi
+
+# CARGO
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# NVM
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
