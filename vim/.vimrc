@@ -30,6 +30,10 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+nnoremap <Leader>e :NERDTreeToggle<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'NLKNguyen/papercolor-theme'
 
@@ -100,12 +104,6 @@ highlight ColorColumn ctermbg=darkgray
 
 map j gj
 map k gk
-
-" netrw
-let g:netrw_altv = 1
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-nnoremap <Leader>e :Lexplore<CR>
 
 " Autocomplete on TAB
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
