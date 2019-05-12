@@ -17,26 +17,15 @@ fi
 ## GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-export GO111MODULE=auto
 if [ -d "/usr/local/go" ]; then
 	export PATH="$PATH:/usr/local/go/bin"
 fi
-
-## HUB
-command -v hub &> /dev/null && eval "$(hub alias -s)"
-
-## KUBECTL
-command -v kubectl &> /dev/null && source <(kubectl completion bash)
-
-## RUST
-export PATH="$HOME/.cargo/bin:$PATH"
-source <(rustup completions bash)
 
 ## BASH COMPLETION
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
