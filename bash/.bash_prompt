@@ -1,21 +1,20 @@
 #!/bin/bash
 
-# if [ -f "$HOME/.git-prompt.sh" ]; then
-# 	source "$HOME/.git-prompt.sh"
+if [ -f "$HOME/.git-prompt.sh" ]; then
+	source "$HOME/.git-prompt.sh"
 
-# 	export GIT_PS1_SHOWCOLORHINTS=true
-# 	export GIT_PS1_SHOWDIRTYSTATE=true
-# 	export GIT_PS1_SHOWUNTRACKEDFILES=true
-# 	export GIT_PS1_SHOWUPSTREAM="auto"
-# fi
+	export GIT_PS1_SHOWCOLORHINTS=true
+	export GIT_PS1_SHOWDIRTYSTATE=true
+	export GIT_PS1_SHOWUNTRACKEDFILES=true
+	export GIT_PS1_SHOWUPSTREAM="auto"
+fi
 
-# function context_kubectl() {
+function context_kubectl() {
 
-# 	if kubectl config current-context &>/dev/null; then
-# 		echo "($(kubectl config current-context))"
-# 	fi
+	if kubectl config current-context &>/dev/null; then
+		echo "($(kubectl config current-context))"
+	fi
 
-# }
+}
 
-# PROMPT_COMMAND='__git_ps1 "\n\u@\h:\W $(context_kubectl)" "\n\\\$ "'
-export PS1="\n\$ "
+PROMPT_COMMAND='__git_ps1 "\n\u@\h:\W $(context_kubectl)" "\n\\\$ "'
