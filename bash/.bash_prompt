@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -f "$HOME/.git-prompt.sh" ]; then
-	source "$HOME/.git-prompt.sh"
+	source "$HOME/.dotfiles/git/.git-prompt.sh"
 
 	export GIT_PS1_SHOWCOLORHINTS=true
 	export GIT_PS1_SHOWDIRTYSTATE=true
