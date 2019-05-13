@@ -6,49 +6,56 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'airblade/vim-gitgutter'
-Plug 'Chiel92/vim-autoformat'
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
+Plug 'rhysd/git-messenger.vim'
+nnoremap <Leader>gm <Plug>(git-messenger)
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit %<CR>
+nnoremap <Leader>gp :Gpush<CR>
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-airline/vim-airline'
-
-" NERDTree
 Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
-map <Leader>e :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
+nnoremap <Leader>e :NERDTreeToggle<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'NLKNguyen/papercolor-theme'
 
-" Language Server Protocol Settings
+" " Language Server Protocol Settings
 
-" LanguageClient-neovim
-" :UpdateRemotePlugins
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'go': ['gopls'],
-    \ }
-
-set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
-set completefunc=LanguageClient#complete
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" " ALE
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+            \ 'go': ['golint', 'gopls'],
+            \ 'yaml': ['yaml-language-server'],
+            \}
+Plug 'w0rp/ale'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'go': ['goimports'],
+            \ 'rust': ['rustfmt'],
+            \ 'sh': ['shfmt'],
+            \ 'yaml': ['prettier'],
+            \ 'json': ['prettier'],
+            \ 'markdown': ['prettier'],
+            \}
 
 " Config Files
 Plug 'cespare/vim-toml' , { 'for': 'toml' }
@@ -63,7 +70,6 @@ Plug 'rust-lang/rust.vim'
 
 " " Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_fmt_command = "goimports"
 
 " " Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
@@ -76,11 +82,13 @@ call plug#end()
 
 set autowrite
 set backspace=indent,eol,start
+set colorcolumn=+2
 set hidden
 set ignorecase
 set incsearch
 set laststatus=2
 set list
+set listchars=tab:\|\ ,trail:-
 set nobackup
 set noswapfile
 set nowritebackup
@@ -90,7 +98,10 @@ set relativenumber
 set scrolloff=1
 set showcmd
 set smartcase
+set textwidth=78
 set wildmenu
+
+highlight ColorColumn ctermbg=darkgray
 
 map j gj
 map k gk
