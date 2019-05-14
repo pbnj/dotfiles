@@ -101,6 +101,7 @@ set smartcase
 set textwidth=78
 set wildmenu
 
+colorscheme Papercolor
 highlight ColorColumn ctermbg=darkgray
 
 map j gj
