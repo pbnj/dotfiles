@@ -1,14 +1,6 @@
-.PHONY: stow
-stow: ## Install stow
-ifeq ($(OSTYPE), "Darwin")
-	brew install stow
-else
-	sudo apt-get update
-	sudo apt-get install -y stow
-endif
 
 .PHONY: git
-git: stow ## Install git
+git: ## Install git
 ifeq ($(OSTYPE), "Darwin")
 	brew install git
 else
@@ -16,7 +8,6 @@ else
 	sudo add-apt-repository ppa:git-core/ppa
 	sudo apt-get update
 	sudo apt-get install git
-	stow --dir=$(CURDIR)/git
 endif
 
 GIT_VERSION = $(shell git version | cut -d" " -f3)
@@ -59,10 +50,6 @@ kubectl: ## Install kubectl
 docker: ## Install docker
 	curl -fsSL https://get.docker.com | sh
 
-.PHONY: tmux
-tmux: stow ## Install tmux
-	stow --dir=$(CURDIR)/tmux
-
 .PHONY: brew
 brew: ## Install homebrew
 ifeq ($(UNAME), Darwin) ## if OS is macOS
@@ -79,7 +66,6 @@ vim-plug: ## Install vim-plug
 .PHONY: vim
 vim: ## Install vim
 	sh $(CURDIR)/scripts/tools/vim/build.sh
-	stow --dir=$(CURDIR)/vim
 
 .PHONY: neovim
 neovim: ## Install neovim
@@ -91,4 +77,28 @@ neovim: ## Install neovim
 	sudo apt-get install python-pip python3-pip
 	pip install neovim
 	pip3 install neovim
-	stow --dir=$(CURDIR)/nvim
+
+.PHONY: stow
+stow: ## Install stow
+ifeq ($(OSTYPE), "Darwin")
+	brew install stow
+else
+	sudo apt-get update
+	sudo apt-get install -y stow
+endif
+
+.PHONY: stow-git
+stow-git: ## Symlink git files to $HOME
+	stow git
+
+.PHONY: stow-tmux
+stow-tmux: ## Symlink tmux files to $HOME
+	stow tmux
+
+.PHONY: stow-vim
+stow-vim: ## Symlink vim files to $HOME
+	stow vim
+
+.PHONY: stow-neovim
+stow-neovim: ## Symlink neovim files to $HOME
+	stow nvim
