@@ -98,9 +98,6 @@
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
-[user]
-	name = Peter Benjamin
-	email = petermbenjamin@gmail.com
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
@@ -128,3 +125,10 @@
 [hub]
 	host = github.com
 	protocol = ssh
+
+[user]
+	name = Peter Benjamin
+	email = petermbenjamin@gmail.com
+
+[includeIf "gitdir:github.td.teradata.com/"]
+	path = ~/.gitconfig.td
