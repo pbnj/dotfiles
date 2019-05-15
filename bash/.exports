@@ -18,7 +18,10 @@ export MANPAGER="less -X";
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 if [ -d "/usr/local/go" ]; then
-	export PATH="$PATH:/usr/local/go/bin"
+	export PATH="/usr/local/go/bin:$PATH"
+fi
+if [ -d "$HOME/.gimme" ]; then
+	source "$HOME/.gimme/envs/latest.env"
 fi
 
 # CARGO
