@@ -89,16 +89,16 @@ endif
 
 .PHONY: stow-git
 stow-git: ## Symlink git files to $HOME
-	stow -R --dir=$(CURDIR)/git
+	stow git
 
 .PHONY: stow-tmux
 stow-tmux: ## Symlink tmux files to $HOME
-	stow -R --dir=$(CURDIR)/tmux
+	stow tmux
 
 .PHONY: stow-vim
 stow-vim: ## Symlink vim files to $HOME
-	stow -R --dir=$(CURDIR)/vim
+	stow vim
 
 .PHONY: stow-neovim
 stow-neovim: ## Symlink neovim files to $HOME
-	stow --dir=$(CURDIR)/nvim
+	stow nvim

@@ -12,7 +12,7 @@ all: stow bash tmux git vim go nvm
 
 .PHONY: bash
 bash: stow ## Configures bash
-	stow --dir=$(CURDIR)/bash
+	stow bash
 
 .PHONY: ssh-tunnel
 ssh-tunnel: ## Create SSH tunnels
