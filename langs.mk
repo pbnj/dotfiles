@@ -12,6 +12,11 @@ crates: ## Install crates
 	cargo +nightly install rust-racer
 	cargo install exa bat ripgrep
 
+.PHONY: gimme
+gimme: ## Install gimme (Go version manager)
+	sudo curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+	sudo chmod +x /usr/local/bin/gimme
+
 .PHONY: go
 GO_VERSION := $(shell curl -fsSL https://golang.org/VERSION?m=text)
 GO_ARCH := linux-amd64
@@ -20,7 +25,7 @@ go: ## Install go
 	curl -fsSL https://dl.google.com/go/$(GO_VERSION).$(GO_ARCH).tar.gz | sudo tar -vxzC /usr/local -f -
 
 .PHONY: go-pkgs
-go-pkgs: ## Install GO packages
+go-pkgs: ## Install Go packages
 	go get -u -v golang.org/x/tools/cmd/gopls
 	GO111MODULE=on go get -u -v sigs.k8s.io/kind@master
 
