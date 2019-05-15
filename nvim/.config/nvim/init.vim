@@ -82,7 +82,6 @@ call plug#end()
 
 set autowrite
 set backspace=indent,eol,start
-set colorcolumn=+2
 set hidden
 set ignorecase
 set incsearch
@@ -98,7 +97,6 @@ set relativenumber
 set scrolloff=1
 set showcmd
 set smartcase
-set textwidth=78
 set wildmenu
 
 " colorscheme PaperColor
