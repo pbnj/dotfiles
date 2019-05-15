@@ -26,6 +26,10 @@ fi
 
 # CARGO
 export PATH="$HOME/.cargo/bin:$PATH"
+if command -v rustup &>/dev/null; then
+	source <(rustup completions bash)
+	source <(rustup completions bash cargo)
+fi
 
 # NVM
 
@@ -34,3 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# K8S
+command -v kubectl &>/dev/null && source <(kubectl completion bash)
+command -v kind &>/dev/null && source <(kind completion bash)
