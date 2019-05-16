@@ -36,7 +36,6 @@ let NERDTreeShowHidden=1
 nnoremap <Leader>e :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
-Plug 'NLKNguyen/papercolor-theme'
 
 " " Language Server Protocol Settings
 
@@ -78,6 +77,8 @@ let g:vmt_list_item_char = "-"
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
+
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
