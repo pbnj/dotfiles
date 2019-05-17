@@ -130,3 +130,9 @@
 [user]
 	name = Peter Benjamin
 	email = petermbenjamin@gmail.com
+
+[url "git@github.td.teradata.com:"]
+	insteadOf = https://github.td.teradata.com/
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
