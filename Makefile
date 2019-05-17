@@ -15,6 +15,7 @@ bash: stow ## Configures bash
 	stow bash
 
 .PHONY: ssh-tunnel
+SSH_TARGET:=""
 ssh-tunnel: ## Create SSH tunnels
 	/usr/bin/ssh \
 		-i ~/.ssh/td_rsa \
