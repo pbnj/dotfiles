@@ -123,6 +123,7 @@
 	default = simple
 
 [hub]
+	host = github.td.teradata.com
 	host = github.com
 	protocol = ssh
 
