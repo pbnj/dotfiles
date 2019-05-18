@@ -1,4 +1,6 @@
-
+####################
+# GIT
+####################
 .PHONY: git
 git: ## Install git
 ifeq ($(OSTYPE), "Darwin")
@@ -41,23 +43,63 @@ fzf: ## Install fzf
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 	~/.fzf/install
 
+####################
+# KUBERNETES
+####################
 .PHONY: kubectl
 kubectl: ## Install kubectl
 	./scripts/tools/kubernetes/kubectl.sh
-	sudo kubectl completion bash > /usr/local/etc/bash_completion.d/kubectl
 
 .PHONY: docker
 docker: ## Install docker
 	curl -fsSL https://get.docker.com | sh
 
+####################
+# MACOS
+####################
 .PHONY: brew
 brew: ## Install homebrew
-ifeq ($(UNAME), Darwin) ## if OS is macOS
-ifneq (, $(shell which brew)) ## if brew is not installed
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-endif
-endif
 
+.PHONY: brews
+brews: ## Install brews
+	brew install \
+		cmake \
+		coreutils \
+		ctags \
+		docker \
+		docker-compose \
+		fzf \
+		git \
+		go \
+		htop \
+		hub \
+		hugo \
+		jq \
+		kubectl \
+		make \
+		mosh \
+		neovim \
+		ripgrep \
+		shellcheck \
+		tmux \
+		vim \
+		yamllint
+
+.PHONY: brew-casks
+brew-casks: ## Install brew casks
+	brew cask install \
+		1password-cli \
+		docker \
+		font-firacode-nerd-font \
+		iterm2 \
+		macvim \
+		virtualbox \
+		wkhtmltopdf
+
+####################
+# VIM
+####################
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -78,6 +120,9 @@ neovim: ## Install neovim
 	pip install neovim
 	pip3 install neovim
 
+####################
+# STOW
+####################
 .PHONY: stow
 stow: ## Install stow
 ifeq ($(OSTYPE), "Darwin")
