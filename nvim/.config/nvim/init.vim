@@ -1,63 +1,92 @@
 set nocompatible
 syntax enable
-filetype plugin on
+filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
 
+""""""""""""""""""""""""""""""""""""""""
 " General
+""""""""""""""""""""""""""""""""""""""""
+""" Git
 Plug 'airblade/vim-gitgutter'
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
-Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'junegunn/fzf'
-Plug 'majutsushi/tagbar'
-Plug 'rhysd/git-messenger.vim'
-nnoremap <Leader>gm <Plug>(git-messenger)
-Plug 'tpope/vim-apathy'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit %<CR>
 nnoremap <Leader>gp :Gpush<CR>
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-rhubarb'
+Plug 'rhysd/git-messenger.vim'
+nnoremap <Leader>gm <Plug>(git-messenger)
+
+""" tpope
+Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+
+""" Miscellaneous Plugins
+Plug 'flazz/vim-colorschemes'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf'
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 nnoremap <Leader>e :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
-" " Langs
-" " Rust
+""" Status & Tabline Settings
+function! StatusLine(current)
+  return (a:current ? crystalline#mode() . '%#Crystalline#' : '%#CrystallineInactive#')
+        \ . ' %f%h%w%m%r '
+        \ . (a:current ? '%#CrystallineFill# %{fugitive#head()} ' : '')
+        \ . '%=' . (a:current ? '%#Crystalline# %{&paste?"PASTE ":""}%{&spell?"SPELL ":""}' . crystalline#mode_color() : '')
+        \ . ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %c%V %P '
+endfunction
+function! TabLine()
+  let l:vimlabel = has("nvim") ?  " NVIM " : " VIM "
+  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+endfunction
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_tabline_fn = 'TabLine'
+let g:crystalline_theme = 'default'
+Plug 'rbong/vim-crystalline'
+
+""""""""""""""""""""""""""""""""""""""""
+"" Languages
+""""""""""""""""""""""""""""""""""""""""
+""" Rust
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 
-" " Go
+""" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" " Markdown
+""" Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 let g:vmt_list_item_char = "-"
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_disabled = 1
 
-"" Config Files
+""" Config Files
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+Plug 'hashivim/vim-hashicorp-tools'
 Plug 'cespare/vim-toml' , { 'for': 'toml' }
 Plug 'Quramy/vison'	, { 'for': 'json' }
 Plug 'elzr/vim-json'	, { 'for': 'json' }
 let g:vim_json_syntax_conceal = 0
 
-"" Language Server Protocol Settings
+""""""""""""""""""""""""""""""""""""""""
+"" Languages Server Protocol Settings
+""""""""""""""""""""""""""""""""""""""""
 """ ALE
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
@@ -76,11 +105,11 @@ let g:ale_fixers = {
             \ 'markdown': ['prettier'],
             \}
 
-Plug 'flazz/vim-colorschemes'
-
 call plug#end()
 
+""""""""""""""""""""""""""""""""""""""""
 "" General Settings
+""""""""""""""""""""""""""""""""""""""""
 set autowrite
 set background=light
 set backspace=indent,eol,start
@@ -99,13 +128,14 @@ set path+=**
 set relativenumber
 set scrolloff=1
 set showcmd
+set showtabline=2
 set smartcase
 set smarttab
 set wildmenu
 
 colorscheme PaperColor
 
-"" Mappings
+""" Mappings
 map j gj
 map k gk
 
@@ -115,13 +145,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-"" FileType Settings
-augroup markdown
-    autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
-augroup END
-augroup yaml
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
-augroup END
+""" FileType Settings
+" augroup markdown
+"     autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
+" augroup END
+" augroup yaml
+"     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
+" augroup END
 
 " https://www.vi-improved.org/recommendations/
 if executable("rg")
