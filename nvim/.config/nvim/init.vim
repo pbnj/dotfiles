@@ -27,7 +27,6 @@ nnoremap <Leader>gp :Gpush<CR>
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
@@ -82,6 +81,7 @@ Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
+"" General Settings
 set autowrite
 set backspace=indent,eol,start
 set hidden
@@ -99,19 +99,26 @@ set relativenumber
 set scrolloff=1
 set showcmd
 set smartcase
+set smarttab
 set wildmenu
 
-" colorscheme PaperColor
-highlight ColorColumn ctermbg=darkgray
-
+"" Mappings
 map j gj
 map k gk
 
-" Autocomplete on TAB
+""" Autocomplete on TAB
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+"" FileType Settings
+augroup markdown
+    autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab smarttab
+augroup END
+augroup yaml
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
+augroup END
 
 " https://www.vi-improved.org/recommendations/
 if executable("rg")
