@@ -36,9 +36,29 @@ nnoremap <Leader>e :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 
-" " Language Server Protocol Settings
+" " Langs
+" " Rust
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim'
 
-" " ALE
+" " Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" " Markdown
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+let g:vmt_list_item_char = "-"
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+
+"" Config Files
+Plug 'cespare/vim-toml' , { 'for': 'toml' }
+Plug 'Quramy/vison'	, { 'for': 'json' }
+Plug 'elzr/vim-json'	, { 'for': 'json' }
+let g:vim_json_syntax_conceal = 0
+
+"" Language Server Protocol Settings
+""" ALE
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
             \ 'go': ['golint', 'gopls'],
@@ -56,34 +76,15 @@ let g:ale_fixers = {
             \ 'markdown': ['prettier'],
             \}
 
-" Config Files
-Plug 'cespare/vim-toml' , { 'for': 'toml' }
-Plug 'Quramy/vison'	, { 'for': 'json' }
-Plug 'elzr/vim-json'	, { 'for': 'json' }
-let g:vim_json_syntax_conceal = 0
-
-" " Langs
-" " Rust
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'rust-lang/rust.vim'
-
-" " Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" " Markdown
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-let g:vmt_list_item_char = "-"
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_folding_disabled = 1
-
 Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
 "" General Settings
 set autowrite
+set background=light
 set backspace=indent,eol,start
+set cursorline
 set hidden
 set ignorecase
 set incsearch
@@ -101,6 +102,8 @@ set showcmd
 set smartcase
 set smarttab
 set wildmenu
+
+colorscheme PaperColor
 
 "" Mappings
 map j gj
