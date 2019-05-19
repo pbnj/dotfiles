@@ -22,4 +22,4 @@ ssh-tunnel: ## Create SSH tunnels
 		-o "ServerAliveInterval 30" \
 		-o "ServerAliveCountMax 3" \
 		-o "ExitOnForwardFailure=yes" \
-		-NR 2222:localhost:22 $(SSH_TARGET)
+		-R 2222:localhost:22 $(SSH_TARGET)
