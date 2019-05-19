@@ -114,7 +114,7 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "" FileType Settings
 augroup markdown
-    autocmd FileType markdown setlocal ts=2 sts=2 sw=2 cc=+2 expandtab smarttab
+    autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
 augroup END
 augroup yaml
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
