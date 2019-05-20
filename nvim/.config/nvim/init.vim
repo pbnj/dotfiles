@@ -117,6 +117,7 @@ set laststatus=2
 set list
 set listchars=tab:\|\ ,trail:-
 set nobackup
+set noshowmode
 set noswapfile
 set nowritebackup
 set number
