@@ -40,24 +40,20 @@ Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 nnoremap <Leader>e :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'vim-airline/vim-airline'
-
-""" Status & Tabline Settings
-function! StatusLine(current)
-  return (a:current ? crystalline#mode() . '%#Crystalline#' : '%#CrystallineInactive#')
-        \ . ' %f%h%w%m%r '
-        \ . (a:current ? '%#CrystallineFill# %{fugitive#head()} ' : '')
-        \ . '%=' . (a:current ? '%#Crystalline# %{&paste?"PASTE ":""}%{&spell?"SPELL ":""}' . crystalline#mode_color() : '')
-        \ . ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %3(%c%V%) %P '
-endfunction
-function! TabLine()
-  let l:vimlabel = has("nvim") ?  " NVIM " : " VIM "
-  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
-endfunction
-let g:crystalline_statusline_fn = 'StatusLine'
-let g:crystalline_tabline_fn = 'TabLine'
-let g:crystalline_theme = 'default'
-Plug 'rbong/vim-crystalline'
+Plug 'itchyny/calendar.vim'
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+			\ 'colorscheme': 'wombat',
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
+			\ },
+			\ 'component_function': {
+			\   'gitbranch': 'fugitive#head'
+			\ },
+			\ }
 
 """"""""""""""""""""""""""""""""""""""""
 "" Languages
@@ -90,20 +86,20 @@ let g:vim_json_syntax_conceal = 0
 """ ALE
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-            \ 'go': ['golint', 'gopls'],
-            \ 'yaml': ['yaml-language-server'],
-            \}
+			\ 'go': ['golint', 'gopls'],
+			\ 'yaml': ['yaml-language-server'],
+			\}
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \ 'go': ['goimports'],
-            \ 'rust': ['rustfmt'],
-            \ 'sh': ['shfmt'],
-            \ 'yaml': ['prettier'],
-            \ 'json': ['prettier'],
-            \ 'markdown': ['prettier'],
-            \}
+			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+			\ 'go': ['goimports'],
+			\ 'rust': ['rustfmt'],
+			\ 'sh': ['shfmt'],
+			\ 'yaml': ['prettier'],
+			\ 'json': ['prettier'],
+			\ 'markdown': ['prettier'],
+			\}
 
 call plug#end()
 
@@ -155,6 +151,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " https://www.vi-improved.org/recommendations/
 if executable("rg")
-    set grepprg=rg\ --smart-case\ --vimgrep
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+	set grepprg=rg\ --smart-case\ --vimgrep
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
