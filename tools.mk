@@ -44,6 +44,25 @@ fzf: ## Install fzf
 	~/.fzf/install
 
 ####################
+# TMUX
+####################
+.PHONY: tmux-build
+tmux-build: ## Build tmux from source (not tested yet)
+	sudo apt update
+	sudo apt install -y git make autoconf automake pkg-config libevent ncurses
+	git clone https://github.com/tmux/tmux.git ${HOME}
+	cd tmux && sh autogen.sh
+	cd tmux && ./configure && make
+	cd tmux && sudo make install
+
+.PHONY: tmux-plugins
+tmux-plugins: ## Install tmux plugins
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	echo set -g @plugin 'tmux-plugins/tpm' >> ${HOME}/.tmux.conf
+	echo set -g @plugin 'tmux-plugins/tmux-sensible' >> ${HOME}/.tmux.conf
+	echo run -b '~/.tmux/plugins/tpm/tpm' >> ${HOME}/.tmux.conf
+
+####################
 # KUBERNETES
 ####################
 .PHONY: kubectl
