@@ -25,7 +25,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 
 """ Miscellaneous Plugins
-Plug 'flazz/vim-colorschemes'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
@@ -38,7 +38,7 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
+			\ 'colorscheme': 'PaperColor',
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ],
 			\             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
@@ -106,10 +106,11 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""
 set autoindent
 set autowrite
-set background=light
+set background=dark
 set backspace=indent,eol,start
 set cursorline
 set hidden
+set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
@@ -131,9 +132,13 @@ set wildmenu
 
 """ Mappings
 let mapleader = ","
+
+"""" Generic Mappings
 map j gj
 map k gk
+nnoremap <Leader><space> :noh<CR>
 
+"""" Git Mappings
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit %<CR>
 nnoremap <Leader>gd :Gdiff<CR>
@@ -151,7 +156,6 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """ Highlights & Colors
-
 colorscheme PaperColor
 
 highlight GitGutterAdd    ctermfg=2
