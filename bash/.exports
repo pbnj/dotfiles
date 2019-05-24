@@ -40,5 +40,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # K8S
+if [ -d "$HOME/.krew" ]; then
+	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 command -v kind &>/dev/null && source <(kind completion bash)
