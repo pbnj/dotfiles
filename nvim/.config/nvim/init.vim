@@ -9,6 +9,10 @@ call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""""""
 """ Git
 Plug 'airblade/vim-gitgutter'
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
+
 Plug 'rhysd/git-messenger.vim'
 
 """ tpope
@@ -172,10 +176,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """ Highlights & Colors
 colorscheme PaperColor
-
-highlight GitGutterAdd    ctermfg=2
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=1
 
 """ FileType Settings
 augroup markdown
