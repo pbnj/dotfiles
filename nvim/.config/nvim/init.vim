@@ -77,6 +77,9 @@ Plug 'cespare/vim-toml' , { 'for': 'toml' }
 Plug 'Quramy/vison'	, { 'for': 'json' }
 Plug 'elzr/vim-json'	, { 'for': 'json' }
 let g:vim_json_syntax_conceal = 0
+Plug 'tsandall/vim-rego', { 'for': 'rego' }
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
 
 """"""""""""""""""""""""""""""""""""""""
 "" Languages Server Protocol Settings
