@@ -47,6 +47,9 @@ let g:lightline = {
 """"""""""""""""""""""""""""""""""""""""
 "" Languages
 """"""""""""""""""""""""""""""""""""""""
+""" Protobuf
+Plug 'uarun/vim-protobuf'
+
 """ Rust
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
