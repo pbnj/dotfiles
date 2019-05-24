@@ -17,4 +17,4 @@ function context_kubectl() {
 
 }
 
-PROMPT_COMMAND='__git_ps1 "\n\u@\h:\W $(context_kubectl)" "\n\\\$ "'
+PROMPT_COMMAND='__git_ps1 "\n\W $(context_kubectl)" "\n\\\$ "'
