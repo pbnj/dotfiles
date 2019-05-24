@@ -29,10 +29,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
-" Plug 'scrooloose/nerdtree'
-" let NERDTreeShowHidden=1
-" nnoremap <Leader>e :NERDTreeToggle<CR>
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/calendar.vim'
 let g:calendar_google_calendar = 1
 let g:calendar_google_task = 1
@@ -78,29 +74,40 @@ Plug 'Quramy/vison'	, { 'for': 'json' }
 Plug 'elzr/vim-json'	, { 'for': 'json' }
 let g:vim_json_syntax_conceal = 0
 Plug 'tsandall/vim-rego', { 'for': 'rego' }
-let g:formatdef_rego = '"opa fmt"'
-let g:formatters_rego = ['rego']
 
 """"""""""""""""""""""""""""""""""""""""
 "" Languages Server Protocol Settings
 """"""""""""""""""""""""""""""""""""""""
 """ ALE
-let g:ale_completion_enabled = 1
-let g:ale_linters = {
-			\ 'go': ['golint', 'gopls'],
-			\ 'yaml': ['yaml-language-server'],
-			\}
-Plug 'w0rp/ale'
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-			\ 'go': ['goimports'],
-			\ 'rust': ['rustfmt'],
-			\ 'sh': ['shfmt'],
-			\ 'yaml': ['prettier'],
-			\ 'json': ['prettier'],
-			\ 'markdown': ['prettier'],
-			\}
+" let g:ale_completion_enabled = 1
+" let g:ale_linters = {
+"			\ 'go': ['golint', 'gopls'],
+"			\ 'yaml': ['yaml-language-server'],
+"			\}
+" Plug 'w0rp/ale'
+" let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+"			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+"			\ 'go': ['goimports'],
+"			\ 'rust': ['rustfmt'],
+"			\ 'sh': ['shfmt'],
+"			\ 'yaml': ['prettier'],
+"			\ 'json': ['prettier'],
+"			\ 'markdown': ['prettier'],
+"			\}
+Plug 'natebosch/vim-lsc'
+let g:lsc_server_commands = {
+			\ 'go': 'gopls'
+			\ }
+let g:lsc_auto_map = v:true
+
+""" AutoFormat
+Plug 'Chiel92/vim-autoformat'
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+au BufWrite * :Autoformat
 
 call plug#end()
 
@@ -111,6 +118,7 @@ set autoindent
 set autowrite
 set background=dark
 set backspace=indent,eol,start
+set completeopt-=preview
 set cursorline
 set hidden
 set hlsearch
@@ -127,6 +135,7 @@ set number
 set path+=**
 set relativenumber
 set scrolloff=1
+set shortmess-=F
 set showcmd
 set showtabline=2
 set smartcase
@@ -167,10 +176,10 @@ highlight GitGutterDelete ctermfg=1
 
 """ FileType Settings
 augroup markdown
-    autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
+	autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
 augroup END
 augroup yaml
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
+	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
 augroup END
 
 " https://www.vi-improved.org/recommendations/
