@@ -100,13 +100,13 @@ nnoremap <leader>q :b#<cr>
 nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
 
 "" Completions
-inoremap <silent> ,f <C-x><C-f>
-inoremap <silent> ,i <C-x><C-i>
-inoremap <silent> ,l <C-x><C-l>
-inoremap <silent> ,n <C-x><C-n>
-inoremap <silent> ,o <C-x><C-o>
-inoremap <silent> ,t <C-x><C-]>
-inoremap <silent> ,u <C-x><C-u>
+inoremap <silent> <Leader>f <C-x><C-f>
+inoremap <silent> <Leader>i <C-x><C-i>
+inoremap <silent> <Leader>l <C-x><C-l>
+inoremap <silent> <Leader>n <C-x><C-n>
+inoremap <silent> <Leader>o <C-x><C-o>
+inoremap <silent> <Leader>t <C-x><C-]>
+inoremap <silent> <Leader>u <C-x><C-u>
 
 "" Strip White Spaces
 function! StripTrailingWhitespace()
