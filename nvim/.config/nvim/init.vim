@@ -7,15 +7,11 @@ call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""
-""" Git
+"" Git
 Plug 'airblade/vim-gitgutter'
-let g:gitgutter_override_sign_column_highlight = 1
-highlight SignColumn guibg=bg
-highlight SignColumn ctermbg=bg
-
 Plug 'rhysd/git-messenger.vim'
 
-""" tpope
+"" tpope
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
@@ -28,58 +24,36 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 
-""" Miscellaneous Plugins
-Plug 'NLKNguyen/papercolor-theme'
+"" Miscellaneous Plugins
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
 Plug 'itchyny/calendar.vim'
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
 Plug 'itchyny/lightline.vim'
-let g:lightline = {
-			\ 'colorscheme': 'PaperColor',
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
-			\ },
-			\ 'component_function': {
-			\   'gitbranch': 'fugitive#head'
-			\ },
-			\ }
 
 """"""""""""""""""""""""""""""""""""""""
 "" Languages
 """"""""""""""""""""""""""""""""""""""""
-""" Protobuf
+"" Protobuf
 Plug 'uarun/vim-protobuf'
 
-""" Rust
+"" Rust
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim'
 
-""" Go
+"" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-""" Markdown
+"" Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-let g:vmt_list_item_char = "-"
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2
 
-""" Config Files
+"" Config Files
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'cespare/vim-toml' , { 'for': 'toml' }
 Plug 'Quramy/vison'	, { 'for': 'json' }
 Plug 'elzr/vim-json'	, { 'for': 'json' }
-let g:vim_json_syntax_conceal = 0
 Plug 'tsandall/vim-rego', { 'for': 'rego' }
 
 """"""""""""""""""""""""""""""""""""""""
@@ -102,24 +76,14 @@ Plug 'tsandall/vim-rego', { 'for': 'rego' }
 "			\ 'json': ['prettier'],
 "			\ 'markdown': ['prettier'],
 "			\}
-Plug 'natebosch/vim-lsc'
-let g:lsc_server_commands = {
-			\ 'go': 'gopls'
-			\ }
-let g:lsc_auto_map = v:true
 
-""" AutoFormat
+Plug 'natebosch/vim-lsc'
 Plug 'Chiel92/vim-autoformat'
-let g:formatdef_rego = '"opa fmt"'
-let g:formatters_rego = ['rego']
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-au BufWrite * :Autoformat
 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
-"" General Settings
+"" SETTINGS: Options
 """"""""""""""""""""""""""""""""""""""""
 set autoindent
 set autowrite
@@ -147,17 +111,23 @@ set showcmd
 set showtabline=2
 set smartcase
 set smarttab
+set updatetime=250
 set wildmenu
 
-""" Mappings
+""""""""""""""""""""""""""""""""""""""""
+"" SETTINGS: Mappings
+""""""""""""""""""""""""""""""""""""""""
+"" Leader
 let mapleader = ","
 
-"""" Generic Mappings
+"" Movements
 map j gj
 map k gk
+
+"" Misc
 nnoremap <Leader><space> :noh<CR>
 
-"""" Git Mappings
+"" Git
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit %<CR>
 nnoremap <Leader>gd :Gdiff<CR>
@@ -168,16 +138,58 @@ nnoremap <Leader>gps :Gpush<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
-""" Autocomplete on TAB
+"" Tab Autocomplete
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-""" Highlights & Colors
-colorscheme PaperColor
+""""""""""""""""""""""""""""""""""""""""
+"" PLUGINS
+""""""""""""""""""""""""""""""""""""""""
+"" Language Server Client
+let g:lsc_server_commands = {
+			\ 'go': 'gopls'
+			\ }
+let g:lsc_auto_map = v:true
 
-""" FileType Settings
+"" AutoFormat
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+au BufWrite * :Autoformat
+
+"" Calendar
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+"" Statusline
+let g:lightline = {
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
+			\ },
+			\ 'component_function': {
+			\   'gitbranch': 'fugitive#head'
+			\ },
+			\ }
+
+"" Markdown
+let g:vmt_list_item_char = "-"
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_follow_anchor = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 2
+
+let g:vim_json_syntax_conceal = 0
+
+""""""""""""""""""""""""""""""""""""""""
+"" FileType Settings
+""""""""""""""""""""""""""""""""""""""""
 augroup markdown
 	autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
 augroup END
