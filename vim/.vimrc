@@ -1,122 +1,144 @@
+""""""""""""""""""""""""""""""""""""""""
+" Inspirations:
+"	- https://github.com/robertmeta/vimfiles/
+"	- https://www.vi-improved.org/recommendations/
+"	- https://shapeshed.com/vim-packages/
+""""""""""""""""""""""""""""""""""""""""
+
 set nocompatible
-syntax enable
 filetype plugin indent on
+syntax enable
 
 """"""""""""""""""""""""""""""""""""""""
-"" SETTINGS: Options
+" SETTINGS: Options
 """"""""""""""""""""""""""""""""""""""""
+
 set autoindent
-set autowrite
 set background=dark
 set backspace=indent,eol,start
+set belloff=all
+set breakindent
 set completeopt-=preview
-set cursorline
+set conceallevel=0
+set fileencoding=utf-8
+set foldclose=all
+set foldcolumn=0
+set foldenable
+set foldlevel=10
+set foldmethod=syntax
+set foldnestmax=1
+set foldopen=all
 set hidden
 set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set linebreak
 set list
 set listchars=tab:\|\ ,trail:-
+set noautoread
+set noautowrite
+set noautowriteall
 set nobackup
+set nocursorline
+set nospell
 set noswapfile
+set novisualbell
 set nowritebackup
 set number
 set path+=**
 set relativenumber
+set ruler
 set scrolloff=1
-set shortmess-=F
 set showcmd
+set showmatch
+set showmode
 set showtabline=2
 set smartcase
 set smarttab
+set splitbelow
+set splitright
 set updatetime=250
 set wildmenu
+set wrap
 
 """"""""""""""""""""""""""""""""""""""""
-"" SETTINGS: Mappings
+" SETTINGS: Mappings
 """"""""""""""""""""""""""""""""""""""""
-"" Leader
-let mapleader = ","
 
-"" Movements
+" Leader
+let g:mapleader="\<space>"
+
+" Git
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
+
+nmap <Leader>Gs :Gstatus<CR>
+nmap <Leader>Gc :Gcommit %<CR>
+nmap <Leader>Gb :Gblame<CR>
+nmap <Leader>Gpull :Gpull<CR>
+nmap <Leader>Gpush :Gpush<CR>
+nmap <Leader>Gbrow :Gbrowse<CR>
+
+" Movements
 map j gj
 map k gk
 
-"" Misc
+" Arrows
+nmap <silent> <left> <esc>:lprev<cr>
+nmap <silent> <right> <esc>:lnext<cr>
+nmap <silent> <up> <esc>:cprev<cr>
+nmap <silent> <down> <esc>:cnext<cr>
+
+" Misc
 nnoremap <Leader><space> :noh<CR>
 
-"" Tab Autocomplete
+" Tab Autocomplete
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 """"""""""""""""""""""""""""""""""""""""
-"" FileType Settings
+" FileType Settings
 """"""""""""""""""""""""""""""""""""""""
-augroup markdown
+
+augroup general
 	autocmd!
-	autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
-augroup END
-augroup yaml
-	autocmd!
-	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
+	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab spell
+	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
-"" Vi-IMproved Recommendations
-"" source: https://www.vi-improved.org/recommendations/
+" Vi-IMproved Recommendations
+" source: https://www.vi-improved.org/recommendations/
 """"""""""""""""""""""""""""""""""""""""
-"" Search
+
+" Search
 if executable("rg")
 	set grepprg=rg\ --smart-case\ --vimgrep
 	set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-"" Statusline
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    +-- current column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
+" Getting around
+nnoremap <Leader>b :b <C-d>
+nnoremap <Leader>e :e **/
+nnoremap <Leader>g :grep<space>
+nnoremap <Leader>i :Ilist<space>
+nnoremap <Leader>j :tjump /
+nnoremap <Leader>m :make<cr>
+nnoremap <Leader>q :b#<cr>
+nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
-"" Getting around
-nnoremap <leader>b :b <C-d>
-nnoremap <leader>e :e **/
-nnoremap <leader>g :grep<space>
-nnoremap <leader>i :Ilist<space>
-nnoremap <leader>j :tjump /
-nnoremap <leader>m :make<cr>
-nnoremap <leader>q :b#<cr>
-nnoremap <leader>t :TTags<space>*<space>*<space>.<cr>
-
-"" Completions
-inoremap <silent> <Leader>f <C-x><C-f>
-inoremap <silent> <Leader>i <C-x><C-i>
-inoremap <silent> <Leader>l <C-x><C-l>
-inoremap <silent> <Leader>n <C-x><C-n>
-inoremap <silent> <Leader>o <C-x><C-o>
-inoremap <silent> <Leader>t <C-x><C-]>
-inoremap <silent> <Leader>u <C-x><C-u>
-
-"" Strip White Spaces
-function! StripTrailingWhitespace()
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
-    %s/\s\+$//e
-    normal 'yz<CR>
-    normal `z
-  endif
-endfunction
-
-autocmd BufWritePre * :call StripTrailingWhitespace()
+" Completions
+inoremap <silent> ;f <c-x><c-f>
+inoremap <silent> ;i <c-x><c-i>
+inoremap <silent> ;l <c-x><c-l>
+inoremap <silent> ;n <c-x><c-n>
+inoremap <silent> ;o <c-x><c-o>
+inoremap <silent> ;p <c-x><c-p>
+inoremap <silent> ;t <c-x><c-]>
+inoremap <silent> ;u <c-x><c-u>
