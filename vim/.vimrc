@@ -150,6 +150,6 @@ inoremap <silent> ;u <c-x><c-u>
 
 augroup general
 	autocmd!
-	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab spell
+	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab
 	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
 augroup END
