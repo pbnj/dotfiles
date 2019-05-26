@@ -1,0 +1,186 @@
+[submodule "vim/vim/pack/plugins/start/vim-gitgutter"]
+	path = vim/vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/vim/pack/plugins/start/vim-toml"]
+	path = vim/vim/pack/plugins/start/vim-toml
+	url = https://github.com/cespare/vim-toml
+[submodule "vim/vim/pack/plugins/start/vim-autoformat"]
+	path = vim/vim/pack/plugins/start/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat
+[submodule "vim/vim/pack/plugins/start/Dockerfile.vim"]
+	path = vim/vim/pack/plugins/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "vim/vim/pack/plugins/start/vim-json"]
+	path = vim/vim/pack/plugins/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "vim/vim/pack/plugins/start/vim-go"]
+	path = vim/vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "vim/vim/pack/plugins/start/tabular"]
+	path = vim/vim/pack/plugins/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "vim/vim/pack/plugins/start/vim-hashicorp-tools"]
+	path = vim/vim/pack/plugins/start/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools
+[submodule "vim/vim/pack/plugins/start/calendar.vim"]
+	path = vim/vim/pack/plugins/start/calendar.vim
+	url = https://github.com/itchyny/calendar.vim
+[submodule "vim/vim/pack/plugins/start/lightline.vim"]
+	path = vim/vim/pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/vim/pack/plugins/start/fzf"]
+	path = vim/vim/pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "vim/vim/pack/plugins/start/tagbar"]
+	path = vim/vim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "vim/vim/pack/plugins/start/vim-markdown-toc"]
+	path = vim/vim/pack/plugins/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "vim/vim/pack/plugins/start/vim-lsc"]
+	path = vim/vim/pack/plugins/start/vim-lsc
+	url = https://github.com/natebosch/vim-lsc
+[submodule "vim/vim/pack/plugins/start/vim-markdown"]
+	path = vim/vim/pack/plugins/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/vim/pack/plugins/start/vison"]
+	path = vim/vim/pack/plugins/start/vison
+	url = https://github.com/Quramy/vison
+[submodule "vim/vim/pack/plugins/start/vim-racer"]
+	path = vim/vim/pack/plugins/start/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+[submodule "vim/vim/pack/plugins/start/rust.vim"]
+	path = vim/vim/pack/plugins/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/vim/pack/plugins/start/vim-apathy"]
+	path = vim/vim/pack/plugins/start/vim-apathy
+	url = https://github.com/tpope/vim-apathy
+[submodule "vim/vim/pack/plugins/start/vim-commentary"]
+	path = vim/vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "vim/vim/pack/plugins/start/vim-dadbod"]
+	path = vim/vim/pack/plugins/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "vim/vim/pack/plugins/start/vim-dispatch"]
+	path = vim/vim/pack/plugins/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "vim/vim/pack/plugins/start/vim-fugitive"]
+	path = vim/vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/vim/pack/plugins/start/vim-git"]
+	path = vim/vim/pack/plugins/start/vim-git
+	url = https://github.com/tpope/vim-git
+[submodule "vim/vim/pack/plugins/start/vim-rhubarb"]
+	path = vim/vim/pack/plugins/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "vim/vim/pack/plugins/start/vim-sensible"]
+	path = vim/vim/pack/plugins/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "vim/vim/pack/plugins/start/vim-surround"]
+	path = vim/vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/vim/pack/plugins/start/vim-unimpaired"]
+	path = vim/vim/pack/plugins/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim/vim/pack/plugins/start/vim-vinegar"]
+	path = vim/vim/pack/plugins/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "vim/vim/pack/plugins/start/vim-rego"]
+	path = vim/vim/pack/plugins/start/vim-rego
+	url = https://github.com/tsandall/vim-rego
+[submodule "vim/vim/pack/plugins/start/vim-protobuf"]
+	path = vim/vim/pack/plugins/start/vim-protobuf
+	url = https://github.com/uarun/vim-protobuf
+[submodule "vim/.vim/pack/plugins/start/vim-gitgutter"]
+	path = vim/.vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/.vim/pack/plugins/start/vim-toml"]
+	path = vim/.vim/pack/plugins/start/vim-toml
+	url = https://github.com/cespare/vim-toml
+[submodule "vim/.vim/pack/plugins/start/vim-autoformat"]
+	path = vim/.vim/pack/plugins/start/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat
+[submodule "vim/.vim/pack/plugins/start/Dockerfile.vim"]
+	path = vim/.vim/pack/plugins/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "vim/.vim/pack/plugins/start/vim-json"]
+	path = vim/.vim/pack/plugins/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "vim/.vim/pack/plugins/start/vim-go"]
+	path = vim/.vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "vim/.vim/pack/plugins/start/tabular"]
+	path = vim/.vim/pack/plugins/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "vim/.vim/pack/plugins/start/vim-hashicorp-tools"]
+	path = vim/.vim/pack/plugins/start/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools
+[submodule "vim/.vim/pack/plugins/start/calendar.vim"]
+	path = vim/.vim/pack/plugins/start/calendar.vim
+	url = https://github.com/itchyny/calendar.vim
+[submodule "vim/.vim/pack/plugins/start/lightline.vim"]
+	path = vim/.vim/pack/plugins/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/.vim/pack/plugins/start/fzf"]
+	path = vim/.vim/pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule "vim/.vim/pack/plugins/start/tagbar"]
+	path = vim/.vim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar
+[submodule "vim/.vim/pack/plugins/start/vim-markdown-toc"]
+	path = vim/.vim/pack/plugins/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "vim/.vim/pack/plugins/start/vim-lsc"]
+	path = vim/.vim/pack/plugins/start/vim-lsc
+	url = https://github.com/natebosch/vim-lsc
+[submodule "vim/.vim/pack/plugins/start/vim-markdown"]
+	path = vim/.vim/pack/plugins/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/.vim/pack/plugins/start/vison"]
+	path = vim/.vim/pack/plugins/start/vison
+	url = https://github.com/Quramy/vison
+[submodule "vim/.vim/pack/plugins/start/vim-racer"]
+	path = vim/.vim/pack/plugins/start/vim-racer
+	url = https://github.com/racer-rust/vim-racer
+[submodule "vim/.vim/pack/plugins/start/rust.vim"]
+	path = vim/.vim/pack/plugins/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/.vim/pack/plugins/start/vim-apathy"]
+	path = vim/.vim/pack/plugins/start/vim-apathy
+	url = https://github.com/tpope/vim-apathy
+[submodule "vim/.vim/pack/plugins/start/vim-commentary"]
+	path = vim/.vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "vim/.vim/pack/plugins/start/vim-dadbod"]
+	path = vim/.vim/pack/plugins/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "vim/.vim/pack/plugins/start/vim-dispatch"]
+	path = vim/.vim/pack/plugins/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "vim/.vim/pack/plugins/start/vim-fugitive"]
+	path = vim/.vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/.vim/pack/plugins/start/vim-git"]
+	path = vim/.vim/pack/plugins/start/vim-git
+	url = https://github.com/tpope/vim-git
+[submodule "vim/.vim/pack/plugins/start/vim-rhubarb"]
+	path = vim/.vim/pack/plugins/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "vim/.vim/pack/plugins/start/vim-sensible"]
+	path = vim/.vim/pack/plugins/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
+[submodule "vim/.vim/pack/plugins/start/vim-surround"]
+	path = vim/.vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/.vim/pack/plugins/start/vim-unimpaired"]
+	path = vim/.vim/pack/plugins/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim/.vim/pack/plugins/start/vim-vinegar"]
+	path = vim/.vim/pack/plugins/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule "vim/.vim/pack/plugins/start/vim-rego"]
+	path = vim/.vim/pack/plugins/start/vim-rego
+	url = https://github.com/tsandall/vim-rego
+[submodule "vim/.vim/pack/plugins/start/vim-protobuf"]
+	path = vim/.vim/pack/plugins/start/vim-protobuf
+	url = https://github.com/uarun/vim-protobuf
