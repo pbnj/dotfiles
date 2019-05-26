@@ -69,11 +69,27 @@ if executable("rg")
 endif
 
 """"""""""""""""""""""""""""""""""""""""
+" SETTINGS: Plugins
+""""""""""""""""""""""""""""""""""""""""
+
+" NERDTree
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeDirArrowCollapsible="-"
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeHijackNetrw=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeShowHidden=1
+
+""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
 """"""""""""""""""""""""""""""""""""""""
 
 " Leader
 let g:mapleader="\<space>"
+
+" NERDTree
+nnoremap - :NERDTreeFocus<cr>
 
 " Git
 nmap <Leader>hn <Plug>GitGutterNextHunk
@@ -129,7 +145,7 @@ inoremap <silent> ;t <c-x><c-]>
 inoremap <silent> ;u <c-x><c-u>
 
 """"""""""""""""""""""""""""""""""""""""
-" FileType Settings
+" SETTINGS: FileTypes
 """"""""""""""""""""""""""""""""""""""""
 
 augroup general
