@@ -62,6 +62,12 @@ set updatetime=250
 set wildmenu
 set wrap
 
+" Search
+if executable("rg")
+	set grepprg=rg\ --smart-case\ --vimgrep
+	set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
 """"""""""""""""""""""""""""""""""""""""
@@ -102,27 +108,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-""""""""""""""""""""""""""""""""""""""""
-" FileType Settings
-""""""""""""""""""""""""""""""""""""""""
-
-augroup general
-	autocmd!
-	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab spell
-	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
-augroup END
-
-""""""""""""""""""""""""""""""""""""""""
-" Vi-IMproved Recommendations
-" source: https://www.vi-improved.org/recommendations/
-""""""""""""""""""""""""""""""""""""""""
-
-" Search
-if executable("rg")
-	set grepprg=rg\ --smart-case\ --vimgrep
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
-
 " Getting around
 nnoremap <Leader>b :b <C-d>
 nnoremap <Leader>e :e **/
@@ -142,3 +127,13 @@ inoremap <silent> ;o <c-x><c-o>
 inoremap <silent> ;p <c-x><c-p>
 inoremap <silent> ;t <c-x><c-]>
 inoremap <silent> ;u <c-x><c-u>
+
+""""""""""""""""""""""""""""""""""""""""
+" FileType Settings
+""""""""""""""""""""""""""""""""""""""""
+
+augroup general
+	autocmd!
+	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab spell
+	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
+augroup END
