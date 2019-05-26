@@ -184,3 +184,9 @@
 [submodule "vim/.vim/pack/plugins/start/vim-protobuf"]
 	path = vim/.vim/pack/plugins/start/vim-protobuf
 	url = https://github.com/uarun/vim-protobuf
+[submodule "vim/.vim/pack/plugins/start/nerdtree"]
+	path = vim/.vim/pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/.vim/pack/plugins/start/nerdtree-git-plugin"]
+	path = vim/.vim/pack/plugins/start/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin
