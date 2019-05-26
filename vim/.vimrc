@@ -81,6 +81,10 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 
+" Calendar
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
 """"""""""""""""""""""""""""""""""""""""
