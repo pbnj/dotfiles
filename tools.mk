@@ -1,6 +1,7 @@
 ####################
 # GIT
 ####################
+
 .PHONY: git
 git: ## Install git
 ifeq ($(OSTYPE), "Darwin")
@@ -46,6 +47,7 @@ fzf: ## Install fzf
 ####################
 # TMUX
 ####################
+
 .PHONY: tmux-build
 tmux-build: ## Build tmux from source (not tested yet)
 	sudo apt update
@@ -76,6 +78,7 @@ docker: ## Install docker
 ####################
 # MACOS
 ####################
+
 .PHONY: brew
 brew: ## Install homebrew
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -119,6 +122,7 @@ brew-casks: ## Install brew casks
 ####################
 # VIM
 ####################
+
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -150,6 +154,7 @@ neovim-install: ## Install neovim
 ####################
 # STOW
 ####################
+
 .PHONY: stow
 stow: ## Install stow
 ifeq ($(OSTYPE), "Darwin")
