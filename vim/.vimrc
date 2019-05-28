@@ -135,7 +135,7 @@ let g:calendar_google_task = 1
 let g:mapleader="\<space>"
 
 " NERDTree
-nnoremap - :NERDTreeFocus<cr>
+nnoremap - :NERDTreeToggle<cr>
 
 " Git
 nmap <Leader>hn <Plug>GitGutterNextHunk
