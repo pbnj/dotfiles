@@ -2,12 +2,54 @@
 " Inspirations:
 "	- https://github.com/robertmeta/vimfiles/
 "	- https://www.vi-improved.org/recommendations/
-"	- https://shapeshed.com/vim-packages/
 """"""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 filetype plugin indent on
 syntax enable
+
+""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
+Plug 'cespare/vim-toml'
+Plug 'Chiel92/vim-autoformat'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'itchyny/calendar.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'natebosch/vim-lsc'
+Plug 'plasticboy/vim-markdown'
+Plug 'Quramy/vison'
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tsandall/vim-rego'
+Plug 'uarun/vim-protobuf'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -102,12 +144,12 @@ nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hu <Plug>GitGutterUndoHunk
 nmap <Leader>hv <Plug>GitGutterPreviewHunk
 
-nmap <Leader>Gs :Gstatus<CR>
-nmap <Leader>Gc :Gcommit %<CR>
-nmap <Leader>Gb :Gblame<CR>
-nmap <Leader>Gpull :Gpull<CR>
-nmap <Leader>Gpush :Gpush<CR>
-nmap <Leader>Gbrow :Gbrowse<CR>
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit %<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gpull :Gpull<CR>
+nmap <Leader>gpush :Gpush<CR>
+nmap <Leader>gbrow :Gbrowse<CR>
 
 " Movements
 map j gj
@@ -131,7 +173,6 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " Getting around
 nnoremap <Leader>b :b <C-d>
 nnoremap <Leader>e :e **/
-nnoremap <Leader>g :grep<space>
 nnoremap <Leader>i :Ilist<space>
 nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
@@ -157,3 +198,11 @@ augroup general
 	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab
 	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
 augroup END
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Colors & Highlights
+""""""""""""""""""""""""""""""""""""""""
+
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
