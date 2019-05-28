@@ -190,3 +190,6 @@
 [submodule "vim/.vim/pack/plugins/start/nerdtree-git-plugin"]
 	path = vim/.vim/pack/plugins/start/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
+[submodule "vim/.vim/pack/plugins/start/vim-rooter"]
+	path = vim/.vim/pack/plugins/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter
