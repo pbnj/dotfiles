@@ -4,6 +4,7 @@ set -e
 set -x
 
 git submodule add https://github.com/airblade/vim-gitgutter		vim/.vim/pack/plugins/start/vim-gitgutter
+git submodule add https://github.com/airblade/vim-rooter		vim/.vim/pack/plugins/start/vim-rooter
 git submodule add https://github.com/cespare/vim-toml			vim/.vim/pack/plugins/start/vim-toml
 git submodule add https://github.com/Chiel92/vim-autoformat		vim/.vim/pack/plugins/start/vim-autoformat
 git submodule add https://github.com/ekalinin/Dockerfile.vim		vim/.vim/pack/plugins/start/Dockerfile.vim
