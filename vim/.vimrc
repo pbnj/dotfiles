@@ -204,6 +204,7 @@ augroup general
 	autocmd!
 	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab
 	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
+	autocmd BufWrite * :Autoformat
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
