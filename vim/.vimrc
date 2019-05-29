@@ -123,9 +123,16 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 
-" Calendar
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
+" vim-rooter
+let g:rooter_use_lcd = 1
+
+" vim-markdown-toc
+let g:vmt_list_item_char = '-'
+
+" Autoformat
+
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
