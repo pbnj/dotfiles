@@ -11,6 +11,3 @@ alias grep="grep --color=auto"
 
 alias ll="ls -alFh --color=auto --group-directories-first"
 alias vi="vim -u NONE"
-
-## HUB
-command -v hub &>/dev/null && eval "$(hub alias -s)"
