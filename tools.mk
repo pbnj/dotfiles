@@ -164,6 +164,9 @@ else
 	sudo apt-get install -y stow
 endif
 
+.PHONY: stow-all
+stow-all: stow-git stow-tmux stow-vim stow-neovim ## Stow all files
+
 .PHONY: stow-git
 stow-git: ## Symlink git files to $HOME
 	stow git
