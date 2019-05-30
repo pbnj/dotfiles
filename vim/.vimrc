@@ -142,6 +142,8 @@ let g:rooter_use_lcd = 1
 let g:vmt_list_item_char = '-'
 
 " Autoformat
+let g:autoformat_autoindent=0
+let g:autoformat_retab=0
 
 let g:formatdef_rego = '"opa fmt"'
 let g:formatters_rego = ['rego']
