@@ -1,17 +1,38 @@
-set nocompatible
-syntax enable
-filetype plugin indent on
+""""""""""""""""""""""""""""""""""""""""
+" Inspirations:
+"       - https://github.com/robertmeta/vimfiles/
+"       - https://www.vi-improved.org/recommendations/
+""""""""""""""""""""""""""""""""""""""""
 
+set nocompatible
+filetype plugin indent on
+syntax enable
+
+""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-""""""""""""""""""""""""""""""""""""""""
-" General
-""""""""""""""""""""""""""""""""""""""""
-"" Git
 Plug 'airblade/vim-gitgutter'
-Plug 'rhysd/git-messenger.vim'
-
-"" tpope
+Plug 'airblade/vim-rooter'
+Plug 'cespare/vim-toml'
+Plug 'Chiel92/vim-autoformat'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'natebosch/vim-lsc'
+Plug 'plasticboy/vim-markdown'
+Plug 'Quramy/vison'
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod'
@@ -23,182 +44,188 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-
-"" Miscellaneous Plugins
-Plug 'godlygeek/tabular'
-Plug 'junegunn/fzf'
-Plug 'majutsushi/tagbar'
-Plug 'itchyny/calendar.vim'
-Plug 'itchyny/lightline.vim'
-
-""""""""""""""""""""""""""""""""""""""""
-"" Languages
-""""""""""""""""""""""""""""""""""""""""
-"" Protobuf
+Plug 'tsandall/vim-rego'
 Plug 'uarun/vim-protobuf'
-
-"" Rust
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'rust-lang/rust.vim'
-
-"" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-"" Markdown
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-
-"" Config Files
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'cespare/vim-toml' , { 'for': 'toml' }
-Plug 'Quramy/vison'	, { 'for': 'json' }
-Plug 'elzr/vim-json'	, { 'for': 'json' }
-Plug 'tsandall/vim-rego', { 'for': 'rego' }
-
-""""""""""""""""""""""""""""""""""""""""
-"" Languages Server Protocol Settings
-""""""""""""""""""""""""""""""""""""""""
-""" ALE
-" let g:ale_completion_enabled = 1
-" let g:ale_linters = {
-"			\ 'go': ['golint', 'gopls'],
-"			\ 'yaml': ['yaml-language-server'],
-"			\}
-" Plug 'w0rp/ale'
-" let g:ale_fix_on_save = 1
-" let g:ale_fixers = {
-"			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-"			\ 'go': ['goimports'],
-"			\ 'rust': ['rustfmt'],
-"			\ 'sh': ['shfmt'],
-"			\ 'yaml': ['prettier'],
-"			\ 'json': ['prettier'],
-"			\ 'markdown': ['prettier'],
-"			\}
-
-Plug 'natebosch/vim-lsc'
-Plug 'Chiel92/vim-autoformat'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
-"" SETTINGS: Options
+" SETTINGS: Options
 """"""""""""""""""""""""""""""""""""""""
+
 set autoindent
-set autowrite
 set background=dark
 set backspace=indent,eol,start
+set belloff=all
+set breakindent
 set completeopt-=preview
-set cursorline
+set conceallevel=0
+set fileencoding=utf-8
+set foldclose=all
+set foldcolumn=0
+set foldenable
+set foldlevel=10
+set foldmethod=syntax
+set foldnestmax=1
+set foldopen=all
 set hidden
 set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set linebreak
 set list
 set listchars=tab:\|\ ,trail:-
+set noautoread
+set noautowrite
+set noautowriteall
 set nobackup
+set nocursorline
 set noshowmode
+set nospell
 set noswapfile
+set novisualbell
 set nowritebackup
 set number
 set path+=**
 set relativenumber
+set ruler
 set scrolloff=1
-set shortmess-=F
 set showcmd
+set showmatch
+set showmode
 set showtabline=2
 set smartcase
 set smarttab
+set splitbelow
+set splitright
 set updatetime=250
 set wildmenu
+set wrap
+
+" Search
+if executable("rg")
+  set grepprg=rg\ --smart-case\ --vimgrep
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
 
 """"""""""""""""""""""""""""""""""""""""
-"" SETTINGS: Mappings
+" SETTINGS: Plugins
 """"""""""""""""""""""""""""""""""""""""
-"" Leader
-let mapleader = ","
 
-"" Movements
+" NERDTree
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeDirArrowCollapsible="-"
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeHijackNetrw=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeShowHidden=1
+
+" lightline
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+" vim-rooter
+let g:rooter_use_lcd = 1
+
+" vim-markdown-toc
+let g:vmt_list_item_char = '-'
+
+" Autoformat
+let g:autoformat_autoindent=0
+let g:autoformat_retab=0
+
+let g:formatdef_rego = '"opa fmt"'
+let g:formatters_rego = ['rego']
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Mappings
+""""""""""""""""""""""""""""""""""""""""
+
+" Leader
+let g:mapleader="\<space>"
+
+" NERDTree
+nnoremap - :NERDTreeToggle<cr>
+
+" Git
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
+
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit %<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gpull :Gpull<CR>
+nmap <Leader>gpush :Gpush<CR>
+nmap <Leader>gbrow :Gbrowse<CR>
+
+" Movements
 map j gj
 map k gk
 
-"" Misc
+" Arrows
+nmap <silent> <left> <esc>:lprev<cr>
+nmap <silent> <right> <esc>:lnext<cr>
+nmap <silent> <up> <esc>:cprev<cr>
+nmap <silent> <down> <esc>:cnext<cr>
+
+" Misc
 nnoremap <Leader><space> :noh<CR>
 
-"" Git
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gc :Gcommit %<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gm <Plug>(git-messenger)
-nnoremap <Leader>gpl :Gpull<CR>
-nnoremap <Leader>gps :Gpush<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-
-"" Tab Autocomplete
+" Tab Autocomplete
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-""""""""""""""""""""""""""""""""""""""""
-"" PLUGINS
-""""""""""""""""""""""""""""""""""""""""
-"" Language Server Client
-let g:lsc_server_commands = {
-			\ 'go': 'gopls'
-			\ }
-let g:lsc_auto_map = v:true
+" Getting around
+nnoremap <Leader>b :b <C-d>
+nnoremap <Leader>e :e **/
+nnoremap <Leader>i :Ilist<space>
+nnoremap <Leader>j :tjump /
+nnoremap <Leader>m :make<cr>
+nnoremap <Leader>q :b#<cr>
+nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
-"" AutoFormat
-let g:formatdef_rego = '"opa fmt"'
-let g:formatters_rego = ['rego']
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-au BufWrite * :Autoformat
-
-"" Calendar
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-
-"" Statusline
-let g:lightline = {
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'readonly', 'filename', 'modified', 'gitbranch' ] ]
-			\ },
-			\ 'component_function': {
-			\   'gitbranch': 'fugitive#head'
-			\ },
-			\ }
-
-"" Markdown
-let g:vmt_list_item_char = "-"
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2
-
-let g:vim_json_syntax_conceal = 0
+" Completions
+inoremap <silent> ;f <c-x><c-f>
+inoremap <silent> ;i <c-x><c-i>
+inoremap <silent> ;l <c-x><c-l>
+inoremap <silent> ;n <c-x><c-n>
+inoremap <silent> ;o <c-x><c-o>
+inoremap <silent> ;p <c-x><c-p>
+inoremap <silent> ;t <c-x><c-]>
+inoremap <silent> ;u <c-x><c-u>
 
 """"""""""""""""""""""""""""""""""""""""
-"" FileType Settings
+" SETTINGS: FileTypes
 """"""""""""""""""""""""""""""""""""""""
-augroup markdown
-	autocmd FileType markdown setlocal ts=2 sts=2 sw=2 tw=80 expandtab smarttab
-augroup END
-augroup yaml
-	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab smarttab
+
+augroup general
+  autocmd!
+  autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
+  autocmd BufWrite * :Autoformat
 augroup END
 
-" https://www.vi-improved.org/recommendations/
-if executable("rg")
-	set grepprg=rg\ --smart-case\ --vimgrep
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Colors & Highlights
+""""""""""""""""""""""""""""""""""""""""
+
+highlight GitGutterAdd    ctermfg=2
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=1
