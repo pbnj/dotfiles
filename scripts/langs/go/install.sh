@@ -3,13 +3,13 @@
 set -e
 set -x
 
-GO_STABLE_VERSION="$(curl https://golang.org/VERSION?m=text)"
-GO_TAR_GZ="${GO_STABLE_VERSION}.linux-amd64.tar.gz"
-GO_URL_DL="https://dl.google.com/go/${GO_TAR_GZ}"
+GO_LATEST="$(curl -fsSL https://golang.org/VERSION?m=text)"
+GO_OS="$(uname | tr '[:upper]' '[:lower:]')"
+GO_ARCH="amd64"
+GO_TAR="${GO_LATEST}.${GO_OS}-${GO_ARCH}.tar.gz"
+GO_URL="https://dl.google.com/go/${GO_TAR_GZ}"
 
-curl -Lo "$HOME/${GO_TAR_GZ}" "${GO_URL_DL}"
-sudo tar -C /usr/local -xzvf "$HOME/$GO_TAR_GZ"
-rm -rf "$HOME/${GO_TAR_GZ}"
+curl -fsSL https://dl.google.com/go/$(curl -fsSL https://golang.org/VERSION?m=text).$(uname | tr '[:upper:]' '[:lower:]')-amd64.tar.gz | sudo tar -C /usr/local -vxzf -
 
-echo "To complete Go install, run:"
-echo "\tsource $HOME/.bash_profile"
+echo "To complete Go install:"
+echo "\texport PATH=$PATH:/usr/local/go/bin"
