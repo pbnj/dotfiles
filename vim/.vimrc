@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""
 " Inspirations:
-"	- https://github.com/robertmeta/vimfiles/
-"	- https://www.vi-improved.org/recommendations/
+"       - https://github.com/robertmeta/vimfiles/
+"       - https://www.vi-improved.org/recommendations/
 """"""""""""""""""""""""""""""""""""""""
 
 set nocompatible
@@ -82,6 +82,7 @@ set noautowrite
 set noautowriteall
 set nobackup
 set nocursorline
+set noshowmode
 set nospell
 set noswapfile
 set novisualbell
@@ -105,8 +106,8 @@ set wrap
 
 " Search
 if executable("rg")
-	set grepprg=rg\ --smart-case\ --vimgrep
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
+  set grepprg=rg\ --smart-case\ --vimgrep
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 """"""""""""""""""""""""""""""""""""""""
@@ -121,6 +122,18 @@ let g:NERDTreeHijackNetrw=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
+
+" lightline
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 " vim-rooter
 let g:rooter_use_lcd = 1
@@ -200,10 +213,11 @@ inoremap <silent> ;u <c-x><c-u>
 """"""""""""""""""""""""""""""""""""""""
 
 augroup general
-	autocmd!
-	autocmd FileType markdown setlocal sts=2 sw=2 expandtab smarttab
-	autocmd FileType yaml setlocal sts=2 sw=2 expandtab smarttab
-	autocmd BufWrite * :Autoformat
+  autocmd!
+  autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
+  autocmd BufWrite * :Autoformat
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
