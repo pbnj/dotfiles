@@ -9,5 +9,9 @@ alias mv='mv -i'
 
 alias grep="grep --color=auto"
 
-alias ll="ls -alFh --color=auto --group-directories-first"
+if command -v exa &>/dev/null; then
+	alias ll="exa -alFh --git --group-directories-first"
+else
+	alias ll="ls -alFh --color=auto --group-directories-first"
+fi
 alias vi="vim -u NONE"
