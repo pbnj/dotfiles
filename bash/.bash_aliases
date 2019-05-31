@@ -14,4 +14,7 @@ if command -v exa &>/dev/null; then
 else
 	alias ll="ls -alFh --color=auto --group-directories-first"
 fi
-alias vi="vim -u NONE"
+
+# Hub
+alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
+
