@@ -1,6 +1,6 @@
 # SETTINGS
 
-# source "$HOME/.bash_prompt"
+source "$HOME/.bash_prompt"
 source "$HOME/.exports"
 source "$HOME/.bash_aliases"
 
