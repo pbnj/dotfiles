@@ -82,14 +82,14 @@ set noautowrite
 set noautowriteall
 set nobackup
 set nocursorline
+set nonumber
+set norelativenumber
 set noshowmode
 set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
-set number
 set path+=**
-set relativenumber
 set ruler
 set scrolloff=1
 set showcmd
