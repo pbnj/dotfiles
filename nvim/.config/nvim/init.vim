@@ -51,9 +51,6 @@ Plug 'uarun/vim-protobuf'
 let g:ale_completion_enabled = 1 " must be set before ale is loaded
 Plug 'w0rp/ale'
 
-"colorscheme
-Plug 'jaredgorski/SpaceCamp'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -65,6 +62,7 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
+set colorcolumn=80
 set completeopt-=preview
 set conceallevel=0
 set fileencoding=utf-8
@@ -248,7 +246,8 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Colors & Highlights
 """"""""""""""""""""""""""""""""""""""""
-colorscheme spacecamp
+
+highlight ColorColumn ctermbg=DarkGray
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
