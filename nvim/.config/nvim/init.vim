@@ -13,10 +13,12 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" Plug 'Chiel92/vim-autoformat'
+Plug 'Quramy/vison'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'cespare/vim-toml'
-Plug 'Chiel92/vim-autoformat'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
@@ -29,7 +31,6 @@ Plug 'majutsushi/tagbar'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'natebosch/vim-lsc'
 Plug 'plasticboy/vim-markdown'
-Plug 'Quramy/vison'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
@@ -46,7 +47,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tsandall/vim-rego'
 Plug 'uarun/vim-protobuf'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+
+let g:ale_completion_enabled = 1 " must be set before ale is loaded
+Plug 'w0rp/ale'
+
+"colorscheme
+Plug 'jaredgorski/SpaceCamp'
 
 call plug#end()
 
@@ -141,12 +147,29 @@ let g:rooter_use_lcd = 1
 " vim-markdown-toc
 let g:vmt_list_item_char = '-'
 
-" Autoformat
-let g:autoformat_autoindent=0
-let g:autoformat_retab=0
+" ALE
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'bash': ['shfmt'],
+      \ 'css': ['prettier'],
+      \ 'go': ['gopls', 'goimports'],
+      \ 'hcl': ['terraform'],
+      \ 'html': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'make': ['checkmake'],
+      \ 'markdown': ['prettier'],
+      \ 'rust': ['rustfmt'],
+      \ 'sh': ['shfmt'],
+      \ 'yaml': ['prettier'],
+      \}
 
-let g:formatdef_rego = '"opa fmt"'
-let g:formatters_rego = ['rego']
+" Autoformat
+" let g:autoformat_autoindent=0
+" let g:autoformat_retab=0
+
+" let g:formatdef_rego = '"opa fmt"'
+" let g:formatters_rego = ['rego']
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
@@ -219,12 +242,13 @@ augroup general
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
-  autocmd BufWrite * :Autoformat
+  " autocmd BufWrite * :Autoformat
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Colors & Highlights
 """"""""""""""""""""""""""""""""""""""""
+colorscheme spacecamp
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
