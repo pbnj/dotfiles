@@ -86,6 +86,7 @@ set noautowrite
 set noautowriteall
 set nobackup
 set nocursorline
+set nomodeline
 set nonumber
 set norelativenumber
 set noshowmode
