@@ -10,11 +10,7 @@ help: ## Print help
 .PHONY: all
 all: stow bash tmux git vim go nvm
 
-.PHONY: bash
-bash: stow ## Configures bash
-	stow bash
-
-.PHONY: ssh-tunnel
+PHONY: ssh-tunnel
 SSH_TARGET:=""
 ssh-tunnel: ## Create SSH tunnels
 	/usr/bin/ssh \
