@@ -1,10 +1,7 @@
-# SETTINGS
-
-source "$HOME/.bash_prompt"
-source "$HOME/.exports"
-source "$HOME/.bash_aliases"
-
+########################################
 # SHELL OPTIONS
+########################################
+
 shopt -s direxpand
 shopt -s nocaseglob
 shopt -s histappend
@@ -13,12 +10,35 @@ shopt -s cdspell
 shopt -s autocd
 shopt -s globstar
 
-## GNU UTILS
+########################################
+# EXPORTS
+########################################
+
+export EDITOR=vim
+export GIT_TERMINAL_PROMPT=1
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export HISTCONTROL=ignoredups;
+export MANPAGER="less -X";
+
+########################################
+# PROMPT
+########################################
+
+source "$HOME/.bash_prompt"
+
+# GNU UTILS
 if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
 	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
-## SSH AGENT
+# SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent() {
@@ -42,5 +62,43 @@ else
 	start_agent
 fi
 
-## BASH COMPLETION
+# BASH COMPLETION
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# GO
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+if [ -d "/usr/local/go" ]; then
+	export PATH="/usr/local/go/bin:$PATH"
+fi
+if [ -d "$HOME/.gimme" ]; then
+	source "$HOME/.gimme/envs/latest.env"
+fi
+
+# CARGO
+export PATH="$HOME/.cargo/bin:$PATH"
+if command -v rustup &>/dev/null; then
+	source <(rustup completions bash)
+	source <(rustup completions bash cargo)
+fi
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# K8S
+if [ -d "$HOME/.krew" ]; then
+	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
+command -v kubectl &>/dev/null && source <(kubectl completion bash)
+command -v kind &>/dev/null && source <(kind completion bash)
+
+########################################
+# ALIASES
+########################################
+
+source "$HOME/.bash_aliases"
+
