@@ -27,12 +27,6 @@ export LC_TIME="en_US.UTF-8"
 export HISTCONTROL=ignoredups;
 export MANPAGER="less -X";
 
-########################################
-# PROMPT
-########################################
-
-[ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
-
 # GNU UTILS
 [ -d "/usr/local/opt/coreutils/libexec/gnubin" ] \
 	&& export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -114,4 +108,10 @@ command -v exa &>/dev/null \
 
 # Hub
 alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
+
+########################################
+# PROMPT
+########################################
+
+[ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
 
