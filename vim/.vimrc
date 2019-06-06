@@ -13,6 +13,7 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""
 
 set autoindent
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -134,3 +135,5 @@ highlight ColorColumn ctermbg=DarkGray
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
+
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
