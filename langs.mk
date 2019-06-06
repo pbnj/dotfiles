@@ -4,12 +4,15 @@ rust: ## Install rust toolchain
 	rustup component add rls rust-analysis rust-src
 	rustup component add clippy rustfmt rust-docs
 	rustup toolchain add nightly
-	rustup completions bash > /usr/local/etc/bash_completion.d/rustup
-	rustup completions bash cargo > /usr/local/etc/bash_completion.d/cargo
+
+.PHONY: rust-completion
+rust-completion: rust ## Install rust completion
+	echo "source <(rustup completions bash)" >> ~/.bash_profile
+	echo "source <(rustup completions bash cargo)" >> ~/.bash_profile
 
 .PHONY: crates
 crates: ## Install crates
-	cargo +nightly install rust-racer
+	cargo +nightly install racer
 	cargo install exa bat ripgrep
 
 .PHONY: gimme
