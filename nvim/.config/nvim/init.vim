@@ -156,7 +156,6 @@ let g:ale_fixers = {
       \ 'hcl': ['terraform'],
       \ 'html': ['prettier'],
       \ 'json': ['prettier'],
-      \ 'make': ['checkmake'],
       \ 'markdown': ['prettier'],
       \ 'rust': ['rustfmt'],
       \ 'sh': ['shfmt'],
