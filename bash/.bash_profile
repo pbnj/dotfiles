@@ -34,9 +34,8 @@ export MANPAGER="less -X";
 [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
 
 # GNU UTILS
-if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
-	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-fi
+[ -d "/usr/local/opt/coreutils/libexec/gnubin" ] \
+	&& export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"
@@ -63,17 +62,14 @@ else
 fi
 
 # BASH COMPLETION
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -r "/usr/local/etc/profile.d/bash_completion.sh" ] \
+	&& . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-if [ -d "/usr/local/go" ]; then
-	export PATH="/usr/local/go/bin:$PATH"
-fi
-if [ -d "$HOME/.gimme" ]; then
-	source "$HOME/.gimme/envs/latest.env"
-fi
+[ -d "/usr/local/go" ] && export PATH="/usr/local/go/bin:$PATH"
+[ -d "$HOME/.gimme" ] && source "$HOME/.gimme/envs/latest.env"
 
 # CARGO
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -84,21 +80,38 @@ fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+[ -s "$NVM_DIR/nvm.sh" ] \
+	&& source "$NVM_DIR/nvm.sh"          # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] \
+	&& source "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # K8S
-if [ -d "$HOME/.krew" ]; then
-	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-fi
+[ -d "$HOME/.krew" ] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 command -v kind &>/dev/null && source <(kind completion bash)
+
+# FZF
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
 
 ########################################
 # ALIASES
 ########################################
 
-[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+# Generic
+alias ..="cd .."
+alias ...="cd ../.."
+alias grep="grep --color=auto"
+
+# For safety
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+
+command -v exa &>/dev/null \
+	&& alias ll="exa -alFh --git --group-directories-first" \
+	|| alias ll="ls -alFh --color=auto --group-directories-first"
+
+# Hub
+alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
 
