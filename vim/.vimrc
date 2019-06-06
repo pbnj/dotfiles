@@ -13,6 +13,7 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""
 
 set autoindent
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
