@@ -31,7 +31,7 @@ export MANPAGER="less -X";
 # PROMPT
 ########################################
 
-source "$HOME/.bash_prompt"
+[ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
 
 # GNU UTILS
 if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
@@ -100,5 +100,5 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # ALIASES
 ########################################
 
-source "$HOME/.bash_aliases"
+[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 
