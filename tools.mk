@@ -140,8 +140,8 @@ vim-packs: ## Install vim packages
 vim-packs-update: ## Updates vim packages
 	git submodule update --remote --merge
 
-.PHONY: neovim-install
-neovim-install: ## Install neovim
+.PHONY: neovim
+neovim: ## Install neovim
 	sudo apt-get update
 	sudo apt-get install software-properties-common
 	sudo add-apt-repository ppa:neovim-ppa/stable
@@ -165,7 +165,11 @@ else
 endif
 
 .PHONY: stow-all
-stow-all: stow-git stow-tmux stow-vim stow-neovim ## Stow all files
+stow-all: stow stow-bash stow-git stow-tmux stow-vim stow-neovim ## Stow all files
+
+.PHONY: stow-bash
+stow-bash: ## Configures bash
+	stow bash
 
 .PHONY: stow-git
 stow-git: ## Symlink git files to $HOME
