@@ -65,6 +65,7 @@ set breakindent
 set colorcolumn=80
 set completeopt-=preview
 set conceallevel=0
+set cursorline
 set fileencoding=utf-8
 set foldclose=all
 set foldcolumn=0
@@ -85,7 +86,6 @@ set noautoread
 set noautowrite
 set noautowriteall
 set nobackup
-set nocursorline
 set nomodeline
 set nonumber
 set norelativenumber
