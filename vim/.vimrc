@@ -20,6 +20,7 @@ set breakindent
 set colorcolumn=80
 set completeopt-=preview
 set conceallevel=0
+set cursorline
 set fileencoding=utf-8
 set foldclose=all
 set foldcolumn=0
