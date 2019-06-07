@@ -9,6 +9,53 @@ filetype plugin indent on
 syntax enable
 
 """"""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+" Plug 'Chiel92/vim-autoformat'
+Plug 'Quramy/vison'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'natebosch/vim-lsc'
+Plug 'plasticboy/vim-markdown'
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tsandall/vim-rego'
+Plug 'uarun/vim-protobuf'
+
+let g:ale_completion_enabled = 1 " must be set before ale is loaded
+Plug 'w0rp/ale'
+
+Plug 'nanotech/jellybeans.vim'
+
+call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """"""""""""""""""""""""""""""""""""""""
 
@@ -41,7 +88,6 @@ set noautoread
 set noautowrite
 set noautowriteall
 set nobackup
-set nocursorline
 set nomodeline
 set nonumber
 set norelativenumber
@@ -72,11 +118,82 @@ if executable("rg")
 endif
 
 """"""""""""""""""""""""""""""""""""""""
+" SETTINGS: Plugins
+""""""""""""""""""""""""""""""""""""""""
+
+" NERDTree
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeDirArrowCollapsible="-"
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeHijackNetrw=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeShowHidden=1
+
+" lightline
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+" vim-rooter
+let g:rooter_use_lcd = 1
+
+" vim-markdown-toc
+let g:vmt_list_item_char = '-'
+
+" ALE
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'bash': ['shfmt'],
+      \ 'css': ['prettier'],
+      \ 'go': ['gopls', 'goimports'],
+      \ 'hcl': ['terraform'],
+      \ 'html': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'markdown': ['prettier'],
+      \ 'rust': ['rustfmt'],
+      \ 'sh': ['shfmt'],
+      \ 'yaml': ['prettier'],
+      \}
+
+" Autoformat
+" let g:autoformat_autoindent=0
+" let g:autoformat_retab=0
+
+" let g:formatdef_rego = '"opa fmt"'
+" let g:formatters_rego = ['rego']
+
+""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
 """"""""""""""""""""""""""""""""""""""""
 
 " Leader
 let g:mapleader="\<space>"
+
+" NERDTree
+nnoremap - :NERDTreeToggle<cr>
+
+" Git
+nmap <Leader>hn <Plug>GitGutterNextHunk
+nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
+
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit %<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gpull :Gpull<CR>
+nmap <Leader>gpush :Gpush<CR>
+nmap <Leader>gbrow :Gbrowse<CR>
 
 " Movements
 map j gj
@@ -125,16 +242,15 @@ augroup general
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
+  " autocmd BufWrite * :Autoformat
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Colors & Highlights
 """"""""""""""""""""""""""""""""""""""""
 
-highlight ColorColumn ctermbg=DarkGray
+colorscheme jellybeans
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
-
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
