@@ -51,6 +51,8 @@ Plug 'uarun/vim-protobuf'
 let g:ale_completion_enabled = 1 " must be set before ale is loaded
 Plug 'w0rp/ale'
 
+Plug 'nanotech/jellybeans.vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -247,7 +249,7 @@ augroup END
 " SETTINGS: Colors & Highlights
 """"""""""""""""""""""""""""""""""""""""
 
-highlight ColorColumn ctermbg=DarkGray
+colorscheme jellybeans
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
