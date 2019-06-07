@@ -16,6 +16,7 @@ shopt -s globstar
 
 export EDITOR=vim
 export GIT_TERMINAL_PROMPT=1
+export HISTCONTROL=ignoredups;
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
@@ -24,8 +25,11 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
-export HISTCONTROL=ignoredups;
 export MANPAGER="less -X";
+
+########################################
+# PLUGINS
+########################################
 
 # GNU UTILS
 [ -d "/usr/local/opt/coreutils/libexec/gnubin" ] \
@@ -44,7 +48,6 @@ function start_agent() {
 }
 
 # Source SSH settings, if applicable
-
 if [ -f "${SSH_ENV}" ]; then
 	. "${SSH_ENV}" >/dev/null
 	#ps ${SSH_AGENT_PID} doesn't work under cywgin
@@ -101,7 +104,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-
+# Exa
 command -v exa &>/dev/null \
 	&& alias ll="exa -alFh --git --group-directories-first" \
 	|| alias ll="ls -alFh --color=auto --group-directories-first"
