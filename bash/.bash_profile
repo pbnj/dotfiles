@@ -51,7 +51,7 @@ function start_agent() {
 if [ -f "${SSH_ENV}" ]; then
 	. "${SSH_ENV}" >/dev/null
 	#ps ${SSH_AGENT_PID} doesn't work under cywgin
-	ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null || {
+	ps -ef | grep ${SSH_AGENT_PID} | grep "ssh-agent$" >/dev/null || {
 		start_agent
 	}
 else
@@ -122,3 +122,6 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
+
+" YARN
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
