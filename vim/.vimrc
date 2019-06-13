@@ -37,6 +37,7 @@ set laststatus=2
 set linebreak
 set list
 set listchars=tab:\|\ ,trail:-
+set mouse=a
 set noautoread
 set noautowrite
 set noautowriteall
@@ -56,7 +57,6 @@ set showcmd
 set showmatch
 set showmode
 set showtabline=2
-set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
@@ -130,7 +130,15 @@ augroup general
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Colors & Highlights
+" SETTINGS: Commands
+""""""""""""""""""""""""""""""""""""""""
+function! Git( ... ) abort
+  execute printf('!git %s', join(a:000))
+endfunction
+command! -nargs=* Git call Git(<f-args>)
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
