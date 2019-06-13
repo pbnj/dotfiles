@@ -9,50 +9,6 @@ filetype plugin indent on
 syntax enable
 
 """"""""""""""""""""""""""""""""""""""""
-" Plugins
-""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
-Plug 'cespare/vim-toml'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'elzr/vim-json'
-Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
-Plug 'hashivim/vim-hashicorp-tools'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'nanotech/jellybeans.vim'
-Plug 'natebosch/vim-lsc'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'plasticboy/vim-markdown'
-Plug 'Quramy/vison'
-Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-apathy'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-Plug 'tsandall/vim-rego'
-Plug 'uarun/vim-protobuf'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-call plug#end()
-
-""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """"""""""""""""""""""""""""""""""""""""
 
@@ -116,74 +72,11 @@ if executable("rg")
 endif
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins
-""""""""""""""""""""""""""""""""""""""""
-
-" COC
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" vim-go
-let g:go_def_mapping_enabled = 0
-
-"vim-json
-let g:vim_json_syntax_conceal = 0
-
-" NERDTree
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeDirArrowCollapsible="-"
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeHijackNetrw=1
-let g:NERDTreeMinimalUI=1
-let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeShowHidden=1
-
-" lightline
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
-" vim-rooter
-let g:rooter_use_lcd = 1
-
-" vim-markdown-toc
-let g:vmt_list_item_char = '-'
-
-""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
 """"""""""""""""""""""""""""""""""""""""
 
 " Leader
 let g:mapleader="\<space>"
-
-" NERDTree
-nnoremap - :NERDTreeToggle<cr>
-
-" Git
-nmap <Leader>hn <Plug>GitGutterNextHunk
-nmap <Leader>hp <Plug>GitGutterPrevHunk
-nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterUndoHunk
-nmap <Leader>hv <Plug>GitGutterPreviewHunk
-
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gc :Gcommit %<CR>
-nmap <Leader>gb :Gblame<CR>
-nmap <Leader>gpull :Gpull<CR>
-nmap <Leader>gpush :Gpush<CR>
-nmap <Leader>gbrow :Gbrowse<CR>
 
 " Movements
 map j gj
@@ -240,8 +133,16 @@ augroup END
 " SETTINGS: Colors & Highlights
 """"""""""""""""""""""""""""""""""""""""
 
-colorscheme jellybeans
-
-highlight GitGutterAdd    ctermfg=2
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=1
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+"              | | | | |  |   |      |  |     |    |
+"              | | | | |  |   |      |  |     |    +-- current column
+"              | | | | |  |   |      |  |     +-- current line
+"              | | | | |  |   |      |  +-- current % into file
+"              | | | | |  |   |      +-- current syntax
+"              | | | | |  |   +-- current fileformat
+"              | | | | |  +-- number of lines
+"              | | | | +-- preview flag in square brackets
+"              | | | +-- help flag in square brackets
+"              | | +-- readonly flag in square brackets
+"              | +-- rodified flag in square brackets
+"              +-- full path to file in the buffer
