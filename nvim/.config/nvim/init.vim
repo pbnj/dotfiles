@@ -13,8 +13,6 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'Quramy/vison'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'cespare/vim-toml'
@@ -28,8 +26,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'nanotech/jellybeans.vim'
 Plug 'natebosch/vim-lsc'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'plasticboy/vim-markdown'
+Plug 'Quramy/vison'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
@@ -46,8 +48,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tsandall/vim-rego'
 Plug 'uarun/vim-protobuf'
-
-Plug 'nanotech/jellybeans.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -85,20 +86,21 @@ set noautowrite
 set noautowriteall
 set nobackup
 set nomodeline
-set nonumber
-set norelativenumber
 set noshowmode
 set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
+set number
 set path+=**
+set relativenumber
 set ruler
 set scrolloff=1
 set showcmd
 set showmatch
 set showmode
 set showtabline=2
+set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
@@ -117,6 +119,22 @@ endif
 " SETTINGS: Plugins
 """"""""""""""""""""""""""""""""""""""""
 
+" COC
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" vim-go
+let g:go_def_mapping_enabled = 0
+
+"vim-json
+let g:vim_json_syntax_conceal = 0
+
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeDirArrowCollapsible="-"
@@ -127,7 +145,6 @@ let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 
 " lightline
-
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -215,6 +232,8 @@ augroup general
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
