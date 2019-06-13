@@ -152,6 +152,13 @@ neovim: ## Install neovim
 	pip3 install neovim
 
 ####################
+# BASH
+####################
+.PHONY: bash-git-prompt
+bash-git-prompt: ## Install bash-git-prompt
+	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+####################
 # ZSH
 ####################
 
