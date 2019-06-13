@@ -240,7 +240,8 @@ augroup END
 " SETTINGS: Colors & Highlights
 """"""""""""""""""""""""""""""""""""""""
 
-colorscheme jellybeans
+colorscheme PaperColor
+" colorscheme jellybeans
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
