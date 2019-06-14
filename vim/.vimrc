@@ -140,17 +140,19 @@ command! -nargs=* Git call Git(<f-args>)
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
+function! StatuslineGitBranch()
+  let l:branch = system("git symbolic-ref --short HEAD 2>/dev/null | tr -d '\n'")
+  return strlen(l:branch) > 0 ? l:branch : ''
+endfunction
 
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    +-- current column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
+set statusline=
+set statusline+=%f " file name
+set statusline+=%m " modified
+set statusline+=%r " read only
+set statusline+=%h " help
+set statusline+=%w " preview
+set statusline+=\ [%{StatuslineGitBranch()}] " git branch
+set statusline+=\ [%{&ff}] " file format
+set statusline+=\ %y " syntax
+set statusline+=\ [%p%%] " percentage into file
+set statusline+=\ [%04l,%04v] " current line & column
