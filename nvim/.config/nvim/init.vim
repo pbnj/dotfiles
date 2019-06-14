@@ -21,13 +21,10 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
-Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mzlogin/vim-markdown-toc'
-Plug 'nanotech/jellybeans.vim'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'plasticboy/vim-markdown'
 Plug 'Quramy/vison'
 Plug 'racer-rust/vim-racer'
@@ -132,17 +129,6 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeShowHidden=1
 
-" lightline
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
 " vim-rooter
 let g:rooter_use_lcd = 1
 
@@ -225,12 +211,26 @@ augroup general
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Colors & Highlights
+" SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
-
-colorscheme PaperColor
-" colorscheme jellybeans
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
+
+function! StatuslineGitBranch()
+  let l:branch = system("git symbolic-ref --short HEAD 2>/dev/null | tr -d '\n'")
+  return strlen(l:branch) > 0 ? l:branch : ''
+endfunction
+
+set statusline=
+set statusline+=%f " file name
+set statusline+=%m " modified
+set statusline+=%r " read only
+set statusline+=%h " help
+set statusline+=%w " preview
+set statusline+=\ [%{StatuslineGitBranch()}] " git branch
+set statusline+=\ [%{&ff}] " file format
+set statusline+=\ %y " syntax
+set statusline+=\ [%p%%] " percentage into file
+set statusline+=\ [%04l,%04v] " current line & column
