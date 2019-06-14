@@ -45,6 +45,8 @@ Plug 'tsandall/vim-rego'
 Plug 'uarun/vim-protobuf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'NLKNguyen/papercolor-theme'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -213,6 +215,8 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
+
+colorscheme PaperColor
 
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
