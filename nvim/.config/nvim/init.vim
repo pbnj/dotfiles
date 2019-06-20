@@ -22,10 +22,12 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'godlygeek/tabular'
 Plug 'hashivim/vim-hashicorp-tools'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'plasticboy/vim-markdown'
 Plug 'Quramy/vison'
 Plug 'racer-rust/vim-racer'
@@ -45,8 +47,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tsandall/vim-rego'
 Plug 'uarun/vim-protobuf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -230,26 +230,3 @@ colorscheme PaperColor
 highlight GitGutterAdd    ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
-
-function! StatuslineGitBranch()
-  let l:branch = system("git symbolic-ref --short HEAD 2>/dev/null | tr -d '\n'")
-  return strlen(l:branch) > 0 ? l:branch : ''
-endfunction
-
-function! StatuslineKubeCtx()
-  let l:kubectx= system("kubectl config current-context 2>/dev/null | tr -d '\n'")
-  return strlen(l:kubectx) > 0 ? l:kubectx : ''
-endfunction
-
-set statusline=
-set statusline+=%f " file name
-set statusline+=%m " modified
-set statusline+=%r " read only
-set statusline+=%h " help
-set statusline+=%w " preview
-set statusline+=\ [%{StatuslineGitBranch()}] " git branch
-set statusline+=\ [%{&ff}] " file format
-set statusline+=\ %y " syntax
-set statusline+=\ [%p%%] " percentage into file
-set statusline+=\ [%04l,%04v] " current line & column
-" set statusline+=\ [%{StatuslineKubeCtx()}] " kubectx
