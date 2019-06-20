@@ -104,6 +104,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+# k8s
+command -v kubectl &>/dev/null && alias k="kubectl"
+
 # Exa
 command -v exa &>/dev/null \
 	&& alias ll="exa -alFh --git --group-directories-first" \
