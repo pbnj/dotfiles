@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
+Plug 'andymass/vim-matchup'
 Plug 'cespare/vim-toml'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
@@ -206,11 +207,19 @@ inoremap <silent> ;u <c-x><c-u>
 augroup general
   autocmd!
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
-  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab spell
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Commands
+""""""""""""""""""""""""""""""""""""""""
+function! Kube( ... ) abort
+  execute printf('!kubectl %s', join(a:000))
+endfunction
+command! -nargs=* Kube call Kube(<f-args>)
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
