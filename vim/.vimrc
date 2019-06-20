@@ -123,7 +123,7 @@ inoremap <silent> ;u <c-x><c-u>
 augroup general
   autocmd!
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
-  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
+  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab spell
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -136,6 +136,11 @@ function! Git( ... ) abort
   execute printf('!git %s', join(a:000))
 endfunction
 command! -nargs=* Git call Git(<f-args>)
+
+function! Kube( ... ) abort
+  execute printf('!kubectl %s', join(a:000))
+endfunction
+command! -nargs=* Kube call Kube(<f-args>)
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
