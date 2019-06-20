@@ -236,6 +236,11 @@ function! StatuslineGitBranch()
   return strlen(l:branch) > 0 ? l:branch : ''
 endfunction
 
+function! StatuslineKubeCtx()
+  let l:kubectx= system("kubectl config current-context 2>/dev/null | tr -d '\n'")
+  return strlen(l:kubectx) > 0 ? l:kubectx : ''
+endfunction
+
 set statusline=
 set statusline+=%f " file name
 set statusline+=%m " modified
@@ -247,3 +252,4 @@ set statusline+=\ [%{&ff}] " file format
 set statusline+=\ %y " syntax
 set statusline+=\ [%p%%] " percentage into file
 set statusline+=\ [%04l,%04v] " current line & column
+" set statusline+=\ [%{StatuslineKubeCtx()}] " kubectx
