@@ -106,6 +106,7 @@ alias mv='mv -i'
 
 # k8s
 command -v kubectl &>/dev/null && alias k="kubectl"
+command -v kubekit &>/dev/null && alias kk="kubekit"
 
 # Exa
 command -v exa &>/dev/null \
