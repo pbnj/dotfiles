@@ -6,7 +6,7 @@
 
 set nocompatible
 filetype plugin indent on
-syntax enable
+syntax off
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -22,13 +22,6 @@ set completeopt-=preview
 set conceallevel=0
 set cursorline
 set fileencoding=utf-8
-set foldclose=all
-set foldcolumn=0
-set foldenable
-set foldlevel=10
-set foldmethod=syntax
-set foldnestmax=1
-set foldopen=all
 set hidden
 set hlsearch
 set ignorecase
@@ -36,8 +29,7 @@ set incsearch
 set laststatus=2
 set linebreak
 set list
-set listchars=tab:\|\ ,trail:-
-set mouse=a
+set listchars=tab:\|\ ,trail:•
 set noautoread
 set noautowrite
 set noautowriteall
@@ -106,16 +98,6 @@ nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
 nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
-" Completions
-inoremap <silent> ;f <c-x><c-f>
-inoremap <silent> ;i <c-x><c-i>
-inoremap <silent> ;l <c-x><c-l>
-inoremap <silent> ;n <c-x><c-n>
-inoremap <silent> ;o <c-x><c-o>
-inoremap <silent> ;p <c-x><c-p>
-inoremap <silent> ;t <c-x><c-]>
-inoremap <silent> ;u <c-x><c-u>
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: FileTypes
 """"""""""""""""""""""""""""""""""""""""
@@ -123,47 +105,33 @@ inoremap <silent> ;u <c-x><c-u>
 augroup general
   autocmd!
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
-  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab spell
+  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Commands
+" SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
-function! Git( ... ) abort
-  execute printf('!git %s', join(a:000))
-endfunction
-command! -nargs=* Git call Git(<f-args>)
-
 function! Kube( ... ) abort
   execute printf('!kubectl %s', join(a:000))
 endfunction
 command! -nargs=* Kube call Kube(<f-args>)
 
+function! StripTrailingWhitespace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
-function! StatuslineGitBranch()
-  let l:branch = system("git symbolic-ref --short HEAD 2>/dev/null | tr -d '\n'")
-  return strlen(l:branch) > 0 ? l:branch : ''
-endfunction
 
-function! StatuslineKubeCtx()
-  let l:kubectx= system("kubectl config current-context 2>/dev/null | tr -d '\n'")
-  return strlen(l:kubectx) > 0 ? l:kubectx : ''
-endfunction
-
-set statusline=
-set statusline+=%f " file name
-set statusline+=%m " modified
-set statusline+=%r " read only
-set statusline+=%h " help
-set statusline+=%w " preview
-set statusline+=\ [%{StatuslineGitBranch()}] " git branch
-set statusline+=\ [%{&ff}] " file format
-set statusline+=\ %y " syntax
-set statusline+=\ [%p%%] " percentage into file
-set statusline+=\ [%04l,%04v] " current line & column
-" set statusline+=\ [%{StatuslineKubeCtx()}] " kubectx
+highlight CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
