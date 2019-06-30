@@ -114,6 +114,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
+
 function! Kube( ... ) abort
   execute printf('!kubectl %s', join(a:000))
 endfunction
@@ -133,5 +134,6 @@ endfunction
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
-highlight CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+highlight CursorLine   cterm=NONE ctermbg=white ctermfg=black guibg=white guifg=black
+highlight ColorColumn  cterm=NONE ctermbg=white ctermfg=black guibg=white guifg=black
+
