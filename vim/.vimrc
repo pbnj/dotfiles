@@ -134,6 +134,5 @@ endfunction
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
-highlight CursorLine   cterm=NONE ctermbg=white ctermfg=black guibg=white guifg=black
-highlight ColorColumn  cterm=NONE ctermbg=white ctermfg=black guibg=white guifg=black
-
+highlight CursorLine   cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
+highlight ColorColumn  cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
