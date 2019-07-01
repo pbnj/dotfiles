@@ -10,7 +10,6 @@ export ZSH="/home/ubuntu/.oh-my-zsh"
 autoload -Uz promptinit
 promptinit
 prompt redhat
-RPROMPT='%t'
 
 plugins=(
 	aws
@@ -26,6 +25,7 @@ plugins=(
 	golang
 	helm
 	kubectl
+	rust
 )
 
 source $ZSH/oh-my-zsh.sh
