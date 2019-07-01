@@ -1,28 +1,36 @@
-if [[ -d "${ZDOTDIR:-$HOME}"/zsh.d ]]; then
-    for ZSH_FILE in $(ls -A "${ZDOTDIR:-$HOME}"/zsh.d/*.zsh); do
-        source "${ZSH_FILE}"
-    done
-fi
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH="/home/ubuntu/.oh-my-zsh"
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+# ZSH_THEME="robbyrussell"
 
-
-########################################
-# SHELL OPTIONS
+#######################################
+# PROMPT
 ########################################
 
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
-setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
-setopt APPEND_HISTORY            # append to history file
-setopt HIST_NO_STORE             # Don't store history commands
+autoload -Uz promptinit
+promptinit
+prompt redhat
+RPROMPT='%t'
+
+plugins=(
+	aws
+	cargo
+	docker
+	fzf
+	git
+	git-extras
+	git-flow
+	git-hubflow
+	git-prompt
+	github
+	golang
+	helm
+	kubectl
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
 
 ########################################
 # EXPORTS
@@ -31,6 +39,8 @@ setopt HIST_NO_STORE             # Don't store history commands
 export EDITOR=vim
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups;
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
@@ -40,12 +50,60 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X";
+export SAVEHIST=1000
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+########################################
+# PLUGINS
+########################################
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# SSH AGENT
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent() {
+	echo "Initialising new SSH agent..."
+	/usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
+	echo succeeded
+	chmod 600 "${SSH_ENV}"
+	. "${SSH_ENV}" >/dev/null
+	/usr/bin/ssh-add
+}
+
+# Source SSH settings, if applicable
+if [ -f "${SSH_ENV}" ]; then
+	. "${SSH_ENV}" >/dev/null
+	#ps ${SSH_AGENT_PID} doesn't work under cywgin
+	ps -ef | grep ${SSH_AGENT_PID} | grep "ssh-agent$" >/dev/null || {
+		start_agent
+	}
+else
+	start_agent
+fi
+
+# K8S
+[ -d "$HOME/.krew" ] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+########################################
+# ALIASES
+########################################
+
+# Generic
+alias ..="cd .."
+alias ...="cd ../.."
+alias grep="grep --color=auto"
+alias reload!='exec "$SHELL" -l'
+
+# For safety
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias kk="kubekit"
+
+# Exa
+command -v exa &>/dev/null \
+	&& alias ll="exa -alFh --git --group-directories-first" \
+	|| alias ll="ls -alFh --color=auto --group-directories-first"
+
+# Hub
+alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
 
