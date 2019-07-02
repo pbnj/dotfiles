@@ -1,15 +1,12 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/home/ubuntu/.oh-my-zsh"
 
-# ZSH_THEME="robbyrussell"
-
 #######################################
 # PROMPT
 ########################################
 
-autoload -Uz promptinit
-promptinit
-prompt redhat
+precmd() { print -rP "[%?][%D %t][%~]" }
+export PROMPT="$ "
 
 plugins=(
 	aws
