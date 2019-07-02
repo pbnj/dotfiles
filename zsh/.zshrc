@@ -5,8 +5,8 @@ export ZSH="/home/ubuntu/.oh-my-zsh"
 # PROMPT
 ########################################
 
-precmd() { print -rP "[%?][%D %t][%~]" }
-export PROMPT="$ "
+autoload -U promptinit; promptinit
+prompt pure
 
 plugins=(
 	aws
@@ -17,7 +17,6 @@ plugins=(
 	git-extras
 	git-flow
 	git-hubflow
-	git-prompt
 	github
 	golang
 	helm
@@ -79,8 +78,10 @@ fi
 # K8S
 [ -d "$HOME/.krew" ] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# node version manager (n)
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ########################################
 # ALIASES
@@ -106,3 +107,4 @@ command -v exa &>/dev/null \
 
 # Hub
 alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
+
