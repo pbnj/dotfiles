@@ -1,4 +1,4 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/snap/bin:/usr/local/bin:$PATH
 export ZSH="/home/ubuntu/.oh-my-zsh"
 
 #######################################
@@ -6,6 +6,7 @@ export ZSH="/home/ubuntu/.oh-my-zsh"
 ########################################
 
 precmd() {
+	print
 	print -rP "[%?] [%D %t] [%~] $(git_prompt_info)"
 }
 PROMPT="$ "
