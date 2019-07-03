@@ -5,16 +5,14 @@ export ZSH="/home/ubuntu/.oh-my-zsh"
 # PROMPT
 ########################################
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*:prompt:*' check-for-changes true
-
 precmd() {
-	zstyle ':vcs_info:*' formats '[%b]'
-	vcs_info
+	print -rP "[%?] [%D %t] [%~] $(git_prompt_info)"
 }
-PROMPT=$'[%?] [%D %t] [%~] ${vcs_info_msg_0_}
-$ '
+PROMPT="$ "
+
+########################################
+# PLUGGINS
+########################################
 
 plugins=(
 	aws
@@ -57,7 +55,7 @@ export MANPAGER="less -X";
 export SAVEHIST=1000
 
 ########################################
-# PLUGINS
+# SETTINGS
 ########################################
 
 # SSH AGENT
