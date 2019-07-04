@@ -1,16 +1,6 @@
 export PATH=$HOME/bin:/snap/bin:/usr/local/bin:$PATH
 export ZSH="/home/ubuntu/.oh-my-zsh"
 
-#######################################
-# PROMPT
-########################################
-
-precmd() {
-	print
-	print -rP "[%?] [%D %t] [%~] $(git_prompt_info)"
-}
-PROMPT="$ "
-
 ########################################
 # PLUGGINS
 ########################################
@@ -29,9 +19,21 @@ plugins=(
 	helm
 	kubectl
 	rust
+	zsh-autosuggestions
+	zsh-completions
+	zsh-syntax-highlighting
 )
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+
+#######################################
+# PROMPT
+########################################
+
+autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL="$"
+prompt pure
 
 # User configuration
 
@@ -91,8 +93,7 @@ export PATH="$GOPATH/bin:$PATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ########################################
 # ALIASES
@@ -109,6 +110,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+alias nvm_load='[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"'
 alias kk="kubekit"
 
 # Exa
