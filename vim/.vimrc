@@ -54,6 +54,7 @@ set smarttab
 set splitbelow
 set splitright
 set updatetime=250
+set wildignorecase
 set wildmenu
 set wrap
 
