@@ -1,5 +1,5 @@
 export PATH=$HOME/bin:/snap/bin:/usr/local/bin:$PATH
-export ZSH="/home/ubuntu/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ########################################
 # PLUGGINS

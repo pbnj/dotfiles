@@ -162,6 +162,9 @@ bash-git-prompt: ## Install bash-git-prompt
 # ZSH
 ####################
 
+.PHONY: zsh
+zsh: oh-my-zsh zsh-plugins zsh-pure-prompt ## Install zsh
+
 .PHONY: oh-my-zsh
 oh-my-zsh: ## Install zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
