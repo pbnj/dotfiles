@@ -5,16 +5,18 @@
 """"""""""""""""""""""""""""""""""""""""
 
 set nocompatible
+filetype plugin indent on
+syntax off
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on
-syntax on
-colorscheme monotone " trying out Lokaltog/vim-monotone theme
-" highlight CursorLine   cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
-" highlight ColorColumn  cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
+highlight CursorLine    ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
+highlight ColorColumn   ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
+
+" Statusline
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -33,6 +35,7 @@ set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
+set formatoptions+=j
 set hidden
 set hlsearch
 set ignorecase
@@ -59,7 +62,6 @@ set scrolloff=1
 set showcmd
 set showmatch
 set showmode
-set showtabline=2
 set smartcase
 set smarttab
 set splitbelow
