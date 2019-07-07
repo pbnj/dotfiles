@@ -21,6 +21,7 @@ colorscheme monotone " trying out Lokaltog/vim-monotone theme
 """"""""""""""""""""""""""""""""""""""""
 
 set autoindent
+set autoread
 set background=dark
 set backspace=indent,eol,start
 set belloff=all
@@ -29,6 +30,8 @@ set colorcolumn=80
 set completeopt-=preview
 set conceallevel=0
 set cursorline
+set display=lastline
+set encoding=utf-8
 set fileencoding=utf-8
 set hidden
 set hlsearch
