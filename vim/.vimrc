@@ -5,8 +5,16 @@
 """"""""""""""""""""""""""""""""""""""""
 
 set nocompatible
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Appearance
+""""""""""""""""""""""""""""""""""""""""
+
 filetype plugin indent on
-syntax off
+syntax on
+colorscheme monotone " trying out Lokaltog/vim-monotone theme
+" highlight CursorLine   cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
+" highlight ColorColumn  cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -130,10 +138,3 @@ function! StripTrailingWhitespace()
     normal `z
   endif
 endfunction
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Appearance
-""""""""""""""""""""""""""""""""""""""""
-
-highlight CursorLine   cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
-highlight ColorColumn  cterm=NONE ctermbg=DarkGrey ctermfg=white guibg=DarkGrey guifg=white
