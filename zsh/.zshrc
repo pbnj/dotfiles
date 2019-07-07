@@ -14,7 +14,7 @@ plugins=(
 	git-extras
 	git-flow
 	git-hubflow
-	github
+	# github
 	golang
 	helm
 	kubectl
