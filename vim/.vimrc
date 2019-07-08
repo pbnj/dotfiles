@@ -12,8 +12,8 @@ syntax off
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
-highlight CursorLine    ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
-highlight ColorColumn   ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
+" highlight CursorLine    ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
+" highlight ColorColumn   ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
 
 " Statusline
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
