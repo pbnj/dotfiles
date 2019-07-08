@@ -6,17 +6,16 @@
 
 set nocompatible
 filetype plugin indent on
-syntax off
+syntax on
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
-" highlight CursorLine    ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
-" highlight ColorColumn   ctermfg=NONE  ctermbg=DarkBlue  cterm=NONE
-
+" curl -Lo ~/.vim/colors/monotone.vim https://github.com/Lokaltog/vim-monotone/raw/master/colors/monotone.vim
+colorscheme monotone
 " Statusline
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set statusline=%f%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
