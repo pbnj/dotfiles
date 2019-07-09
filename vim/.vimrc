@@ -34,6 +34,7 @@ set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
+set foldmethod=indent
 set formatoptions+=j
 set hidden
 set hlsearch
@@ -83,6 +84,12 @@ endif
 " Leader
 let g:mapleader="\<space>"
 
+" netrw
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+
 " Movements
 map j gj
 map k gk
@@ -110,6 +117,12 @@ nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
 nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
+
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
+
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: FileTypes
