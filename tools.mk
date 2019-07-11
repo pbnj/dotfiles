@@ -128,6 +128,12 @@ brew-casks: ## Install brew casks
 # VIM
 ####################
 
+.PHONY: vim-colors
+vim-colors: ## Install vim colors
+	curl -Lo ~/.vim/colors/monotone.vim \
+		--create-dirs \
+		https://github.com/Lokaltog/vim-monotone/raw/master/colors/monotone.vim
+
 .PHONY: vim-plug
 vim-plug: ## Install vim-plug
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
