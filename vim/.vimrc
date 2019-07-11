@@ -13,8 +13,8 @@ set nocompatible
 filetype plugin indent on
 syntax off
 
-highlight ColorColumn         ctermfg=NONE      ctermbg=DarkGrey  cterm=NONE
-highlight CursorLine          ctermfg=NONE      ctermbg=DarkGrey  cterm=NONE
+highlight ColorColumn         ctermfg=White     ctermbg=DarkGrey  cterm=NONE
+highlight CursorLine          ctermfg=White     ctermbg=DarkGrey  cterm=NONE
 highlight Folded              ctermfg=DarkGrey  ctermbg=NONE      cterm=NONE
 highlight StatusLine          ctermfg=Black     ctermbg=White     cterm=bold
 highlight StatusLineNC        ctermfg=Black     ctermbg=White     cterm=bold
