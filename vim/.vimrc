@@ -11,17 +11,32 @@ set nocompatible
 """"""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
-syntax on
-" curl -Lo ~/.vim/colors/monotone.vim https://github.com/Lokaltog/vim-monotone/raw/master/colors/monotone.vim
-colorscheme monotone
+syntax off
 
-highlight StatusLine          ctermfg=Black ctermbg=LightGrey cterm=bold
-highlight StatusLineNC        ctermfg=Black ctermbg=LightGrey cterm=bold
-highlight TrailingWhiteSpace                ctermbg=Red
+highlight ColorColumn         ctermfg=NONE      ctermbg=DarkGrey  cterm=NONE
+highlight CursorLine          ctermfg=NONE      ctermbg=DarkGrey  cterm=NONE
+highlight Folded              ctermfg=DarkGrey  ctermbg=NONE      cterm=NONE
+highlight StatusLine          ctermfg=Black     ctermbg=White     cterm=bold
+highlight StatusLineNC        ctermfg=Black     ctermbg=White     cterm=bold
+highlight TrailingWhiteSpace                    ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
 
+highlight clear FoldColumn
+highlight clear SignColumn
+
 " Statusline
-set statusline=%f%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set statusline=%{PasteForStatusline()}  " paste?
+set statusline+=[%f]                    " full path to file
+set statusline+=%m                      " modified?
+set statusline+=%r                      " read only?
+set statusline+=%h                      " help?
+set statusline+=%w                      " preview?
+set statusline+=%=                      " right justify
+set statusline+=[%L]                    " number of lines
+set statusline+=[%{&ff}]                " file format
+set statusline+=%y                      " current syntax
+set statusline+=[%p%%]                  " percent into file
+set statusline+=[%04l,%04v]             " cursor location
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -40,28 +55,27 @@ set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
+set foldclose=all
+set foldenable
 set foldmethod=indent
+set foldopen=all
 set formatoptions+=j
 set hidden
 set hlsearch
 set ignorecase
 set incsearch
+set infercase
 set laststatus=2
+set lazyredraw
 set linebreak
 set list
 set listchars=tab:\|\ ,trail:-,eol:¬,precedes:<,extends:>
-set noautoread
-set noautowrite
-set noautowriteall
 set nobackup
 set nomodeline
-set norelativenumber
-set noshowmode
 set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
-set number
 set path+=**
 set ruler
 set scrolloff=1
@@ -161,3 +175,13 @@ function! StripTrailingWhitespace()
     normal `z
   endif
 endfunction
+command! StripTrailingWhitespace :call StripTrailingWhitespace()
+
+function! PasteForStatusline()
+                let l:paste_status=&paste
+                if l:paste_status == 1
+                        return '[PASTE]'
+                else
+                        return ''
+                endif
+        endfunction
