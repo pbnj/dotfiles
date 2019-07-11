@@ -5,15 +5,21 @@
 """"""""""""""""""""""""""""""""""""""""
 
 set nocompatible
-filetype plugin indent on
-syntax on
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
 
+filetype plugin indent on
+syntax on
 " curl -Lo ~/.vim/colors/monotone.vim https://github.com/Lokaltog/vim-monotone/raw/master/colors/monotone.vim
 colorscheme monotone
+
+highlight StatusLine          ctermfg=Black ctermbg=LightGrey cterm=bold
+highlight StatusLineNC        ctermfg=Black ctermbg=LightGrey cterm=bold
+highlight TrailingWhiteSpace                ctermbg=Red
+match TrailingWhiteSpace /\s\+$/
+
 " Statusline
 set statusline=%f%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
@@ -43,7 +49,7 @@ set incsearch
 set laststatus=2
 set linebreak
 set list
-set listchars=tab:\|\ ,trail:•
+set listchars=tab:\|\ ,trail:-,eol:¬,precedes:<,extends:>
 set noautoread
 set noautowrite
 set noautowriteall
