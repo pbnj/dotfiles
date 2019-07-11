@@ -13,19 +13,19 @@ plugins=(
 	git
 	git-extras
 	git-flow
-	git-hubflow
-	# github
 	golang
 	helm
+	hub
 	kubectl
 	rust
 	zsh-autosuggestions
 	zsh-completions
 	zsh-syntax-highlighting
 )
-autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit
 
 #######################################
 # PROMPT
