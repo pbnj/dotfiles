@@ -119,5 +119,5 @@ command -v exa &>/dev/null \
 	|| alias ll="ls -alFh --color=auto --group-directories-first"
 
 # Hub
-alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
-
+eval "$(hub alias -s)"
+# alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
