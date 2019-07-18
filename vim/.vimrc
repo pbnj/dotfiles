@@ -14,11 +14,12 @@ filetype plugin indent on
 syntax off
 
 highlight Normal              ctermfg=White     ctermbg=NONE      cterm=NONE
-highlight ColorColumn         ctermfg=White     ctermbg=DarkGrey  cterm=NONE
-highlight CursorLine          ctermfg=White     ctermbg=DarkGrey  cterm=NONE
+highlight ColorColumn         ctermfg=White     ctermbg=DarkBlue  cterm=NONE
+highlight CursorLine          ctermfg=White     ctermbg=DarkBlue  cterm=NONE
+highlight Visual              ctermfg=White     ctermbg=DarkBlue  cterm=NONE
 highlight Folded              ctermfg=DarkGrey  ctermbg=NONE      cterm=NONE
 highlight StatusLine          ctermfg=Black     ctermbg=White     cterm=bold
-highlight StatusLineNC        ctermfg=White     ctermbg=DarkGrey  cterm=bold
+highlight StatusLineNC        ctermfg=White     ctermbg=DarkRed   cterm=bold
 highlight TrailingWhiteSpace                    ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
 
@@ -41,7 +42,7 @@ set statusline+=[%04l,%04v]             " cursor location
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""
 
 set autoindent
 set autoread
@@ -60,7 +61,8 @@ set foldclose=all
 set foldenable
 set foldmethod=indent
 set foldopen=all
-set formatoptions+=j
+set formatoptions+=j " remove comment leader when joining lines
+set formatoptions+=n " when formatting text, recognize numbered lists
 set hidden
 set hlsearch
 set ignorecase
