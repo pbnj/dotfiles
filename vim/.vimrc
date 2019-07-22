@@ -13,14 +13,7 @@ set nocompatible
 filetype plugin indent on
 syntax off
 
-highlight Normal              ctermfg=White     ctermbg=NONE      cterm=NONE
-highlight ColorColumn         ctermfg=White     ctermbg=DarkBlue  cterm=NONE
-highlight CursorLine          ctermfg=White     ctermbg=DarkBlue  cterm=NONE
-highlight Visual              ctermfg=White     ctermbg=DarkBlue  cterm=NONE
-highlight Folded              ctermfg=DarkGrey  ctermbg=NONE      cterm=NONE
-highlight StatusLine          ctermfg=Black     ctermbg=White     cterm=bold
-highlight StatusLineNC        ctermfg=White     ctermbg=DarkRed   cterm=bold
-highlight TrailingWhiteSpace                    ctermbg=Red
+highlight TrailingWhiteSpace ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
 
 highlight clear FoldColumn
