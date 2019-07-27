@@ -74,6 +74,10 @@ kubectl: ## Install kubectl
 docker: ## Install docker
 	curl -fsSL https://get.docker.com | sh
 
+.PHONY: kind
+kind: ## Install kind
+	GO111MODULE="on" go get -u -v sigs.k8s.io/kind@v0.4.0
+
 ####################
 # MACOS
 ####################
@@ -203,7 +207,7 @@ endif
 stow-all: stow stow-bash stow-git stow-tmux stow-vim stow-neovim ## Stow all files
 
 .PHONY: stow-bash
-stow-bash: ## Configures bash
+stow-bash: bash-git-prompt ## Configures bash
 	stow bash
 
 .PHONY: stow-git
