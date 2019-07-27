@@ -163,6 +163,11 @@ function! Kube( ... ) abort
 endfunction
 command! -nargs=* Kube call Kube(<f-args>)
 
+function! Git( ... ) abort
+  execute printf('!git %s', join(a:000))
+endfunction
+command! -nargs=* Git call Git(<f-args>)
+
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
     normal mz
