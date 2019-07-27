@@ -126,43 +126,14 @@ brew-casks: ## Install brew casks
 # VIM
 ####################
 
-.PHONY: vim-colors
-vim-colors: ## Install vim colors
-	curl -Lo ~/.vim/colors/monotone.vim \
-		--create-dirs \
-		https://github.com/Lokaltog/vim-monotone/raw/master/colors/monotone.vim
-
-.PHONY: vim-plug
-vim-plug: ## Install vim-plug
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 .PHONY: vim-build
 vim-build: ## Build vim from source
 	sh $(CURDIR)/scripts/tools/vim/build.sh
 
-.PHONY: vim-packs
-vim-packs: ## Install vim packages
-	git submodule update --init --recursive
-
-.PHONY: vim-packs-update
-vim-packs-update: ## Updates vim packages
-	git submodule update --remote --merge
-
-.PHONY: neovim
-neovim: ## Install neovim
-	sudo apt-get update
-	sudo apt-get install software-properties-common
-	sudo add-apt-repository ppa:neovim-ppa/stable
-	sudo apt-get update
-	sudo apt-get install neovim
-	sudo apt-get install python-pip python3-pip
-	pip install neovim
-	pip3 install neovim
-
 ####################
 # BASH
 ####################
+
 .PHONY: bash-git-prompt
 bash-git-prompt: ## Install bash-git-prompt
 	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
@@ -221,7 +192,3 @@ stow-tmux: ## Symlink tmux files to $HOME
 .PHONY: stow-vim
 stow-vim: ## Symlink vim files to $HOME
 	stow vim
-
-.PHONY: stow-neovim
-stow-neovim: ## Symlink neovim files to $HOME
-	stow nvim
