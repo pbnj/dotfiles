@@ -13,12 +13,6 @@ else
 	sudo apt-get install git
 endif
 
-GIT_VERSION = $(shell git version | cut -d" " -f3)
-.PHONY: git-prompt
-git-prompt: ## Install git-prompt
-	curl -o $(CURDIR)/git/.git-prompt.sh \
-		https://raw.githubusercontent.com/git/git/v$(GIT_VERSION)/contrib/completion/git-prompt.sh
-
 .PHONY: hub
 hub: ## Install hub cli
 ifeq ($(OSTYPE), "Darwin")
