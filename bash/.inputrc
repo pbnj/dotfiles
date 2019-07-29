@@ -7,6 +7,3 @@ set mark-symlinked-directories on
 set page-completions off
 set show-all-if-ambiguous off
 set visible-stats on
-
-TAB: menu-complete
-"\e[Z": menu-complete-backward
