@@ -160,7 +160,10 @@ command! -nargs=* Kube call Kube(<f-args>)
 function! Git( ... ) abort
   execute printf('!git %s', join(a:000))
 endfunction
-command! -nargs=* Git call Git(<f-args>)
+function! GitCompletion(A,L,P)
+  return system("git help -a | grep \"^   [a-z]\" | awk '{print $1}'")
+endfunction
+command! -nargs=* -complete=custom,GitCompletion Git call Git(<f-args>)
 
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
