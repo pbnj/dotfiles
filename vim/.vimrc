@@ -101,10 +101,6 @@ endif
 " Leader
 let g:mapleader="\<space>"
 
-" Movements
-map j gj
-map k gk
-
 " Arrows
 nmap <silent> <left> <esc>:lprev<cr>
 nmap <silent> <right> <esc>:lnext<cr>
