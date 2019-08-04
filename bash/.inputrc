@@ -1,6 +1,5 @@
 $include /etc/inputrc
 
-set completion-display-width 0
 set completion-ignore-case On
 set completion-query-items 0
 set mark-symlinked-directories on
