@@ -122,5 +122,8 @@ eval "$(hub alias -s)"
 
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_THEME="Minimal"
+    GIT_PROMPT_START="\n"
+    GIT_PROMPT_END="\n$ "
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
