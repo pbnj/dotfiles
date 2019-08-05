@@ -111,10 +111,10 @@ nmap <silent> <down> <esc>:cnext<cr>
 nnoremap <Leader><space> :noh<CR>
 
 " Tab Autocomplete
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Getting around
 nnoremap <Leader>b :b <C-d>
