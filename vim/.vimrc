@@ -39,7 +39,6 @@ set statusline+=[%04l,%04v]             " cursor location
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -72,6 +71,7 @@ set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
+set number
 set path+=**
 set ruler
 set scrolloff=1
@@ -82,11 +82,11 @@ set smartcase
 set smarttab
 set splitbelow
 set splitright
+set t_ut=""
 set updatetime=250
 set wildignorecase
 set wildmenu
 set wrap
-set t_ut=""
 
 " Search
 if executable("rg")
