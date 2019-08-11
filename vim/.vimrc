@@ -55,6 +55,7 @@ set foldmethod=indent
 set foldopen=all
 set formatoptions+=j " remove comment leader when joining lines
 set formatoptions+=n " when formatting text, recognize numbered lists
+set formatoptions+=r " auto insert bullet point on new lines
 set hidden
 set hlsearch
 set ignorecase
