@@ -70,7 +70,7 @@
 [hub]
 	host = github.td.teradata.com
 	host = github.com
-	protocol = ssh
+	protocol = https
 
 [user]
 	name = Peter Benjamin
