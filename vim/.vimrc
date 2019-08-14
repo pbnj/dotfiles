@@ -49,10 +49,6 @@ set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
-set foldclose=all
-set foldenable
-set foldmethod=indent
-set foldopen=all
 set formatoptions+=j " remove comment leader when joining lines
 set formatoptions+=n " when formatting text, recognize numbered lists
 set formatoptions+=r " auto insert bullet point on new lines
@@ -65,7 +61,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|\ ,trail:-,eol:¬,precedes:<,extends:>
+set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
 set nobackup
 set nomodeline
 set nospell
