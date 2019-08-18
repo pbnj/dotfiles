@@ -42,7 +42,6 @@ set autoread
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
-set colorcolumn=80
 set completeopt-=preview
 set conceallevel=0
 set cursorline
@@ -64,11 +63,12 @@ set list
 set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
 set nobackup
 set nomodeline
+set nonumber
 set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
-set number
+set omnifunc=syntaxcomplete#Complete
 set path+=**
 set ruler
 set scrolloff=1
