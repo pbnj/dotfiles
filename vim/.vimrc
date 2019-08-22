@@ -170,10 +170,10 @@ endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
 
 function! PasteForStatusline()
-                let l:paste_status=&paste
-                if l:paste_status == 1
-                        return '[PASTE]'
-                else
-                        return ''
-                endif
-        endfunction
+  let l:paste_status=&paste
+  if l:paste_status == 1
+    return '[PASTE]'
+  else
+    return ''
+  endif
+endfunction
