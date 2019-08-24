@@ -2,23 +2,13 @@
 
 ## Getting Started
 
-This repository contains git submodules (e.g. vim packages).
+```bash
+git clone https://github.com/petermbenjamin/dotfiles $HOME/.dotfiles
 
-When cloning this repo, make sure to run:
+cd $HOME/.dotfiles
 
-    git clone --recurse-submodules -j8 petermbenjamin/dotfiles $HOME/.dotfiles
-
-Alternatively, if the repo was cloned without `--recurse-submodule`, then run:
-
-    git submodule update --init --recursive
-
-This will checkout the submodules as well.
-
-Lastly, checkout the [`Makefile`](Makefile) or run:
-
-    make
-
-This will print out all available `make` targets.
+make
+```
 
 ## Disclaimer
 
