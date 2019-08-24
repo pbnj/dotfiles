@@ -59,15 +59,18 @@ else
 fi
 
 # BASH COMPLETION
-## For macOS
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
-    # if not found in /usr/local/etc, try the brew --prefix location
-    [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
-        . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-}
-
-[ -r "/usr/local/etc/profile.d/bash_completion.sh" ] \
-	&& . "/usr/local/etc/profile.d/bash_completion.sh"
+if [ -f /usr/local/etc/bash_completion ]; then
+	source /usr/local/etc/bash_completion
+elif [ -f /usr/share/bash-completion/bash_completion ]; then
+	source /usr/share/bash-completion/bash_completion
+elif [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then
+	source "/usr/local/etc/profile.d/bash_completion.sh"
+elif command -v brew &>/dev/null; then
+	[ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
+		source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+else
+	echo "No bash completion found"
+fi
 
 # GO
 export GOPATH="$HOME/go"
