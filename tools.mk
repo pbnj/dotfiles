@@ -15,22 +15,7 @@ endif
 
 .PHONY: hub
 hub: ## Install hub cli
-ifeq ($(OSTYPE), "Darwin")
-	brew install hub
-else
-	HUB_PATH := "$(GOPATH)"/src/github.com/github
-	@$(RM) "$(HUB_PATH)"
-	mkdir -p "$(HUB_PATH)"
-	git clone \
-		--config transfer.fsckobjects=false \
-		--config receive.fsckobjects=false \
-		--config fetch.fsckobjects=false \
-		https://github.com/github/hub.git "$(HUB_PATH)"
-	$(MAKE) -C "$(HUB_PATH)" install prefix=/usr/local
-	curl -Lo ~/.oh-my-zsh/custom/plugins/hub/_hub \
-		--create-dirs \
-		https://github.com/github/hub/raw/master/etc/hub.zsh_completion
-endif
+	$(CURDIR)/scripts/tools/hub/install.sh
 
 .PHONY: git-flow
 git-flow: ## Install git-flow
