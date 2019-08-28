@@ -145,11 +145,13 @@ augroup END
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
 
+" :Kube or :K commands
 function! Kube( ... ) abort
   execute printf('!kubectl %s', join(a:000))
 endfunction
 command! -nargs=* Kube call Kube(<f-args>)
 
+" :Git commands
 function! Git( ... ) abort
   execute printf('!git %s', join(a:000))
 endfunction
@@ -157,6 +159,17 @@ function! GitCompletion(A,L,P)
   return system("git help -a | grep \"^   [a-z]\" | awk '{print $1}'")
 endfunction
 command! -nargs=* -complete=custom,GitCompletion Git call Git(<f-args>)
+
+" :Blame
+function! s:GitBlame()
+    let cmd = "git blame -w " . bufname("%")
+    let nline = line(".") + 1
+    botright new
+    execute "$read !" . cmd
+    execute "normal " . nline . "gg"
+    execute "set filetype=perl"
+endfunction
+command! -nargs=* Blame call s:GitBlame()
 
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
