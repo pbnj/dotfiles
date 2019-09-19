@@ -20,18 +20,18 @@ highlight clear FoldColumn
 highlight clear SignColumn
 
 " Statusline
-set statusline=%{PasteForStatusline()}  " paste?
-set statusline+=[%f]                    " full path to file
-set statusline+=%m                      " modified?
-set statusline+=%r                      " read only?
-set statusline+=%h                      " help?
-set statusline+=%w                      " preview?
-set statusline+=%=                      " right justify
-set statusline+=[%L]                    " number of lines
-set statusline+=[%{&ff}]                " file format
-set statusline+=%y                      " current syntax
-set statusline+=[%p%%]                  " percent into file
-set statusline+=[%04l,%04v]             " cursor location
+" set statusline=%{PasteForStatusline()}  " paste?
+" set statusline+=[%f]                    " full path to file
+" set statusline+=%m                      " modified?
+" set statusline+=%r                      " read only?
+" set statusline+=%h                      " help?
+" set statusline+=%w                      " preview?
+" set statusline+=%=                      " right justify
+" set statusline+=[%L]                    " number of lines
+" set statusline+=[%{&ff}]                " file format
+" set statusline+=%y                      " current syntax
+" set statusline+=[%p%%]                  " percent into file
+" set statusline+=[%04l,%04v]             " cursor location
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
