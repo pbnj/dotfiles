@@ -13,11 +13,13 @@ set nocompatible
 filetype plugin indent on
 syntax off
 
+highlight clear FoldColumn
+highlight clear Search
+highlight clear SignColumn
+
+highlight Search cterm=bold,underline
 highlight TrailingWhiteSpace ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
-
-highlight clear FoldColumn
-highlight clear SignColumn
 
 " Statusline
 " set statusline=%{PasteForStatusline()}  " paste?
