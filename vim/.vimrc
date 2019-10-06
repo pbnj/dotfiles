@@ -21,20 +21,6 @@ highlight Search cterm=bold,underline
 highlight TrailingWhiteSpace ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
 
-" Statusline
-" set statusline=%{PasteForStatusline()}  " paste?
-" set statusline+=[%f]                    " full path to file
-" set statusline+=%m                      " modified?
-" set statusline+=%r                      " read only?
-" set statusline+=%h                      " help?
-" set statusline+=%w                      " preview?
-" set statusline+=%=                      " right justify
-" set statusline+=[%L]                    " number of lines
-" set statusline+=[%{&ff}]                " file format
-" set statusline+=%y                      " current syntax
-" set statusline+=[%p%%]                  " percent into file
-" set statusline+=[%04l,%04v]             " cursor location
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
@@ -109,12 +95,6 @@ nmap <silent> <down> <esc>:cnext<cr>
 " Misc
 nnoremap <Leader><space> :noh<CR>
 
-" Tab Autocomplete
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
 " Getting around
 nnoremap <Leader>b :b <C-d>
 nnoremap <Leader>e :e **/
@@ -183,12 +163,3 @@ function! StripTrailingWhitespace()
   endif
 endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
-
-function! PasteForStatusline()
-  let l:paste_status=&paste
-  if l:paste_status == 1
-    return '[PASTE]'
-  else
-    return ''
-  endif
-endfunction
