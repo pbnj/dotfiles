@@ -117,13 +117,13 @@ alias mv='mv -i'
 command -v kubectl &>/dev/null && alias k="kubectl"
 command -v kubekit &>/dev/null && alias kk="kubekit"
 
-# Exa
-command -v exa &>/dev/null \
-	&& alias ll="exa -alFh --git --group-directories-first" \
-	|| alias ll="ls -alFh --color=auto --group-directories-first"
+alias ll="ls -alFh --group-directories-first"
 
 # Hub
-command -v hub &>/dev/null && eval "$(hub alias -s)"
+if command -v hub &>/dev/null; then
+	eval "$(hub alias -s)"
+	alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
+fi
 
 ########################################
 # PROMPT
