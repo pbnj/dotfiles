@@ -30,6 +30,7 @@ set autoread
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
+set cmdheight=2
 set completeopt-=preview
 set conceallevel=0
 set cursorline
@@ -55,6 +56,7 @@ set nonumber
 set nospell
 set noswapfile
 set novisualbell
+set nowrap
 set nowritebackup
 set omnifunc=syntaxcomplete#Complete
 set path+=**
@@ -71,7 +73,6 @@ set t_ut=""
 set updatetime=250
 set wildignorecase
 set wildmenu
-set wrap
 
 " Search
 if executable("rg")
