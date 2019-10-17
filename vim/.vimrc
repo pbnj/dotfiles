@@ -122,6 +122,9 @@ augroup general
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
+
+  " GO SETTINGS
+  autocmd BufWritePost *.go :silent ! goimports -w %
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
