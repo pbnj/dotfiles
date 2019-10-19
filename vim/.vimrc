@@ -33,7 +33,6 @@ set breakindent
 set cmdheight=2
 set completeopt-=preview
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -51,6 +50,7 @@ set linebreak
 set list
 set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
 set nobackup
+set nocursorline
 set nomodeline
 set nonumber
 set nospell
