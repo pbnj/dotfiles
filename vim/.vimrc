@@ -123,7 +123,10 @@ augroup general
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
 
-  " GO SETTINGS
+  " All Files
+  autocmd BufWritePost * :StripTrailingWhitespace
+
+  " Go Settings
   autocmd BufWritePost *.go :silent ! goimports -w %
 augroup END
 
@@ -167,3 +170,9 @@ function! StripTrailingWhitespace()
   endif
 endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
+
+function! GenerateTableOfContents()
+  silent ! mdtoc --inplace %
+  redraw!
+endfunction
+command! TOC :call GenerateTableOfContents()
