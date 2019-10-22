@@ -129,10 +129,17 @@ fi
 # PROMPT
 ########################################
 
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    GIT_PROMPT_THEME="Minimal"
-    GIT_PROMPT_START="\n"
-    GIT_PROMPT_END="\n$ "
-    source $HOME/.bash-git-prompt/gitprompt.sh
-fi
+# Sweet, simple, & to the point
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
+
+PS1='\n\u@\h \W$(__git_ps1 " (%s)")\n\$ '
+
+# if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+#     GIT_PROMPT_ONLY_IN_REPO=1
+#     GIT_PROMPT_THEME="Minimal"
+#     GIT_PROMPT_START="\n"
+#     GIT_PROMPT_END="\n$ "
+#     source $HOME/.bash-git-prompt/gitprompt.sh
+# fi
