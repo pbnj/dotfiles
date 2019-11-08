@@ -1,4 +1,11 @@
 ####################
+# 1PASSWORD
+####################
+.PHONY: op
+op: ## Install 1password-cli
+	./scripts/tools/1password/install.sh
+
+####################
 # GIT
 ####################
 

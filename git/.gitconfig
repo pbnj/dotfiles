@@ -78,5 +78,8 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
+[url "git@github.td.teradata.com:"]
+	insteadOf = https://github.td.teradata.com/
+
 [includeIf "gitdir:github.td.teradata.com/"]
 	path = ~/go/src/github.td.teradata.com/.gitconfig

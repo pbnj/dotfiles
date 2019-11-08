@@ -13,25 +13,13 @@ set nocompatible
 filetype plugin indent on
 syntax off
 
-highlight TrailingWhiteSpace ctermbg=Red
-match TrailingWhiteSpace /\s\+$/
-
 highlight clear FoldColumn
+highlight clear Search
 highlight clear SignColumn
 
-" Statusline
-set statusline=%{PasteForStatusline()}  " paste?
-set statusline+=[%f]                    " full path to file
-set statusline+=%m                      " modified?
-set statusline+=%r                      " read only?
-set statusline+=%h                      " help?
-set statusline+=%w                      " preview?
-set statusline+=%=                      " right justify
-set statusline+=[%L]                    " number of lines
-set statusline+=[%{&ff}]                " file format
-set statusline+=%y                      " current syntax
-set statusline+=[%p%%]                  " percent into file
-set statusline+=[%04l,%04v]             " cursor location
+highlight Search cterm=bold,underline
+highlight TrailingWhiteSpace ctermbg=Red
+match TrailingWhiteSpace /\s\+$/
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -42,9 +30,9 @@ set autoread
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
+set cmdheight=2
 set completeopt-=preview
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -62,11 +50,13 @@ set linebreak
 set list
 set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
 set nobackup
+set nocursorline
 set nomodeline
 set nonumber
 set nospell
 set noswapfile
 set novisualbell
+set nowrap
 set nowritebackup
 set omnifunc=syntaxcomplete#Complete
 set path+=**
@@ -83,7 +73,6 @@ set t_ut=""
 set updatetime=250
 set wildignorecase
 set wildmenu
-set wrap
 
 " Search
 if executable("rg")
@@ -106,12 +95,6 @@ nmap <silent> <down> <esc>:cnext<cr>
 
 " Misc
 nnoremap <Leader><space> :noh<CR>
-
-" Tab Autocomplete
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Getting around
 nnoremap <Leader>b :b <C-d>
@@ -139,6 +122,12 @@ augroup general
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
+
+  " All Files
+  autocmd BufWritePost * :StripTrailingWhitespace
+
+  " Go Settings
+  autocmd BufWritePost *.go :silent ! goimports -w %
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
@@ -182,11 +171,8 @@ function! StripTrailingWhitespace()
 endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
 
-function! PasteForStatusline()
-  let l:paste_status=&paste
-  if l:paste_status == 1
-    return '[PASTE]'
-  else
-    return ''
-  endif
+function! GenerateTableOfContents()
+  silent ! mdtoc --inplace %
+  redraw!
 endfunction
+command! TOC :call GenerateTableOfContents()
