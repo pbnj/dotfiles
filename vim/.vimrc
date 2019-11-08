@@ -79,7 +79,7 @@ set wrap
 """"""""""""""""""""""""""""""""""""""""
 
 " Leader
-let g:mapleader="\<space>"
+" let g:mapleader="\<space>"
 
 " Arrows
 nmap <silent> <left> <esc>:lprev<cr>
