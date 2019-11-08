@@ -33,6 +33,7 @@ set breakindent
 set cmdheight=2
 set completeopt-=preview
 set conceallevel=0
+set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -50,13 +51,11 @@ set linebreak
 set list
 set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
 set nobackup
-set nocursorline
 set nomodeline
 set nonumber
 set nospell
 set noswapfile
 set novisualbell
-set nowrap
 set nowritebackup
 set omnifunc=syntaxcomplete#Complete
 set path+=**
@@ -73,12 +72,7 @@ set t_ut=""
 set updatetime=250
 set wildignorecase
 set wildmenu
-
-" Search
-if executable("rg")
-  set grepprg=rg\ --smart-case\ --vimgrep
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-endif
+set wrap
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Mappings
