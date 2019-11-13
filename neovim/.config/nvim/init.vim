@@ -52,11 +52,11 @@ set list
 set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
 set nobackup
 set nomodeline
+set nonumber
 set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
-set number
 set omnifunc=syntaxcomplete#Complete
 set path+=**
 set ruler
