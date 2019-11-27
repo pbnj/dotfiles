@@ -79,8 +79,8 @@ export PATH="$GOPATH/bin:$PATH"
 [ -d "$HOME/.gimme" ] && source "$HOME/.gimme/envs/latest.env"
 
 # CARGO
-export PATH="$HOME/.cargo/bin:$PATH"
-if command -v rustup &>/dev/null; then
+if [ -d "$HOME/.cargo" ]; then
+	source $HOME/.cargo/env
 	source <(rustup completions bash)
 	source <(rustup completions bash cargo)
 fi
