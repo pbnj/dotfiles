@@ -20,8 +20,11 @@ tap "homebrew/cask"
 cask "1password"
 cask "discord"
 cask "docker"
-cask "font-sourcecodepro-nerd-font"
 cask "slack"
 cask "spectacle"
 cask "vagrant"
 cask "virtualbox"
+
+tap "homebrew/cask-fonts"
+
+cask "font-sourcecodepro-nerd-font"
