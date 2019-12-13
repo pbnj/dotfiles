@@ -33,7 +33,6 @@ set breakindent
 set cmdheight=2
 set completeopt-=preview
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -111,17 +110,27 @@ nnoremap <silent> <C-l> <C-w>l
 
 augroup general
   autocmd!
+
+  " General
+  autocmd BufWritePost * :StripTrailingWhitespace
+  autocmd InsertEnter,InsertLeave * set cul!
+
+  " vim
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
+
+  " markdown
   autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
+
+  " yaml
   autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
+
+  " json
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
 
-  " All Files
-  autocmd BufWritePost * :StripTrailingWhitespace
-
-  " Go Settings
+  " Go
   autocmd BufWritePost *.go :silent ! goimports -w %
+
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
