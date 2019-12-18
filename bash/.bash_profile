@@ -126,11 +126,4 @@ fi
 ########################################
 # PROMPT
 ########################################
-
-# Sweet, simple, & to the point
-# GIT_PS1_SHOWDIRTYSTATE=true
-# GIT_PS1_SHOWUNTRACKEDFILES=true
-# GIT_PS1_SHOWUPSTREAM=auto
-# PS1='\n\u@\h \W$(__git_ps1 " (%s)")\n\$ '
-
-command -v starship &>/dev/null && eval "$(starship init bash)"
+[ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"

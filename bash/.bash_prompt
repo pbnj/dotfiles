@@ -1,0 +1,17 @@
+# Git settings
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM=auto
+
+# Kubernetes settings
+function __kube_ps1() {
+	if command -v kubectl &>/dev/null; then
+		KUBE_CTX="$(kubectl config current-context 2>/dev/null)"
+		KUBE_NS="$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)"
+	fi
+	KUBE_PS1="${KUBE_CTX:-""}/${KUBE_NS:-""}"
+
+	echo "(${KUBE_PS1})"
+}
+# PS1='\n\u@\h \W$(__git_ps1 " (%s)") (${KUBE_PS1})\n\$ '
+PROMPT_COMMAND='__git_ps1 "\n\u@\h:\w" " $(__kube_ps1)\n\\\$ "'
