@@ -111,9 +111,10 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# k8s
-command -v kubectl &>/dev/null && alias k="kubectl"
-command -v kubekit &>/dev/null && alias kk="kubekit"
+# K8s
+command -v kubectl &>/dev/null && alias k="kubectl" && complete -F __start_kubectl k
+command -v kubectx &>/dev/null && alias kctx="kubectx"
+command -v kubens &>/dev/null && alias kns="kubens"
 
 alias ll="ls -alFh --group-directories-first"
 
