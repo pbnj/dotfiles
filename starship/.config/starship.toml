@@ -1,0 +1,39 @@
+# docs: https://starship.rs/config/
+
+prompt_order = [
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_commit",
+    "git_state",
+    "git_status",
+    "package",
+    "golang",
+    "nodejs",
+    "python",
+    "ruby",
+    "rust",
+    "terraform",
+    "kubernetes",
+    "aws",
+    "conda",
+    "memory_usage",
+    "env_var",
+    "jobs",
+    "battery",
+    "time",
+    "line_break",
+    "character",
+]
+
+[character]
+symbol = "$"
+
+[kubernetes]
+disabled = false
+
+[time]
+disabled = false
+use_12hr = true
+
