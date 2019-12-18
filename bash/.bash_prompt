@@ -11,7 +11,7 @@ function __kube_ps1() {
 	fi
 	KUBE_PS1="${KUBE_CTX}/${KUBE_NS}"
 
-	[ -z "${KUBE_PS1}" ] && echo "(${KUBE_PS1})"
+	[ -n "${KUBE_PS1}" ] && echo "(${KUBE_PS1})"
 }
 # PS1='\n\u@\h \W$(__git_ps1 " (%s)") (${KUBE_PS1})\n\$ '
 PROMPT_COMMAND='__git_ps1 "\n\u@\h:\w" " $(__kube_ps1)\n\\\$ "'
