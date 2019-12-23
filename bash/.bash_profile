@@ -128,3 +128,4 @@ fi
 # PROMPT
 ########################################
 [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
+# eval "$(starship init bash)"
