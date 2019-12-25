@@ -11,7 +11,7 @@ set nocompatible
 """"""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
-" syntax off
+syntax off
 
 highlight clear FoldColumn
 highlight clear Search

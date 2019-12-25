@@ -68,6 +68,8 @@ set smarttab
 set splitbelow
 set splitright
 set t_ut=""
+set undodir=$HOME/.vim/undo
+set undofile
 set updatetime=250
 set wildignorecase
 set wildmenu
