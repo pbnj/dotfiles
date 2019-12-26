@@ -19,7 +19,7 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 ##########
-# EXPORTS
+# LANGUAGES
 ##########
 # GO
 export GOPATH="$HOME/go"
@@ -28,6 +28,9 @@ export PATH="$GOPATH/bin:$PATH"
 
 # RUST
 [ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+
+# NVM
+[ -d "$HOME/.nvm" ] && source "$HOME/.nvm/nvm.sh"
 
 ##########
 # ALIASES
@@ -48,7 +51,7 @@ if command -v kubens &>/dev/null; then
 	alias kns="kubens"
 fi
 
-# Shell
+# Misc
 if command -v exa &>/dev/null; then
 	alias ls="exa"
 	alias ll="exa --all --long --git --group-directories-first"
