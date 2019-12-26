@@ -12,6 +12,7 @@ let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
