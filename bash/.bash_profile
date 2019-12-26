@@ -87,10 +87,7 @@ fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] \
-	&& source "$NVM_DIR/nvm.sh"          # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] \
-	&& source "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # K8S
 [ -d "$HOME/.krew" ] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -101,31 +98,11 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # ALIASES
 ########################################
 
-# Generic
-alias ..="cd .."
-alias ...="cd ../.."
-alias grep="grep --color=auto"
-
-# For safety
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
-# K8s
-command -v kubectl &>/dev/null && alias k="kubectl" && complete -F __start_kubectl k
-command -v kubectx &>/dev/null && alias kctx="kubectx"
-command -v kubens &>/dev/null && alias kns="kubens"
-
-alias ll="ls -alFh --group-directories-first"
-
-# Hub
-if command -v hub &>/dev/null; then
-	eval "$(hub alias -s)"
-	alias tdhub="GITHUB_HOST=github.td.teradata.com hub"
-fi
+[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 
 ########################################
 # PROMPT
 ########################################
-[ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
-# eval "$(starship init bash)"
+
+# [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
+eval "$(starship init bash)"
