@@ -11,7 +11,7 @@ set nocompatible
 """"""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on
-syntax off
+syntax on
 
 highlight clear FoldColumn
 highlight clear Search
@@ -20,18 +20,17 @@ highlight clear SignColumn
 highlight Search cterm=bold,underline
 highlight TrailingWhiteSpace ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
 set autoindent
 set autoread
-set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
 set cmdheight=2
+set colorcolumn=80
 set completeopt-=preview
 set conceallevel=0
 set display=lastline
@@ -69,6 +68,9 @@ set smarttab
 set splitbelow
 set splitright
 set t_ut=""
+set textwidth=80
+set undodir=$HOME/.vim/undo
+set undofile
 set updatetime=250
 set wildignorecase
 set wildmenu
