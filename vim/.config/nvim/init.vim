@@ -8,8 +8,10 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -30,6 +32,7 @@ highlight clear SignColumn
 highlight Search cterm=bold,underline
 highlight TrailingWhiteSpace ctermbg=Red
 match TrailingWhiteSpace /\s\+$/
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
@@ -66,6 +69,7 @@ set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
+set omnifunc=ale#completion#OmniFunc
 set path+=**
 set ruler
 set scrolloff=1
@@ -124,7 +128,6 @@ augroup general
   autocmd!
 
   " General
-  autocmd BufWritePost * :StripTrailingWhitespace
   autocmd InsertEnter,InsertLeave * set cul!
 
   " vim
@@ -175,19 +178,43 @@ function! s:GitBlame()
 endfunction
 command! -nargs=* Blame call s:GitBlame()
 
-function! StripTrailingWhitespace()
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
-    %s/\s\+$//e
-    normal 'yz<CR>
-    normal `z
-  endif
-endfunction
-command! StripTrailingWhitespace :call StripTrailingWhitespace()
-
 function! GenerateTableOfContents()
   silent ! mdtoc --inplace %
   redraw!
 endfunction
 command! TOC :call GenerateTableOfContents()
+
+""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""
+" ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+" LIGHTLINE
+let g:lightline = {}
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+let g:lightline.active = {
+      \ 'left': [ [ 'mode', 'paste' ],
+      \           [ 'readonly', 'filename', 'modified' ] ],
+      \ 'right': [ [ 'lineinfo' ],
+      \            [ 'percent' ],
+      \            [ 'fileformat', 'fileencoding', 'filetype' ] ,
+      \            [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]]
+      \ }
+
