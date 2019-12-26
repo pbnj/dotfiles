@@ -6,6 +6,7 @@ brew "exa"
 brew "gimme"
 brew "git"
 brew "go"
+brew "hadolint"
 brew "hub"
 brew "jq"
 brew "kubectl"
@@ -25,7 +26,6 @@ brew "yq"
 brew "zsh"
 
 # Misc
-brew "goodwithtech/r/dockle"
 brew "homebrew/cask-fonts/font-sourcecodepro-nerd-font"
 
 # Casks
