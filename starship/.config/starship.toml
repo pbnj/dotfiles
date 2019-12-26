@@ -1,25 +1,29 @@
-# docs: https://starship.rs/config/
-
 prompt_order = [
     "username",
     "hostname",
+    "kubernetes",
     "directory",
     "git_branch",
     "git_commit",
     "git_state",
     "git_status",
+    "hg_branch",
     "package",
+    "dotnet",
     "golang",
+    "java",
     "nodejs",
+    "php",
     "python",
     "ruby",
     "rust",
     "terraform",
-    "kubernetes",
-    "aws",
+    "nix_shell",
     "conda",
     "memory_usage",
+    "aws",
     "env_var",
+    "cmd_duration",
     "jobs",
     "battery",
     "time",
@@ -30,10 +34,5 @@ prompt_order = [
 [character]
 symbol = "$"
 
-[kubernetes]
-disabled = false
-
-[time]
-disabled = false
-use_12hr = true
-
+[cmd_duration]
+disabled = "true"
