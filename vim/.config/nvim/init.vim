@@ -61,7 +61,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|\ ,trail:-,precedes:<,extends:>
+set listchars=tab:\|\ ,trail:•,precedes:<,extends:>
 set nobackup
 set nomodeline
 set nonumber
@@ -191,6 +191,7 @@ command! TOC :call GenerateTableOfContents()
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
+let g:fix_on_save = 1
 
 " LIGHTLINE
 let g:lightline = {}
