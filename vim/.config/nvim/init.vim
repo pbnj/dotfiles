@@ -66,6 +66,7 @@ set formatoptions+=r " auto insert bullet point on new lines
 set hidden
 set hlsearch
 set ignorecase
+set inccommand=split
 set incsearch
 set infercase
 set laststatus=2
