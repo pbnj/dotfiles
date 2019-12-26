@@ -205,7 +205,7 @@ let g:ale_linters = {
       \ 'yaml': ['prettier'],
       \ }
 
-let g:fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 " LIGHTLINE
 let g:lightline = {}
@@ -236,4 +236,3 @@ let g:lightline.active = {
       \            [ 'fileformat', 'fileencoding', 'filetype' ] ,
       \            [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]]
       \ }
-
