@@ -14,6 +14,7 @@ Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 
+Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 
 Plug 'tpope/vim-commentary'
@@ -173,17 +174,6 @@ function! GitCompletion(A,L,P)
   return system("git help -a | grep \"^   [a-z]\" | awk '{print $1}'")
 endfunction
 command! -nargs=* -complete=custom,GitCompletion Git call Git(<f-args>)
-
-" :Blame
-function! s:GitBlame()
-    let cmd = "git blame -w " . bufname("%")
-    let nline = line(".") + 1
-    botright new
-    execute "$read !" . cmd
-    execute "normal " . nline . "gg"
-    execute "set filetype=perl"
-endfunction
-command! -nargs=* Blame call s:GitBlame()
 
 function! GenerateTableOfContents()
   silent ! mdtoc --inplace %
