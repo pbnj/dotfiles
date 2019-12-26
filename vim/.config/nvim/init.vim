@@ -6,12 +6,22 @@
 
 set nocompatible
 
+call plug#begin('~/.vim/plugged')
+
+Plug 'dense-analysis/ale'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+
+call plug#end()
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """"""""""""""""""""""""""""""""""""""""
-
-filetype plugin indent on
-syntax on
 
 highlight clear FoldColumn
 highlight clear Search
@@ -56,7 +66,6 @@ set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
-set omnifunc=syntaxcomplete#Complete
 set path+=**
 set ruler
 set scrolloff=1
