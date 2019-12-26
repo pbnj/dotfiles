@@ -32,6 +32,9 @@ export PATH="$GOPATH/bin:$PATH"
 # NVM
 [ -d "$HOME/.nvm" ] && source "$HOME/.nvm/nvm.sh"
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ##########
 # ALIASES
 ##########
@@ -73,4 +76,3 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # PROMPT
 ##########
 eval "$(starship init zsh)"
-
