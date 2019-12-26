@@ -1,3 +1,4 @@
+# Brews
 brew "bat"
 brew "coreutils"
 brew "docker"
@@ -23,16 +24,15 @@ brew "yamllint"
 brew "yq"
 brew "zsh"
 
-tap "homebrew/cask"
+# Misc
+brew "goodwithtech/r/dockle"
+brew "homebrew/cask-fonts/font-sourcecodepro-nerd-font"
 
-cask "1password"
-cask "discord"
-cask "docker"
-cask "slack"
-cask "spectacle"
-cask "vagrant"
-cask "virtualbox"
-
-tap "homebrew/cask-fonts"
-
-cask "font-sourcecodepro-nerd-font"
+# Casks
+brew "homebrew/cask/1password"
+brew "homebrew/cask/discord"
+brew "homebrew/cask/docker"
+brew "homebrew/cask/slack"
+brew "homebrew/cask/spectacle"
+brew "homebrew/cask/vagrant"
+brew "homebrew/cask/virtualbox"
