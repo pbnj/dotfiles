@@ -11,6 +11,8 @@ call plug#begin('~/.vim/plugged')
 let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 
