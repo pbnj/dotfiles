@@ -14,6 +14,8 @@ Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 
+Plug 'airblade/vim-rooter'
+
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -23,6 +25,8 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'Lokaltog/vim-monotone'
 call plug#end()
+
+colorscheme monotone
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
@@ -191,9 +195,26 @@ command! TOC :call GenerateTableOfContents()
 " Plugins
 """"""""""""""""""""""""""""""""""""""""
 " ALE
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
+let g:ale_linters = {
+      \ 'go': ['gopls'],
+      \ 'rust': ['rls'],
+      \ }
+
+ let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'bash': ['shfmt'],
+      \ 'go': ['goimports'],
+      \ 'markdown': ['prettier'],
+      \ 'javascript': ['prettier'],
+      \ 'json': ['prettier'],
+      \ 'rust': ['rustfmt'],
+      \ 'terraform': ['fmt'],
+      \ 'hcl': ['terraform-fmt'],
+      \ 'typescript': ['prettier'],
+      \ 'vue': ['prettier'],
+      \ 'yaml': ['prettier'],
+      \ }
+
 let g:fix_on_save = 1
 
 " LIGHTLINE
@@ -206,6 +227,10 @@ let g:lightline.component_expand = {
       \  'linter_ok': 'lightline#ale#ok',
       \ }
 
+let g:lightline.component_function = {
+      \ 'gitbranch': 'fugitive#head',
+      \ }
+
 let g:lightline.component_type = {
       \     'linter_checking': 'left',
       \     'linter_warnings': 'warning',
@@ -215,7 +240,7 @@ let g:lightline.component_type = {
 
 let g:lightline.active = {
       \ 'left': [ [ 'mode', 'paste' ],
-      \           [ 'readonly', 'filename', 'modified' ] ],
+      \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
       \ 'right': [ [ 'lineinfo' ],
       \            [ 'percent' ],
       \            [ 'fileformat', 'fileencoding', 'filetype' ] ,
