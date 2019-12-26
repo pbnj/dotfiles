@@ -10,8 +10,10 @@ call plug#begin('~/.vim/plugged')
 
 let g:ale_completion_enabled = 1
 Plug 'dense-analysis/ale'
+
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
+
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -19,6 +21,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
+Plug 'Lokaltog/vim-monotone'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
