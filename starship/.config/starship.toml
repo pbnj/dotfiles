@@ -35,4 +35,4 @@ prompt_order = [
 symbol = "$"
 
 [cmd_duration]
-disabled = "true"
+disabled = true
