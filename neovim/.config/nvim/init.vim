@@ -28,10 +28,9 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'Lokaltog/vim-monotone'
 call plug#end()
-
-colorscheme monotone
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
@@ -49,9 +48,11 @@ match TrailingWhiteSpace /\s\+$/
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
+colorscheme Papercolor
+
 set autoindent
 set autoread
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
