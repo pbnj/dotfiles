@@ -1,5 +1,6 @@
 .DEFAULT_GOAL:=help
 
+include shell.mk
 include tools.mk
 include langs.mk
 

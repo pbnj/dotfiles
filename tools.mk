@@ -131,29 +131,6 @@ bash-git-prompt: ## Install bash-git-prompt
 	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 
 ####################
-# ZSH
-####################
-
-.PHONY: zsh
-zsh: oh-my-zsh zsh-plugins zsh-pure-prompt ## Install zsh
-
-.PHONY: oh-my-zsh
-oh-my-zsh: ## Install zsh
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-.PHONY: zsh-plugins
-zsh-plugins: ## Install zsh plugins
-	git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	git clone https://github.com/zsh-users/zsh-completions $(HOME)/.oh-my-zsh/custom/plugins/zsh-completions
-
-.PHONY: zsh-pure-prompt
-zsh-pure-prompt: ## Install Pure prompt
-	git clone https://github.com/sindresorhus/pure $(HOME)/.oh-my-zsh/custom/pure
-	sudo ln -s "$(HOME)/.oh-my-zsh/custom/pure/pure.zsh" /usr/local/share/zsh/site-functions/prompt_pure_setup
-	sudo ln -s "$(HOME)/.oh-my-zsh/custom/pure/async.zsh" /usr/local/share/zsh/site-functions/async
-
-####################
 # STOW
 ####################
 
