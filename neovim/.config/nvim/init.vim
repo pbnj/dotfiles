@@ -20,6 +20,7 @@ Plug 'maximbaz/lightline-ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
