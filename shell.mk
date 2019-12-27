@@ -12,3 +12,4 @@ oh-my-zsh: ## Install Oh-My-ZSH
 .PHONY: zsh-plugins
 zsh-plugins: ## Install zsh plugins
 	./scripts/shell/zsh/plugins.sh
+
