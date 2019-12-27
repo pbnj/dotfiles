@@ -50,6 +50,7 @@ match TrailingWhiteSpace /\s\+$/
 
 set autoindent
 set autoread
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
