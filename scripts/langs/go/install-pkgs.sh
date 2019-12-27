@@ -3,11 +3,7 @@
 set -e
 set -x
 
-# go get -u -v github.com/petermbenjamin/aws-console
-# go get -u -v github.com/petermbenjamin/go-open/cmd/gopen
-go get -u -v github.com/goreleaser/goreleaser
-go get -u -v github.com/jessfraz/weather
-go get -u -v github.com/mvdan/sh
-go get -u -v github.com/petermbenjamin/go-gitignore/cmd/gitignore
+go get -u -v golang.org/x/tools/cmd/goimports
+go get -u -v golang.org/x/tools/gopls@latest
+go get -u -v github.com/pbnj/go-gitignore/...
 go get -u -v github.com/tj/go-search
-go get -u -v golang.org/x/vgo
