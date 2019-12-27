@@ -1,6 +1,7 @@
 ####################
 # 1PASSWORD
 ####################
+
 .PHONY: op
 op: ## Install 1password-cli
 	./scripts/tools/1password/install.sh
@@ -8,6 +9,9 @@ op: ## Install 1password-cli
 ####################
 # GIT
 ####################
+
+.PHONY: git-all
+git-all: git hub git-flow git-stow ## Install & setup git
 
 .PHONY: git
 git: ## Install git
@@ -30,14 +34,16 @@ git-flow: ## Install git-flow
 	sudo curl -L -o /etc/bash_completion.d/git-flow-completion.bash \
 		https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git-flow-completion.bash
 
-.PHONY: fzf
-fzf: ## Install fzf
-	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install
+.PHONY: git-stow
+git-stow: stow ## Symlink git files to $HOME
+	stow git
 
 ####################
 # TMUX
 ####################
+
+.PHONY: tmux-all
+tmux-all: tmux-build tmux-plugins tmux-stow ## Install & setup tmux
 
 .PHONY: tmux-build
 tmux-build: ## Build tmux from source (not tested yet)
@@ -55,9 +61,14 @@ tmux-plugins: ## Install tmux plugins
 	echo set -g @plugin 'tmux-plugins/tmux-sensible' >> ${HOME}/.tmux.conf
 	echo run -b '~/.tmux/plugins/tpm/tpm' >> ${HOME}/.tmux.conf
 
+.PHONY: tmux-stow
+tmux-stow: stow ## Stow tmux
+	stow tmux
+
 ####################
 # KUBERNETES
 ####################
+
 .PHONY: kubectl
 kubectl: ## Install kubectl
 	./scripts/tools/kubernetes/kubectl.sh
@@ -68,7 +79,7 @@ docker: ## Install docker
 
 .PHONY: kind
 kind: ## Install kind
-	GO111MODULE="on" go get -u -v sigs.k8s.io/kind@v0.4.0
+	GO111MODULE="on" go get -u -v sigs.k8s.io/kind@v0.6.0
 
 ####################
 # MACOS
@@ -76,59 +87,62 @@ kind: ## Install kind
 
 .PHONY: brew
 brew: ## Install homebrew
+ifeq ($(OSTYPE), "Darwin")
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+endif
 
-.PHONY: brews
-brews: ## Install brews
-	brew install \
-		cmake \
-		coreutils \
-		ctags \
-		docker \
-		docker-compose \
-		fzf \
-		git \
-		go \
-		htop \
-		hub \
-		hugo \
-		jq \
-		kubectl \
-		make \
-		mosh \
-		neovim \
-		ripgrep \
-		shellcheck \
-		tmux \
-		vim \
-		yamllint
+####################
+# NEOVIM
+####################
 
-.PHONY: brew-casks
-brew-casks: ## Install brew casks
-	brew cask install \
-		1password-cli \
-		docker \
-		font-firacode-nerd-font \
-		iterm2 \
-		macvim \
-		virtualbox \
-		wkhtmltopdf
+.PHONY: neovim-all
+neovim-all: neovim neovim-plug neovim-stow ## Install & setup neovim
+
+.PHONY: neovim
+neovim: ## Install neovim
+	brew install neovim
+
+.PHONY: neovim-plug
+neovim-plug: ## Install vim-plug for neovim
+	./scripts/tools/neovim/vim-plug.sh
+
+.PHONY: neovim-stow
+neovim-stow: stow ## Stow neovim
+	stow neovim
 
 ####################
 # VIM
 ####################
 
+.PHONY: vim-all
+vim-all: vim-build vim-stow ## Install & setup vim
+
 .PHONY: vim-build
 vim-build: ## Build vim from source
 	sh $(CURDIR)/scripts/tools/vim/build.sh
+
+.PHONY: vim-stow
+vim-stow: stow ## Symlink vim files to $HOME
+	stow vim
 
 ####################
 # BASH
 ####################
 
+.PHONY: bash-all
+bash-all: bash bash-git-prompt bash-stow ## Install & setup bash
+
+.PHONY: bash
+bash: ## Install bash
+	brew install bash
+
 .PHONY: bash-git-prompt
 bash-git-prompt: ## Install bash-git-prompt
 	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+.PHONY: bash-stow
+bash-stow: bash-git-prompt ## Configures bash
+	stow bash
 
 ####################
 # STOW
@@ -142,22 +156,3 @@ else
 	sudo apt-get update
 	sudo apt-get install -y stow
 endif
-
-.PHONY: stow-all
-stow-all: stow stow-bash stow-git stow-tmux stow-vim stow-neovim ## Stow all files
-
-.PHONY: stow-bash
-stow-bash: bash-git-prompt ## Configures bash
-	stow bash
-
-.PHONY: stow-git
-stow-git: ## Symlink git files to $HOME
-	stow git
-
-.PHONY: stow-tmux
-stow-tmux: ## Symlink tmux files to $HOME
-	stow tmux
-
-.PHONY: stow-vim
-stow-vim: ## Symlink vim files to $HOME
-	stow vim
