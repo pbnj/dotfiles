@@ -16,7 +16,7 @@ shopt -s globstar
 
 export EDITOR=vim
 export GIT_TERMINAL_PROMPT=1
-export HISTCONTROL=ignoredups;
+export HISTCONTROL=ignoredups
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
@@ -25,15 +25,11 @@ export LC_MESSAGES="en_US.UTF-8"
 export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
-export MANPAGER="less -X";
+export MANPAGER="less -X"
 
 ########################################
 # PLUGINS
 ########################################
-
-# GNU UTILS
-[ -d "/usr/local/opt/coreutils/libexec/gnubin" ] \
-	&& export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"
@@ -59,38 +55,28 @@ else
 fi
 
 # BASH COMPLETION
-if [ -f /usr/local/etc/bash_completion ]; then
-	source /usr/local/etc/bash_completion
-elif [ -f /usr/share/bash-completion/bash_completion ]; then
-	source /usr/share/bash-completion/bash_completion
-elif [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then
-	source "/usr/local/etc/profile.d/bash_completion.sh"
-elif command -v brew &>/dev/null; then
-	[ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
-		source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
-else
-	echo "No bash completion found"
-fi
+[[ -f /usr/local/etc/bash_completion ]] && source "/usr/local/etc/bash_completion"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
 
 # GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-[ -d "/usr/local/go" ] && export PATH="/usr/local/go/bin:$PATH"
-[ -d "$HOME/.gimme" ] && source "$HOME/.gimme/envs/latest.env"
+[[ -d "/usr/local/go" ]] && export PATH="/usr/local/go/bin:$PATH"
+[[ -d "$HOME/.gimme" ]] && source "$HOME/.gimme/envs/latest.env"
 
 # CARGO
 if [ -d "$HOME/.cargo" ]; then
-	source $HOME/.cargo/env
+	source "$HOME/.cargo/env"
 	source <(rustup completions bash)
 	source <(rustup completions bash cargo)
 fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 # K8S
-[ -d "$HOME/.krew" ] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+[[ -d "$HOME/.krew" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 command -v kind &>/dev/null && source <(kind completion bash)
 
@@ -98,7 +84,7 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # ALIASES
 ########################################
 
-[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+[[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
 ########################################
 # PROMPT
