@@ -40,18 +40,6 @@ Plug 'Lokaltog/vim-monotone'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Appearance
-""""""""""""""""""""""""""""""""""""""""
-
-highlight clear FoldColumn
-highlight clear Search
-highlight clear SignColumn
-
-highlight Search cterm=bold,underline
-highlight TrailingWhiteSpace ctermbg=Red
-match TrailingWhiteSpace /\s\+$/
-
-""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
