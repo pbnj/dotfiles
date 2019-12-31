@@ -17,6 +17,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 
+" Plug 'ervandew/supertab'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 
@@ -27,6 +29,11 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+let g:go_code_completion_enabled = 0
+
+Plug 'rust-lang/rust.vim'
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Lokaltog/vim-monotone'
@@ -58,7 +65,7 @@ set belloff=all
 set breakindent
 set cmdheight=2
 set colorcolumn=80
-set completeopt-=preview
+set completeopt=longest,menuone
 set conceallevel=0
 set display=lastline
 set encoding=utf-8
@@ -110,6 +117,13 @@ set wrap
 
 " Leader
 " let g:mapleader="\<space>"
+
+" Completions
+"" <ENTER> will select highlighted suggestion
+inoremap <expr> <CR> (pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>")
+"" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> (pumvisible() ? "\<C-n>" : "\<Tab>")
+inoremap <expr> <S-Tab> (pumvisible() ? "\<C-p>" : "\<S-Tab>")
 
 " Arrows
 nmap <silent> <left> <esc>:lprev<cr>
