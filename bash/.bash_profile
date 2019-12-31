@@ -80,6 +80,9 @@ export NVM_DIR="$HOME/.nvm"
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 command -v kind &>/dev/null && source <(kind completion bash)
 
+# FZF
+[[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
+
 ########################################
 # ALIASES
 ########################################
