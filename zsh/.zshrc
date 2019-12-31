@@ -24,16 +24,16 @@ source $ZSH/oh-my-zsh.sh
 # GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-[ -d "$HOME/.gimme" ] && source "$HOME/.gimme/envs/latest.env"
+[[ -d "$HOME/.gimme" ]] && source "$HOME/.gimme/envs/latest.env"
 
 # RUST
-[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+[[ -d "$HOME/.cargo" ]] && source "$HOME/.cargo/env"
 
 # NVM
-[ -d "$HOME/.nvm" ] && source "$HOME/.nvm/nvm.sh"
+[[ -d "$HOME/.nvm" ]] && source "$HOME/.nvm/nvm.sh"
 
 # FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 ##########
 # ALIASES
@@ -58,19 +58,12 @@ fi
 if command -v exa &>/dev/null; then
 	alias ls="exa"
 	alias ll="exa --all --long --git --group-directories-first"
-else
-	alias ll="ls -alFh --group-directories-first"
 fi
 
 # Hub
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
-
-##########
-# FPATH
-##########
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 ##########
 # PROMPT
