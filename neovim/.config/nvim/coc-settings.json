@@ -1,0 +1,16 @@
+{
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+   "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  },
+  "prettier.requireConfig": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "Markdown"
+  ],
+}
