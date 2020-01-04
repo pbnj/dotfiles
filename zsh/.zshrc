@@ -8,8 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(
 	git
-	rustup
-	cargo
+	rustup # mkdir ~/.oh-my-zsh/custom/plugins/rustup && rustup completions zsh > !$ && rm ~/.zcompdump*
+	cargo # mkdir ~/.oh-my-zsh/custom/plugins/cargo && rustup completions zsh > !$ && rm ~/.zcompdump*
 	ssh-agent
 	zsh-completions
 	zsh-syntax-highlighting
