@@ -8,6 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 plugins=(
 	git
+	rustup
+	cargo
 	ssh-agent
 	zsh-completions
 	zsh-syntax-highlighting
