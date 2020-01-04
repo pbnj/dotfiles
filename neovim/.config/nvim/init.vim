@@ -216,6 +216,20 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" coc-git
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: General
 """"""""""""""""""""""""""""""""""""""""
@@ -269,21 +283,6 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
-
-" :Kube or :K commands
-function! Kube( ... ) abort
-  execute printf('!kubectl %s', join(a:000))
-endfunction
-command! -nargs=* Kube call Kube(<f-args>)
-
-" :Git commands
-function! Git( ... ) abort
-  execute printf('!git %s', join(a:000))
-endfunction
-function! GitCompletion(A,L,P)
-  return system("git help -a | grep \"^   [a-z]\" | awk '{print $1}'")
-endfunction
-command! -nargs=* -complete=custom,GitCompletion Git call Git(<f-args>)
 
 function! GenerateTableOfContents()
   silent ! mdtoc --inplace %
