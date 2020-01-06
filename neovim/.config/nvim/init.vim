@@ -8,6 +8,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/jsonc.vim'
 
@@ -56,7 +57,7 @@ set belloff=all
 set breakindent
 set cmdheight=2
 set colorcolumn=80
-set completeopt=longest,menuone
+set completeopt=longest,menu,preview
 set conceallevel=0
 set display=lastline
 set encoding=utf-8
@@ -83,7 +84,6 @@ set noswapfile
 set novisualbell
 set nowritebackup
 set number
-set omnifunc=ale#completion#OmniFunc
 set path+=**
 set ruler
 set scrolloff=1
@@ -104,6 +104,20 @@ set updatetime=250
 set wildignorecase
 set wildmenu
 set wrap
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: ALE
+""""""""""""""""""""""""""""""""""""""""
+
+let g:ale_fixers = {
+      \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
+      \ 'bash': [ 'shfmt' ],
+      \ 'go': [ 'goimports' ],
+      \ 'json': [ 'prettier' ],
+      \ 'markdown': [ 'prettier' ],
+      \ 'sh': [ 'shfmt' ],
+      \ 'yaml': [ 'prettier' ],
+      \ }
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
