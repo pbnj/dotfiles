@@ -24,6 +24,8 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'preservim/nerdcommenter'
+let g:NERDSpaceDelims = 1
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
