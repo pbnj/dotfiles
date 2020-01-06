@@ -28,15 +28,18 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
+" Languages
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
-
 Plug 'rust-lang/rust.vim'
+Plug 'cespare/vim-toml'
+Plug 'neoclide/jsonc.vim'
 
+" Misc
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'Lokaltog/vim-monotone'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -55,6 +58,7 @@ set cmdheight=2
 set colorcolumn=80
 set completeopt=longest,menu,preview
 set conceallevel=0
+set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -71,7 +75,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|\ ,trail:•,precedes:<,extends:>
+set listchars=tab:\|\ ,
 set nobackup
 set nomodeline
 set nonumber
@@ -114,6 +118,8 @@ let g:ale_fixers = {
       \ 'sh': [ 'shfmt' ],
       \ 'yaml': [ 'prettier' ],
       \ }
+
+let g:ale_fix_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
@@ -226,20 +232,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" coc-git
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-" show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-nmap gc <Plug>(coc-git-commit)
-" create text object for git chunks
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: General
 """"""""""""""""""""""""""""""""""""""""
@@ -284,9 +276,6 @@ augroup general
   " json
   autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
   autocmd FileType json syntax match Comment +\/\/.\+$+
-
-  " Go
-  autocmd BufWritePost *.go :silent ! goimports -w %
 
 augroup END
 
