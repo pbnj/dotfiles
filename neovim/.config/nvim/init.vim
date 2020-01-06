@@ -26,6 +26,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
+Plug 'airblade/vim-gitgutter'
+Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
