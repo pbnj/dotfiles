@@ -1,16 +1,9 @@
-""""""""""""""""""""""""""""""""""""""""
-" Inspirations:
-"       - https://github.com/robertmeta/vimfiles/
-"       - https://www.vi-improved.org/recommendations/
-""""""""""""""""""""""""""""""""""""""""
-
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/jsonc.vim'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -29,7 +22,6 @@ let g:NERDSpaceDelims = 1
 Plug 'airblade/vim-gitgutter'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
