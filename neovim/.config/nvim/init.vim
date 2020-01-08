@@ -40,6 +40,7 @@ Plug 'neoclide/jsonc.vim'
 " Misc
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'NLKNguyen/papercolor-theme'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
