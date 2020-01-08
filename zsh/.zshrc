@@ -6,10 +6,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 plugins=(
 	git
-	rustup # mkdir ~/.oh-my-zsh/custom/plugins/rustup && rustup completions zsh > !$ && rm ~/.zcompdump*
-	cargo # mkdir ~/.oh-my-zsh/custom/plugins/cargo && rustup completions zsh > !$ && rm ~/.zcompdump*
+	rustup
+	cargo
 	ssh-agent
 	zsh-completions
 	zsh-syntax-highlighting
@@ -66,8 +69,3 @@ fi
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
-
-##########
-# PROMPT
-##########
-eval "$(starship init zsh)"
