@@ -25,6 +25,7 @@ source $ZSH/oh-my-zsh.sh
 ##########
 # LANGUAGES
 ##########
+
 # GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
@@ -34,7 +35,8 @@ export PATH="$GOPATH/bin:$PATH"
 [[ -d "$HOME/.cargo" ]] && source "$HOME/.cargo/env"
 
 # NVM
-[[ -d "$HOME/.nvm" ]] && source "$HOME/.nvm/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # FZF
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
