@@ -3,5 +3,7 @@
 tags
 .netrw
 .netrwhist
-*/.config/configstore
-*/.config/hub
+neovim/.config/configstore
+neovim/.config/hub
+neovim/.config/coc
+neovim/.config/htop
