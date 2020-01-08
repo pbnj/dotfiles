@@ -1,14 +1,12 @@
 .PHONY: rust
 rust: ## Install rust toolchain
 	curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+.PHONY: rust-tools
+rust-tools: rust ## Install additional rust tools
 	rustup component add rls rust-analysis rust-src
 	rustup component add clippy rustfmt rust-docs
 	rustup toolchain add nightly
-
-.PHONY: rust-completion
-rust-completion: rust ## Install rust completion
-	echo "source <(rustup completions bash)" >> ~/.bash_profile
-	echo "source <(rustup completions bash cargo)" >> ~/.bash_profile
 
 .PHONY: crates
 crates: ## Install crates
