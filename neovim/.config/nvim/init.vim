@@ -105,6 +105,8 @@ set wildignorecase
 set wildmenu
 set wrap
 
+let mapleader="\<SPACE>"
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: ALE
 """"""""""""""""""""""""""""""""""""""""
