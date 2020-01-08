@@ -19,7 +19,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -78,13 +78,13 @@ set list
 set listchars=tab:\|\ ,
 set nobackup
 set nomodeline
-set nonumber
 set nospell
 set noswapfile
 set novisualbell
 set nowritebackup
 set number
 set path+=**
+set relativenumber
 set ruler
 set scrolloff=1
 set shortmess+=c
@@ -100,7 +100,7 @@ set t_ut=""
 set textwidth=80
 set undodir=$HOME/.vim/undo
 set undofile
-set updatetime=250
+set updatetime=100
 set wildignorecase
 set wildmenu
 set wrap
