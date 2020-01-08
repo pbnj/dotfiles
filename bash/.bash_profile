@@ -1,5 +1,5 @@
 ########################################
-# SHELL OPTIONS
+## SHELL OPTIONS
 ########################################
 
 shopt -s direxpand
@@ -11,7 +11,7 @@ shopt -s autocd
 shopt -s globstar
 
 ########################################
-# EXPORTS
+## EXPORTS
 ########################################
 
 export EDITOR=vim
@@ -28,10 +28,10 @@ export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 
 ########################################
-# PLUGINS
+## PLUGINS
 ########################################
 
-# SSH AGENT
+## SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent() {
@@ -43,7 +43,7 @@ function start_agent() {
 	/usr/bin/ssh-add
 }
 
-# Source SSH settings, if applicable
+## Source SSH settings, if applicable
 if [ -f "${SSH_ENV}" ]; then
 	. "${SSH_ENV}" >/dev/null
 	#ps ${SSH_AGENT_PID} doesn't work under cywgin
@@ -54,18 +54,18 @@ else
 	start_agent
 fi
 
-# BASH COMPLETION
+## BASH COMPLETION
 [[ -f /usr/local/etc/bash_completion ]] && source "/usr/local/etc/bash_completion"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
 
-# GO
+## GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -d "$HOME/.gimme" ]] && source "$HOME/.gimme/envs/latest.env"
 [[ -d "/usr/local/go" ]] && export PATH="/usr/local/go/bin:$PATH"
 
-# CARGO
+## CARGO
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 if [ -d "$HOME/.cargo" ]; then
 	source "$HOME/.cargo/env"
@@ -73,12 +73,12 @@ if [ -d "$HOME/.cargo" ]; then
 	source <(rustup completions bash cargo)
 fi
 
-# NVM
+## NVM
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
-# K8S
+## K8S
 # ./scripts/tools/kubernetes/kubectl.sh
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 # GO111MODULE="on" go get sigs.k8s.io/kind@v0.6.1
@@ -88,18 +88,18 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # ./scripts/tools/kubernetes/kubectx.sh
 [[ -d "$HOME/.kubectx" ]] && export PATH="$HOME/.kubectx:$PATH"
 
-# FZF
+## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
 ########################################
-# ALIASES
+## ALIASES
 ########################################
 
 [[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
 ########################################
-# PROMPT
+## PROMPT
 ########################################
 
 ## bash-git-prompt
