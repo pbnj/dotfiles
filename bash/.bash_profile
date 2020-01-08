@@ -93,5 +93,5 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # PROMPT
 ########################################
 
-# [ -f "$HOME/.bash_prompt" ] && source "$HOME/.bash_prompt"
-eval "$(starship init bash)"
+[[ -f "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"
+# eval "$(starship init bash)"
