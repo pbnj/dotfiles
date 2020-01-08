@@ -61,10 +61,12 @@ fi
 # GO
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-[[ -d "/usr/local/go" ]] && export PATH="/usr/local/go/bin:$PATH"
+# curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -d "$HOME/.gimme" ]] && source "$HOME/.gimme/envs/latest.env"
+[[ -d "/usr/local/go" ]] && export PATH="/usr/local/go/bin:$PATH"
 
 # CARGO
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 if [ -d "$HOME/.cargo" ]; then
 	source "$HOME/.cargo/env"
 	source <(rustup completions bash)
@@ -72,15 +74,22 @@ if [ -d "$HOME/.cargo" ]; then
 fi
 
 # NVM
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 # K8S
-[[ -d "$HOME/.krew" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# ./scripts/tools/kubernetes/kubectl.sh
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
+# GO111MODULE="on" go get sigs.k8s.io/kind@v0.6.1
 command -v kind &>/dev/null && source <(kind completion bash)
+# ./scripts/tools/kubernetes/krew.sh
+[[ -d "$HOME/.krew" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# ./scripts/tools/kubernetes/kubectx.sh
+[[ -d "$HOME/.kubectx" ]] && export PATH="$HOME/.kubectx:$PATH"
 
 # FZF
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
 ########################################
@@ -93,5 +102,10 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # PROMPT
 ########################################
 
-[[ -f "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"
-# eval "$(starship init bash)"
+## bash-git-prompt
+# git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
+# [[ -f "$HOME/.bash_prompt" ]] && source "$HOME/.bash_prompt"
