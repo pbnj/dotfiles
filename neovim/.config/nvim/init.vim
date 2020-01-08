@@ -46,7 +46,7 @@ call plug#end()
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme Papercolor
+colorscheme PaperColor
 
 set autoindent
 set autoread
