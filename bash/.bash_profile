@@ -26,10 +26,15 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
+export TERM="xterm-256color"
 
 ########################################
-## PLUGINS
+## SETTINGS
 ########################################
+
+## PATH
+[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 
 ## SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"
