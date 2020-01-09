@@ -118,7 +118,6 @@ let g:ale_fixers = {
       \ 'json': [ 'prettier' ],
       \ 'markdown': [ 'prettier' ],
       \ 'sh': [ 'shfmt' ],
-      \ 'yaml': [ 'prettier' ],
       \ }
 
 let g:ale_fix_on_save = 1
