@@ -2,7 +2,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -19,7 +19,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -111,27 +111,25 @@ let mapleader="\<SPACE>"
 " SETTINGS: ALE
 """"""""""""""""""""""""""""""""""""""""
 
-let g:ale_fixers = {
-      \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
-      \ 'bash': [ 'shfmt' ],
-      \ 'go': [ 'goimports' ],
-      \ 'json': [ 'prettier' ],
-      \ 'markdown': [ 'prettier' ],
-      \ 'sh': [ 'shfmt' ],
-      \ }
+" let g:ale_fixers = {
+      " \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
+      " \ 'bash': [ 'shfmt' ],
+      " \ 'markdown': [ 'prettier' ],
+      " \ 'sh': [ 'shfmt' ],
+      " \ }
 
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
 """"""""""""""""""""""""""""""""""""""""
 
 " Completions
-" inoremap <silent><expr> <TAB>
-      " \ pumvisible() ? "\<C-n>" :
-      " \ <SID>check_back_space() ? "\<TAB>" :
-      " \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -148,6 +146,18 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" navigate chunks of current buffer
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
