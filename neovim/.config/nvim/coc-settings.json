@@ -11,13 +11,17 @@
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.formatOnType": true,
   "codeLens.enable": true,
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  /* coc-eslint */
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
+  /* coc-git */
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
+  /* coc-json */
   "json.format.enable": true,
-  "suggest.floatEnable": true,
-  "suggest.noselect": true,
+  /* coc-yaml */
   "yaml.hover": true,
   "yaml.validate": true,
   "yaml.format.enable": true,
@@ -30,7 +34,7 @@
     },
     "bash": {
       "command": "bash-language-server",
-      "filetypes": ["sh"],
+      "filetypes": ["sh", "bash"],
       "args": ["start"]
     }
   }
