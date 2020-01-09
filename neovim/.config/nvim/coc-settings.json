@@ -1,16 +1,35 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "markdown",
+    "yaml",
+    "json",
+    "jsonc"
+  ],
+  "coc.preferences.enableFloatHighlight": true,
+  "coc.preferences.formatOnType": true,
+  "codeLens.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
+  "git.enableGutters": true,
+  "git.addGBlameToVirtualText": true,
+  "json.format.enable": true,
   "suggest.floatEnable": true,
-  "suggest.noselect": false,
-   "languageserver": {
+  "suggest.noselect": true,
+  "yaml.hover": true,
+  "yaml.validate": true,
+  "yaml.format.enable": true,
+  "yaml.format.proseWrap": "always",
+  "languageserver": {
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "filetypes": ["sh"],
+      "args": ["start"]
     }
-  },
-  "prettier.requireConfig": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "markdown",
-    "Markdown"
-  ],
+  }
 }
