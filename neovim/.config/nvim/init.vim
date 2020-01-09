@@ -2,8 +2,16 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
+" Plug 'neoclide/coc-highlight' , {'do': 'npm install'}
+" Plug 'neoclide/coc-json'      , {'do': 'npm install'}
+" Plug 'neoclide/coc-pairs'     , {'do': 'npm install'}
+" Plug 'neoclide/coc-prettier'  , {'do': 'npm install'}
+" Plug 'neoclide/coc-python'    , {'do': 'npm install'}
+" Plug 'neoclide/coc-rls'       , {'do': 'npm install'}
+" Plug 'neoclide/coc-syntax'    , {'do': 'npm install'}
+" Plug 'neoclide/coc-vetur'     , {'do': 'npm install'}
+" Plug 'neoclide/coc-yaml'      , {'do': 'npm install'}
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -19,7 +27,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
-" Plug 'mhinz/vim-signify'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -106,19 +113,6 @@ set wildmenu
 set wrap
 
 let mapleader="\<SPACE>"
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: ALE
-""""""""""""""""""""""""""""""""""""""""
-
-" let g:ale_fixers = {
-      " \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
-      " \ 'bash': [ 'shfmt' ],
-      " \ 'markdown': [ 'prettier' ],
-      " \ 'sh': [ 'shfmt' ],
-      " \ }
-
-" let g:ale_fix_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC

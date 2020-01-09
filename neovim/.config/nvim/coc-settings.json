@@ -1,10 +1,12 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "go",
-    "markdown",
-    "yaml",
     "json",
-    "jsonc"
+    "jsonc",
+    "markdown",
+    "python",
+    "rust",
+    "yaml"
   ],
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.formatOnType": true,
