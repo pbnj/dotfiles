@@ -2,6 +2,9 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+"Formatter
+Plug 'sbdchd/neoformat'
+" Language Server
 Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-actions',
@@ -25,39 +28,50 @@ let g:coc_global_extensions = [
       \ 'coc-vimlsp',
       \ 'coc-yaml',
       \ ]
-
+" Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
+"Status Bar
 Plug 'vim-airline/vim-airline'
+" Easy window navigation
 Plug 'christoomey/vim-tmux-navigator'
+" Change root dir
 Plug 'airblade/vim-rooter'
-
+" File Manager
 Plug 'preservim/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+" Git integration with file manager
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
+" Commenter
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
+" Fast grep
 Plug 'jremmen/vim-ripgrep'
+" Run jobs in background
 Plug 'tpope/vim-dispatch'
+" Vim/Git integration
 Plug 'tpope/vim-fugitive'
+" Sensible defaults
 Plug 'tpope/vim-sensible'
+" Surround plugin
 Plug 'tpope/vim-surround'
+" Additional [ ] functionality
 Plug 'tpope/vim-unimpaired'
-
-" Languages
+" Go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
+" Rust
 Plug 'rust-lang/rust.vim'
+" TOML
 Plug 'cespare/vim-toml'
+" JSONC
 Plug 'neoclide/jsonc.vim'
-
-" Misc
+" Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
+" Colorscheme
 Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()

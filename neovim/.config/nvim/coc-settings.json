@@ -6,7 +6,8 @@
     "markdown",
     "python",
     "rust",
-    "yaml"
+    "sh",
+    "yaml",
   ],
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.formatOnType": true,
