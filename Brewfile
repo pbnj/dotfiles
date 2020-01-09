@@ -29,7 +29,6 @@ cask "font-sourcecodepro-nerd-font"
 
 # Casks
 tap "homebrew/cask"
-
 cask "alacritty"
 cask "1password"
 cask "discord"
