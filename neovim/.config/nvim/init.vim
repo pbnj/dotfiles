@@ -3,15 +3,28 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
-" Plug 'neoclide/coc-highlight' , {'do': 'npm install'}
-" Plug 'neoclide/coc-json'      , {'do': 'npm install'}
-" Plug 'neoclide/coc-pairs'     , {'do': 'npm install'}
-" Plug 'neoclide/coc-prettier'  , {'do': 'npm install'}
-" Plug 'neoclide/coc-python'    , {'do': 'npm install'}
-" Plug 'neoclide/coc-rls'       , {'do': 'npm install'}
-" Plug 'neoclide/coc-syntax'    , {'do': 'npm install'}
-" Plug 'neoclide/coc-vetur'     , {'do': 'npm install'}
-" Plug 'neoclide/coc-yaml'      , {'do': 'npm install'}
+let g:coc_global_extensions = [
+      \ 'coc-actions',
+      \ 'coc-css',
+      \ 'coc-emmet',
+      \ 'coc-eslint',
+      \ 'coc-git',
+      \ 'coc-gocode',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-json',
+      \ 'coc-lists',
+      \ 'coc-markdownlint',
+      \ 'coc-prettier',
+      \ 'coc-python',
+      \ 'coc-rls',
+      \ 'coc-rust-analyzer',
+      \ 'coc-syntax',
+      \ 'coc-tsserver',
+      \ 'coc-vetur',
+      \ 'coc-vimlsp',
+      \ 'coc-yaml',
+      \ ]
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
