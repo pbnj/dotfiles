@@ -72,7 +72,7 @@ Plug 'neoclide/jsonc.vim'
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
 " Colorscheme
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'Lokaltog/vim-monotone'
 
 call plug#end()
 
@@ -80,7 +80,7 @@ call plug#end()
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme PaperColor
+colorscheme monotone
 
 set autoindent
 set autoread
