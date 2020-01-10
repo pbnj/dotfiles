@@ -15,8 +15,8 @@ crates: ## Install crates
 
 .PHONY: gimme
 gimme: ## Install gimme (Go version manager)
-	sudo curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-	sudo chmod +x /usr/local/bin/gimme
+	curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+	chmod +x ~/bin/gimme
 
 .PHONY: go
 go: ## Install go
