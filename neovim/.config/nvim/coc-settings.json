@@ -7,7 +7,7 @@
     "python",
     "rust",
     "sh",
-    "yaml",
+    "yaml"
   ],
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.formatOnType": true,
