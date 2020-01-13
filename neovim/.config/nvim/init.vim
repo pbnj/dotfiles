@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 "Formatter
 Plug 'sbdchd/neoformat'
+
 " Language Server
 Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -28,51 +29,50 @@ let g:coc_global_extensions = [
       \ 'coc-vimlsp',
       \ 'coc-yaml',
       \ ]
+
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 "Status Bar
 Plug 'vim-airline/vim-airline'
+
 " Easy window navigation
 Plug 'christoomey/vim-tmux-navigator'
+
 " Change root dir
 Plug 'airblade/vim-rooter'
-" File Manager
-Plug 'preservim/nerdtree'
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+
 " Git integration with file manager
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " Commenter
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
+
 " Fast grep
 Plug 'jremmen/vim-ripgrep'
+
 " Run jobs in background
 Plug 'tpope/vim-dispatch'
-" Vim/Git integration
+
+" Vim+Git integration
 Plug 'tpope/vim-fugitive'
-" Sensible defaults
+
+" Sensible settings
 Plug 'tpope/vim-sensible'
-" Surround plugin
+
+" Surround functionality
 Plug 'tpope/vim-surround'
-" Additional [ ] functionality
+
+" Additional square bracket functionalities
 Plug 'tpope/vim-unimpaired'
-" Go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
-" Rust
-Plug 'rust-lang/rust.vim'
-" TOML
-Plug 'cespare/vim-toml'
+
 " JSONC
 Plug 'neoclide/jsonc.vim'
+
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
-" Colorscheme
-Plug 'Lokaltog/vim-monotone'
 
 call plug#end()
 
@@ -80,14 +80,18 @@ call plug#end()
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme monotone
+syntax off
+let g:syntax_on=0 " disable syntax from vim-sensible
+
+if has('nvim') | set inccommand=split | endif
 
 set autoindent
 set autoread
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
+set clipboard=unnamed
 set cmdheight=2
 set colorcolumn=80
 set completeopt=longest,menuone,preview
@@ -102,19 +106,20 @@ set formatoptions+=r " auto insert bullet point on new lines
 set hidden
 set hlsearch
 set ignorecase
-set inccommand=split
 set incsearch
 set infercase
 set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|\ ,
+" set listchars=tab:\|\ ,precedes:<,extends:>
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set nobackup
 set nomodeline
 set nospell
 set noswapfile
 set novisualbell
+set nowrap
 set nowritebackup
 set number
 set path+=**
@@ -137,9 +142,6 @@ set undofile
 set updatetime=100
 set wildignorecase
 set wildmenu
-set wrap
-
-let mapleader="\<SPACE>"
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
@@ -292,9 +294,6 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 augroup general
   autocmd!
-
-  " General
-  autocmd InsertEnter,InsertLeave * set cul!
 
   " vim
   autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
