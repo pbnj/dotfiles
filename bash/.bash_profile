@@ -110,7 +110,7 @@ command -v kind &>/dev/null && source <(kind completion bash)
 ## bash-git-prompt
 # git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-	GIT_PROMPT_ONLY_IN_REPO=1
+	# GIT_PROMPT_ONLY_IN_REPO=1
 	GIT_PROMPT_START="\n\u@\h:\W"
 	GIT_PROMPT_END="\n$ "
 	source $HOME/.bash-git-prompt/gitprompt.sh
