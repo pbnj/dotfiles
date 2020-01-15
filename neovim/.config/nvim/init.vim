@@ -81,8 +81,8 @@ call plug#end()
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-syntax off
-let g:syntax_on=0 " disable syntax from vim-sensible
+" syntax off
+" let g:syntax_on=0 " disable syntax from vim-sensible
 
 if has('nvim') | set inccommand=split | endif
 
