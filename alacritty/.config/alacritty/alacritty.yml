@@ -60,8 +60,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Fullscreen
-
+  # startup_mode: Fullscreen
   # Window title
   #title: Alacritty
   # Window class (Linux/BSD only):
@@ -107,10 +106,9 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: SauceCodePro Nerd Font
-
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
+    family: Menlo
+  # The `style` can be specified to pick a specific face.
+  #style: Regular
 
   # Bold font face
   bold:
@@ -146,7 +144,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
