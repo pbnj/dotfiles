@@ -1,5 +1,5 @@
 {
-  "highlight.document.enable": false,
+  /* coc */
   "coc.preferences.formatOnSaveFiletypes": [
     "go",
     "json",
@@ -15,68 +15,58 @@
   "codeLens.enable": true,
   "suggest.floatEnable": true,
   "suggest.noselect": false,
+
   /* coc-eslint */
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "javascript",
-    "typescript",
-    "javascriptreact"
-  ],
+  "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
+
   /* coc-git */
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
+
   /* coc-json */
   "json.format.enable": true,
+
   /* coc-markdownlint */
   "markdownlint.onOpen": true,
   "markdownlint.onSave": true,
   "markdownlint.onChange": true,
+
   /* coc-yaml */
   "yaml.completion": true,
   "yaml.format.enable": true,
-  "yaml.format.proseWrap": "always",
   "yaml.hover": true,
   "yaml.validate": true,
+
+  /* coc-prettier */
+  "prettier.proseWrap": "always",
+
   /* https://github.com/neoclide/coc.nvim/wiki/Language-servers */
   "languageserver": {
     /* npm install -g dockerfile-language-server-nodejs */
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": [
-        "dockerfile"
-      ],
-      "args": [
-        "--stdio"
-      ]
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
     },
+
     /* go get golang.org/x/tools/gopls@latest */
     "golang": {
       "command": "gopls",
-      "rootPatterns": [
-        "go.mod",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "filetypes": [
-        "go"
-      ],
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
       "initializationOptions": {
         "gocodeCompletionEnabled": true,
         "diagnosticsEnabled": true,
         "lintTool": "golint"
       }
     },
+
     /* npm i -g bash-language-server */
     "bash": {
       "command": "bash-language-server",
-      "filetypes": [
-        "sh",
-        "bash"
-      ],
-      "args": [
-        "start"
-      ]
+      "filetypes": ["sh", "bash"],
+      "args": ["start"]
     }
   }
 }
