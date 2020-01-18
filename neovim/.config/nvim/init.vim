@@ -14,7 +14,6 @@ let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-git',
       \ 'coc-gocode',
-      \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-json',
       \ 'coc-lists',
@@ -200,9 +199,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -315,7 +311,7 @@ augroup END
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
 
-function! GenerateTableOfContents()
+function! GenerateTableOfContents() abort
   silent ! mdtoc --inplace %
   redraw!
 endfunction
