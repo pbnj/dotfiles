@@ -115,3 +115,8 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
 	GIT_PROMPT_END="\n$ "
 	source $HOME/.bash-git-prompt/gitprompt.sh
 fi
+## starship
+# cargo install starship
+if command -v starship &>/dev/null; then
+	eval "$(starship init bash)"
+fi
