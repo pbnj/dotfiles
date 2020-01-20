@@ -14,6 +14,7 @@ window:
   decorations: none
 
 # Font configuration
+# Test string: --~ iIlLegal1 := oO0
 font:
   normal:
     family: SauceCodePro Nerd Font
@@ -86,6 +87,7 @@ schemes:
 colors: *light
 
 selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
 
 cursor:
