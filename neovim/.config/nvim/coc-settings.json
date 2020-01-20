@@ -58,7 +58,9 @@
       "initializationOptions": {
         "gocodeCompletionEnabled": true,
         "diagnosticsEnabled": true,
-        "lintTool": "golint"
+        "lintTool": "golint",
+        "usePlaceholders": true,
+        "completeUnimported": true
       }
     },
 

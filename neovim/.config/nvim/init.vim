@@ -13,7 +13,6 @@ let g:coc_global_extensions = [
       \ 'coc-emmet',
       \ 'coc-eslint',
       \ 'coc-git',
-      \ 'coc-go',
       \ 'coc-gocode',
       \ 'coc-html',
       \ 'coc-json',
