@@ -313,7 +313,8 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 
 function! GenerateTableOfContents() abort
-  silent ! mdtoc --inplace %
+  silent ! doctoc %
+  " silent ! mdtoc --inplace %
   redraw!
 endfunction
 command! TOC :call GenerateTableOfContents()
