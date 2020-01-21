@@ -1,3 +1,5 @@
+# https://starship.rs/config/
+
 prompt_order = [
     "username",
     "hostname",
@@ -7,7 +9,6 @@ prompt_order = [
     "git_commit",
     "git_state",
     "git_status",
-    "hg_branch",
     "package",
     "dotnet",
     "golang",
@@ -23,10 +24,7 @@ prompt_order = [
     "memory_usage",
     "aws",
     "env_var",
-    "cmd_duration",
-    "jobs",
     "battery",
-    "time",
     "line_break",
     "character",
 ]
@@ -39,6 +37,3 @@ ssh_only = false
 
 [character]
 symbol = "$"
-
-[cmd_duration]
-disabled = true
