@@ -3,7 +3,6 @@
 prompt_order = [
     "username",
     "hostname",
-    "kubernetes",
     "directory",
     "git_branch",
     "git_commit",
@@ -21,10 +20,9 @@ prompt_order = [
     "terraform",
     "nix_shell",
     "conda",
-    "memory_usage",
     "aws",
     "env_var",
-    "battery",
+    "kubernetes",
     "line_break",
     "character",
 ]
@@ -34,6 +32,9 @@ show_always = true
 
 [hostname]
 ssh_only = false
+
+[kubernetes]
+disabled = false
 
 [character]
 symbol = "$"
