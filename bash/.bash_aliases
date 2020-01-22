@@ -9,10 +9,12 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # K8s
+# brew install kubectl
 if command -v kubectl &>/dev/null; then
 	alias k="kubectl"
 	complete -F __start_kubectl k
 fi
+# brew install kubectx
 if command -v kubectx &>/dev/null; then
 	alias kctx="kubectx"
 fi
@@ -21,6 +23,12 @@ if command -v kubens &>/dev/null; then
 fi
 
 # Shell
+# cargo install bat
+if command -v bat &>/dev/null; then
+	alias cat="bat"
+fi
+
+# cargo install exa
 if command -v exa &>/dev/null; then
 	alias ls="exa"
 	alias ll="exa --all --long --git --group-directories-first"
@@ -29,6 +37,7 @@ else
 fi
 
 # Hub
+# brew install hub
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
