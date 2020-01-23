@@ -1,17 +1,14 @@
 .PHONY: rust
 rust: ## Install rust toolchain
-	curl https://sh.rustup.rs -sSf | sh -s -- -y
+	./scripts/langs/rust/install.sh
 
 .PHONY: rust-tools
 rust-tools: rust ## Install additional rust tools
-	rustup component add rls rust-analysis rust-src
-	rustup component add clippy rustfmt rust-docs
-	rustup toolchain add nightly
+	./scripts/langs/rust/tools.sh
 
 .PHONY: crates
 crates: ## Install crates
-	cargo +nightly install racer
-	cargo install exa bat ripgrep
+	./scripts/langs/rust/crates.sh
 
 .PHONY: gimme
 gimme: ## Install gimme (Go version manager)
@@ -32,8 +29,7 @@ nvm: ## Install Node Version Manager and Node
 ifeq (, $(shell which nvm))
 	sh $(CURDIR)/scripts/langs/nvm/install.sh
 endif
-	nvm install --lts
 
 .PHONY: npm
 npm: ## Install npm packages
-	npm install -g prettier
+	npm install -g prettier doctoc bash-language-server dockerfile-language-server-nodejs
