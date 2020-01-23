@@ -3,5 +3,8 @@
 set -e
 set -x
 
-sudo curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
-sudo chmod +x /usr/local/bin/gimme
+curl -sL -o ~/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme
+
+chmod +x ~/bin/gimme
+
+~/bin/gimme stable

@@ -1,6 +1,14 @@
 #!/bin/bash
+
 set -e
 set -x
 
-npm i -g npm
-npm i -g prettier
+# Utilities
+npm install -g \
+	doctoc \
+	prettier
+
+# Language Servers
+npm install -g \
+	bash-language-server \
+	dockerfile-language-server-nodejs
