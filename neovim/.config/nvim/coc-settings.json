@@ -40,9 +40,6 @@
   "yaml.hover": true,
   "yaml.validate": true,
 
-  /* coc-prettier */
-  "prettier.proseWrap": "always",
-
   /* https://github.com/neoclide/coc.nvim/wiki/Language-servers */
   "languageserver": {
     /* npm install -g dockerfile-language-server-nodejs */
