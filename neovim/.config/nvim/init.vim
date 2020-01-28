@@ -28,7 +28,6 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-vetur',
       \ 'coc-vimlsp',
-      \ 'coc-word',
       \ 'coc-yaml',
       \ ]
 
@@ -72,6 +71,9 @@ Plug 'tpope/vim-unimpaired'
 
 " JSONC
 Plug 'neoclide/jsonc.vim'
+
+" Hashicorp tools
+Plug 'hashivim/vim-hashicorp-tools'
 
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -293,20 +295,11 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 augroup general
   autocmd!
-
-  " vim
-  autocmd FileType vim setlocal ts=2 sw=2 expandtab smarttab
-
-  " markdown
-  autocmd FileType markdown setlocal ts=2 sw=2 expandtab smarttab
-
-  " yaml
-  autocmd FileType yaml setlocal ts=2 sw=2 expandtab smarttab
-
-  " json
-  autocmd FileType json setlocal ts=2 sw=2 expandtab smarttab
-  autocmd FileType json syntax match Comment +\/\/.\+$+
-
+  autocmd FileType vim,markdown,yaml,json,terraform,hcl,tf
+        \ setlocal ts=2 |
+        \ setlocal sw=2 |
+        \ setlocal expandtab |
+        \ setlocal smarttab
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
@@ -314,7 +307,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 
 function! GenerateTableOfContents() abort
-  silent ! doctoc %
+  silent ! doctoc --notitle %
   " silent ! mdtoc --inplace %
   redraw!
 endfunction

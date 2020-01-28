@@ -8,7 +8,10 @@
     "python",
     "rust",
     "sh",
-    "yaml"
+    "yaml",
+    "terraform",
+    "tf",
+    "hcl"
   ],
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.formatOnType": true,
@@ -26,7 +29,6 @@
 
   /* coc-json */
   "json.format.enable": true,
-
   /* coc-markdownlint */
   "markdownlint.onOpen": true,
   "markdownlint.onSave": true,
@@ -37,9 +39,6 @@
   "yaml.format.enable": true,
   "yaml.hover": true,
   "yaml.validate": true,
-
-  /* coc-prettier */
-  "prettier.proseWrap": "always",
 
   /* https://github.com/neoclide/coc.nvim/wiki/Language-servers */
   "languageserver": {
@@ -69,6 +68,12 @@
       "command": "bash-language-server",
       "filetypes": ["sh", "bash"],
       "args": ["start"]
+    },
+
+    /* go get -u -v github.com/juliosueiras/terraform-lsp@v0.9.0 */
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["tf", "terraform"]
     }
   }
 }
