@@ -32,8 +32,8 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
-# Colors (Pencil: https://github.com/mattly/iterm-colors-pencil)
 schemes:
+  # Pencil: https://github.com/mattly/iterm-colors-pencil
   pencil_light: &pencil_light
     primary:
       background: "0xf1f1f1"
@@ -83,7 +83,7 @@ schemes:
         magenta: "0x6855de"
         cyan: "0x4fb8cc"
         white: "0xf1f1f1"
-
+    # Xcode: https://github.com/arzg/vim-colors-xcode
     xcode_light: &xcode_light
       primary:
         background: "0xffffff"
