@@ -78,14 +78,16 @@ Plug 'hashivim/vim-hashicorp-tools'
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
+" xcode colorscheme
+Plug 'arzg/vim-colors-xcode'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-" syntax off
-" let g:syntax_on=0 " disable syntax from vim-sensible
+colorscheme xcodelight
 
 if has('nvim') | set inccommand=split | endif
 
@@ -95,7 +97,6 @@ set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
-set clipboard=unnamed
 set cmdheight=2
 set colorcolumn=80
 set completeopt=longest,menuone,preview
@@ -116,7 +117,6 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-" set listchars=tab:\|\ ,precedes:<,extends:>
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set nobackup
 set nomodeline
