@@ -41,8 +41,3 @@ fi
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
-
-# Bat
-if command -v bat &>/dev/null; then
-	alias cat="bat"
-fi
