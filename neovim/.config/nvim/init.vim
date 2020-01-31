@@ -84,23 +84,6 @@ call plug#end()
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-function! SetBackgroundMode(...) abort
-  if has('macunix')
-    let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
-
-    if s:mode ==? "dark"
-      let s:new_bg = "dark"
-    else
-      let s:new_bg = "light"
-    endif
-
-    if &background !=? s:new_bg
-      let &background = s:new_bg
-    endif
-  endif
-endfunction
-call SetBackgroundMode()
-
 if has('nvim')
   set inccommand=split
 endif
@@ -318,6 +301,23 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
+
+function! SetBackgroundMode(...) abort
+  if has('macunix')
+    let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+
+    if s:mode ==? "dark"
+      let s:new_bg = "dark"
+    else
+      let s:new_bg = "light"
+    endif
+
+    if &background !=? s:new_bg
+      let &background = s:new_bg
+    endif
+  endif
+endfunction
+call SetBackgroundMode()
 
 function! GenerateTableOfContents() abort
   silent ! doctoc --notitle %
