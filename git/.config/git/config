@@ -74,3 +74,5 @@
 [user]
 	name = Peter Benjamin
 	email = petermbenjamin@gmail.com
+[credential]
+	helper = osxkeychain
