@@ -22,12 +22,6 @@ if command -v kubens &>/dev/null; then
 	alias kns="kubens"
 fi
 
-# Shell
-# cargo install bat
-if command -v bat &>/dev/null; then
-	alias cat="bat"
-fi
-
 # cargo install exa
 if command -v exa &>/dev/null; then
 	alias ls="exa"
