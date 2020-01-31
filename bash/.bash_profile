@@ -103,12 +103,9 @@ command -v kind &>/dev/null && source <(kind completion bash)
 ## THEME
 if [ "$(uname)" == "Darwin" ]; then
 	if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
-		sed -i.bak 's/colors: \*xcode_light/colors: \*xcode_dark/' $HOME/.config/alacritty/alacritty.yml
-		sed -i.bak 's/background=light/background=dark/' $HOME/.config/nvim/init.vim
-
+		sed -i.bak 's/colors: \*pencil_light/colors: \*pencil_dark/' $HOME/.config/alacritty/alacritty.yml
 	else
-		sed -i.bak 's/colors: \*xcode_dark/colors: \*xcode_light/' $HOME/.config/alacritty/alacritty.yml
-		sed -i.bak 's/background=dark/background=light/' $HOME/.config/nvim/init.vim
+		sed -i.bak 's/colors: \*pencil_dark/colors: \*pencil_light/' $HOME/.config/alacritty/alacritty.yml
 	fi
 fi
 
