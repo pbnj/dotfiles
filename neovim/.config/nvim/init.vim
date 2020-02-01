@@ -307,7 +307,7 @@ augroup END
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
 
-function! SetBackgroundMode(...) abort
+function! ToggleBackground(...) abort
   if has('macunix')
     let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
 
@@ -321,7 +321,7 @@ function! SetBackgroundMode(...) abort
 
   endif
 endfunction
-call SetBackgroundMode()
+call ToggleBackground()
 
 function! GenerateTableOfContents() abort
   silent ! doctoc --notitle %
