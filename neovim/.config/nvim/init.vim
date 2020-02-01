@@ -78,11 +78,16 @@ Plug 'hashivim/vim-hashicorp-tools'
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
+" Xcode colors
+Plug 'arzg/vim-colors-xcode'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
+
+colorscheme xcodelight
 
 if has('nvim')
   set inccommand=split
@@ -307,14 +312,13 @@ function! SetBackgroundMode(...) abort
     let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
 
     if s:mode ==? "dark"
-      let s:new_bg = "dark"
+      colorscheme xcodedark
+      let &background = "dark"
     else
-      let s:new_bg = "light"
+      colorscheme xcodelight
+      let &background = "light"
     endif
 
-    if &background !=? s:new_bg
-      let &background = s:new_bg
-    endif
   endif
 endfunction
 call SetBackgroundMode()

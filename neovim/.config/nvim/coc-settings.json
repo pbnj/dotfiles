@@ -29,6 +29,7 @@
 
   /* coc-json */
   "json.format.enable": true,
+
   /* coc-markdownlint */
   "markdownlint.onOpen": true,
   "markdownlint.onSave": true,
