@@ -100,17 +100,6 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
-## THEME
-if [ "$(uname)" == "Darwin" ]; then
-	if [ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]; then
-		# sed -i.bak 's/colors: \*pencil_light/colors: \*pencil_dark/' $HOME/.config/alacritty/alacritty.yml
-		echo -e "\033]50;SetProfile=dark\a"
-	else
-		# sed -i.bak 's/colors: \*pencil_dark/colors: \*pencil_light/' $HOME/.config/alacritty/alacritty.yml
-		echo -e "\033]50;SetProfile=light\a"
-	fi
-fi
-
 ########################################
 ## ALIASES
 ########################################
