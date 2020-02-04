@@ -59,6 +59,7 @@ Plug 'tpope/vim-dispatch'
 
 " Vim+Git integration
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Sensible settings
 Plug 'tpope/vim-sensible'
