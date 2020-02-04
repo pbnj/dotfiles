@@ -80,6 +80,7 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " Go
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
+let g:go_def_mapping_enabled = 0 " avoid conflict with `gd` for coc.nvim
 
 " Rust
 Plug 'rust-lang/rust.vim'
