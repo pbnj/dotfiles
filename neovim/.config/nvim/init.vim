@@ -78,6 +78,12 @@ Plug 'hashivim/vim-hashicorp-tools'
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
+" Go
+Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
