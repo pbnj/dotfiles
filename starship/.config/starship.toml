@@ -33,7 +33,26 @@ show_always = true
 [hostname]
 ssh_only = false
 
+[aws]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[python]
+symbol = " "
+
 [kubernetes]
+symbol = "ﴱ "
 disabled = false
 
 [character]
