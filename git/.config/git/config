@@ -76,3 +76,5 @@
 	email = petermbenjamin@gmail.com
 [credential]
 	helper = osxkeychain
+[diff]
+	tool = vimdiff3

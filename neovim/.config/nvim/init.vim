@@ -78,24 +78,19 @@ Plug 'hashivim/vim-hashicorp-tools'
 " Highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
-" Xcode colors
-Plug 'reedes/vim-colors-pencil'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme pencil
-
 if has('nvim')
   set inccommand=split
+  tnoremap <Esc> <C-\><C-n>
 endif
 
 set autoindent
 set autoread
-set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -307,6 +302,20 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
+
+function! ToggleBackground(...) abort
+  if has('macunix')
+    let s:mode = systemlist("defaults read -g AppleInterfaceStyle")[0]
+
+    if s:mode ==? "dark"
+      let &background = "dark"
+    else
+      let &background = "light"
+    endif
+
+  endif
+endfunction
+call ToggleBackground()
 
 function! GenerateTableOfContents() abort
   silent ! doctoc --notitle %
