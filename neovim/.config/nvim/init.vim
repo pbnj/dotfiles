@@ -92,6 +92,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+" indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
