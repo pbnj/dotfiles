@@ -88,6 +88,10 @@ let g:go_gopls_enabled = 0 " disable `gopls`
 " Rust
 Plug 'rust-lang/rust.vim'
 
+" Editorconfig
+Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
