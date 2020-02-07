@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 " Formatter
 Plug 'sbdchd/neoformat'
 
+" Async make framework
+Plug 'neomake/neomake'
+
 " Language Server
 Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -95,6 +98,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " indent guides
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
+
+" syntax for justfile
+Plug 'vmchale/just-vim'
 
 call plug#end()
 
