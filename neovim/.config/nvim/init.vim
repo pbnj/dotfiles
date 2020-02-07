@@ -41,9 +41,6 @@ Plug 'junegunn/fzf.vim'
 "Status Bar
 Plug 'vim-airline/vim-airline'
 
-" Easy window navigation
-Plug 'christoomey/vim-tmux-navigator'
-
 " Change root dir
 Plug 'airblade/vim-rooter'
 
@@ -110,6 +107,10 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
 endif
 
+if has('gui_running')
+  set guifont=SauceCodeProNerdFontComplete-Regular:h16
+endif
+
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -138,14 +139,14 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set nobackup
 set nomodeline
+set nonumber
+set norelativenumber
 set nospell
 set noswapfile
 set novisualbell
 set nowrap
 set nowritebackup
-set number
 set path+=**
-set relativenumber
 set ruler
 set scrolloff=1
 set shortmess+=c
@@ -313,7 +314,7 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 augroup general
   autocmd!
-  autocmd BufNewFile,BufRead justfile setfiletype make
+  autocmd BufNewFile,BufRead Justfile,justfile setfiletype make
   autocmd FileType vim,markdown,yaml,json,terraform,hcl,tf
         \ setlocal ts=2 |
         \ setlocal sw=2 |
@@ -345,3 +346,17 @@ function! GenerateTableOfContents() abort
   redraw!
 endfunction
 command! TOC :call GenerateTableOfContents()
+
+function! Kubectl(...) abort
+  echon system("kubectl" . " " . join(a:000))
+endfunction
+command! -nargs=* Kubectl call Kubectl(<f-args>)
+
+function! Just(...) abort
+  echon system("just" . " " . join(a:000))
+endfunction
+command! -nargs=* -complete=customlist,JustComplete Just call Just(<f-args>)
+
+function! JustComplete(A, L, P) abort
+  return filter(split(system("just --summary")), 'v:val =~ a:A')
+endfunction
