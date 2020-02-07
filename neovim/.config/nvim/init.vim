@@ -99,9 +99,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 
-" syntax for justfile
-Plug 'vmchale/just-vim'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -316,6 +313,7 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 augroup general
   autocmd!
+  autocmd BufNewFile,BufRead justfile setfiletype make
   autocmd FileType vim,markdown,yaml,json,terraform,hcl,tf
         \ setlocal ts=2 |
         \ setlocal sw=2 |
