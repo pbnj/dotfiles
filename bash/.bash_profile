@@ -100,6 +100,10 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
+## JUST
+# cargo install just
+command -v just &>/dev/null && source <(just --completions bash)
+
 ########################################
 ## ALIASES
 ########################################
