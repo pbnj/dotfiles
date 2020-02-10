@@ -45,7 +45,18 @@ name = 'tmux'
 name = "fzf"
 
 [[layers]]
-name = 'lsp'
+  name = 'lsp'
+  filetypes = [
+    'dockerfile',
+    'go',
+    'javascript',
+    'python',
+    'rust',
+    'sh',
+    'typescript'
+  ]
+  [layers.override_cmd]
+    go = ["gopls"]
 
 [[layers]]
 name = "lang#extra"
