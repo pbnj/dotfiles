@@ -9,6 +9,7 @@
     filemanager = "nerdtree"
     statusline_inactive_separator = "arrow"
     statusline_separator = "arrow"
+    terminal_cursor_shape = 1
 
 [[layers]]
 name = 'core'
