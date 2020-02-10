@@ -1,0 +1,75 @@
+[options]
+    autocomplete_method = 'coc'
+    buffer_index_type = 4
+    colorscheme = "one"
+    colorscheme_bg = "light"
+    enable_guicolors = true
+    enable_statusline_mode = false
+    enable_tabline_filetype_icon = true
+    filemanager = "nerdtree"
+    statusline_inactive_separator = "arrow"
+    statusline_separator = "arrow"
+
+[[layers]]
+name = 'core'
+filetree_show_hidden = true
+
+[[layers]]
+name = 'colorscheme'
+
+[[layers]]
+name = "default"
+
+[[layers]]
+name = 'autocomplete'
+auto-completion-return-key-behavior = "complete"
+auto-completion-tab-key-behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'bottom'
+default_height = 30
+
+[[layers]]
+name = 'git'
+git-plugin = 'fugitive'
+
+[[layers]]
+name = 'github'
+
+[[layers]]
+name = 'tmux'
+
+[[layers]]
+name = "fzf"
+
+[[layers]]
+name = 'lsp'
+
+[[layers]]
+name = "lang#extra"
+
+[[layers]]
+name = "lang#dockerfile"
+
+[[layers]]
+name = "lang#go"
+
+[[layers]]
+name = "lang#javascript"
+
+[[layers]]
+name = "lang#markdown"
+
+[[layers]]
+name = "lang#python"
+
+[[layers]]
+name = "lang#rust"
+
+[[layers]]
+name = "lang#sh"
+
+[[layers]]
+name = "test"
+
