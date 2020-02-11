@@ -3,13 +3,13 @@ set nocompatible
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-" formatter
+" Formatters
 Plug 'sbdchd/neoformat'
 
-" async make framework
+" Makers
 Plug 'neomake/neomake'
 
-" language Server
+" LSP
 Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-actions',
@@ -37,6 +37,9 @@ let g:coc_global_extensions = [
 " fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Align
+Plug 'godlygeek/tabular'
 
 " status Bar
 Plug 'vim-airline/vim-airline'
