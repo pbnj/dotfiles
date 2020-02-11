@@ -38,13 +38,6 @@ let g:coc_global_extensions = [
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" align
-Plug 'junegunn/vim-easy-align'
-" start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " status Bar
 Plug 'vim-airline/vim-airline'
 
@@ -68,47 +61,32 @@ let g:NERDSpaceDelims = 1
 " fast grep
 Plug 'jremmen/vim-ripgrep'
 
-" run jobs in background
+" Tpopes
 Plug 'tpope/vim-dispatch'
-
-" vim+git integration
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-
-" sensible settings
 Plug 'tpope/vim-sensible'
-
-" surround functionality
 Plug 'tpope/vim-surround'
-
-" additional square bracket functionalities
 Plug 'tpope/vim-unimpaired'
-
-" jsonc
-Plug 'neoclide/jsonc.vim'
 
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
 
-" highlight whitespace
-Plug 'ntpeters/vim-better-whitespace'
+" indent guides
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
 
-" go
+" Languages
+Plug 'neoclide/jsonc.vim'
+
+Plug 'cespare/vim-toml'
+
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 let g:go_def_mapping_enabled = 0 " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0 " disable `gopls`
 
-" rust
 Plug 'rust-lang/rust.vim'
-
-" editorconfig
-Plug 'editorconfig/editorconfig-vim'
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" indent guides
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
 
 call plug#end()
 
