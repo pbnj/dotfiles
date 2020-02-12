@@ -75,9 +75,8 @@ Plug 'tpope/vim-unimpaired'
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
 
-" indent guides
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
+" Indent Lines
+Plug 'Yggdroot/indentLine'
 
 " Languages
 Plug 'neoclide/jsonc.vim'
