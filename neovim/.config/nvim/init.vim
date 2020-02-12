@@ -76,9 +76,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'hashivim/vim-hashicorp-tools'
 
 " Indent Lines
-Plug 'Yggdroot/indentLine'
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar    = '·'
+" Plug 'Yggdroot/indentLine'
+" let g:indentLine_leadingSpaceEnabled = 1
+" let g:indentLine_leadingSpaceChar    = '·'
 
 " Languages
 Plug 'neoclide/jsonc.vim'
@@ -138,7 +138,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set nobackup
 set nomodeline
 set nonumber
@@ -329,22 +329,10 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""
 
 function! GenerateTableOfContents() abort
-  silent ! doctoc --notitle %
-  " silent ! mdtoc --inplace %
+  " npm i -g doctoc
+  " silent ! doctoc --notitle %
+  " go get -u -v github.com/tallclair/mdtoc
+  silent ! mdtoc --inplace %
   redraw!
 endfunction
 command! TOC :call GenerateTableOfContents()
-
-function! Kubectl(...) abort
-  echon system("kubectl" . " " . join(a:000))
-endfunction
-command! -nargs=* Kubectl call Kubectl(<f-args>)
-
-function! Just(...) abort
-  echon system("just" . " " . join(a:000))
-endfunction
-command! -nargs=* -complete=customlist,JustComplete Just call Just(<f-args>)
-
-function! JustComplete(A, L, P) abort
-  return filter(split(system("just --summary 2>/dev/null")), 'v:val =~ a:A')
-endfunction
