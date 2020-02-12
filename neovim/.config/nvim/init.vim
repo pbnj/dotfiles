@@ -77,6 +77,8 @@ Plug 'hashivim/vim-hashicorp-tools'
 
 " Indent Lines
 Plug 'Yggdroot/indentLine'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar    = '·'
 
 " Languages
 Plug 'neoclide/jsonc.vim'
