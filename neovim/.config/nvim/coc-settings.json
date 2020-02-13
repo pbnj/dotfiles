@@ -41,6 +41,9 @@
   "yaml.format.enable": true,
   "yaml.hover": true,
   "yaml.validate": true,
+  "yaml.schemas": {
+    "kubernetes": ["/kubernetes/*.yaml"]
+  },
 
   /* https://github.com/neoclide/coc.nvim/wiki/Language-servers */
   "languageserver": {
