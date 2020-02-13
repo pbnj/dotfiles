@@ -21,6 +21,10 @@ fi
 if command -v kubens &>/dev/null; then
 	alias kns="kubens"
 fi
+# brew install helm
+if command -v helm &>/dev/null; then
+	source <(helm completion bash)
+fi
 
 # cargo install exa
 if command -v exa &>/dev/null; then
