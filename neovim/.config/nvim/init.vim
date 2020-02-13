@@ -52,6 +52,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " nerdtree
 Plug 'preservim/nerdtree'
+let NERDTreeShowHidden = 1
 map <C-n> :NERDTreeToggle<CR>
 
 " git integration with file manager
