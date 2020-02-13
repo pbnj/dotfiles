@@ -136,6 +136,7 @@ set linebreak
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set nobackup
+set nofoldenable
 set nomodeline
 set nonumber
 set norelativenumber
