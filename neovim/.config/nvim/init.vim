@@ -90,6 +90,9 @@ let g:go_def_mapping_enabled = 0 " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0 " disable `gopls`
 
+" Shells
+Plug 'dag/vim-fish'
+
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
 
