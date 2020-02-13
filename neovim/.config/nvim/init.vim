@@ -316,7 +316,7 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 augroup general
   autocmd!
   autocmd BufNewFile,BufRead Justfile,justfile setfiletype make
-  autocmd FileType vim,json,terraform,hcl,tf
+  autocmd FileType vim,markdown,json,terraform,hcl,tf
         \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab |
