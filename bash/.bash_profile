@@ -28,6 +28,7 @@ export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 export TERM="xterm-256color"
 
+export DOTFILES="$HOME/.dotfiles"
 export BAT_THEME="GitHub"
 export BAT_PAGER=""
 
@@ -85,16 +86,6 @@ fi
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-
-## K8S
-# ./scripts/tools/kubernetes/kubectl.sh
-command -v kubectl &>/dev/null && source <(kubectl completion bash)
-# GO111MODULE="on" go get sigs.k8s.io/kind@v0.6.1
-command -v kind &>/dev/null && source <(kind completion bash)
-# ./scripts/tools/kubernetes/krew.sh
-[[ -d "$HOME/.krew" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# ./scripts/tools/kubernetes/kubectx.sh
-[[ -d "$HOME/.kubectx" ]] && export PATH="$HOME/.kubectx:$PATH"
 
 ## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install

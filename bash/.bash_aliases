@@ -8,7 +8,16 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# K8s
+## K8S
+# sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
+command -v kubectl &>/dev/null && source <(kubectl completion bash)
+# GO111MODULE="on" go get sigs.k8s.io/kind@v0.7.0
+command -v kind &>/dev/null && source <(kind completion bash)
+# sh ${DOTFILES}/scripts/tools/kubernetes/krew.sh
+[[ -d "$HOME/.krew" ]] && export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# sh ${DOTFILES}/scripts/tools/kubernetes/kubectx.sh
+[[ -d "$HOME/.kubectx" ]] && export PATH="$HOME/.kubectx:$PATH"
+
 # brew install kubectl
 if command -v kubectl &>/dev/null; then
 	alias k="kubectl"
@@ -34,7 +43,7 @@ else
 	alias ll="ls -alFh --group-directories-first"
 fi
 
-# Hub
+## Hub
 # brew install hub
 if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
