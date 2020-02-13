@@ -75,22 +75,20 @@ Plug 'tpope/vim-unimpaired'
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
 
-" Indent Lines
-" Plug 'Yggdroot/indentLine'
-" let g:indentLine_leadingSpaceEnabled = 1
-" let g:indentLine_leadingSpaceChar    = '·'
-
 " Languages
+Plug 'rust-lang/rust.vim'
 Plug 'neoclide/jsonc.vim'
-
 Plug 'cespare/vim-toml'
-
+Plug 'stephpy/vim-yaml'
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_frontmatter = 1
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 let g:go_def_mapping_enabled = 0 " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0 " disable `gopls`
-
-Plug 'rust-lang/rust.vim'
 
 " Colorschemes
 Plug 'NLKNguyen/papercolor-theme'
@@ -140,6 +138,7 @@ set linebreak
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set nobackup
+set nofoldenable
 set nomodeline
 set nonumber
 set norelativenumber
@@ -317,7 +316,7 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 augroup general
   autocmd!
   autocmd BufNewFile,BufRead Justfile,justfile setfiletype make
-  autocmd FileType vim,markdown,yaml,json,terraform,hcl,tf
+  autocmd FileType vim,markdown,json,terraform,hcl,tf
         \ setlocal ts=2 |
         \ setlocal sw=2 |
         \ setlocal expandtab |
@@ -330,9 +329,9 @@ augroup END
 
 function! GenerateTableOfContents() abort
   " npm i -g doctoc
-  " silent ! doctoc --notitle %
+  silent ! doctoc --notitle %
   " go get -u -v github.com/tallclair/mdtoc
-  silent ! mdtoc --inplace %
+  " silent ! mdtoc --inplace %
   redraw!
 endfunction
 command! TOC :call GenerateTableOfContents()
