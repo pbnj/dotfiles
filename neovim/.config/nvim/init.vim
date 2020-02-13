@@ -81,6 +81,8 @@ Plug 'neoclide/jsonc.vim'
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_frontmatter = 1
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
@@ -327,9 +329,9 @@ augroup END
 
 function! GenerateTableOfContents() abort
   " npm i -g doctoc
-  " silent ! doctoc --notitle %
+  silent ! doctoc --notitle %
   " go get -u -v github.com/tallclair/mdtoc
-  silent ! mdtoc --inplace %
+  " silent ! mdtoc --inplace %
   redraw!
 endfunction
 command! TOC :call GenerateTableOfContents()
