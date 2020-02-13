@@ -1,8 +1,10 @@
 # Brews
+
 brew "bat"
 brew "coreutils"
 brew "docker"
 brew "exa"
+brew "fish"
 brew "gimme"
 brew "git"
 brew "go"
