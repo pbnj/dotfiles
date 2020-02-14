@@ -1,42 +1,32 @@
-# fish settings
+####################
+# PATH
+####################
+# GOPATH
 set -Ux GOPATH $HOME/go
-set -gx PATH $GOPATH $PATH
+set -gx PATH $GOPATH/bin $PATH
 
+# CARGO
+## TODO
+
+# K8S
+## TODO
+
+# GENERAL
+set -gx BAT_PAGER ""
+set -gx BAT_THEME "GitHub"
+set -gx DOTFILES "$HOME/.dotfiles"
+set -gx EDITOR "nvim"
+set -gx GIT_TERMINAL_PROMPT 1
+set -gx MANPAGER "less -X"
+set -gx TERM "xterm-256color"
+
+####################
+# SETTINGS
+####################
 fish_vi_key_bindings
 
-# bobthefish settings
-set -g fish_prompt_pwd_dir_length 0
-set -g theme_avoid_ambiguous_glyphs yes
-set -g theme_display_cmd_duration no
-set -g theme_display_date no
-set -g theme_display_git yes
-set -g theme_display_git_ahead_verbose yes
-set -g theme_display_git_dirty yes
-set -g theme_display_git_dirty_verbose yes
-set -g theme_display_git_master_branch yes
-set -g theme_display_git_stashed_verbose yes
-set -g theme_display_git_untracked yes
-set -g theme_display_hostname no
-set -g theme_display_jobs_verbose yes
-set -g theme_display_k8s_context yes
-set -g theme_display_user no
-set -g theme_display_vagrant yes
-set -g theme_display_vi yes
-set -g theme_git_worktree_support no
-set -g theme_nerd_fonts yes
-set -g theme_newline_cursor yes
-set -g theme_newline_prompt '$ '
-set -g theme_powerline_fonts yes
-set -g theme_project_dir_length 1
-set -g theme_show_exit_status yes
-set -g theme_use_abbreviated_branch_name yes
-
-# set -g theme_color_scheme light
-# set -g theme_date_format "+%A, %d %b %Y %l:%M %p"
-# set -g theme_display_docker_machine no
-# set -g theme_display_hg yes
-# set -g theme_display_nvm yes
-# set -g theme_display_ruby no
-# set -g theme_display_virtualenv no
-# set -g default_user your_normal_user
-
+####################
+# THEME
+####################
+# cargo install starship
+starship init fish | source
