@@ -94,16 +94,11 @@ let g:go_gopls_enabled = 0 " disable `gopls`
 " Shells
 Plug 'dag/vim-fish'
 
-" Colorschemes
-Plug 'NLKNguyen/papercolor-theme'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
-
-colorscheme PaperColor
 
 if has('nvim')
   set inccommand=split
