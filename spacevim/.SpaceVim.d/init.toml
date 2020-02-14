@@ -49,11 +49,8 @@ name = "fzf"
   filetypes = [
     'dockerfile',
     'go',
-    'javascript',
-    'python',
     'rust',
     'sh',
-    'typescript'
   ]
   [layers.override_cmd]
     go = ["gopls"]
