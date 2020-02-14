@@ -1,5 +1,5 @@
 [options]
-    autocomplete_method = 'coc'
+    autocomplete_method = "coc"
     buffer_index_type = 4
     colorscheme = "one"
     colorscheme_bg = "light"
