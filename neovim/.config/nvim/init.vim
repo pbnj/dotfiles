@@ -23,7 +23,6 @@ let g:coc_global_extensions = [
       \ 'coc-pairs',
       \ 'coc-prettier',
       \ 'coc-python',
-      \ 'coc-rls',
       \ 'coc-rust-analyzer',
       \ 'coc-syntax',
       \ 'coc-tsserver',
@@ -44,17 +43,6 @@ Plug 'vim-airline/vim-airline'
 
 " change root dir
 Plug 'airblade/vim-rooter'
-
-" dev icons
-Plug 'ryanoasis/vim-devicons'
-
-" nerdtree
-Plug 'preservim/nerdtree'
-let NERDTreeShowHidden = 1
-map <C-n> :NERDTreeToggle<CR>
-
-" git integration with file manager
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " commenter
 Plug 'preservim/nerdcommenter'
@@ -320,8 +308,8 @@ augroup general
   autocmd!
   autocmd BufNewFile,BufRead Justfile,justfile setfiletype make
   autocmd FileType vim,markdown,json,terraform,hcl,tf
-        \ setlocal softtabstop = 2 |
-        \ setlocal shiftwidth = 2  |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2  |
         \ setlocal expandtab
 augroup END
 
