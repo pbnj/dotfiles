@@ -1,5 +1,3 @@
-set nocompatible
-
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
@@ -166,6 +164,12 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 
+" Best Practice: https://www.reddit.com/r/vim/wiki/tabstop
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
 """"""""""""""""""""""""""""""""""""""""
@@ -316,10 +320,9 @@ augroup general
   autocmd!
   autocmd BufNewFile,BufRead Justfile,justfile setfiletype make
   autocmd FileType vim,markdown,json,terraform,hcl,tf
-        \ setlocal ts=2 |
-        \ setlocal sw=2 |
-        \ setlocal expandtab |
-        \ setlocal smarttab
+        \ setlocal softtabstop = 2 |
+        \ setlocal shiftwidth = 2  |
+        \ setlocal expandtab
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
