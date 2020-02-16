@@ -48,9 +48,6 @@ Plug 'airblade/vim-rooter'
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
-" fast grep
-Plug 'jremmen/vim-ripgrep'
-
 " Tpopes
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'

@@ -2,6 +2,7 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
+# alias vim="vim -u NONE"
 
 # For safety
 alias rm='rm -i'
