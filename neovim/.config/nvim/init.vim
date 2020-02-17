@@ -1,5 +1,5 @@
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " Formatters
 Plug 'sbdchd/neoformat'
@@ -76,12 +76,12 @@ let g:go_gopls_enabled = 0 " disable `gopls`
 
 call plug#end()
 
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-syntax off
+syntax off          " first, turn off syntax highlighting
+let g:syntax_on = 0 " then, disable vim-sensible from overwriting it
 
 highlight SignColumn ctermbg=white
 highlight Search ctermbg=none cterm=underline,bold
