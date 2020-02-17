@@ -27,12 +27,6 @@ prompt_order = [
     "character",
 ]
 
-[username]
-show_always = true
-
-[hostname]
-ssh_only = false
-
 [aws]
 symbol = " "
 
