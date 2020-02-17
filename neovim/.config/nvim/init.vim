@@ -90,15 +90,6 @@ highlight Search ctermbg=none cterm=underline,bold
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
 
-if has('nvim')
-  set inccommand=split
-  tnoremap <Esc> <C-\><C-n>
-endif
-
-if has('gui_running')
-  set guifont=SauceCodeProNerdFontComplete-Regular:h16
-endif
-
 set autoindent
 set autoread
 set background=light
@@ -157,10 +148,23 @@ set wildignorecase
 set wildmenu
 
 " Best Practice: https://www.reddit.com/r/vim/wiki/tabstop
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+" set tabstop=8
+" set softtabstop=4
+" set shiftwidth=4
+" set expandtab
+
+if has('nvim')
+  set inccommand=split
+  tnoremap <Esc> <C-\><C-n>
+endif
+
+if has('gui_running')
+  set guifont=SauceCodeProNerdFontComplete-Regular:h16
+endif
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+endif
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
