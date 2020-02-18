@@ -1,6 +1,10 @@
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin(stdpath('data') . '/plugged')
 
+" Easy Motions
+Plug 'justinmk/vim-sneak'
+let g:sneak#label = 1
+
 " Formatters
 Plug 'sbdchd/neoformat'
 
@@ -31,20 +35,20 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ ]
 
-" fuzzy finder
+" Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Align
 Plug 'godlygeek/tabular'
 
-" status Bar
+" Status Bar
 Plug 'vim-airline/vim-airline'
 
-" change root dir
+" Change root dir
 Plug 'airblade/vim-rooter'
 
-" commenter
+" Commenter
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
@@ -56,19 +60,21 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
-" hashicorp tools
+" Hashicorp Tools
 Plug 'hashivim/vim-hashicorp-tools'
 
 " Languages
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/jsonc.vim'
-Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
+
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
+
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 let g:go_def_mapping_enabled = 0 " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
@@ -85,6 +91,12 @@ let g:syntax_on = 0 " then, disable vim-sensible from overwriting it
 
 highlight SignColumn ctermbg=white
 highlight Search ctermbg=none cterm=underline,bold
+highlight ExtraWhitespace ctermbg=red guibg=red
+
+match ExtraWhitespace /\s\+$/           " Show trailing whitespace
+match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
+match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
+
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -116,7 +128,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set nobackup
 set nofoldenable
 set nomodeline
