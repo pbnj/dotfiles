@@ -160,12 +160,6 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 
-" Best Practice: https://www.reddit.com/r/vim/wiki/tabstop
-" set tabstop=8
-" set softtabstop=4
-" set shiftwidth=4
-" set expandtab
-
 if has('nvim')
   set inccommand=split
   tnoremap <Esc> <C-\><C-n>
