@@ -298,10 +298,10 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 " Arrows
-nmap <silent> <left> <esc>:lprev<cr>
-nmap <silent> <right> <esc>:lnext<cr>
-nmap <silent> <up> <esc>:cprev<cr>
-nmap <silent> <down> <esc>:cnext<cr>
+nnoremap <silent> <left> <esc>:lprev<cr>
+nnoremap <silent> <right> <esc>:lnext<cr>
+nnoremap <silent> <up> <esc>:cprev<cr>
+nnoremap <silent> <down> <esc>:cnext<cr>
 
 " Misc
 nnoremap <Leader><space> :noh<CR>
