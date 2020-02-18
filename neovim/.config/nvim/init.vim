@@ -52,13 +52,14 @@ Plug 'airblade/vim-rooter'
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
-" Tpopes
+" Tpope
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 
 " Hashicorp Tools
 Plug 'hashivim/vim-hashicorp-tools'
