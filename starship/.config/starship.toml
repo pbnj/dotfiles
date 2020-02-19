@@ -23,6 +23,7 @@ prompt_order = [
     "aws",
     "env_var",
     "kubernetes",
+    "jobs",
     "line_break",
     "character",
 ]
