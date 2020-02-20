@@ -181,17 +181,17 @@ endif
 let g:neoformat_try_formatprg = 1
 let g:neoformat_run_all_formatters = 1
 
-" let g:neoformat_markdown_doctoc = {
-      " \ 'exe': 'doctoc',
-      " \ 'args': ['--no-title'],
-      " \ 'replace': 1,
-      " \ }
-" let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
+let g:neoformat_markdown_doctoc = {
+      \ 'exe': 'doctoc',
+      \ 'args': ['--no-title'],
+      \ 'replace': 1,
+      \ }
+let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
 
 let g:neoformat_rego_opa = {
       \ 'exe': 'opa',
-      \ 'args': ['fmt', '-w'],
-      \ 'replace': 1,
+      \ 'args': ['fmt'],
+      \ 'stdin': 1,
       \ }
 let g:neoformat_enabled_rego = ['opa']
 
