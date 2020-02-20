@@ -59,7 +59,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
 
 " Hashicorp Tools
 Plug 'hashivim/vim-hashicorp-tools'
@@ -68,6 +67,8 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/jsonc.vim'
 Plug 'stephpy/vim-yaml'
+Plug 'cespare/vim-toml'
+Plug 'tsandall/vim-rego'
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_new_list_item_indent = 2
@@ -172,6 +173,27 @@ endif
 if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Formatters
+""""""""""""""""""""""""""""""""""""""""
+
+let g:neoformat_try_formatprg = 1
+let g:neoformat_run_all_formatters = 1
+
+" let g:neoformat_markdown_doctoc = {
+      " \ 'exe': 'doctoc',
+      " \ 'args': ['--no-title'],
+      " \ 'replace': 1,
+      " \ }
+" let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
+
+let g:neoformat_rego_opa = {
+      \ 'exe': 'opa',
+      \ 'args': ['fmt', '-w'],
+      \ 'replace': 1,
+      \ }
+let g:neoformat_enabled_rego = ['opa']
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: COC
@@ -321,7 +343,7 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 augroup general
   autocmd!
-  autocmd BufNewFile,BufRead Justfile,justfile setfiletype make
+  autocmd BufNewFile,BufRead [Jj]ustfile setfiletype make
   autocmd FileType vim,markdown,json,terraform,hcl,tf
         \ setlocal softtabstop=2 |
         \ setlocal shiftwidth=2  |
@@ -332,11 +354,12 @@ augroup END
 " SETTINGS: Functions & Commands
 """"""""""""""""""""""""""""""""""""""""
 
-function! GenerateTableOfContents() abort
+function! GenTOC() abort
   " npm i -g doctoc
   silent ! doctoc --notitle %
+  silent ! prettier --write %
   " go get -u -v github.com/tallclair/mdtoc
   " silent ! mdtoc --inplace %
   redraw!
 endfunction
-command! TOC :call GenerateTableOfContents()
+command! TOC :call GenTOC()
