@@ -176,7 +176,60 @@ if executable('rg')
 endif
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Formatters
+" SETTINGS: General > Mappings
+""""""""""""""""""""""""""""""""""""""""
+
+" Arrows
+nnoremap <silent> <left> <esc>:lprev<cr>
+nnoremap <silent> <right> <esc>:lnext<cr>
+nnoremap <silent> <up> <esc>:cprev<cr>
+nnoremap <silent> <down> <esc>:cnext<cr>
+
+" Misc
+nnoremap <Leader><space> :noh<CR>
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+" Getting around
+nnoremap <Leader>b :b <C-d>
+nnoremap <Leader>e :e **/
+nnoremap <Leader>i :Ilist<space>
+nnoremap <Leader>j :tjump /
+nnoremap <Leader>m :make<cr>
+nnoremap <Leader>q :b#<cr>
+nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: General > FileTypes
+""""""""""""""""""""""""""""""""""""""""
+
+augroup general
+  autocmd!
+  autocmd BufNewFile,BufRead [Jj]ustfile setfiletype make
+  autocmd FileType vim,markdown,json,terraform,hcl,tf
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2  |
+        \ setlocal expandtab
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: General > Functions/Commands
+""""""""""""""""""""""""""""""""""""""""
+
+function! GenTOC() abort
+  " npm i -g doctoc
+  silent ! doctoc --notitle %
+  silent ! prettier --write %
+  " go get -u -v github.com/tallclair/mdtoc
+  " silent ! mdtoc --inplace %
+  redraw!
+endfunction
+command! TOC :call GenTOC()
+
+""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Plugins > Formatters
 """"""""""""""""""""""""""""""""""""""""
 
 let g:neoformat_try_formatprg = 1
@@ -197,7 +250,7 @@ let g:neoformat_rego_opa = {
 let g:neoformat_enabled_rego = ['opa']
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: COC
+" SETTINGS: Plugins > COC
 """"""""""""""""""""""""""""""""""""""""
 
 " Completions
@@ -316,51 +369,3 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: General
-""""""""""""""""""""""""""""""""""""""""
-
-" Arrows
-nnoremap <silent> <left> <esc>:lprev<cr>
-nnoremap <silent> <right> <esc>:lnext<cr>
-nnoremap <silent> <up> <esc>:cprev<cr>
-nnoremap <silent> <down> <esc>:cnext<cr>
-
-" Misc
-nnoremap <Leader><space> :noh<CR>
-
-" Getting around
-nnoremap <Leader>b :b <C-d>
-nnoremap <Leader>e :e **/
-nnoremap <Leader>i :Ilist<space>
-nnoremap <Leader>j :tjump /
-nnoremap <Leader>m :make<cr>
-nnoremap <Leader>q :b#<cr>
-nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: FileTypes
-""""""""""""""""""""""""""""""""""""""""
-
-augroup general
-  autocmd!
-  autocmd BufNewFile,BufRead [Jj]ustfile setfiletype make
-  autocmd FileType vim,markdown,json,terraform,hcl,tf
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2  |
-        \ setlocal expandtab
-augroup END
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Functions & Commands
-""""""""""""""""""""""""""""""""""""""""
-
-function! GenTOC() abort
-  " npm i -g doctoc
-  silent ! doctoc --notitle %
-  silent ! prettier --write %
-  " go get -u -v github.com/tallclair/mdtoc
-  " silent ! mdtoc --inplace %
-  redraw!
-endfunction
-command! TOC :call GenTOC()
