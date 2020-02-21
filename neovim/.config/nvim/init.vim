@@ -131,6 +131,7 @@ set lazyredraw
 set linebreak
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set mouse=a
 set nobackup
 set nofoldenable
 set nomodeline
