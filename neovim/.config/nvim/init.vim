@@ -40,7 +40,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Align
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -91,14 +92,8 @@ call plug#end()
 syntax off          " first, turn off syntax highlighting
 let g:syntax_on = 0 " then, disable vim-sensible from overwriting it
 
-highlight SignColumn ctermbg=white
-highlight Search ctermbg=none cterm=underline,bold
-highlight ExtraWhitespace ctermbg=red guibg=red
-
-match ExtraWhitespace /\s\+$/           " Show trailing whitespace
-match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
-match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
-
+highlight SignColumn ctermbg=None
+highlight Search ctermbg=None cterm=underline,bold
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -200,6 +195,9 @@ nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
 nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > FileTypes
