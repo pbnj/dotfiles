@@ -61,9 +61,6 @@
 [color]
 	ui = auto
 
-[help]
-	autocorrect = 1
-
 [push]
 	default = simple
 
