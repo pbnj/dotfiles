@@ -94,7 +94,7 @@ syntax off          " first, turn off syntax highlighting
 let g:syntax_on = 0 " then, disable vim-sensible from overwriting it
 
 highlight SignColumn ctermbg=None
-highlight Search ctermbg=None cterm=underline,bold
+highlight Search     ctermbg=None cterm=underline,bold
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -176,10 +176,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 
 " Arrows
-nnoremap <silent> <left> <esc>:lprev<cr>
+nnoremap <silent> <left>  <esc>:lprev<cr>
 nnoremap <silent> <right> <esc>:lnext<cr>
-nnoremap <silent> <up> <esc>:cprev<cr>
-nnoremap <silent> <down> <esc>:cnext<cr>
+nnoremap <silent> <up>    <esc>:cprev<cr>
+nnoremap <silent> <down>  <esc>:cnext<cr>
 
 " Misc
 nnoremap <Leader><space> :noh<CR>
@@ -221,8 +221,6 @@ function! GenTOC() abort
   " npm i -g doctoc
   silent ! doctoc --notitle %
   silent ! prettier --write %
-  " go get -u -v github.com/tallclair/mdtoc
-  " silent ! mdtoc --inplace %
   redraw!
 endfunction
 command! TOC :call GenTOC()
@@ -231,17 +229,17 @@ command! TOC :call GenTOC()
 " SETTINGS: Plugins > Formatters
 """"""""""""""""""""""""""""""""""""""""
 
-let g:neoformat_try_formatprg = 1
+let g:neoformat_try_formatprg      = 1
 let g:neoformat_run_all_formatters = 1
 
-let g:neoformat_markdown_doctoc = {
+let g:neoformat_markdown_doctoc  = {
       \ 'exe': 'doctoc',
       \ 'args': ['--no-title'],
       \ 'replace': 1,
       \ }
 let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
 
-let g:neoformat_rego_opa = {
+let g:neoformat_rego_opa     = {
       \ 'exe': 'opa',
       \ 'args': ['fmt'],
       \ 'stdin': 1,

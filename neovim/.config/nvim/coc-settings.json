@@ -16,6 +16,7 @@
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.formatOnType": true,
   "codeLens.enable": true,
+  "suggest.autoTrigger": "always",
   "suggest.floatEnable": true,
   "suggest.noselect": false,
   "suggest.defaultSortMethod": "alphabetical",
