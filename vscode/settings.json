@@ -1,0 +1,50 @@
+{
+  // GENERAL
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "'SauceCodePro Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": false,
+  "editor.renderWhitespace": "boundary",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+  "search.smartCase": true,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.drawBoldTextInBrightColors": false,
+  "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.shell.osx": "/usr/local/bin/bash",
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Default Light+",
+  "workbench.fontAliasing": "antialiased",
+  "workbench.iconTheme": null,
+  "workbench.settings.editor": "json",
+  // PLUGINS
+  // docker
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  // git
+  "git.autofetch": true,
+  "git.suggestSmartCommit": false,
+  "[git-commit]": {
+    "editor.rulers": [72]
+  },
+  // go
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  // liveshare
+  "liveshare.connectionMode": "direct",
+  // terraform
+  "terraform.languageServer": {
+    "enabled": true,
+    "args": []
+  },
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [".terraform/**/*", "**/.terraform/**/*"]
+  }
+}
