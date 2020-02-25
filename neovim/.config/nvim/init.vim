@@ -54,6 +54,7 @@ Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
 " Tpope
+Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
