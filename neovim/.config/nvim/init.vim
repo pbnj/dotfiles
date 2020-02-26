@@ -45,6 +45,8 @@ Plug 'junegunn/vim-easy-align'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='light'
 
 " Change root dir
 Plug 'airblade/vim-rooter'
@@ -157,6 +159,7 @@ set undofile
 set updatetime=100
 set wildignorecase
 set wildmenu
+set wildmode=longest,full
 
 if has('nvim')
   set inccommand=split
