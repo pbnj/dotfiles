@@ -99,3 +99,7 @@ cursor:
 live_config_reload: true
 
 working_directory: None
+
+key_bindings:
+  - { key: F, mods: Alt, chars: "\x1bf" }
+  - { key: B, mods: Alt, chars: "\x1bb" }
