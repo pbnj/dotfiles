@@ -12,6 +12,21 @@ Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 
 " LSP
+" let g:ale_completion_enabled = 1
+" Plug 'dense-analysis/ale'
+" let g:ale_fix_on_save = 1
+" let g:ale_linters = {
+"       \ 'sh': ['language_server', 'shellcheck'],
+"       \ 'go': ['gopls'],
+"       \ }
+" let g:ale_fixers = {
+"       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+"       \ 'go': ['goimports'],
+"       \ 'sh': ['shfmt'],
+"       \ 'rust': ['rustfmt'],
+"       \ 'yaml': ['prettier']
+"       \ }
+
 Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-actions',
@@ -73,6 +88,7 @@ Plug 'neoclide/jsonc.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'cespare/vim-toml'
 Plug 'tsandall/vim-rego'
+Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_new_list_item_indent = 2
@@ -200,8 +216,15 @@ nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
 nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
+" Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" Diagnostics
+" ALE
+" nmap     <silent> [g <Plug>(ale_previous)
+" nmap     <silent> ]g <Plug>(ale_next)
+" nnoremap <silent> K <Plug>(ale_hover)
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > FileTypes
@@ -368,4 +391,3 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
