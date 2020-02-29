@@ -71,7 +71,12 @@
 [user]
 	name = Peter Benjamin
 	email = petermbenjamin@gmail.com
+
+[credential "https://github.com"]
+	username = pbnj
+
 [credential]
-	helper = osxkeychain
+	helper = store
+
 [diff]
 	tool = vimdiff3
