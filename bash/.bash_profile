@@ -26,7 +26,6 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
-# export TERM="xterm-256color"
 
 export DOTFILES="$HOME/.dotfiles"
 export BAT_THEME="GitHub"
@@ -101,19 +100,20 @@ export NVM_DIR="$HOME/.nvm"
 ## PROMPT
 ########################################
 
+## plain bash_prompt
+[ -f "$HOME/.bash_prompt" ] && source "${HOME}/.bash_prompt"
+
 ## bash-git-prompt
 # git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-	# GIT_PROMPT_ONLY_IN_REPO=1
-	GIT_PROMPT_START="\n\u@\h:\W"
-	GIT_PROMPT_END="\n$ "
-	source $HOME/.bash-git-prompt/gitprompt.sh
-fi
+# if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+# 	# GIT_PROMPT_ONLY_IN_REPO=1
+# 	GIT_PROMPT_START="\n\u@\h:\W"
+# 	GIT_PROMPT_END="\n$ "
+# 	source $HOME/.bash-git-prompt/gitprompt.sh
+# fi
 
 ## starship
 # cargo install starship
-if command -v starship &>/dev/null; then
-	eval "$(starship init bash)"
-fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
+# if command -v starship &>/dev/null; then
+#	eval "$(starship init bash)"
+# fi
