@@ -1,7 +1,6 @@
 # Git settings
-## If '__git_ps1' is not found, install:
-##    curl -fsSLo ~/.git-prompt.sh https://github.com/git/git/raw/v$(git version | grep git | cut -d" " -f3)/contrib/completion/git-prompt.sh
-[ -f "$HOME/.git-prompt.sh" ] && source "$HOME/.git-prompt.sh"
+# curl -fsSLo ~/.config/git/prompt https://github.com/git/git/raw/v$(git version | grep git | cut -d" " -f3)/contrib/completion/git-prompt.sh
+[ -f "$HOME/.config/git/prompt" ] && source "$HOME/.config/git/prompt"
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
