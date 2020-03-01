@@ -49,6 +49,10 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ ]
 
+" Test Runner
+Plug 'janko/vim-test'
+let test#strategy = "dispatch"
+
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -227,6 +231,13 @@ nmap ga <Plug>(EasyAlign)
 " nmap     <silent> [g <Plug>(ale_previous)
 " nmap     <silent> ]g <Plug>(ale_next)
 " nnoremap <silent> K <Plug>(ale_hover)
+
+" Test Runner
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > FileTypes
