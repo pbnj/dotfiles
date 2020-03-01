@@ -57,6 +57,10 @@ Plug 'junegunn/fzf.vim'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 
+" Highlight Yanked Text
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = 300
+
 " Status Bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
