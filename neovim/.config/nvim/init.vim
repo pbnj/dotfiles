@@ -127,7 +127,6 @@ set cmdheight=2
 set colorcolumn=80
 set completeopt=longest,menuone,preview
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -146,6 +145,7 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
 set nomodeline
 set nonumber
