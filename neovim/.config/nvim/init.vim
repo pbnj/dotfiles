@@ -47,6 +47,7 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
       \ 'coc-yaml',
+      \ 'coc-yank',
       \ ]
 
 " Test Runner
@@ -60,9 +61,6 @@ Plug 'junegunn/fzf.vim'
 " Align
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
-
-" Highlight Yanked Text
-Plug 'machakann/vim-highlightedyank'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
