@@ -10,5 +10,6 @@ GIT_PS1_SHOWUPSTREAM=auto
 # git clone https://github.com/jonmosco/kube-ps1 ~/.config/kube-ps1
 source $HOME/.config/kube-ps1/kube-ps1.sh
 
-PS1='\n\u@\h \W$(__git_ps1 " (%s)") $(kube_ps1)\n\$ '
+PS1='\n\W$(__git_ps1 " (%s)") $(kube_ps1)\n\$ '
+# PS1='\n\u@\h \W$(__git_ps1 " (%s)") $(kube_ps1)\n\$ '
 # PROMPT_COMMAND='__git_ps1 "\n\u@\h:\w" " $(kube_ps1)\n\\\$ "'
