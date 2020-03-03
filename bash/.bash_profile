@@ -101,19 +101,10 @@ export NVM_DIR="$HOME/.nvm"
 ########################################
 
 ## plain bash_prompt
-[ -f "$HOME/.bash_prompt" ] && source "${HOME}/.bash_prompt"
-
-## bash-git-prompt
-# git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-# if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
-# 	# GIT_PROMPT_ONLY_IN_REPO=1
-# 	GIT_PROMPT_START="\n\u@\h:\W"
-# 	GIT_PROMPT_END="\n$ "
-# 	source $HOME/.bash-git-prompt/gitprompt.sh
-# fi
+# [ -f "$HOME/.bash_prompt" ] && source "${HOME}/.bash_prompt"
 
 ## starship
 # cargo install starship
-# if command -v starship &>/dev/null; then
-#	eval "$(starship init bash)"
-# fi
+if command -v starship &>/dev/null; then
+	eval "$(starship init bash)"
+fi
