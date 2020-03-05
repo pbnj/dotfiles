@@ -244,6 +244,8 @@ nmap <silent> t<C-g> :TestVisit<CR>
 augroup general
   autocmd!
   autocmd BufNewFile,BufRead [Jj]ustfile setfiletype make
+  autocmd BufWritePre *.go
+        \ :call CocAction('runCommand', 'editor.action.organizeImport')
   autocmd FileType vim,markdown,json,terraform,hcl,tf
         \ setlocal softtabstop=2 |
         \ setlocal shiftwidth=2  |
