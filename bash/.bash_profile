@@ -28,7 +28,6 @@ export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 
 export DOTFILES="$HOME/.dotfiles"
-export BAT_THEME="GitHub"
 export BAT_PAGER=""
 
 ########################################
@@ -38,6 +37,7 @@ export BAT_PAGER=""
 ## PATH
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
 
 ## SSH AGENT
 SSH_ENV="$HOME/.ssh/environment"

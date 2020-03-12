@@ -53,5 +53,7 @@ fi
 ## Vault
 # brew install vault
 if command -v vault &>/dev/null; then
+	alias v="vault"
 	complete -C /usr/local/bin/vault vault
+	complete -C /usr/local/bin/vault v
 fi
