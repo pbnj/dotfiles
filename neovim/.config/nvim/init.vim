@@ -59,8 +59,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Align
-" Plug 'godlygeek/tabular'
-Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -223,12 +222,6 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 " Easy Align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" Diagnostics
-" ALE
-" nmap     <silent> [g <Plug>(ale_previous)
-" nmap     <silent> ]g <Plug>(ale_next)
-" nnoremap <silent> K <Plug>(ale_hover)
 
 " Test Runner
 nmap <silent> t<C-n> :TestNearest<CR>
