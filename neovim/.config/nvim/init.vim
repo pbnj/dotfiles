@@ -1,5 +1,6 @@
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-call plug#begin(stdpath('data') . '/plugged')
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
 
 " Easy Motions
 Plug 'justinmk/vim-sneak'
@@ -12,22 +13,7 @@ Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 
 " LSP
-" let g:ale_completion_enabled = 1
-" Plug 'dense-analysis/ale'
-" let g:ale_fix_on_save = 1
-" let g:ale_linters = {
-"       \ 'sh': ['language_server', 'shellcheck'],
-"       \ 'go': ['gopls'],
-"       \ }
-" let g:ale_fixers = {
-"       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-"       \ 'go': ['goimports'],
-"       \ 'sh': ['shfmt'],
-"       \ 'rust': ['rustfmt'],
-"       \ 'yaml': ['prettier']
-"       \ }
-
-Plug 'neoclide/coc.nvim'      , {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-css',
@@ -43,6 +29,7 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rust-analyzer',
+      \ 'coc-sql',
       \ 'coc-syntax',
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
@@ -63,8 +50,6 @@ Plug 'godlygeek/tabular'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='light'
 
 " Change root dir
 Plug 'airblade/vim-rooter'
@@ -105,17 +90,15 @@ let g:go_def_mapping_enabled = 0 " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0 " disable `gopls`
 
+Plug 'andreypopp/vim-colors-plain'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-syntax off          " first, turn off syntax highlighting
-let g:syntax_on = 0 " then, disable vim-sensible from overwriting it
-
-highlight SignColumn ctermbg=None
-highlight Search     ctermbg=None cterm=underline,bold
+colorscheme plain
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -123,7 +106,6 @@ highlight Search     ctermbg=None cterm=underline,bold
 
 set autoindent
 set autoread
-set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -183,10 +165,6 @@ set wildmode=longest,full
 if has('nvim')
   set inccommand=split
   tnoremap <Esc> <C-\><C-n>
-endif
-
-if has('gui_running')
-  set guifont=SauceCodeProNerdFontComplete-Regular:h16
 endif
 
 if executable('rg')
