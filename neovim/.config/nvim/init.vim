@@ -17,7 +17,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-css',
-      \ 'coc-emmet',
       \ 'coc-eslint',
       \ 'coc-git',
       \ 'coc-gocode',
@@ -86,11 +85,9 @@ Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
-let g:go_def_mapping_enabled = 0 " disable `gd`
+let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
-let g:go_gopls_enabled = 0 " disable `gopls`
-
-Plug 'andreypopp/vim-colors-plain'
+let g:go_gopls_enabled = 0          " disable `gopls`
 
 call plug#end()
 
@@ -98,7 +95,16 @@ call plug#end()
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme plain
+syntax off
+let g:syntax_on = 0
+
+highlight ColorColumn ctermbg=Red
+highlight SignColumn  ctermbg=NONE
+highlight Search      ctermbg=NONE     ctermfg=Yellow    cterm=underline,bold
+highlight Comment     ctermbg=NONE     ctermfg=LightGray
+highlight DiffAdd     ctermbg=NONE     ctermfg=Green
+highlight DiffChange  ctermbg=NONE     ctermfg=Yellow
+highlight DiffDelete  ctermbg=NONE     ctermfg=Red
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
