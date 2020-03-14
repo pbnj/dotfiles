@@ -1,8 +1,8 @@
 # https://starship.rs/config/
 
 prompt_order = [
-	# "username",
-	# "hostname",
+	"username",
+	"hostname",
 	"directory",
 	"git_branch",
 	"git_commit",
