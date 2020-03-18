@@ -48,7 +48,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 
 " Status Bar
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 " Change root dir
 Plug 'airblade/vim-rooter'
@@ -106,6 +107,22 @@ highlight DiffAdd     ctermbg=NONE     ctermfg=Green
 highlight DiffChange  ctermbg=NONE     ctermfg=Yellow
 highlight DiffDelete  ctermbg=NONE     ctermfg=Red
 
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction',
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
@@ -142,6 +159,7 @@ set nofoldenable
 set nomodeline
 set nonumber
 set norelativenumber
+set noshowmode
 set nospell
 set noswapfile
 set novisualbell
@@ -153,7 +171,6 @@ set scrolloff=1
 set shortmess+=c
 set showcmd
 set showmatch
-set showmode
 set signcolumn=yes
 set smartcase
 set smarttab
