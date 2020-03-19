@@ -99,13 +99,13 @@ call plug#end()
 syntax off
 let g:syntax_on = 0
 
-highlight ColorColumn ctermbg=Red
+highlight ColorColumn ctermbg=LightGray
+highlight Comment     ctermbg=NONE      ctermfg=LightGray
+highlight DiffAdd     ctermbg=NONE      ctermfg=Green
+highlight DiffChange  ctermbg=NONE      ctermfg=Yellow
+highlight DiffDelete  ctermbg=NONE      ctermfg=Red
+highlight Search      ctermbg=NONE                        cterm=underline,bold
 highlight SignColumn  ctermbg=NONE
-highlight Search      ctermbg=NONE     ctermfg=Yellow    cterm=underline,bold
-highlight Comment     ctermbg=NONE     ctermfg=LightGray
-highlight DiffAdd     ctermbg=NONE     ctermfg=Green
-highlight DiffChange  ctermbg=NONE     ctermfg=Yellow
-highlight DiffDelete  ctermbg=NONE     ctermfg=Red
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -129,6 +129,7 @@ let g:lightline = {
 
 set autoindent
 set autoread
+set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
