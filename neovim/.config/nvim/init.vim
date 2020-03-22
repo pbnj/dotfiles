@@ -99,6 +99,8 @@ call plug#end()
 syntax off
 let g:syntax_on = 0
 
+let g:netrw_liststyle = 3
+
 highlight ColorColumn ctermbg=LightGray ctermfg=Black
 highlight Comment     ctermbg=NONE      ctermfg=LightGray
 highlight DiffAdd     ctermbg=NONE      ctermfg=Green
