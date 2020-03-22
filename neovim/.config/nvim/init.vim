@@ -99,12 +99,14 @@ call plug#end()
 syntax off
 let g:syntax_on = 0
 
-highlight ColorColumn ctermbg=LightGray
+highlight ColorColumn ctermbg=LightGray ctermfg=Black
 highlight Comment     ctermbg=NONE      ctermfg=LightGray
 highlight DiffAdd     ctermbg=NONE      ctermfg=Green
 highlight DiffChange  ctermbg=NONE      ctermfg=Yellow
 highlight DiffDelete  ctermbg=NONE      ctermfg=Red
-highlight Search      ctermbg=NONE                        cterm=underline,bold
+highlight Pmenu       ctermbg=DarkBlue  ctermfg=White
+highlight PmenuSel    ctermbg=White     ctermfg=DarkBlue
+highlight Search      ctermbg=NONE      ctermfg=White      cterm=underline,bold
 highlight SignColumn  ctermbg=NONE
 
 function! CocCurrentFunction()
@@ -112,6 +114,7 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
@@ -129,7 +132,7 @@ let g:lightline = {
 
 set autoindent
 set autoread
-set background=light
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -184,7 +187,7 @@ set undofile
 set updatetime=100
 set wildignorecase
 set wildmenu
-set wildmode=longest,full
+set wildmode=longest:full,full
 
 if has('nvim')
   set inccommand=split
