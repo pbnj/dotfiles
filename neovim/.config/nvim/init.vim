@@ -189,7 +189,7 @@ set undofile
 set updatetime=100
 set wildignorecase
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=longest,full
 
 if has('nvim')
   set inccommand=split
