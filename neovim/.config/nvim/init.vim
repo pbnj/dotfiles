@@ -101,8 +101,7 @@ let g:syntax_on = 0
 
 let g:netrw_liststyle = 3
 
-highlight ColorColumn ctermbg=LightGray ctermfg=Black
-highlight Comment     ctermbg=NONE      ctermfg=LightGray
+highlight ColorColumn ctermbg=DarkGray ctermfg=White
 highlight DiffAdd     ctermbg=NONE      ctermfg=Green
 highlight DiffChange  ctermbg=NONE      ctermfg=Yellow
 highlight DiffDelete  ctermbg=NONE      ctermfg=Red
