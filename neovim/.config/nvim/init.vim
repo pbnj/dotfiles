@@ -2,10 +2,6 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-" Easy Motions
-Plug 'justinmk/vim-sneak'
-let g:sneak#label = 1
-
 " Formatters
 Plug 'sbdchd/neoformat'
 
@@ -90,25 +86,20 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
+Plug 'pbnj/vim-pbnj'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-syntax off
-let g:syntax_on = 0
+" syntax off
+" let g:syntax_on = 0
+
+colorscheme pbnj
 
 let g:netrw_liststyle = 3
-
-highlight ColorColumn ctermbg=DarkGray ctermfg=White
-highlight DiffAdd     ctermbg=NONE      ctermfg=Green
-highlight DiffChange  ctermbg=NONE      ctermfg=Yellow
-highlight DiffDelete  ctermbg=NONE      ctermfg=Red
-highlight Pmenu       ctermbg=DarkBlue  ctermfg=White
-highlight PmenuSel    ctermbg=White     ctermfg=DarkBlue
-highlight Search      ctermbg=NONE      ctermfg=White      cterm=underline,bold
-highlight SignColumn  ctermbg=NONE
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
