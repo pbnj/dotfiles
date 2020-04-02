@@ -50,6 +50,10 @@ if command -v hub &>/dev/null; then
 	eval "$(hub alias -s)"
 fi
 
+if command -v gh &>/dev/null; then
+	source <(gh completion)
+fi
+
 ## Vault
 # brew install vault
 if command -v vault &>/dev/null; then
