@@ -94,10 +94,10 @@ call plug#end()
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-" syntax off
-" let g:syntax_on = 0
+syntax off
+let g:syntax_on = 0
 
-colorscheme pbnj
+" colorscheme pbnj
 
 let g:netrw_liststyle = 3
 
