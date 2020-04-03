@@ -86,8 +86,6 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
-Plug 'pbnj/vim-pbnj'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -97,7 +95,10 @@ call plug#end()
 syntax off
 let g:syntax_on = 0
 
-" colorscheme pbnj
+highlight SignColumn ctermbg=NONE
+highlight DiffAdd ctermbg=NONE ctermfg=green
+highlight DiffChange ctermbg=NONE ctermfg=yellow
+highlight DiffDelete ctermbg=NONE ctermfg=red
 
 let g:netrw_liststyle = 3
 
@@ -124,7 +125,7 @@ let g:lightline = {
 
 set autoindent
 set autoread
-set background=dark
+set background=light
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
