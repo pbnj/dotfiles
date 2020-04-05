@@ -17,17 +17,13 @@ window:
 # Test string: --~ iIlLegal1 := oO0
 font:
   normal:
-    family: SauceCodePro Nerd Font
-
+    family: Iosevka Nerd Font
   bold:
-    family: SauceCodePro Nerd Font
-
+    family: Iosevka Nerd Font
   italic:
-    family: SauceCodePro Nerd Font
-
+    family: Iosevka Nerd Font
   bold_italic:
-    family: SauceCodePro Nerd Font
-
+    family: Iosevka Nerd Font
   size: 13.0
 
 draw_bold_text_with_bright_colors: false
@@ -86,7 +82,7 @@ schemes:
         cyan: "0x4fb8cc"
         white: "0xf1f1f1"
 
-# colors: *pencil_light
+colors: *pencil_light
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
