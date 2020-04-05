@@ -41,6 +41,8 @@ let g:coc_global_extensions = [
       \ 'coc-vimlsp',
       \ 'coc-yaml',
       \ 'coc-yank',
+      \ 'coc-snippets',
+      \ 'coc-marketplace',
       \ ]
 
 " Test Runner
@@ -290,9 +292,10 @@ let g:neoformat_enabled_rego = ['opa']
 " SETTINGS: Plugins > COC
 """"""""""""""""""""""""""""""""""""""""
 
-" Completions
+" Tab to trigger completions, snippet expansion and jumps (like VSCode)
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
