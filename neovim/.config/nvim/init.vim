@@ -1,3 +1,14 @@
+if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
+	echo "Downloading https://github.com/junegunn/vim-plug ..."
+	silent ! curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
+
+        echo "Downloading Language Servers..."
+        silent ! npm install -g dockerfile-language-server-nodejs
+        silent ! npm i -g bash-language-server
+        silent ! go get golang.org/x/tools/gopls@latest
+endif
+
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
@@ -96,9 +107,9 @@ syntax off
 let g:syntax_on = 0
 
 highlight SignColumn ctermbg=NONE
-highlight DiffAdd ctermbg=NONE ctermfg=green
-highlight DiffChange ctermbg=NONE ctermfg=yellow
-highlight DiffDelete ctermbg=NONE ctermfg=red
+highlight DiffAdd ctermbg=NONE ctermfg=darkgreen
+highlight DiffChange ctermbg=NONE ctermfg=darkyellow
+highlight DiffDelete ctermbg=NONE ctermfg=darkred
 
 let g:netrw_liststyle = 3
 
@@ -107,7 +118,6 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
