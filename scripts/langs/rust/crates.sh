@@ -7,9 +7,12 @@ set -x
 if command -v apt-get &>/dev/null; then
 	sudo apt-get update
 	sudo apt-get install -y \
-		llvm \
+		build-essential \
 		clang \
-		build-essential
+		libclang-dev \
+		libssl-dev \
+		llvm \
+		pkg-config
 fi
 
 if command -v yum &>/dev/null; then
