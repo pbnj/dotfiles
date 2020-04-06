@@ -14,7 +14,7 @@ window:
   decorations: none
 
 # Font configuration
-# Test string: `'""'`--~ iIlLegal1 := oO0
+# Test string: `'""'` ., --~ iIlLegal1 := oO0
 font:
   normal:
     family: SauceCodePro Nerd Font
