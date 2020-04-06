@@ -1,12 +1,12 @@
 if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
-	echo "Downloading https://github.com/junegunn/vim-plug ..."
-	silent ! curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall
+  echo "Downloading https://github.com/junegunn/vim-plug ..."
+  silent ! curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 
-        echo "Downloading Language Servers..."
-        silent ! npm install -g dockerfile-language-server-nodejs
-        silent ! npm i -g bash-language-server
-        silent ! go get golang.org/x/tools/gopls@latest
+  echo "Downloading Language Servers..."
+  silent ! npm install -g dockerfile-language-server-nodejs
+  silent ! npm i -g bash-language-server
+  silent ! go get golang.org/x/tools/gopls@latest
 endif
 
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
