@@ -113,7 +113,8 @@ highlight DiffAdd ctermbg=NONE ctermfg=darkgreen
 highlight DiffChange ctermbg=NONE ctermfg=darkyellow
 highlight DiffDelete ctermbg=NONE ctermfg=darkred
 
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 3  " Show dirs as a tree
+let g:netrw_dirhistmax = 0 " Disable .netrwhist
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
