@@ -18,12 +18,16 @@ window:
 font:
   normal:
     family: SauceCodePro Nerd Font
+    style: Regular
   bold:
     family: SauceCodePro Nerd Font
+    style: Bold
   italic:
     family: SauceCodePro Nerd Font
+    style: Light Italic
   bold_italic:
     family: SauceCodePro Nerd Font
+    style: Bold Italic
   size: 13.0
 
 draw_bold_text_with_bright_colors: false
@@ -83,6 +87,13 @@ schemes:
         white: "0xf1f1f1"
 
 colors: *pencil_light
+
+shell:
+  program: /usr/local/bin/bash
+  args:
+    - --login
+    - -c
+    - "tmux attach || tmux"
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
