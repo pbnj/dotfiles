@@ -138,7 +138,7 @@ let g:lightline = {
 
 set autoindent
 set autoread
-set background=light
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
