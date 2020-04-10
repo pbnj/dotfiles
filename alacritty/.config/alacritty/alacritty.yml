@@ -17,16 +17,16 @@ window:
 # Test string: `'""'` ., --~ iIlLegal1 := oO0
 font:
   normal:
-    family: SauceCodePro Nerd Font
+    family: CamingoCode Nerd Font
     style: Regular
   bold:
-    family: SauceCodePro Nerd Font
+    family: CamingoCode Nerd Font
     style: Bold
   italic:
-    family: SauceCodePro Nerd Font
+    family: CamingoCode Nerd Font
     style: Light Italic
   bold_italic:
-    family: SauceCodePro Nerd Font
+    family: CamingoCode Nerd Font
     style: Bold Italic
   size: 13.0
 
