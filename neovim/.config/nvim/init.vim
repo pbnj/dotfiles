@@ -5,7 +5,7 @@ if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
 
   echo "Downloading Language Servers..."
   silent ! npm install -g dockerfile-language-server-nodejs
-  silent ! npm i -g bash-language-server
+  silent ! npm install -g bash-language-server
   silent ! go get golang.org/x/tools/gopls@latest
 endif
 
