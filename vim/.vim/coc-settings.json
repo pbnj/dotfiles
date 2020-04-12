@@ -1,0 +1,86 @@
+{
+  // coc
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "hcl",
+    "json",
+    "jsonc",
+    "markdown",
+    "python",
+    "rust",
+    "sh",
+    "sql",
+    "terraform",
+    "tf",
+    "yaml"
+  ],
+  "coc.preferences.enableFloatHighlight": false,
+  "coc.preferences.formatOnType": true,
+  "codeLens.enable": true,
+  "suggest.autoTrigger": "always",
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "suggest.defaultSortMethod": "alphabetical",
+
+  // coc-eslint
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
+
+  // coc-git
+  "git.enableGutters": true,
+
+  // coc-json
+  "json.format.enable": true,
+
+  // coc-markdownlint
+  "markdownlint.onOpen": true,
+  "markdownlint.onSave": true,
+  "markdownlint.onChange": true,
+
+  // coc-yaml
+  "yaml.completion": true,
+  "yaml.format.enable": true,
+  "yaml.hover": true,
+  "yaml.validate": true,
+  "yaml.schemas": {
+    "kubernetes": ["/kubernetes/*.yaml"]
+  },
+
+  // https://github.com/neoclide/coc.nvim/wiki/Language-servers
+  "languageserver": {
+    // npm install -g dockerfile-language-server-nodejs
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile", "Dockerfile"],
+      "args": ["--stdio"]
+    },
+
+    // go get golang.org/x/tools/gopls@latest
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint",
+        "usePlaceholders": true,
+        "completeUnimported": true
+      }
+    },
+
+    // npm i -g bash-language-server
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh", "bash"],
+      "ignoredRootPaths": ["~"]
+    },
+
+    // go get -u -v github.com/juliosueiras/terraform-lsp@v0.9.0
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["tf", "terraform"]
+    }
+  }
+}
