@@ -1,6 +1,6 @@
-########################################
-## SHELL OPTIONS
-########################################
+#
+# SHELL OPTIONS
+#
 
 shopt -s direxpand
 shopt -s nocaseglob
@@ -10,9 +10,9 @@ shopt -s cdspell
 shopt -s autocd
 shopt -s globstar
 
-########################################
-## EXPORTS
-########################################
+#
+# EXPORTS
+#
 
 export EDITOR=vim
 export GIT_TERMINAL_PROMPT=1
@@ -30,9 +30,9 @@ export MANPAGER="less -X"
 export DOTFILES="$HOME/.dotfiles"
 export BAT_PAGER=""
 
-########################################
-## SETTINGS
-########################################
+#
+# SETTINGS
+#
 
 ## PATH
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
@@ -90,15 +90,15 @@ export NVM_DIR="$HOME/.nvm"
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
-########################################
-## ALIASES
-########################################
+#
+# ALIASES
+#
 
 [[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
-########################################
-## PROMPT
-########################################
+#
+# PROMPT
+#
 
 ## plain bash_prompt
 # [ -f "$HOME/.bash_prompt" ] && source "${HOME}/.bash_prompt"
