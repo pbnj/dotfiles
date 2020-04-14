@@ -176,7 +176,7 @@ set number
 set path+=**
 set relativenumber
 set ruler
-set scrolloff=1
+set scrolloff=5
 set shortmess+=c
 set showcmd
 set showmatch
