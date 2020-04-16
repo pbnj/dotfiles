@@ -107,10 +107,10 @@ call plug#end()
 syntax off
 let g:syntax_on = 0
 
-highlight SignColumn ctermbg=NONE
-highlight DiffAdd ctermbg=NONE ctermfg=darkgreen
-highlight DiffChange ctermbg=NONE ctermfg=darkyellow
-highlight DiffDelete ctermbg=NONE ctermfg=darkred
+highlight SignColumn ctermbg=NONE guibg=NONE guifg=NONE
+highlight DiffAdd ctermbg=NONE ctermfg=darkgreen guibg=NONE guifg=green
+highlight DiffChange ctermbg=NONE ctermfg=darkyellow guibg=NONE guifg=yellow
+highlight DiffDelete ctermbg=NONE ctermfg=darkred guibg=NONE guifg=red
 
 let g:netrw_liststyle = 3  " Show dirs as a tree
 let g:netrw_dirhistmax = 0 " Disable .netrwhist
@@ -176,7 +176,6 @@ set number
 set path+=**
 set relativenumber
 set ruler
-set scrolloff=5
 set shortmess+=c
 set showcmd
 set showmatch
