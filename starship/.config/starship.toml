@@ -34,6 +34,10 @@ symbol = " "
 [git_branch]
 symbol = " "
 
+[git_status]
+deleted = "x"
+show_sync_count = true
+
 [rust]
 symbol = " "
 
