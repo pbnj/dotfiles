@@ -98,19 +98,16 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
+Plug 'NLKNguyen/papercolor-theme'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-syntax off
-let g:syntax_on = 0
-
-highlight SignColumn ctermbg=NONE guibg=NONE guifg=NONE
-highlight DiffAdd ctermbg=NONE ctermfg=darkgreen guibg=NONE guifg=green
-highlight DiffChange ctermbg=NONE ctermfg=darkyellow guibg=NONE guifg=yellow
-highlight DiffDelete ctermbg=NONE ctermfg=darkred guibg=NONE guifg=red
+set background=light
+colorscheme PaperColor
 
 let g:netrw_liststyle = 3  " Show dirs as a tree
 let g:netrw_dirhistmax = 0 " Disable .netrwhist
@@ -120,6 +117,7 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
@@ -137,7 +135,6 @@ let g:lightline = {
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -145,6 +142,7 @@ set cmdheight=2
 set colorcolumn=80
 set completeopt=longest,menuone,preview
 set conceallevel=0
+set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -163,7 +161,6 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
-set nocursorline
 set nofoldenable
 set nomodeline
 set noshowmode
@@ -200,6 +197,7 @@ endif
 
 if executable('rg')
   set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
 endif
 
 """"""""""""""""""""""""""""""""""""""""
