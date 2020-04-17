@@ -84,6 +84,7 @@ Plug 'neoclide/jsonc.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'cespare/vim-toml'
 Plug 'tsandall/vim-rego'
+Plug 'towolf/vim-helm'
 Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'plasticboy/vim-markdown'
@@ -98,7 +99,7 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
 
@@ -107,7 +108,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""
 
 set background=light
-colorscheme PaperColor
+colorscheme pencil
 
 let g:netrw_liststyle = 3  " Show dirs as a tree
 let g:netrw_dirhistmax = 0 " Disable .netrwhist
@@ -117,7 +118,6 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]

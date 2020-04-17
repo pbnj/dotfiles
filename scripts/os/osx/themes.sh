@@ -1,13 +1,11 @@
 #!/bin/bash
 
-set -ex
+set -e
+set -x
 
-# iTerm Themes
-ITERM_THEME_DIR="$HOME/iterm/themes"
-mkdir -p "$ITERM_THEME_DIR"
-git clone https://github.com/MartinSeeler/iterm2-material-design $ITERM_THEME_DIR/material-design
-git clone https://github.com/chriskempson/base16-iterm2 $ITERM_THEME_DIR/base16
-git clone https://github.com/dracula/iterm $ITERM_THEME_DIR/dracula
+mkdir -p $HOME/Projects
 
-# Terminal.app Themes
-mkdir -p $HOME/terminal-app/themes
+git clone https://github.com/mattly/iterm-colors-pencil \
+	$HOME/Projects/iterm-colors-pencil
+
+open $HOME/Projects/iterm-colors-pencil/pencil-{dark,light}.itermcolors
