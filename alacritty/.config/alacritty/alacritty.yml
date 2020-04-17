@@ -17,18 +17,18 @@ window:
 # Test string: `'""'` ., --~ iIlLegal1 := oO0
 font:
   normal:
-    family: CamingoCode Nerd Font
+    family: RobotoMono Nerd Font
     style: Regular
   bold:
-    family: CamingoCode Nerd Font
+    family: RobotoMono Nerd Font
     style: Bold
   italic:
-    family: CamingoCode Nerd Font
+    family: RobotoMono Nerd Font
     style: Light Italic
   bold_italic:
-    family: CamingoCode Nerd Font
+    family: RobotoMono Nerd Font
     style: Bold Italic
-  size: 13.0
+  size: 12.0
 
 draw_bold_text_with_bright_colors: false
 
