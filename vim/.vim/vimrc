@@ -14,11 +14,60 @@ if executable("rg")
 endif
 
 " Options
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set belloff=all
+set breakindent
+set cmdheight=2
+" set colorcolumn=80
+set completeopt=longest,menuone,preview
+set cursorline
+set display=lastline
+set encoding=utf-8
+set fileencoding=utf-8
+set formatoptions+=j " remove comment leader when joining lines
+set formatoptions+=n " when formatting text, recognize numbered lists
+set formatoptions+=r " auto insert bullet point on new lines
+set hidden
+set hlsearch
 set ignorecase
 set incsearch
-set smartcase
-set mouse=a
+set infercase
 set laststatus=2
+set lazyredraw
+set linebreak
+set list
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set mouse=a
+set nobackup
+set nomodeline
+set nonumber
+set norelativenumber
+set noshowmode
+set nospell
+set noswapfile
+set novisualbell
+set nowrap
+set nowritebackup
+set path+=**
+set ruler
+set shortmess+=c
+set showcmd
+set showmatch
+set smartcase
+set smarttab
+set splitbelow
+set splitright
+set t_ut=""
+" set textwidth=80
+set undodir=$HOME/.vim/undo
+set undofile
+set updatetime=100
+set wildignorecase
+set wildmenu
+set wildmode=longest,full
+
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              | | | | |  |   |      |  |     |    |
 "              | | | | |  |   |      |  |     |    +-- current column
@@ -34,13 +83,14 @@ set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 "              +-- full path to file in the buffer
 
 " Mappings
-inoremap <silent> ,f <C-x><C-f>
-inoremap <silent> ,i <C-x><C-i>
-inoremap <silent> ,l <C-x><C-l>
-inoremap <silent> ,n <C-x><C-n>
-inoremap <silent> ,o <C-x><C-o>
-inoremap <silent> ,t <C-x><C-]>
-inoremap <silent> ,u <C-x><C-u>
+" Autocompletions
+inoremap <silent> ,f <C-x><C-f> " file names
+inoremap <silent> ,i <C-x><C-i> " keywords
+inoremap <silent> ,l <C-x><C-l> " whole lines
+inoremap <silent> ,n <C-x><C-n> " keywords in current file
+inoremap <silent> ,o <C-x><C-o> " omni completion
+inoremap <silent> ,t <C-x><C-]> " tags
+inoremap <silent> ,u <C-x><C-u> " user defined
 
 " Functions
 function! StripTrailingWhitespace()
