@@ -52,6 +52,7 @@ set nowrap
 set nowritebackup
 set path+=**
 set ruler
+set scrolloff=1
 set shortmess+=c
 set showcmd
 set showmatch
@@ -68,14 +69,14 @@ set wildignorecase
 set wildmenu
 set wildmode=longest,full
 
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    +-- current column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
+set statusline=%F%m%r%h%w\ [%L][%{&ff}]%y[%p%%][%04l,%04v]
+"              | | | | |    |   |      |  |     |    |
+"              | | | | |    |   |      |  |     |    +-- current column
+"              | | | | |    |   |      |  |     +-- current line
+"              | | | | |    |   |      |  +-- current % into file
+"              | | | | |    |   |      +-- current syntax
+"              | | | | |    |   +-- current fileformat
+"              | | | | |    +-- number of lines
 "              | | | | +-- preview flag in square brackets
 "              | | | +-- help flag in square brackets
 "              | | +-- readonly flag in square brackets
