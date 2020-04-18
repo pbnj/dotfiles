@@ -50,6 +50,9 @@ symbol = " "
 [python]
 symbol = " "
 
+[package]
+symbol = " "
+
 [kubernetes]
 symbol = "ﴱ "
 disabled = false
