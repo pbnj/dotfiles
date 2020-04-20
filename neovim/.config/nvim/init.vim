@@ -6,6 +6,7 @@ if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
   echo "Downloading Language Servers..."
   silent ! npm install -g dockerfile-language-server-nodejs
   silent ! npm install -g bash-language-server
+  silent ! npm install -g yaml-language-server
   silent ! go get golang.org/x/tools/gopls@latest
 endif
 
@@ -13,16 +14,9 @@ endif
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-" Formatters
-Plug 'sbdchd/neoformat'
-
-" Makers
-Plug 'neomake/neomake'
-
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
-      \ 'coc-css',
       \ 'coc-eslint',
       \ 'coc-git',
       \ 'coc-gocode',
@@ -43,6 +37,17 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-marketplace',
       \ ]
+
+" File Tree + Git integration
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+
+" Formatters
+Plug 'sbdchd/neoformat'
+
+" Makers
+Plug 'neomake/neomake'
 
 " Test Runner
 Plug 'janko/vim-test'
@@ -142,7 +147,6 @@ set cmdheight=2
 set colorcolumn=80
 set completeopt=longest,menuone,preview
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -161,6 +165,7 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
 set nomodeline
 set noshowmode
@@ -244,8 +249,6 @@ nmap <silent> t<C-g> :TestVisit<CR>
 augroup general
   autocmd!
   autocmd BufNewFile,BufRead [Jj]ustfile setfiletype make
-  autocmd BufWritePre *.go
-        \ :call CocAction('runCommand', 'editor.action.organizeImport')
   autocmd FileType vim,markdown,json,terraform,hcl,tf
         \ setlocal softtabstop=2 |
         \ setlocal shiftwidth=2  |
