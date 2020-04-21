@@ -14,19 +14,19 @@ window:
   decorations: none
 
 # Font configuration
-# Test string: `'""'` ., --~ iIlLegal1 := oO0
+# Test string: `'""'` ., --~ iIlLegal1 := oO0D
 font:
   normal:
-    family: Input Mono
-    style: Extra Light
+    family: SauceCodePro Nerd Font
+    style: Light
   bold:
-    family: Input Mono
+    family: SauceCodePro Nerd Font
     style: Medium
   italic:
-    family: Input Mono
-    style: Extra Light Italic
+    family: SauceCodePro Nerd Font
+    style: Light Italic
   bold_italic:
-    family: Input Mono
+    family: SauceCodePro Nerd Font
     style: Medium Italic
   size: 12.0
 
