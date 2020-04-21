@@ -17,17 +17,17 @@ window:
 # Test string: `'""'` ., --~ iIlLegal1 := oO0
 font:
   normal:
-    family: RobotoMono Nerd Font
-    style: Regular
+    family: Input Mono
+    style: Extra Light
   bold:
-    family: RobotoMono Nerd Font
-    style: Bold
+    family: Input Mono
+    style: Medium
   italic:
-    family: RobotoMono Nerd Font
-    style: Light Italic
+    family: Input Mono
+    style: Extra Light Italic
   bold_italic:
-    family: RobotoMono Nerd Font
-    style: Bold Italic
+    family: Input Mono
+    style: Medium Italic
   size: 12.0
 
 draw_bold_text_with_bright_colors: false
