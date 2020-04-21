@@ -5,3 +5,4 @@ tags
 .netrwhist
 alacritty.yml.bak
 init.vim.bak
+.idea/
