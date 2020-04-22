@@ -210,10 +210,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 
 " Arrows
-nnoremap <silent> <left>  <esc>:lprev<cr>
-nnoremap <silent> <right> <esc>:lnext<cr>
-nnoremap <silent> <up>    <esc>:cprev<cr>
-nnoremap <silent> <down>  <esc>:cnext<cr>
+nnoremap <silent> <C-h> <esc>:lprev<cr>
+nnoremap <silent> <C-l> <esc>:lnext<cr>
+nnoremap <silent> <C-k> <esc>:cprev<cr>
+nnoremap <silent> <C-j> <esc>:cnext<cr>
 
 " Misc
 nnoremap <Leader><space> :noh<CR>
