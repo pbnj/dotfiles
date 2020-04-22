@@ -41,6 +41,9 @@ show_sync_count = true
 [rust]
 symbol = " "
 
+[ruby]
+symbol = " "
+
 [golang]
 symbol = " "
 
@@ -52,6 +55,9 @@ symbol = " "
 
 [package]
 symbol = " "
+
+[docker]
+symbol= " "
 
 [kubernetes]
 symbol = "ﴱ "
