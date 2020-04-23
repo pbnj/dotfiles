@@ -14,21 +14,21 @@ window:
   decorations: none
 
 # Font configuration
-# Test string: `'""'` ., --~ iIlLegal1 := oO0D
+# Test string: oO08 iIlL1 g9qCGQ ~--__+==> `'""'`
 font:
   normal:
-    family: SauceCodePro Nerd Font
+    family: OperatorMono Nerd Font
     style: Light
   bold:
-    family: SauceCodePro Nerd Font
+    family: OperatorMono Nerd Font
     style: Medium
   italic:
-    family: SauceCodePro Nerd Font
+    family: OperatorMono Nerd Font
     style: Light Italic
   bold_italic:
-    family: SauceCodePro Nerd Font
+    family: OperatorMono Nerd Font
     style: Medium Italic
-  size: 12.0
+  size: 13.0
 
 draw_bold_text_with_bright_colors: false
 
