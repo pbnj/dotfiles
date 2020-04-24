@@ -33,8 +33,9 @@ font:
 draw_bold_text_with_bright_colors: false
 
 shell:
-  program: /usr/local/bin/bash
+  program: /usr/bin/env
   args:
+    - bash
     - --login
     - -c
     - "tmux attach || tmux"
@@ -57,9 +58,10 @@ key_bindings:
 
 # Colorscheme (https://github.com/alacritty/alacritty/wiki/Color-schemes)
 schemes:
-  pencil_dark: &dark # (https://github.com/eendroroy/alacritty-theme)
-    cursor:
-      cursor: "#000000"
+  pencil_dark: &dark
+    # (https://github.com/eendroroy/alacritty-theme)
+    # cursor:
+    # cursor: "#000000"
     primary:
       background: "0x212121"
       foreground: "0xf1f1f1"
@@ -81,9 +83,10 @@ schemes:
       magenta: "0x6855de"
       cyan: "0x4fb8cc"
       white: "0xf1f1f1"
-  pencil_light: &light # (https://github.com/eendroroy/alacritty-theme)
-    cursor:
-      cursor: "#000000"
+  pencil_light: &light
+    # (https://github.com/eendroroy/alacritty-theme)
+    # cursor:
+    # cursor: "#000000"
     primary:
       background: "0xf1f1f1"
       foreground: "0x424242"
