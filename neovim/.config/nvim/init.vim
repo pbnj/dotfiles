@@ -14,6 +14,11 @@ endif
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+augroup clap
+  autocmd User ClapOnExit call lightline#update()
+augroup END
+
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -40,8 +45,12 @@ let g:coc_global_extensions = [
 
 " File Tree + Git integration
 Plug 'preservim/nerdtree'
+map <leader>n :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+
+" Easy motions
+Plug 'justinmk/vim-sneak'
 
 " Formatters
 Plug 'sbdchd/neoformat'
@@ -123,6 +132,7 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
@@ -352,7 +362,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
+augroup coc
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
