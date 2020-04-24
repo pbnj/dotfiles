@@ -14,20 +14,21 @@ window:
   decorations: none
 
 # Font configuration
+# brew cask install font-jetbrainsmono-nerd-font font-saucecodepro-nerd-font
 # Test string: oO08 iIlL1 g9qCGQ ~--__+==> `'""'`
 font:
   normal:
-    family: OperatorMono Nerd Font
-    style: Light
+    family: JetBrainsMono Nerd Font
+    style: Regular
   bold:
-    family: OperatorMono Nerd Font
-    style: Medium
+    family: JetBrainsMono Nerd Font
+    style: Bold
   italic:
-    family: OperatorMono Nerd Font
-    style: Light Italic
+    family: JetBrainsMono Nerd Font
+    style: Italic
   bold_italic:
-    family: OperatorMono Nerd Font
-    style: Medium Italic
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
   size: 13.0
 
 draw_bold_text_with_bright_colors: false
