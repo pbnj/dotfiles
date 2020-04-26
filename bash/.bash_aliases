@@ -44,6 +44,9 @@ else
 	alias ll="ls -alFh --group-directories-first"
 fi
 
+## gh
+command -v gh &>/dev/null && source <(gh completion --shell bash)
+
 ## Vault
 # brew install vault
 if command -v vault &>/dev/null; then
