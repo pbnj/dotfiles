@@ -131,8 +131,10 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
-let g:netrw_liststyle = 3  " Show dirs as a tree
-let g:netrw_dirhistmax = 0 " Disable .netrwhist
+" highlight SignColumn ctermbg=NONE guibg=NONE
+" highlight DiffAdd ctermfg=green ctermbg=NONE guibg=NONE
+" highlight DiffChange ctermfg=yellow ctermbg=NONE guibg=NONE
+" highlight DiffDelete ctermfg=red ctermbg=NONE guibg=NONE
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -184,15 +186,15 @@ set mouse=a
 set nobackup
 set nofoldenable
 set nomodeline
+set nonumber
+set norelativenumber
 set noshowmode
 set nospell
 set noswapfile
 set novisualbell
 set nowrap
 set nowritebackup
-set number
 set path+=**
-set relativenumber
 set ruler
 set shortmess+=c
 set showcmd
