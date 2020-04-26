@@ -15,6 +15,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+nnoremap <leader>C :Clap<CR>
 augroup clap
   autocmd User ClapOnExit call lightline#update()
 augroup END
@@ -61,6 +62,11 @@ Plug 'neomake/neomake'
 
 " Test Runner
 Plug 'janko/vim-test'
+nnoremap <leader>TF :TestFile<CR>
+nnoremap <leader>TL :TestLast<CR>
+nnoremap <leader>TN :TestNearest<CR>
+nnoremap <leader>TS :TestSuite<CR>
+nnoremap <leader>TV :TestVisit<CR>
 let test#strategy = "dispatch"
 
 " Fuzzy Finder
@@ -114,7 +120,7 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
-Plug 'reedes/vim-colors-pencil'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -122,8 +128,8 @@ call plug#end()
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-set background=light
-colorscheme pencil
+set background=dark
+colorscheme gruvbox
 
 let g:netrw_liststyle = 3  " Show dirs as a tree
 let g:netrw_dirhistmax = 0 " Disable .netrwhist
@@ -133,7 +139,6 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
