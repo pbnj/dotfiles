@@ -1,4 +1,5 @@
 # https://starship.rs/config/
+# for custom symbols: https://www.nerdfonts.com/cheat-sheet
 
 prompt_order = [
 	"username",
@@ -9,21 +10,19 @@ prompt_order = [
 	"git_state",
 	"git_status",
 	"package",
-	"dotnet",
 	"golang",
-	"java",
 	"nodejs",
-	"php",
 	"python",
 	"ruby",
 	"rust",
 	"terraform",
-	"nix_shell",
 	"conda",
 	"aws",
 	"env_var",
 	"kubernetes",
 	"battery",
+	"memory_usage",
+	"time",
 	"jobs",
 	"line_break",
 	"character",
@@ -50,6 +49,14 @@ style = "yellow"
 threshold = 100
 style = "green"
 
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = false
+threshold = 0
+symbol = " "
+style = "dimmed white"
+
 [git_branch]
 symbol = " "
 
@@ -75,12 +82,25 @@ symbol = " "
 [package]
 symbol = " "
 
+[terraform]
+symbol = " "
+
 [docker]
 symbol= " "
 
 [kubernetes]
 symbol = "ﴱ "
 disabled = false
+
+[jobs]
+symbol = "%"
+style = "blue"
+
+[time]
+disabled = false
+use_12hr = true
+format = " %Y-%m-%d %a %I:%M:%S %p"
+style = "yellow"
 
 [character]
 symbol = "$"
