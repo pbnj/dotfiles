@@ -23,6 +23,7 @@ prompt_order = [
 	"aws",
 	"env_var",
 	"kubernetes",
+	"battery",
 	"jobs",
 	"line_break",
 	"character",
@@ -30,6 +31,24 @@ prompt_order = [
 
 [aws]
 symbol = " "
+
+[battery]
+disabled = false
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 20
+style = "red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 60
+style = "yellow"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 100
+style = "green"
 
 [git_branch]
 symbol = " "
