@@ -22,7 +22,6 @@ prompt_order = [
 	"kubernetes",
 	"battery",
 	"memory_usage",
-	"time",
 	"jobs",
 	"line_break",
 	"character",
@@ -95,12 +94,6 @@ disabled = false
 [jobs]
 symbol = "%"
 style = "blue"
-
-[time]
-disabled = false
-use_12hr = true
-format = " %Y-%m-%d %a %I:%M:%S %p"
-style = "yellow"
 
 [character]
 symbol = "$"
