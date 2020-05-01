@@ -7,9 +7,12 @@
   "suggest.defaultSortMethod": "alphabetical",
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
+
+  "yaml.completion": true,
   "yaml.hover": true,
   "yaml.validate": true,
   "yaml.schemas": { "kubernetes": ["/kubernetes/*.yaml"] },
+  "yaml.schemaStore.enable": true,
 
   "languageserver": {
     "dockerfile": {
