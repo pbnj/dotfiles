@@ -42,6 +42,7 @@ let g:coc_global_extensions = [
 " File Tree + Git integration
 Plug 'preservim/nerdtree'
 map <leader>N :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 
