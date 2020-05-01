@@ -14,12 +14,6 @@ endif
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
-nnoremap <leader>C :Clap<CR>
-augroup clap
-  autocmd User ClapOnExit call lightline#update()
-augroup END
-
 " LSP
 " curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -47,7 +41,7 @@ let g:coc_global_extensions = [
 
 " File Tree + Git integration
 Plug 'preservim/nerdtree'
-map <leader>n :NERDTreeToggle<CR>
+map <leader>N :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 
@@ -59,6 +53,10 @@ Plug 'sbdchd/neoformat'
 
 " Makers
 Plug 'neomake/neomake'
+
+" Tag bar
+Plug 'majutsushi/tagbar'
+nnoremap <leader>B :TagbarToggle<CR>
 
 " Test Runner
 Plug 'janko/vim-test'
@@ -131,6 +129,8 @@ call plug#end()
 
 set background=dark
 colorscheme gruvbox
+
+highlight SignColumn ctermbg=NONE guibg=NONE
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
