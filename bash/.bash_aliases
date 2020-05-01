@@ -54,3 +54,7 @@ if command -v vault &>/dev/null; then
 	complete -C /usr/local/bin/vault vault
 	complete -C /usr/local/bin/vault v
 fi
+
+if command -v apt &>/dev/null; then
+	alias aptuu="sudo apt update && sudo apt upgrade -y"
+fi
