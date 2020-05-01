@@ -6,6 +6,7 @@
   "suggest.noselect": false,
   "suggest.defaultSortMethod": "alphabetical",
   "git.enableGutters": true,
+  "git.addGBlameToVirtualText": true,
   "yaml.hover": true,
   "yaml.validate": true,
   "yaml.schemas": { "kubernetes": ["/kubernetes/*.yaml"] },

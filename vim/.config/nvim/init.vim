@@ -118,9 +118,6 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
-" Theme
-Plug 'morhetz/gruvbox'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -128,9 +125,13 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""
 
 set background=dark
-colorscheme gruvbox
 
 highlight SignColumn ctermbg=NONE guibg=NONE
+highlight DiffAdd ctermfg=green ctermbg=NONE guifg=green guibg=NONE
+highlight DiffChange ctermfg=yellow ctermbg=NONE guifg=yellow guibg=NONE
+highlight DiffDelete ctermfg=red ctermbg=NONE guifg=red guibg=NONE
+highlight Pmenu ctermfg=black ctermbg=white guifg=white guibg=white
+highlight PmenuSel ctermfg=black ctermbg=blue guifg=black guibg=blue
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
