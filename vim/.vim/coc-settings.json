@@ -1,10 +1,12 @@
 {
   "coc.preferences.enableFloatHighlight": false,
   "codeLens.enable": true,
+
   "suggest.autoTrigger": "always",
   "suggest.floatEnable": true,
   "suggest.noselect": false,
   "suggest.defaultSortMethod": "alphabetical",
+
   "git.enableGutters": true,
   "git.addGBlameToVirtualText": true,
 
