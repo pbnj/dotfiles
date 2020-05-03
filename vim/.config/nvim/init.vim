@@ -1,1 +1,1 @@
-/Users/pbenjamin/.dotfiles/vim/.vim/vimrc
+/home/peter/.dotfiles/vim/.vim/vimrc
