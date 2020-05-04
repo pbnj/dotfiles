@@ -32,6 +32,10 @@ export DOTFILES="$HOME/.dotfiles"
 # SETTINGS
 #
 
+if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
+
 ## PATH
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
