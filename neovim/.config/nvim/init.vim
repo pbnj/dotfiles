@@ -26,18 +26,19 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-lists',
       \ 'coc-markdownlint',
+      \ 'coc-marketplace',
       \ 'coc-pairs',
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rust-analyzer',
+      \ 'coc-snippets',
+      \ 'coc-solargraph',
       \ 'coc-sql',
       \ 'coc-syntax',
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
       \ 'coc-yaml',
       \ 'coc-yank',
-      \ 'coc-snippets',
-      \ 'coc-marketplace',
       \ ]
 
 " File Tree + Git integration
@@ -122,9 +123,6 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
-" Themes
-Plug 'morhetz/gruvbox'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -132,16 +130,13 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""
 
 set background=dark
-colorscheme gruvbox
 
-" highlight SignColumn ctermbg=NONE guibg=NONE
-" highlight DiffAdd ctermbg=NONE ctermfg=DarkGreen
-" highlight DiffChange ctermbg=NONE ctermfg=DarkYellow
-" highlight DiffDelete ctermbg=NONE ctermfg=DarkRed
-" highlight Pmenu ctermbg=LightGray ctermfg=Black
-" highlight PmenuSel ctermbg=DarkBlue ctermfg=White
-" highlight ColorColumn ctermbg=LightGray
-" highlight CursorLine cterm=NONE ctermbg=LightGray
+highlight SignColumn ctermbg=NONE guibg=NONE
+highlight DiffAdd ctermbg=NONE ctermfg=DarkGreen guibg=NONE guifg=Green
+highlight DiffChange ctermbg=NONE ctermfg=DarkYellow guibg=NONE guifg=Yellow
+highlight DiffDelete ctermbg=NONE ctermfg=DarkRed guibg=NONE guifg=Red
+highlight Pmenu ctermbg=LightGray ctermfg=Black guibg=LightGray guifg=Black
+highlight PmenuSel ctermbg=DarkBlue ctermfg=White guibg=DarkBlue guifg=White
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -212,6 +207,8 @@ set smarttab
 set splitbelow
 set splitright
 set t_ut=""
+set tags+=tags
+set termguicolors
 set textwidth=80
 set undodir=$HOME/.vim/undo
 set undofile
@@ -219,7 +216,6 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 set wildmode=longest:full
-set tags+=tags
 
 if has('nvim')
   set inccommand=split
@@ -242,7 +238,6 @@ nnoremap <silent> <C-k> <esc>:cprev<cr>
 nnoremap <silent> <C-j> <esc>:cnext<cr>
 
 " Misc
-nnoremap <Leader><space> :noh<CR>
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
