@@ -19,6 +19,10 @@ command -v kind &>/dev/null && source <(kind completion bash)
 # sh ${DOTFILES}/scripts/tools/kubernetes/kubectx.sh
 [[ -d "$HOME/.kubectx" ]] && export PATH="$HOME/.kubectx:$PATH"
 
+if command -v brew &>/dev/null; then
+	alias bubu="brew upgrade && brew cask upgrade && brew cleanup"
+fi
+
 # brew install kubectl
 if command -v kubectl &>/dev/null; then
 	alias k="kubectl"
@@ -56,5 +60,5 @@ if command -v vault &>/dev/null; then
 fi
 
 if command -v apt &>/dev/null; then
-	alias aptuu="sudo apt update && sudo apt upgrade -y"
+	alias auau="sudo apt update && sudo apt upgrade -y"
 fi
