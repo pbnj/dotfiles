@@ -122,20 +122,24 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
+" Themes
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-set background=light
+set background=dark
+colorscheme gruvbox
 
-highlight SignColumn ctermbg=NONE guibg=NONE
-highlight DiffAdd ctermbg=NONE ctermfg=DarkGreen
-highlight DiffChange ctermbg=NONE ctermfg=DarkYellow
-highlight DiffDelete ctermbg=NONE ctermfg=DarkRed
-highlight Pmenu ctermbg=LightGray ctermfg=Black
-highlight PmenuSel ctermbg=DarkBlue ctermfg=White
+" highlight SignColumn ctermbg=NONE guibg=NONE
+" highlight DiffAdd ctermbg=NONE ctermfg=DarkGreen
+" highlight DiffChange ctermbg=NONE ctermfg=DarkYellow
+" highlight DiffDelete ctermbg=NONE ctermfg=DarkRed
+" highlight Pmenu ctermbg=LightGray ctermfg=Black
+" highlight PmenuSel ctermbg=DarkBlue ctermfg=White
 " highlight ColorColumn ctermbg=LightGray
 " highlight CursorLine cterm=NONE ctermbg=LightGray
 
