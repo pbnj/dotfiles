@@ -32,6 +32,7 @@ export DOTFILES="$HOME/.dotfiles"
 # SETTINGS
 #
 
+## TMUX
 if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
@@ -93,17 +94,15 @@ export NVM_DIR="$HOME/.nvm"
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
 #
-# ALIASES
+# PROFILES & ALIASES
 #
 
 [[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
+[[ -f "$HOME/.profile" ]] && source "$HOME/.profile" # contains private/work stuff
 
 #
 # PROMPT
 #
-
-## plain bash_prompt
-# [ -f "$HOME/.bash_prompt" ] && source "${HOME}/.bash_prompt"
 
 ## starship
 # cargo install starship
