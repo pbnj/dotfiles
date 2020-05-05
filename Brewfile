@@ -36,6 +36,7 @@ brew "yq"
 tap "homebrew/cask"
 
 cask "1password"
+cask "keycastr"
 cask "alacritty"
 cask "docker"
 cask "firefox"
