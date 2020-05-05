@@ -29,8 +29,9 @@ brew "yamllint"
 brew "yq"
 
 # Misc
-# tap "homebrew/cask-fonts"
-# cask "font-sourcecodepro-nerd-font"
+tap "homebrew/cask-fonts"
+cask "font-sourcecodepro-nerd-font"
+cask "font-jetbrainsmono-nerd-font"
 
 # Casks
 tap "homebrew/cask"
