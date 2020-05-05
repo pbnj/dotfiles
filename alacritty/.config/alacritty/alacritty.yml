@@ -33,14 +33,6 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
-shell:
-  program: /usr/bin/env
-  args:
-    - bash
-    - --login
-    - -c
-    - tmux attach || tmux
-
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
@@ -139,4 +131,4 @@ schemes:
       cyan:    '0x4fb8cc'
       white:   '0xf1f1f1'
 
-colors: *gruvbox_dark
+# colors: *gruvbox_dark
