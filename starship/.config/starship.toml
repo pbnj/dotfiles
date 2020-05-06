@@ -36,15 +36,15 @@ full_symbol = " "
 charging_symbol = " "
 discharging_symbol = " "
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+[[battery.display]]
 threshold = 20
 style = "red"
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+[[battery.display]]
 threshold = 60
 style = "yellow"
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+[[battery.display]]
 threshold = 100
 style = "green"
 
@@ -97,3 +97,5 @@ style = "blue"
 
 [character]
 symbol = "$"
+style_success = "green"
+style_failure = "red"
