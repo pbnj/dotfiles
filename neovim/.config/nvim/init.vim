@@ -1,14 +1,7 @@
 if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
   echo "Downloading https://github.com/junegunn/vim-plug ..."
   silent ! curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
-
-  echo "Downloading Language Servers..."
-  silent ! npm install -g dockerfile-language-server-nodejs
-  silent ! npm install -g bash-language-server
-  silent ! npm install -g yaml-language-server
-  silent ! go get golang.org/x/tools/gopls@latest
 endif
 
 " curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -16,40 +9,27 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " LSP
-" curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [
-      \ 'coc-eslint',
-      \ 'coc-git',
-      \ 'coc-gocode',
-      \ 'coc-html',
-      \ 'coc-json',
-      \ 'coc-lists',
-      \ 'coc-markdownlint',
-      \ 'coc-marketplace',
-      \ 'coc-pairs',
-      \ 'coc-prettier',
-      \ 'coc-python',
-      \ 'coc-rust-analyzer',
-      \ 'coc-snippets',
-      \ 'coc-solargraph',
-      \ 'coc-sql',
-      \ 'coc-syntax',
-      \ 'coc-tsserver',
-      \ 'coc-vimlsp',
-      \ 'coc-yaml',
-      \ 'coc-yank',
-      \ ]
+" list of language servers: https://microsoft.github.io/language-server-protocol/implementors/servers/
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rust-analyzer'],
+      \ 'go': ['gopls'],
+      \ 'dockerfile': ['docker-langserver', '--stdio'],
+      \ 'Dockerfile': ['docker-langserver', '--stdio'],
+      \ 'sh': ['bash-language-server', 'start'],
+      \ 'yaml': ['yaml-language-server', '--stdio'],
+      \ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+call LanguageClient#setDiagnosticsList('Quickfix')
 
-" File Tree + Git integration
-Plug 'preservim/nerdtree'
-map <leader>N :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden = 1
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
-
-" Easy motions
-Plug 'justinmk/vim-sneak'
+" completions
+Plug 'lifepillar/vim-mucomplete'
+let g:mucomplete#enable_auto_at_startup = 1
 
 " Formatters
 Plug 'sbdchd/neoformat'
@@ -80,15 +60,15 @@ Plug 'junegunn/fzf.vim'
 " Align
 Plug 'godlygeek/tabular'
 
-" Status Bar
-Plug 'itchyny/lightline.vim'
-
 " Change root dir
 Plug 'airblade/vim-rooter'
 
 " Commenter
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
+
+" gitgutter
+Plug 'mhinz/vim-signify'
 
 " Tpope
 Plug 'tpope/vim-dadbod'
@@ -142,18 +122,6 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'currentfunction': 'CocCurrentFunction',
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
 """""""""""""""""""""""""""""""""""""""""
@@ -165,15 +133,14 @@ set belloff=all
 set breakindent
 set cmdheight=2
 set colorcolumn=80
-set completeopt=longest,menu,preview
+set completeopt=preview,menu,noinsert,noselect
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
-set formatoptions+=j " remove comment leader when joining lines
-set formatoptions+=n " when formatting text, recognize numbered lists
-set formatoptions+=r " auto insert bullet point on new lines
+set formatoptions+=j                                      "  remove comment leader when joining lines
+set formatoptions+=n                                      "  when formatting text, recognize numbered lists
+set formatoptions+=r                                      "  auto insert bullet point on new lines
 set hidden
 set hlsearch
 set ignorecase
@@ -186,6 +153,7 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
 set nomodeline
 set nonumber
@@ -215,6 +183,19 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 set wildmode=longest:full
+
+" statusline
+set statusline=
+set statusline+=%F          " full path to file in the buffer
+set statusline+=%m          " rodified flag in square brackets
+set statusline+=%r          " readonly flag in square brackets
+set statusline+=%h          " help flag in square brackets
+set statusline+=%w          " preview flag in square brackets
+set statusline+=\ [%L]        " number of lines
+set statusline+=[%{&ff}]    " current fileformat
+set statusline+=%y          " current syntax
+set statusline+=[%p%%]      " current % into file
+set statusline+=[%04l,%04v] " current line & current column
 
 if has('nvim')
   set inccommand=split
@@ -268,7 +249,6 @@ nmap <silent> t<C-g> :TestVisit<CR>
 
 augroup general
   autocmd!
-  autocmd BufNewFile,BufRead [Jj]ustfile setfiletype make
   autocmd FileType vim,markdown,json,terraform,hcl,tf
         \ setlocal softtabstop=2 |
         \ setlocal shiftwidth=2  |
@@ -309,122 +289,6 @@ let g:neoformat_rego_opa     = {
 let g:neoformat_enabled_rego = ['opa']
 
 """"""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > COC
+" SETTINGS: Plugins > LanguageClient-neovim
 """"""""""""""""""""""""""""""""""""""""
 
-" Tab to trigger completions, snippet expansion and jumps (like VSCode)
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" navigate chunks of current buffer
-nmap [c <Plug>(coc-git-prevchunk)
-nmap ]c <Plug>(coc-git-nextchunk)
-" show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-nmap gc <Plug>(coc-git-commit)
-" create text object for git chunks
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup coc
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
