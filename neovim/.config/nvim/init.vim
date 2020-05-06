@@ -123,9 +123,6 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
-" Themes
-Plug 'flazz/vim-colorschemes'
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""
@@ -133,14 +130,13 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""
 
 set background=dark
-colorscheme PaperColor
 
-highlight SignColumn ctermbg=NONE guibg=NONE
-highlight DiffAdd ctermbg=NONE ctermfg=DarkGreen guibg=NONE guifg=Green
-highlight DiffChange ctermbg=NONE ctermfg=DarkYellow guibg=NONE guifg=Yellow
-highlight DiffDelete ctermbg=NONE ctermfg=DarkRed guibg=NONE guifg=Red
-highlight Pmenu ctermbg=LightGray ctermfg=Black guibg=LightGray guifg=Black
-highlight PmenuSel ctermbg=DarkBlue ctermfg=White guibg=DarkBlue guifg=White
+highlight SignColumn ctermbg=NONE                           guibg=NONE
+highlight DiffAdd    ctermbg=NONE       ctermfg=DarkGreen   guibg=NONE guifg=Green
+highlight DiffChange ctermbg=NONE       ctermfg=DarkYellow  guibg=NONE guifg=Yellow
+highlight DiffDelete ctermbg=NONE       ctermfg=DarkRed     guibg=NONE guifg=Red
+highlight Pmenu      ctermbg=LightGray  ctermfg=Black       guibg=LightGray guifg=Black
+highlight PmenuSel   ctermbg=Blue       ctermfg=White       guibg=Blue guifg=White
 
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -212,7 +208,6 @@ set splitbelow
 set splitright
 set t_ut=""
 set tags+=tags
-set termguicolors
 set textwidth=80
 set undodir=$HOME/.vim/undo
 set undofile
