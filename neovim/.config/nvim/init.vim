@@ -18,10 +18,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rust-analyzer'],
       \ 'go': ['gopls'],
-      \ 'dockerfile': ['docker-langserver', '--stdio'],
       \ 'Dockerfile': ['docker-langserver', '--stdio'],
       \ 'sh': ['bash-language-server', 'start'],
       \ 'yaml': ['yaml-language-server', '--stdio'],
+      \ 'vim': ['vim-language-server', '--stdio'],
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
@@ -301,8 +301,4 @@ let g:neoformat_rego_opa     = {
       \ 'stdin': 1,
       \ }
 let g:neoformat_enabled_rego = ['opa']
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > LanguageClient-neovim
-""""""""""""""""""""""""""""""""""""""""
 
