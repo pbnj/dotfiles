@@ -1,11 +1,10 @@
 if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
   echo "Downloading https://github.com/junegunn/vim-plug ..."
   silent ! curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
 
-" curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
 " LSP
@@ -66,8 +65,14 @@ Plug 'airblade/vim-rooter'
 Plug 'preservim/nerdcommenter'
 let g:NERDSpaceDelims = 1
 
+" highlight yank
+Plug 'machakann/vim-highlightedyank'
+
 " gitgutter
 Plug 'mhinz/vim-signify'
+nnoremap <leader>gd :SignifyDiff<cr>
+nnoremap <leader>gs :SignifyHunkDiff<cr>
+nnoremap <leader>gu :SignifyHunkUndo<cr>
 
 " Tpope
 Plug 'tpope/vim-dadbod'
@@ -109,6 +114,8 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""
 
 set background=dark
+syntax off
+let g:syntax_on = 0
 
 highlight SignColumn ctermbg=NONE                           guibg=NONE
 highlight DiffAdd    ctermbg=NONE       ctermfg=DarkGreen   guibg=NONE guifg=Green
