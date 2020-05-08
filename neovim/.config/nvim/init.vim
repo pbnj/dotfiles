@@ -1,3 +1,5 @@
+set nocompatible
+
 if ! filereadable(expand('~/.local/share/nvim/site/autoload/plug.vim'))
   echo "Downloading https://github.com/junegunn/vim-plug ..."
   silent ! curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -109,6 +111,10 @@ let g:go_gopls_enabled = 0          " disable `gopls`
 
 call plug#end()
 
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
@@ -170,6 +176,7 @@ set novisualbell
 set nowrap
 set nowritebackup
 set path+=**
+set pumheight=10
 set ruler
 set shortmess+=c
 set showcmd
@@ -183,6 +190,7 @@ set splitright
 set t_ut=""
 set tags+=tags
 set textwidth=80
+set ttyfast
 set undodir=$HOME/.vim/undo
 set undofile
 set updatetime=100
