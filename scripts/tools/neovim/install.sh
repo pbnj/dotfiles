@@ -1,9 +1,8 @@
 #!/bin/bash
 
-set -ex
+set -e
+set -x
 
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt update
-sudo apt install -y neovim
-
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+mkdir -p "$HOME/bin"
+curl -L -o ~/bin/nvim https://github.com/neovim/neovim/releases/download/stable/nvim.appimage --create-dirs
+chmod u+x ~/bin/nvim
