@@ -164,7 +164,6 @@ set nofoldenable
 set nomodeline
 set nonumber
 set norelativenumber
-set noshowmode
 set nospell
 set noswapfile
 set novisualbell
@@ -175,6 +174,7 @@ set ruler
 set shortmess+=c
 set showcmd
 set showmatch
+set showmode
 set signcolumn=yes
 set smartcase
 set smarttab
