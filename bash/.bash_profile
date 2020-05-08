@@ -69,12 +69,15 @@ fi
 [[ -f /usr/local/etc/bash_completion ]] && source "/usr/local/etc/bash_completion"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
 
+## ASDF
+if [[ -d "$HOME/.asdf" ]]; then
+	source $HOME/.asdf/asdf.sh
+	source $HOME/.asdf/completions/asdf.bash
+fi
+
 ## GO
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
-[[ -d "$HOME/.gimme" ]] && source "$HOME/.gimme/envs/latest.env"
-[[ -d "/usr/local/go" ]] && export PATH="/usr/local/go/bin:$PATH"
+[[ -f "$HOME/.gimme/envs/latest.env" ]] && source "$HOME/.gimme/envs/latest.env"
 
 ## CARGO
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
