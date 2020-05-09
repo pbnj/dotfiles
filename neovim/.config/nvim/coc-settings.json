@@ -28,7 +28,7 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"],
       "initializationOptions": {
-        "gocodeCompletionEnabled": true,
+        "gocodeCompletionEnabled": false,
         "diagnosticsEnabled": true,
         "lintTool": "golint",
         "usePlaceholders": true,
@@ -47,5 +47,6 @@
       "command": "terraform-lsp",
       "filetypes": ["tf", "terraform"]
     }
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
