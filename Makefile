@@ -1,7 +1,4 @@
-all: go rust node neovim asdf
-
-asdf:
-	./scripts/tools/asdf/install.sh
+all: go rust node neovim
 
 go:
 	./scripts/langs/go/gimme.sh
@@ -15,4 +12,4 @@ node:
 neovim:
 	./scripts/tools/neovim/install.sh
 
-.PHONY: all neovim node rust go asdf
+.PHONY: all neovim node rust go
