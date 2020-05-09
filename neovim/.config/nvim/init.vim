@@ -32,7 +32,6 @@ let g:coc_global_extensions = [
       \ 'coc-yank',
       \ ]
 
-
 " Formatters
 Plug 'sbdchd/neoformat'
 
@@ -328,8 +327,10 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " navigate git chunks
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
-nmap gs <Plug>(coc-git-chunkinfo) " show chunk diff at current position
-nmap gc <Plug>(coc-git-commit)    " show commit contains current position
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
 
 " Remap keys for GOTOs
 nmap <silent> gd <Plug>(coc-definition)
@@ -389,16 +390,21 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Using CocList
-nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr> " Show all diagnostics
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>  " Manage extensions
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>    " Show commands
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>     " Find symbol of current document
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>  " Search workspace symbols
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>             " Do default action for next item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>             " Do default action for previous item.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>       " Resume latest coc list
+" Show all diagnostics
+nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
