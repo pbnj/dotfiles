@@ -76,6 +76,8 @@ if [[ -d "$HOME/.asdf" ]]; then
 fi
 
 ## GO
+export GOPATH="$(go env GOPATH)"
+export PATH="${GOPATH}/bin:${PATH}"
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -f "$HOME/.gimme/envs/latest.env" ]] && source "$HOME/.gimme/envs/latest.env"
 
