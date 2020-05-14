@@ -14,8 +14,8 @@ window:
   decorations: none
 
 # Font configuration
-# brew cask install font-jetbrainsmono-nerd-font font-saucecodepro-nerd-font
-# Test string: oO08 iIlL1 g9qCGQ ~--__+==> `'""'`
+# brew cask install font-jetbrainsmono-nerd-font
+# Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'`
 font:
   normal:
     family: JetBrainsMono Nerd Font

@@ -19,6 +19,7 @@ prompt_order = [
 	"conda",
 	"aws",
 	"env_var",
+	"docker_context",
 	"kubernetes",
 	"battery",
 	"memory_usage",
@@ -29,6 +30,9 @@ prompt_order = [
 
 [aws]
 symbol = " "
+
+[directory]
+truncation_length = 0
 
 [battery]
 disabled = false
@@ -62,6 +66,7 @@ symbol = " "
 [git_status]
 deleted = "x"
 show_sync_count = true
+style = "red"
 
 [rust]
 symbol = " "
@@ -84,7 +89,7 @@ symbol = " "
 [terraform]
 symbol = " "
 
-[docker]
+[docker_context]
 symbol= " "
 
 [kubernetes]
@@ -93,7 +98,6 @@ disabled = false
 
 [jobs]
 symbol = "%"
-style = "blue"
 
 [character]
 symbol = "$"

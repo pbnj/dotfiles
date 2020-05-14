@@ -76,14 +76,16 @@ if [[ -d "$HOME/.asdf" ]]; then
 fi
 
 ## GO
-export GOPATH="$(go env GOPATH)"
-export PATH="${GOPATH}/bin:${PATH}"
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -f "$HOME/.gimme/envs/latest.env" ]] && source "$HOME/.gimme/envs/latest.env"
+if [[ -d "$HOME/go" ]]; then
+	export GOPATH="${HOME}/go"
+	export PATH="${GOPATH}/bin:${PATH}"
+fi
 
 ## CARGO
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-if [ -d "$HOME/.cargo" ]; then
+if [[ -d "$HOME/.cargo" ]]; then
 	source "$HOME/.cargo/env"
 	source <(rustup completions bash)
 	source <(rustup completions bash cargo)
