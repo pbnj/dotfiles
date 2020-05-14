@@ -104,18 +104,25 @@ filetype plugin on    " Enable filetype-specific plugins
 """""""""""""""""""""""""""""""""""""""""
 
 set background=dark
+
 " syntax off          " Disable syntax highlighting in vim
 " let g:syntax_on = 0 " Disable syntax highlighting in vim
 
 let g:netrw_banner = 0 " Disable netrw banner
 
-highlight SignColumn ctermbg=NONE                          guibg=NONE
-highlight DiffAdd    ctermbg=NONE       ctermfg=DarkGreen  guibg=NONE      guifg=Green
-highlight DiffChange ctermbg=NONE       ctermfg=DarkYellow guibg=NONE      guifg=Yellow
-highlight DiffDelete ctermbg=NONE       ctermfg=DarkRed    guibg=NONE      guifg=Red
-highlight Pmenu      ctermbg=LightGray  ctermfg=Black      guibg=LightGray guifg=Black
-highlight PmenuSel   ctermbg=Blue       ctermfg=White      guibg=Blue      guifg=White
-highlight Visual     ctermbg=DarkGray   ctermfg=Black      guibg=DarkGray  guifg=Black
+if has('gui_running')
+  set guifont=Hack\ Nerd\ Font:h11
+else
+  highlight Pmenu      ctermbg=LightGray  ctermfg=Black      guibg=LightGray guifg=Black
+  highlight PmenuSel   ctermbg=Blue       ctermfg=White      guibg=Blue      guifg=White
+  highlight Visual     ctermbg=DarkGray   ctermfg=Black      guibg=DarkGray  guifg=Black
+  highlight CursorLine cterm=underline gui=underline guibg=NONE
+endif
+
+highlight SignColumn ctermbg=NONE                    guibg=NONE              " transparent background
+highlight DiffAdd    ctermbg=NONE ctermfg=DarkGreen  guibg=NONE guifg=Green  " Green
+highlight DiffChange ctermbg=NONE ctermfg=DarkYellow guibg=NONE guifg=Yellow " Yellow
+highlight DiffDelete ctermbg=NONE ctermfg=DarkRed    guibg=NONE guifg=Red    " Red
 
 " Statusline
 
@@ -152,7 +159,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set formatoptions+=j                                      "  remove comment leader when joining lines
 set formatoptions+=n                                      "  when formatting text, recognize numbered lists
-set formatoptions+=r                                      "  auto insert bullet point on new lines
 set hidden
 set hlsearch
 set ignorecase
@@ -188,7 +194,6 @@ set splitbelow
 set splitright
 set t_ut=""
 set tags+=tags
-set termguicolors
 set textwidth=80
 set ttyfast
 set undodir=$HOME/.vim/undo
@@ -200,6 +205,9 @@ set wildmode=longest:full,full
 
 if has('nvim')
   set inccommand=split
+endif
+
+if has('terminal')
   tnoremap <Esc> <C-\><C-n>
 endif
 
