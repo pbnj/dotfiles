@@ -103,20 +103,20 @@ filetype plugin on    " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-" syntax off          " Disable syntax highlighting in vim
-" let g:syntax_on = 0 " Disable syntax highlighting in vim
-
 let g:netrw_banner = 0 " Disable netrw banner
 
-if has('gui_running') " if gvim/macvim
+" syntax off          " Disable syntax highlighting in vim
+" let g:syntax_on = 0 " Disable syntax highlighting in vim-sensible
+
+if has('gui_running')
   set background=light
   set guifont=JetBrainsMono\ Nerd\ Font:h11
 else " if terminal
   set background=dark
-  highlight Pmenu      ctermbg=LightGray  ctermfg=Black      guibg=LightGray guifg=Black
-  highlight PmenuSel   ctermbg=Blue       ctermfg=White      guibg=Blue      guifg=White
-  highlight Visual     ctermbg=DarkGray   ctermfg=Black      guibg=DarkGray  guifg=Black
-  highlight CursorLine cterm=underline gui=underline guibg=NONE
+
+  highlight Pmenu      ctermbg=LightGray  ctermfg=Black
+  highlight PmenuSel   ctermbg=Blue       ctermfg=White
+  highlight CursorLine cterm=underline
 endif
 
 highlight SignColumn ctermbg=NONE guibg=NONE
