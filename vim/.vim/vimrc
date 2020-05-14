@@ -103,26 +103,26 @@ filetype plugin on    " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-set background=dark
-
 " syntax off          " Disable syntax highlighting in vim
 " let g:syntax_on = 0 " Disable syntax highlighting in vim
 
 let g:netrw_banner = 0 " Disable netrw banner
 
-if has('gui_running')
-  set guifont=Hack\ Nerd\ Font:h11
-else
+if has('gui_running') " if gvim/macvim
+  set background=light
+  set guifont=JetBrainsMono\ Nerd\ Font:h11
+else " if terminal
+  set background=dark
   highlight Pmenu      ctermbg=LightGray  ctermfg=Black      guibg=LightGray guifg=Black
   highlight PmenuSel   ctermbg=Blue       ctermfg=White      guibg=Blue      guifg=White
   highlight Visual     ctermbg=DarkGray   ctermfg=Black      guibg=DarkGray  guifg=Black
   highlight CursorLine cterm=underline gui=underline guibg=NONE
 endif
 
-highlight SignColumn ctermbg=NONE                    guibg=NONE              " transparent background
-highlight DiffAdd    ctermbg=NONE ctermfg=DarkGreen  guibg=NONE guifg=Green  " Green
-highlight DiffChange ctermbg=NONE ctermfg=DarkYellow guibg=NONE guifg=Yellow " Yellow
-highlight DiffDelete ctermbg=NONE ctermfg=DarkRed    guibg=NONE guifg=Red    " Red
+highlight SignColumn ctermbg=NONE guibg=NONE
+highlight DiffAdd    ctermbg=DarkGreen  ctermfg=DarkGreen  guibg=DarkGreen  guifg=DarkGreen
+highlight DiffChange ctermbg=DarkYellow ctermfg=DarkYellow guibg=DarkYellow guifg=DarkYellow
+highlight DiffDelete ctermbg=DarkRed    ctermfg=DarkRed    guibg=DarkRed    guifg=DarkRed
 
 " Statusline
 
@@ -150,7 +150,7 @@ set backspace=indent,eol,start
 set belloff=all
 set breakindent
 set cmdheight=2
-set colorcolumn=80
+set colorcolumn=+1
 set completeopt=preview,menu,noinsert,noselect
 set conceallevel=0
 set cursorline
@@ -194,7 +194,7 @@ set splitbelow
 set splitright
 set t_ut=""
 set tags+=tags
-set textwidth=80
+set textwidth=79
 set ttyfast
 set undodir=$HOME/.vim/undo
 set undofile
