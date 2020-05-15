@@ -108,8 +108,6 @@ let g:netrw_banner = 0 " Disable netrw banner
 " syntax off          " Disable syntax highlighting in vim
 " let g:syntax_on = 0 " Disable syntax highlighting in vim-sensible
 
-set background=light
-
 if has("gui_running")
   if has("gui_gtk")
     set guifont=JetBrainsMono\ Nerd\ Font\ 11
@@ -119,6 +117,8 @@ if has("gui_running")
     set guifont=JetBrainsMono\ Nerd\ Font:h11:cANSI
   endif
 else " if terminal
+  set background=dark
+
   highlight Pmenu      ctermbg=LightGray  ctermfg=Black
   highlight PmenuSel   ctermbg=Blue       ctermfg=White
   highlight CursorLine cterm=underline
