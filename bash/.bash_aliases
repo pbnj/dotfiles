@@ -62,5 +62,5 @@ fi
 
 # Linux
 if command -v apt &>/dev/null; then
-	alias auau="sudo apt update && sudo apt upgrade -y"
+	alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 fi

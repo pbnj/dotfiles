@@ -1,6 +1,4 @@
-#
 # SHELL OPTIONS
-#
 
 shopt -s direxpand
 shopt -s nocaseglob
@@ -10,9 +8,7 @@ shopt -s cdspell
 shopt -s autocd
 shopt -s globstar
 
-#
 # EXPORTS
-#
 
 export EDITOR=vim
 export GIT_TERMINAL_PROMPT=1
@@ -27,10 +23,9 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 export DOTFILES="$HOME/.dotfiles"
+export BAT_PAGER="GitHub"
 
-#
 # SETTINGS
-#
 
 ## TMUX
 if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
@@ -116,3 +111,4 @@ export NVM_DIR="$HOME/.nvm"
 if command -v starship &>/dev/null; then
 	eval "$(starship init bash)"
 fi
+
