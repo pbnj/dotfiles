@@ -9,7 +9,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-git',
-      \ 'coc-highlight',
       \ 'coc-json',
       \ 'coc-lists',
       \ 'coc-markdownlint',
@@ -93,6 +92,9 @@ let g:go_def_mapping_enabled = 0    " disable `gd`
 let g:go_doc_keywordprg_enabled = 0 " disable `K`
 let g:go_gopls_enabled = 0          " disable `gopls`
 
+" colorschemes
+Plug 'flazz/vim-colorschemes'
+
 call plug#end()
 
 filetype on           " Enable filetype detection
@@ -105,9 +107,9 @@ filetype plugin on    " Enable filetype-specific plugins
 
 let g:netrw_banner = 0 " Disable netrw banner
 
-" syntax off          " Disable syntax highlighting in vim
-" let g:syntax_on = 0 " Disable syntax highlighting in vim-sensible
+set background=light
 
+" set some options based on vim environment (e.g. tui, gui)
 if has("gui_running")
   if has("gui_gtk")
     set guifont=JetBrainsMono\ Nerd\ Font\ 11
@@ -117,17 +119,17 @@ if has("gui_running")
     set guifont=JetBrainsMono\ Nerd\ Font:h11:cANSI
   endif
 else " if terminal
-  set background=dark
-
-  highlight Pmenu      ctermbg=LightGray  ctermfg=Black
-  highlight PmenuSel   ctermbg=Blue       ctermfg=White
-  highlight CursorLine cterm=underline
+  " highlight Pmenu ctermbg=LightGray  ctermfg=Black
+  " highlight PmenuSel ctermbg=Blue       ctermfg=White
+  " highlight CursorLine cterm=underline
+  " highlight ColorColumn ctermbg=LightRed
 endif
 
-highlight SignColumn ctermbg=NONE guibg=NONE
-highlight DiffAdd    ctermbg=DarkGreen  ctermfg=DarkGreen  guibg=DarkGreen  guifg=DarkGreen
-highlight DiffChange ctermbg=DarkYellow ctermfg=DarkYellow guibg=DarkYellow guifg=DarkYellow
-highlight DiffDelete ctermbg=DarkRed    ctermfg=DarkRed    guibg=DarkRed    guifg=DarkRed
+" global appearance settings
+" highlight SignColumn ctermbg=NONE guibg=NONE
+" highlight DiffAdd    ctermbg=DarkGreen  ctermfg=DarkGreen  guibg=DarkGreen  guifg=DarkGreen
+" highlight DiffChange ctermbg=DarkYellow ctermfg=DarkYellow guibg=DarkYellow guifg=DarkYellow
+" highlight DiffDelete ctermbg=DarkRed    ctermfg=DarkRed    guibg=DarkRed    guifg=DarkRed
 
 " Statusline
 
@@ -144,6 +146,17 @@ set statusline+=[%p%%]                                                " current 
 set statusline+=[%04l,%04v]                                           " current line & current column
 set statusline+=\ %{FugitiveStatusline()}                             " git branch
 set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')} " coc status
+
+" change statusline color based on mode
+" from: https://vim.fandom.com/wiki/Change_statusline_color_to_show_insert_or_normal_mode
+
+" default statusline
+" hi StatusLine cterm=NONE ctermbg=black ctermfg=white
+" " vim will add '^^^^^^^^' to the active statusline if statuslineNC is the same
+" hi StatusLineNC cterm=NONE ctermbg=black ctermfg=white
+
+" au InsertEnter * hi StatusLine cterm=NONE ctermbg=magenta ctermfg=black
+" au InsertLeave * hi StatusLine cterm=NONE ctermbg=black ctermfg=white
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -208,13 +221,14 @@ set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
 
+" neovim specific settings
 if has('nvim')
   set inccommand=split
+  set termguicolors
 endif
 
-if has('terminal')
-  tnoremap <Esc> <C-\><C-n>
-endif
+" make escape key go to normal mode in neo/vim terminal
+tnoremap <Esc> <C-\><C-n>
 
 if executable('rg')
   set grepprg=rg\ --vimgrep
