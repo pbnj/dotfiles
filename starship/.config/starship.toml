@@ -30,6 +30,7 @@ prompt_order = [
 
 [aws]
 symbol = " "
+style = "blue"
 
 [directory]
 truncation_length = 0
@@ -58,7 +59,7 @@ show_percentage = true
 show_swap = false
 threshold = 0
 symbol = " "
-style = "dimmed white"
+style = "blue"
 
 [git_branch]
 symbol = " "
@@ -98,6 +99,7 @@ disabled = false
 
 [jobs]
 symbol = "%"
+style = "red"
 
 [character]
 symbol = "$"
