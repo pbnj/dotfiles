@@ -28,6 +28,7 @@ brew "stow"
 brew "terraform"
 brew "tmux"
 brew "vim"
+brew "watch"
 brew "yamllint"
 brew "yq"
 
