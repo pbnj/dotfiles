@@ -28,9 +28,9 @@ export BAT_PAGER="GitHub"
 # SETTINGS
 
 ## TMUX
-if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+# if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+    # tmux attach -t default || tmux new -s default
+# fi
 
 ## PATH
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
