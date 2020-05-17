@@ -95,6 +95,9 @@ let g:go_gopls_enabled = 0          " disable `gopls`
 " colorschemes
 Plug 'flazz/vim-colorschemes'
 
+" floatwin/popupwin
+Plug 'voldikss/vim-floaterm'
+
 call plug#end()
 
 filetype on           " Enable filetype detection
@@ -107,8 +110,6 @@ filetype plugin on    " Enable filetype-specific plugins
 
 let g:netrw_banner = 0 " Disable netrw banner
 
-set background=light
-
 " set some options based on vim environment (e.g. tui, gui)
 if has("gui_running")
   if has("gui_gtk")
@@ -119,6 +120,7 @@ if has("gui_running")
     set guifont=JetBrainsMono\ Nerd\ Font:h11:cANSI
   endif
 else " if terminal
+  set background=light
   " highlight Pmenu ctermbg=LightGray  ctermfg=Black
   " highlight PmenuSel ctermbg=Blue       ctermfg=White
   " highlight CursorLine cterm=underline
@@ -208,8 +210,8 @@ set showmode
 set signcolumn=yes
 set smartcase
 set smarttab
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 set t_ut=""
 set tags+=tags
 set textwidth=79
