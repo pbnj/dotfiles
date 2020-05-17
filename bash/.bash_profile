@@ -27,48 +27,14 @@ export BAT_PAGER="GitHub"
 
 # SETTINGS
 
-## TMUX
-# if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
-    # tmux attach -t default || tmux new -s default
-# fi
-
 ## PATH
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
 
-## SSH AGENT
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent() {
-	echo "Initialising new SSH agent..."
-	/usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
-	echo succeeded
-	chmod 600 "${SSH_ENV}"
-	. "${SSH_ENV}" >/dev/null
-	/usr/bin/ssh-add
-}
-
-## Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-	. "${SSH_ENV}" >/dev/null
-	#ps ${SSH_AGENT_PID} doesn't work under cywgin
-	ps -ef | grep ${SSH_AGENT_PID} | grep "ssh-agent$" >/dev/null || {
-		start_agent
-	}
-else
-	start_agent
-fi
-
 ## BASH COMPLETION
 [[ -f /usr/local/etc/bash_completion ]] && source "/usr/local/etc/bash_completion"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
-
-## ASDF
-if [[ -d "$HOME/.asdf" ]]; then
-	source $HOME/.asdf/asdf.sh
-	source $HOME/.asdf/completions/asdf.bash
-fi
 
 ## GO
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
@@ -88,23 +54,18 @@ fi
 
 ## NVM
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 ## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
 
-#
 # PROFILES & ALIASES
-#
-
 [[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 [[ -f "$HOME/.profile" ]] && source "$HOME/.profile" # contains private/work stuff
 
-#
 # PROMPT
-#
 
 ## starship
 # cargo install starship
