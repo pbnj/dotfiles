@@ -27,25 +27,6 @@
   "yaml.schemas": { "kubernetes": ["/kubernetes/*.yaml"] },
 
   "languageserver": {
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile", "Dockerfile"],
-      "args": ["--stdio"]
-    },
-
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "gocodeCompletionEnabled": false,
-        "diagnosticsEnabled": true,
-        "lintTool": "golint",
-        "usePlaceholders": true,
-        "completeUnimported": true
-      }
-    },
-
     "bash": {
       "command": "bash-language-server",
       "args": ["start"],
