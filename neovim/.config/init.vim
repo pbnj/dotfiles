@@ -120,8 +120,8 @@ if has("gui_running")
   endif
 endif
 
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme gruvbox
 
 " Statusline
 
