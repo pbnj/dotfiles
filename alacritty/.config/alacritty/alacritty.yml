@@ -952,4 +952,4 @@ nord: &nord
       magenta: "0xff00ff"
       cyan: "0x00ffff"
       white: "0xffffff"
-colors: *papercolor_light
+colors: *gruvbox_dark
