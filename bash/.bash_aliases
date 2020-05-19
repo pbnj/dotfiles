@@ -27,6 +27,9 @@ fi
 ## sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 
+## kops
+command -v kops &>/dev/null && source <(kops completion bash)
+
 ## GO111MODULE="on" go get sigs.k8s.io/kind@v0.7.0
 command -v kind &>/dev/null && source <(kind completion bash)
 
