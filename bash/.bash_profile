@@ -23,7 +23,6 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 export DOTFILES="$HOME/.dotfiles"
-export BAT_PAGER="GitHub"
 
 # SETTINGS
 
@@ -31,6 +30,19 @@ export BAT_PAGER="GitHub"
 [[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
+
+## SSH
+# ssh-agent auto-launch (0 = agent running with key; 1 = w/o key; 2 = not run.)
+agent_run_state=$(
+        ssh-add -l >|/dev/null 2>&1
+        echo $?
+)
+if [ $agent_run_state = 2 ]; then
+        eval $(ssh-agent -s)
+        ssh-add
+elif [ $agent_run_state = 1 ]; then
+        ssh-add
+fi
 
 ## BASH COMPLETION
 [[ -f /usr/local/etc/bash_completion ]] && source "/usr/local/etc/bash_completion"
@@ -40,22 +52,22 @@ export BAT_PAGER="GitHub"
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -f "$HOME/.gimme/envs/latest.env" ]] && source "$HOME/.gimme/envs/latest.env"
 if [[ -d "$HOME/go" ]]; then
-	export GOPATH="${HOME}/go"
-	export PATH="${GOPATH}/bin:${PATH}"
+        export GOPATH="${HOME}/go"
+        export PATH="${GOPATH}/bin:${PATH}"
 fi
 
 ## CARGO
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 if [[ -d "$HOME/.cargo" ]]; then
-	source "$HOME/.cargo/env"
-	source <(rustup completions bash)
-	source <(rustup completions bash cargo)
+        source "$HOME/.cargo/env"
+        source <(rustup completions bash)
+        source <(rustup completions bash cargo)
 fi
 
 ## NVM
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-# export NVM_DIR="$HOME/.nvm"
-# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
 ## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
@@ -70,6 +82,5 @@ fi
 ## starship
 # cargo install starship
 if command -v starship &>/dev/null; then
-	eval "$(starship init bash)"
+        eval "$(starship init bash)"
 fi
-
