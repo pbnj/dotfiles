@@ -121,7 +121,7 @@ if has("gui_running")
 endif
 
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
 
 " Statusline
 
@@ -189,6 +189,8 @@ set showmode
 set signcolumn=yes
 set smartcase
 set smarttab
+set splitbelow
+set splitright
 set t_ut=""
 set tags+=tags
 set textwidth=79
@@ -204,6 +206,12 @@ set wildmode=longest:full,full
 if has('nvim')
   set inccommand=split
   set termguicolors
+
+  highlight SignColumn ctermbg=NONE guibg=NONE
+  highlight DiffAdd ctermfg=Green ctermbg=Green guifg=Green guibg=NONE
+  highlight DiffChange ctermfg=Yellow ctermbg=Yellow guifg=Yellow guibg=NONE
+  highlight DiffDelete ctermfg=Red ctermbg=Red guifg=Red guibg=NONE
+  highlight Visual ctermbg=DarkGray ctermfg=Black guibg=DarkGray guifg=Black
 endif
 
 """"""""""""""""""""""""""""""""""""""""
