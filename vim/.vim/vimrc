@@ -155,7 +155,6 @@ set novisualbell
 set nowrap
 set nowritebackup
 set number
-set omnifunc=ale#completion#OmniFunc
 set path+=**
 set pumheight=10
 set ruler
@@ -270,6 +269,8 @@ nnoremap <silent> gs :SignifyHunkDiff<CR>
 " SETTINGS: Plugins > neoformat
 """"""""""""""""""""""""""""""""""""""""
 
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_trim = 1
 let g:neoformat_try_formatprg      = 1
 let g:neoformat_run_all_formatters = 1
 " doctoc
