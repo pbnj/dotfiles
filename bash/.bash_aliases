@@ -6,10 +6,10 @@ alias vi="vim -u NONE"
 
 # cargo install exa
 if command -v exa &>/dev/null; then
-	alias ls="exa"
-	alias ll="exa --all --long --git --group-directories-first"
+        alias ls="exa"
+        alias ll="exa --all --long --git --group-directories-first"
 else
-	alias ll="ls -alFh --group-directories-first"
+        alias ll="ls -alFh --group-directories-first"
 fi
 
 # For safety
@@ -20,7 +20,7 @@ alias mv='mv -i'
 # macOS
 ## brew
 if command -v brew &>/dev/null; then
-	alias bubu="brew upgrade && brew cask upgrade && brew cleanup"
+        alias bubu="brew upgrade && brew cask upgrade && brew cleanup"
 fi
 
 # kube
@@ -35,20 +35,22 @@ command -v kind &>/dev/null && source <(kind completion bash)
 
 ## brew install kubectl
 if command -v kubectl &>/dev/null; then
-	alias k="kubectl"
-	complete -F __start_kubectl k
+        alias k="kubectl"
+        alias ksys="kubectl -n kube-system"
+        complete -F __start_kubectl k
+        complete -F __start_kubectl ksys
 fi
 
 ## brew install helm
 if command -v helm &>/dev/null; then
-	source <(helm completion bash)
+        source <(helm completion bash)
 fi
 
 # aliases to activate various k8s environments
 if [[ -d "$HOME/.kube/configs" ]]; then
-	for config in $(ls "${HOME}/.kube/configs"); do
-		alias k${config}="echo exporting KUBECONFIG=${HOME}/.kube/configs/${config} && export KUBECONFIG=${HOME}/.kube/configs/${config}"
-	done
+        for config in $(ls "${HOME}/.kube/configs"); do
+                alias k${config}="echo exporting KUBECONFIG=${HOME}/.kube/configs/${config} && export KUBECONFIG=${HOME}/.kube/configs/${config}"
+        done
 fi
 
 # git
@@ -58,12 +60,12 @@ command -v gh &>/dev/null && source <(gh completion --shell bash)
 # vault
 ## brew install vault
 if command -v vault &>/dev/null; then
-	alias v="vault"
-	complete -C /usr/local/bin/vault vault
-	complete -C /usr/local/bin/vault v
+        alias v="vault"
+        complete -C /usr/local/bin/vault vault
+        complete -C /usr/local/bin/vault v
 fi
 
 # Linux
 if command -v apt &>/dev/null; then
-	alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
+        alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 fi
