@@ -84,6 +84,8 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
+colorscheme gruvbox
+
 let g:netrw_banner = 0 " Disable netrw banner
 
 " neovim specific settings
