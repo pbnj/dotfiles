@@ -30,7 +30,6 @@ prompt_order = [
 
 [aws]
 symbol = " "
-style = "blue"
 
 [directory]
 truncation_length = 0
@@ -105,3 +104,4 @@ style = "red"
 symbol = "$"
 style_success = "green"
 style_failure = "red"
+
