@@ -1,0 +1,41 @@
+{
+  "coc.preferences.enableFloatHighlight": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "codeLens.enable": true,
+  "suggest.autoTrigger": "always",
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "suggest.defaultSortMethod": "alphabetical",
+  "git.addGBlameToVirtualText": true,
+  "git.enableGutters": true,
+  "yaml.completion": true,
+  "yaml.hover": true,
+  "yaml.validate": true,
+  "yaml.schemas": {
+    "kubernetes": [
+      "/kubernetes/*.yaml"
+    ]
+  },
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh",
+        "bash"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "tf",
+        "terraform"
+      ]
+    }
+  }
+}
