@@ -1,4 +1,11 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "go",
+    "yaml",
+    "json",
+    "rust"
+  ],
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "codeLens.enable": true,
@@ -12,30 +19,18 @@
   "yaml.hover": true,
   "yaml.validate": true,
   "yaml.schemas": {
-    "kubernetes": [
-      "/kubernetes/*.yaml"
-    ]
+    "kubernetes": ["/kubernetes/*.yaml"]
   },
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
-      "args": [
-        "start"
-      ],
-      "filetypes": [
-        "sh",
-        "bash"
-      ],
-      "ignoredRootPaths": [
-        "~"
-      ]
+      "args": ["start"],
+      "filetypes": ["sh", "bash"],
+      "ignoredRootPaths": ["~"]
     },
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": [
-        "tf",
-        "terraform"
-      ]
+      "filetypes": ["tf", "terraform"]
     }
   }
 }

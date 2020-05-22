@@ -262,6 +262,11 @@ let test#strategy = "dispatch"
 " SETTINGS: Plugins > vim-airline
 """"""""""""""""""""""""""""""""""""""""
 
+let g:airline#extensions#coc#enabled     = 1
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""
@@ -279,29 +284,29 @@ nnoremap <silent> gs :SignifyHunkDiff<CR>
 " SETTINGS: Plugins > neoformat
 """"""""""""""""""""""""""""""""""""""""
 
-let g:neoformat_basic_format_trim  = 1
-let g:neoformat_try_formatprg      = 1
-let g:neoformat_run_all_formatters = 1
-" doctoc
-let g:neoformat_markdown_doctoc  = {
-      \ 'exe': 'doctoc',
-      \ 'args': ['--no-title'],
-      \ 'replace': 1,
-      \ }
-let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
-" opa
-let g:neoformat_rego_opa     = {
-      \ 'exe': 'opa',
-      \ 'args': ['fmt'],
-      \ 'stdin': 1,
-      \ }
-let g:neoformat_enabled_rego = ['opa']
+" let g:neoformat_basic_format_trim  = 1
+" let g:neoformat_try_formatprg      = 1
+" let g:neoformat_run_all_formatters = 1
+" " doctoc
+" let g:neoformat_markdown_doctoc  = {
+      " \ 'exe': 'doctoc',
+      " \ 'args': ['--no-title'],
+      " \ 'replace': 1,
+      " \ }
+" let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
+" " opa
+" let g:neoformat_rego_opa     = {
+      " \ 'exe': 'opa',
+      " \ 'args': ['fmt'],
+      " \ 'stdin': 1,
+      " \ }
+" let g:neoformat_enabled_rego = ['opa']
 
-" format on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
+" " format on save
+" augroup fmt
+  " autocmd!
+  " autocmd BufWritePre * Neoformat
+" augroup END
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > COC
