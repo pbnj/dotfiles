@@ -23,6 +23,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 export DOTFILES="$HOME/.dotfiles"
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export BAT_THEME="GitHub"
 
 # SETTINGS
 
