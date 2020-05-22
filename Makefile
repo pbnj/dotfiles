@@ -12,4 +12,8 @@ node:
 neovim:
 	./scripts/tools/neovim/install.sh
 
-.PHONY: all neovim node rust go
+themes:
+	mkdir -p $(CURDIR)/tmp/
+	git clone https://github.com/mbadolato/iTerm2-Color-Schemes $(CURDIR)/tmp/themes
+
+.PHONY: all neovim node rust go themes
