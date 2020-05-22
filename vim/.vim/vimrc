@@ -94,7 +94,8 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox
+colorscheme Tomorrow
+set background=light
 
 let g:netrw_banner = 0 " Disable netrw banner
 
@@ -103,8 +104,8 @@ if has('nvim')
   set inccommand=split
   set termguicolors
 
-  highlight Visual guibg=Gray20
-  highlight CursorLine guibg=Gray20
+  " highlight Visual guibg=Gray20
+  " highlight CursorLine guibg=Gray20
 endif
 
 " set some options based on vim environment (e.g. tui, gui)
@@ -122,8 +123,6 @@ endif
 " highlight DiffAdd cterm=NONE ctermfg=Green ctermbg=Green gui=NONE guifg=Green guibg=NONE
 " highlight DiffChange cterm=NONE ctermfg=Yellow ctermbg=Yellow gui=NONE guifg=Yellow guibg=NONE
 " highlight DiffDelete cterm=NONE ctermfg=Red ctermbg=Red gui=NONE guifg=Red guibg=NONE
-
-set background=dark
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
