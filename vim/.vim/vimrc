@@ -2,9 +2,6 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-" statusline
-Plug 'vim-airline/vim-airline'
-
 " lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -94,7 +91,7 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme Tomorrow
+colorscheme nofrils-light
 set background=light
 
 let g:netrw_banner = 0 " Disable netrw banner
@@ -103,9 +100,6 @@ let g:netrw_banner = 0 " Disable netrw banner
 if has('nvim')
   set inccommand=split
   set termguicolors
-
-  " highlight Visual guibg=Gray20
-  " highlight CursorLine guibg=Gray20
 endif
 
 " set some options based on vim environment (e.g. tui, gui)
@@ -119,10 +113,21 @@ if has("gui_running")
   endif
 endif
 
-" highlight SignColumn ctermbg=NONE guibg=NONE
-" highlight DiffAdd cterm=NONE ctermfg=Green ctermbg=Green gui=NONE guifg=Green guibg=NONE
-" highlight DiffChange cterm=NONE ctermfg=Yellow ctermbg=Yellow gui=NONE guifg=Yellow guibg=NONE
-" highlight DiffDelete cterm=NONE ctermfg=Red ctermbg=Red gui=NONE guifg=Red guibg=NONE
+" statusline
+
+set statusline=
+set statusline+=%f                        " file name
+set statusline+=%m                        " modified
+set statusline+=%r                        " read only
+set statusline+=%h                        " help
+set statusline+=%w                        " preview
+set statusline+=[%L]                      " number of lines
+set statusline+=[%{&ff}]                  " file format
+set statusline+=%y                        " syntax
+set statusline+=[%p%%]                    " percentage into file
+set statusline+=[%04l,%04v]               " current line & column
+set statusline+=\ %{FugitiveStatusline()} " git info
+set statusline+=\ %{coc#status()}         " lsp info
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -256,17 +261,6 @@ nnoremap <leader>TN :TestNearest<CR>
 nnoremap <leader>TS :TestSuite<CR>
 nnoremap <leader>TV :TestVisit<CR>
 let test#strategy = "dispatch"
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > vim-airline
-""""""""""""""""""""""""""""""""""""""""
-
-let g:airline#extensions#coc#enabled     = 1
-let airline#extensions#coc#error_symbol = 'E:'
-let airline#extensions#coc#warning_symbol = 'W:'
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
-let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > vim-signify
