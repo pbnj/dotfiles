@@ -91,7 +91,7 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme nofrils-light
+colorscheme macvim-light
 set background=light
 
 let g:netrw_banner = 0 " Disable netrw banner
@@ -261,45 +261,6 @@ nnoremap <leader>TN :TestNearest<CR>
 nnoremap <leader>TS :TestSuite<CR>
 nnoremap <leader>TV :TestVisit<CR>
 let test#strategy = "dispatch"
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > vim-signify
-""""""""""""""""""""""""""""""""""""""""
-
-let g:signify_sign_add               = '▌'
-let g:signify_sign_delete            = '▁'
-let g:signify_sign_delete_first_line = '▔'
-let g:signify_sign_change            = '▌'
-
-nnoremap <silent> gs :SignifyHunkDiff<CR>
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > neoformat
-""""""""""""""""""""""""""""""""""""""""
-
-" let g:neoformat_basic_format_trim  = 1
-" let g:neoformat_try_formatprg      = 1
-" let g:neoformat_run_all_formatters = 1
-" " doctoc
-" let g:neoformat_markdown_doctoc  = {
-      " \ 'exe': 'doctoc',
-      " \ 'args': ['--no-title'],
-      " \ 'replace': 1,
-      " \ }
-" let g:neoformat_enabled_markdown = ['doctoc', 'prettier']
-" " opa
-" let g:neoformat_rego_opa     = {
-      " \ 'exe': 'opa',
-      " \ 'args': ['fmt'],
-      " \ 'stdin': 1,
-      " \ }
-" let g:neoformat_enabled_rego = ['opa']
-
-" " format on save
-" augroup fmt
-  " autocmd!
-  " autocmd BufWritePre * Neoformat
-" augroup END
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > COC
