@@ -127,7 +127,21 @@ set statusline+=%y                        " syntax
 set statusline+=[%p%%]                    " percentage into file
 set statusline+=[%04l,%04v]               " current line & column
 set statusline+=\ %{FugitiveStatusline()} " git info
-set statusline+=\ %{coc#status()}         " lsp info
+set statusline+=\ %{StatusDiagnostic()}         " lsp info
+
+
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
