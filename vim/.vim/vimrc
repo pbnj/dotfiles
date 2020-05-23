@@ -91,7 +91,7 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""
 
-colorscheme lightcolors
+colorscheme PaperColor
 set background=light
 
 let g:netrw_banner = 0 " Disable netrw banner
