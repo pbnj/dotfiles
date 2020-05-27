@@ -1,6 +1,6 @@
 {
 
-  "coc.preferences.enableFloatHighlight": true,
+  "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "codeLens.enable": true,
   "git.addGBlameToVirtualText": true,
