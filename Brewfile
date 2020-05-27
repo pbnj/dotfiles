@@ -1,4 +1,4 @@
-# Brews
+# General
 
 brew "bat"
 brew "coreutils"
@@ -7,18 +7,13 @@ brew "docker"
 brew "exa"
 brew "fzf"
 brew "gh"
-brew "gimme"
 brew "git"
-brew "go"
 brew "googler"
 brew "gpg"
 brew "hadolint"
-brew "helm"
 brew "htop"
 brew "hub"
 brew "jq"
-brew "kubectl"
-brew "kubectx"
 brew "neovim"
 brew "reattach-to-user-namespace"
 brew "ripgrep"
@@ -32,14 +27,35 @@ brew "watch"
 brew "yamllint"
 brew "yq"
 
-# Misc
+tap "universal-ctags/universal-ctags"
+brew "universal-ctags"
+
+# Go
+
+brew "go"
+brew "gimme"
+
+tap "golangci/tap"
+brew "golangci-lint"
+
+# Kubernetes
+
+tap "derailed/k9s"
+brew "k9s"
+brew "helm"
+brew "kubectl"
+
+tap "instrumenta/instrumenta"
+brew "conftest"
+
+# Font
+
 tap "homebrew/cask-fonts"
-cask "font-sourcecodepro-nerd-font"
 cask "font-jetbrainsmono-nerd-font"
 
 # Casks
-tap "homebrew/cask"
 
+tap "homebrew/cask"
 cask "1password"
 cask "keycastr"
 cask "alacritty"
