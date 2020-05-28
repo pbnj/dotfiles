@@ -106,12 +106,12 @@ endif
 " statusline
 
 set statusline=
-set statusline+=%f                        " file name
+set statusline+=%F                        " file name
 set statusline+=%m                        " modified
 set statusline+=%r                        " read only
 set statusline+=%h                        " help
 set statusline+=%w                        " preview
-set statusline+=[%L]                      " number of lines
+set statusline+=\ [%L]                    " number of lines
 set statusline+=[%{&ff}]                  " file format
 set statusline+=%y                        " syntax
 set statusline+=[%p%%]                    " percentage into file
