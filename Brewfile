@@ -1,4 +1,5 @@
 # General
+tap "universal-ctags/universal-ctags"
 
 brew "bat"
 brew "coreutils"
@@ -22,46 +23,43 @@ brew "shfmt"
 brew "stow"
 brew "terraform"
 brew "tmux"
+brew "universal-ctags"
 brew "vim"
 brew "watch"
 brew "yamllint"
 brew "yq"
 
-tap "universal-ctags/universal-ctags"
-brew "universal-ctags"
-
 # Go
+tap "golangci/tap"
 
 brew "go"
 brew "gimme"
-
-tap "golangci/tap"
 brew "golangci-lint"
 
 # Kubernetes
-
 tap "derailed/k9s"
+tap "instrumenta/instrumenta"
+
 brew "k9s"
 brew "helm"
 brew "kubectl"
-
-tap "instrumenta/instrumenta"
 brew "conftest"
 
 # Font
-
 tap "homebrew/cask-fonts"
+
 cask "font-jetbrainsmono-nerd-font"
 
 # Casks
-
 tap "homebrew/cask"
+
 cask "1password"
-cask "keycastr"
 cask "alacritty"
+cask "cheatsheet"
 cask "docker"
 cask "firefox"
 cask "kap"
+cask "keycastr"
 cask "riot"
 cask "slack"
 cask "spectacle"
