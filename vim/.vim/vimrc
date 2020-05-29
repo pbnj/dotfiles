@@ -273,7 +273,6 @@ let g:coc_global_extensions = [
       \ 'coc-lists',
       \ 'coc-markdownlint',
       \ 'coc-marketplace',
-      \ 'coc-pairs',
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rust-analyzer',

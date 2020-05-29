@@ -46,7 +46,7 @@ if command -v helm &>/dev/null; then
         source <(helm completion bash)
 fi
 
-# aliases to activate various k8s environments
+## aliases to activate various k8s environments
 if [[ -d "$HOME/.kube/configs" ]]; then
         for config in $(ls "${HOME}/.kube/configs"); do
                 alias k${config}="echo exporting KUBECONFIG=${HOME}/.kube/configs/${config} && export KUBECONFIG=${HOME}/.kube/configs/${config}"
@@ -54,6 +54,10 @@ if [[ -d "$HOME/.kube/configs" ]]; then
 fi
 
 # git
+## status
+alias gst="git status --short"
+alias gdiff="git diff"
+
 ## gh
 command -v gh &>/dev/null && source <(gh completion --shell bash)
 
