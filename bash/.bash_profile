@@ -10,7 +10,6 @@ shopt -s globstar
 
 # EXPORTS
 
-export EDITOR=vim
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
 export LANG="en_US.UTF-8"
@@ -25,6 +24,8 @@ export MANPAGER="less -X"
 export DOTFILES="$HOME/.dotfiles"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
 export BAT_THEME="GitHub"
+
+command -v nvim &>/dev/null && export EDITOR=nvim || export EDITOR=vim
 
 # SETTINGS
 
