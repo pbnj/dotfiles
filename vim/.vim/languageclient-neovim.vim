@@ -2,6 +2,13 @@
 " SETTINGS: Plugins > LanguageClient-neovim.nvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:LanguageClient_serverCommands = {
+      \ 'go': ['gopls'],
+      \ 'rust': ['rust-analyzer'],
+      \ 'Dockerfile': ['docker-langserver', '--stdio'],
+      \ 'sh': ['bash-language-server', 'start'],
+      \ 'yaml': ['yaml-language-server', '--stdio'],
+      \ }
 nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
