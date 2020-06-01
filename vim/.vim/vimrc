@@ -1,33 +1,18 @@
 set nocompatible
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
 " lsp
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-
-" completion
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-github'
-Plug 'ncm2/ncm2-gtags'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'SirVer/ultisnips'
-
-" git gutters
-Plug 'mhinz/vim-signify'
-
-" highlight yank
-Plug 'machakann/vim-highlightedyank'
 
 " formatters
 Plug 'sbdchd/neoformat'
+
+" makers
+Plug 'neomake/neomake'
 
 " test Runner
 Plug 'janko/vim-test'
@@ -68,13 +53,10 @@ Plug 'cespare/vim-toml'
 Plug 'tsandall/vim-rego'
 Plug 'towolf/vim-helm'
 Plug 'ekalinin/Dockerfile.vim'
-
 Plug 'plasticboy/vim-markdown'
-
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-
+Plug 'elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
+Plug 'neoclide/jsonc.vim'
 
 " colorschemes
 Plug 'flazz/vim-colorschemes'
@@ -85,145 +67,9 @@ filetype on        " Enable filetype detection
 filetype indent on " Enable filetype-specific indenting
 filetype plugin on " Enable filetype-specific plugins
 
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Appearance
-"""""""""""""""""""""""""""""""""""""""""
-
-" https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
-function! PrettyGutters() abort
-  highlight SignColumn cterm=NONE ctermbg=NONE ctermfg=NONE   gui=NONE guibg=NONE guifg=NONE
-  highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
-  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=Yellow gui=NONE guibg=NONE guifg=Orange
-  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=Red
-endfunction
-
-augroup MyColors
-  autocmd!
-  autocmd ColorScheme * call PrettyGutters()
-augroup END
-
-colorscheme default
-set background=light
-
-let loaded_netrwPlugin = 1 " Disable netrw plugin
-
-" neovim specific settings
-if has('nvim')
-  set inccommand=split
-  set termguicolors
-endif
-
-" set some options based on vim environment (e.g. tui, gui)
-if has("gui_running")
-  if has("gui_gtk")
-    set guifont=JetBrainsMono\ Nerd\ Font\ 11
-  elseif has("gui_macvim")
-    set guifont=JetBrainsMono\ Nerd\ Font:h11
-  elseif has("gui_win32")
-    set guifont=JetBrainsMono\ Nerd\ Font:h11:cANSI
-  endif
-endif
-
-" statusline
-
-set statusline=
-set statusline+=%F                        " file name
-set statusline+=%m                        " modified
-set statusline+=%r                        " read only
-set statusline+=%h                        " help
-set statusline+=%w                        " preview
-set statusline+=\ [%L]                    " number of lines
-set statusline+=[%{&ff}]                  " file format
-set statusline+=%y                        " syntax
-set statusline+=[%p%%]                    " percentage into file
-set statusline+=[%04l,%04v]               " current line & column
-set statusline+=\ %{FugitiveStatusline()} " git info
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Options
-"""""""""""""""""""""""""""""""""""""""""
-
-set autoindent
-set autoread
-set backspace=indent,eol,start
-set belloff=all
-set breakindent
-set cmdheight=2
-set colorcolumn=+1
-set completeopt=menu,noinsert,noselect
-set conceallevel=0
-set cursorline
-set display=lastline
-set encoding=utf-8
-set fileencoding=utf-8
-set formatoptions+=j                                      "  remove comment leader when joining lines
-set formatoptions+=n                                      "  when formatting text, recognize numbered lists
-set hidden
-set hlsearch
-set ignorecase
-set incsearch
-set infercase
-set laststatus=2
-set lazyredraw
-set linebreak
-set list
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set mouse=a
-set nobackup
-set nofoldenable
-set nomodeline
-set norelativenumber
-set nospell
-set noswapfile
-set novisualbell
-set nowrap
-set nowritebackup
-set number
-set path+=**
-set pumheight=10
-set ruler
-set shortmess+=c
-set showcmd
-set showmatch
-set showmode
-set signcolumn=yes
-set smartcase
-set smarttab
-set splitbelow
-set splitright
-set t_ut=""
-set tags+=tags
-set textwidth=79
-set ttyfast
-set undodir=$HOME/.vim/undo
-set undofile
-set updatetime=100
-set wildignorecase
-set wildmenu
-set wildmode=longest,full
-
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: General > Mappings
-""""""""""""""""""""""""""""""""""""""""
-
-" Misc
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-
-" Getting around
-nnoremap <Leader>b :b <C-d>
-nnoremap <Leader>e :e **/
-nnoremap <Leader>i :Ilist<space>
-nnoremap <Leader>j :tjump /
-nnoremap <Leader>m :make<cr>
-nnoremap <Leader>q :b#<cr>
-nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
-
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > FileTypes
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup general
   autocmd!
@@ -234,31 +80,34 @@ augroup general
   autocmd FileType json syntax match Comment +\/\/.\+$+
 augroup END
 
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: General > Functions/Commands
-""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SOURCES
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! GenTOC() abort
-  " npm i -g doctoc
-  silent ! doctoc --notitle %
-  silent ! prettier --write %
-  redraw!
-endfunction
-command! TOC :call GenTOC()
+" general > appearance
+source $HOME/.vim/appearance.vim
 
-" vim-go
+" general > options
+source $HOME/.vim/options.vim
+
+" general > mappings
+source $HOME/.vim/mappings.vim
+
+" general > functions & commands
+source $HOME/.vim/functions.vim
+
+" plugins > vim-go
 source $HOME/.vim/go.vim
 
-" vim-markdown
+" plugins > vim-markdown
 source $HOME/.vim/markdown.vim
 
-" vim-test
+" plugins > vim-test
 source $HOME/.vim/test.vim
 
-" coc.nvim
-" source $HOME/.vim/coc.vim
+" plugins > neomake
+source $HOME/.vim/neomake.vim
 
-" languageclient-neovim
-source $HOME/.vim/languageclient-neovim.vim
-source $HOME/.vim/signify.vim
-source $HOME/.vim/ncm2.vim
+" plugins > coc.nvim
+source $HOME/.vim/coc.vim
+

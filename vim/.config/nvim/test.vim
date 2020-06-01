@@ -1,1 +1,0 @@
-../../.vim/test.vim
