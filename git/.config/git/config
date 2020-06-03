@@ -81,5 +81,5 @@
 [credential]
 	helper = store
 
-[diff]
-	tool = vimdiff3
+[pull]
+	rebase = true
