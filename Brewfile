@@ -26,6 +26,7 @@ brew "vim"
 brew "watch"
 brew "yamllint"
 brew "yq"
+brew "git-delta"
 
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags"
