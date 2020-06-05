@@ -15,7 +15,11 @@ augroup MyColors
   autocmd ColorScheme * call GutterColors()
 augroup END
 
-colorscheme default
+syntax off          " disable vim syntax
+let g:syntax_on = 0 " disable vim-sensible syntax
+call GutterColors()
+
+" colorscheme default
 set background=light
 
 let loaded_netrwPlugin = 1 " Disable netrw plugin
