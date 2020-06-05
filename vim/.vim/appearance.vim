@@ -4,10 +4,13 @@
 
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! GutterColors() abort
-  highlight SignColumn cterm=NONE ctermbg=NONE ctermfg=NONE   gui=NONE guibg=NONE guifg=NONE
   highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
   highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=Yellow gui=NONE guibg=NONE guifg=Orange
   highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=Red
+
+  highlight LineNr     NONE
+  highlight SignColumn NONE
+
 endfunction
 
 augroup MyColors
@@ -17,6 +20,7 @@ augroup END
 
 syntax off          " disable vim syntax
 let g:syntax_on = 0 " disable vim-sensible syntax
+set t_Co=0          " tell vim to render 0 colors
 call GutterColors()
 
 " colorscheme default
