@@ -56,7 +56,7 @@ fi
 # git
 ## status
 alias gst="git status --short"
-alias gdiff="git diff"
+alias gd="git diff"
 
 ## gh
 command -v gh &>/dev/null && source <(gh completion --shell bash)
