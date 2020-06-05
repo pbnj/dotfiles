@@ -216,3 +216,9 @@ $RECYCLE.BIN/
 *.msp
 *.txz
 tmp/
+
+## My custom ignore rules
+
+TODO.md
+TODO.txt
+
