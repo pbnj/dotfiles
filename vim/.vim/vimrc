@@ -96,6 +96,9 @@ source $HOME/.vim/mappings.vim
 " general > functions & commands
 source $HOME/.vim/functions.vim
 
+" plugins > neoformat
+source $HOME/.vim/neoformat.vim
+
 " plugins > vim-go
 source $HOME/.vim/go.vim
 
