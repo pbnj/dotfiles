@@ -66,9 +66,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
-" colorschemes
-Plug 'flazz/vim-colorschemes'
-
 call plug#end()
 
 filetype on        " Enable filetype detection
