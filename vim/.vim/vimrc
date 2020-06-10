@@ -159,8 +159,8 @@ set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
-set formatoptions+=j                                      "  remove comment leader when joining lines
-set formatoptions+=n                                      "  when formatting text, recognize numbered lists
+set formatoptions+=j                                      " remove comment leader when joining lines
+set formatoptions+=n                                      " when formatting text, recognize numbered lists
 set hidden
 set hlsearch
 set ignorecase
@@ -181,6 +181,7 @@ set nospell
 set noswapfile
 set novisualbell
 set nowrap
+set nowrapscan                                            " stop searching at end of file. do not restart search from top
 set nowritebackup
 set path+=**
 set pumheight=10
@@ -194,7 +195,7 @@ set smartcase
 set smarttab
 set splitbelow
 set splitright
-set t_ut=""
+set t_ut=
 set tags+=tags
 set textwidth=79
 set ttyfast
