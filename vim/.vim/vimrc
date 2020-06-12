@@ -56,6 +56,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'hashivim/vim-hashicorp-tools'
 
 " languages
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'cespare/vim-toml'
@@ -78,7 +80,7 @@ filetype plugin on " Enable filetype-specific plugins
 
 augroup general
   autocmd!
-  autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby
+  autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm
         \ setlocal softtabstop=2 |
         \ setlocal shiftwidth=2  |
         \ setlocal expandtab
@@ -91,7 +93,7 @@ augroup END
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! GutterColors() abort
   highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
-  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=Yellow gui=NONE guibg=NONE guifg=Orange
+  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=DarkYellow
   highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=Red
 
   highlight LineNr     NONE
@@ -118,6 +120,8 @@ endif
 
 " set font for vim GUIs
 if has("gui_running")
+  set background=light
+
   if has("gui_gtk")
     set guifont=JetBrainsMono\ Nerd\ Font\ 11
   elseif has("gui_macvim")
@@ -125,6 +129,7 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=JetBrainsMono\ Nerd\ Font:h11:cANSI
   endif
+
 endif
 
 " statusline
@@ -147,7 +152,6 @@ set statusline+=\ %{FugitiveStatusline()} " git info
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -342,6 +346,11 @@ nnoremap <silent>K :call LanguageClient#textDocument_hover()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > signify
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:signify_sign_add               = '┃'
+let g:signify_sign_delete            = '┃'
+let g:signify_sign_delete_first_line = '┃'
+let g:signify_sign_change            = '┃'
 
 nnoremap <silent>gS :SignifyDiff<cr>
 nnoremap <silent>gs :SignifyHunkDiff<cr>
