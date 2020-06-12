@@ -23,6 +23,7 @@ export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 export DOTFILES="$HOME/.dotfiles"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_DEFAULT_OPTS="--color=bw"
 
 command -v nvim &>/dev/null && export EDITOR=nvim || export EDITOR=vim
 
