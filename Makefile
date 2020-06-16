@@ -1,19 +1,25 @@
-all: go rust node neovim
+.DEFAULT_GOAL := help
 
-go:
+.PHONY: help
+help: ## Print help
+	@grep -oh -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s	%s\n", $$1, $$2}'
+
+.PHONY: all
+all: go rust node neovim ## Run all tasks
+
+.PHONY: go
+go: ## Install go
 	./scripts/langs/go/gimme.sh
 
-rust:
+.PHONY: rust
+rust: ## Install rust
 	./scripts/langs/rust/install.sh
 
-node:
+.PHONY: node
+node: ## Install node.js
 	./scripts/langs/nvm/install.sh
 
-neovim:
+.PHONY: neovim
+neovim: ## Install neovim
 	./scripts/tools/neovim/install.sh
 
-themes:
-	mkdir -p $(CURDIR)/tmp/
-	git clone https://github.com/mbadolato/iTerm2-Color-Schemes $(CURDIR)/tmp/themes
-
-.PHONY: all neovim node rust go themes
