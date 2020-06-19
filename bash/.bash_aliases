@@ -61,6 +61,15 @@ alias gd="git diff"
 ## gh
 command -v gh &>/dev/null && source <(gh completion --shell bash)
 
+# vim
+alias vi=vim
+## use fuzzy finder to select & edit multiple files from current working directory
+alias vif='vim $(fzf -m)'
+## use fuzzy finder to select & edit multiple git files
+alias vig='vim $(git ls-files | fzf -m)'
+## use fuzzy finder to select & edit multiple git-modified files
+alias vis='vim $(git ls-files --modified | fzf -m)'
+
 # vault
 ## brew install vault
 if command -v vault &>/dev/null; then
