@@ -64,11 +64,11 @@ command -v gh &>/dev/null && source <(gh completion --shell bash)
 # vim
 alias vi=vim
 ## use fuzzy finder to select & edit multiple files from current working directory
-alias vif='vim $(fzf -m)'
+alias vif='vim $(fzf --multi)'
 ## use fuzzy finder to select & edit multiple git files
-alias vig='vim $(git ls-files | fzf -m)'
+alias vig='vim $(git ls-files | fzf --multi)'
 ## use fuzzy finder to select & edit multiple git-modified files
-alias vis='vim $(git ls-files --modified | fzf -m)'
+alias vis='vim $(git ls-files --modified | fzf --multi)'
 
 # vault
 ## brew install vault
