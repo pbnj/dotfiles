@@ -10,6 +10,10 @@ shopt -s globstar
 
 # EXPORTS
 
+export DOTFILES="$HOME/.dotfiles"
+export EDITOR=vim
+export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_DEFAULT_OPTS="--color=bw"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
 export LANG="en_US.UTF-8"
@@ -21,11 +25,6 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
-export DOTFILES="$HOME/.dotfiles"
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
-export FZF_DEFAULT_OPTS="--color=bw"
-
-command -v nvim &>/dev/null && export EDITOR=nvim || export EDITOR=vim
 
 # SETTINGS
 
@@ -48,8 +47,7 @@ function start_agent() {
 # Source SSH settings, if applicable
 if [ -f "${SSH_ENV}" ]; then
         . "${SSH_ENV}" >/dev/null
-        #ps ${SSH_AGENT_PID} doesn't work under cywgin
-        ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null || {
+        ps -ef | grep ${SSH_AGENT_PID} | grep -E "ssh-agent$" >/dev/null || {
                 start_agent
         }
 else
