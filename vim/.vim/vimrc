@@ -5,6 +5,9 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
+" auto-resize windows
+Plug 'roman/golden-ratio'
+
 " lsp
 Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
