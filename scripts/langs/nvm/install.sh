@@ -8,4 +8,5 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
 source $HOME/.nvm/nvm.sh
 
 nvm install --lts
-npm i -g npm@latest
+
+npm i -g npm@latest prettier doctoc git-open
