@@ -12,8 +12,7 @@ shopt -s globstar
 
 export DOTFILES="$HOME/.dotfiles"
 export EDITOR=vim
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
-export FZF_DEFAULT_OPTS="--color=bw"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob='!.git' --sort=path"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
 export LANG="en_US.UTF-8"

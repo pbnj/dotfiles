@@ -1,5 +1,14 @@
 {
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "go",
+    "yaml",
+    "json",
+    "tf",
+    "hcl",
+    "tfvars",
+    "ruby"
+  ],
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "codeLens.enable": true,
@@ -40,5 +49,5 @@
       "filetypes": ["tf", "terraform"]
     }
   }
-
 }
+

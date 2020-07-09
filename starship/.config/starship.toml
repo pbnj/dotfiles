@@ -24,6 +24,7 @@ prompt_order = [
 	"battery",
 	"memory_usage",
 	"jobs",
+	"cmd_duration",
 	"line_break",
 	"character",
 ]

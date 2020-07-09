@@ -1,81 +1,97 @@
 [alias]
 
-	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+# View abbreviated SHA, description, and history graph of the latest 20 commits
+l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
-	# View the current working tree status using the short format
-	s = status -s
+# View the current working tree status using the short format
+s = status -s
 
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+# Show the diff between the latest commit and the current state
+d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+# `git di $number` shows the diff between the state `$number` revisions ago and the current state
+di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
-	# Color graph log view
-	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
+# Color graph log view
+graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
 
-	# Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
+# Show verbose output about tags, branches or remotes
+tags = tag -l
+branches = branch -a
+remotes = remote -v
 
-	# List contributors with number of commits
-	contributors = shortlog --summary --numbered
+# List contributors with number of commits
+contributors = shortlog --summary --numbered
 
-	# Codereview aliases
-	change = codereview change
-	gofmt = codereview gofmt
-	mail = codereview mail
-	pending = codereview pending
-	submit = codereview submit
-	sync = codereview sync
+# Codereview aliases
+change = codereview change
+gofmt = codereview gofmt
+mail = codereview mail
+pending = codereview pending
+submit = codereview submit
+sync = codereview sync
 
-	# from seth vargo https://gist.github.com/sethvargo/6b2f7b592853381690bfe3bd00947e8f
-	unreleased = "!f() { git fetch --tags && git diff $(git tag | tail -n 1); }; f"
-	up = !git pull origin master && git remote prune origin && git submodule update --init --recursive
-	undo = !git reset HEAD~1 --mixed
-	top = !git log --format=format:%an | sort | uniq -c | sort -r | head -n 20
+# from seth vargo https://gist.github.com/sethvargo/6b2f7b592853381690bfe3bd00947e8f
+unreleased = "!f() { git fetch --tags && git diff $(git tag | tail -n 1); }; f"
+up = !git pull origin master && git remote prune origin && git submodule update --init --recursive
+undo = !git reset HEAD~1 --mixed
+top = !git log --format=format:%an | sort | uniq -c | sort -r | head -n 20
 
-	# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
-	alias=!git config -l | grep ^alias | cut -c 7- | sort
+# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
+alias=!git config -l | grep ^alias | cut -c 7- | sort
 
 [apply]
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+# Detect whitespace errors when applying a patch
+whitespace = fix
+
 [core]
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.config/git/.gitignore
-	attributesfile = ~/.config/git/.gitattributes
+# Use custom `.gitignore` and `.gitattributes`
+excludesfile = ~/.config/git/.gitignore
+attributesfile = ~/.config/git/.gitattributes
 
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+# Treat spaces before tabs and all kinds of trailing whitespace as an error
+# [default] trailing-space: looks for spaces at the end of a line
+# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-	# Make `git rebase` safer on OS X
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-	trustctime = false
+# Make `git rebase` safer on OS X
+# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+trustctime = false
 
 [color]
-	ui = auto
+ui = auto
+
+[diff]
+tool = vscode
+
+[difftool]
+prompt = false
+
+[difftool "vscode"]
+cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+tool = vscode
+
+[mergetool "vscode"]
+cmd = code --wait $MERGED
 
 [push]
-	default = simple
+default = simple
 
 [hub]
-	host = github.com
-	protocol = https
+host = github.com
+protocol = https
 
 [user]
-	name = Peter Benjamin
-	email = petermbenjamin@gmail.com
+name = Peter Benjamin
+email = petermbenjamin@gmail.com
 
 [credential "https://github.com"]
-	username = pbnj
+username = pbnj
 
 [credential]
-	helper = store
+helper = store
 
 [pull]
-	rebase = true
+rebase = true
