@@ -65,9 +65,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
-" colorschemes
-Plug 'flazz/vim-colorschemes'
-
 call plug#end()
 
 filetype on        " Enable filetype detection
@@ -90,11 +87,22 @@ augroup END
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_invert_selection = '0'
+" https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
+function! GutterColors() abort
+  highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=DarkGreen  gui=NONE guibg=NONE guifg=Green
+  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=Yellow
+  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=DarkRed    gui=NONE guibg=NONE guifg=Red
 
-let loaded_netrwPlugin = 1 " Disable netrw plugin
+  highlight LineNr     NONE
+  highlight SignColumn NONE
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call GutterColors()
+augroup END
+
+colorscheme default
 
 " neovim specific settings
 if has('nvim')
