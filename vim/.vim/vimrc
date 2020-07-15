@@ -92,25 +92,24 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox
 let g:gruvbox_invert_selection = 0
 
-" " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
-" function! GutterColors() abort
-  " highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=DarkGreen  gui=NONE guibg=NONE guifg=Green
-  " highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=Yellow
-  " highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=DarkRed    gui=NONE guibg=NONE guifg=Red
+" https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
+function! GutterColors() abort
+  highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
+  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=Yellow gui=NONE guibg=NONE guifg=Yellow
+  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=Red
 
-  " highlight LineNr     NONE
-  " highlight SignColumn NONE
-" endfunction
+  highlight LineNr     NONE
+  highlight SignColumn NONE
+endfunction
 
-" augroup MyColors
-  " autocmd!
-  " autocmd ColorScheme * call GutterColors()
-" augroup END
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call GutterColors()
+augroup END
 
-" colorscheme default
+colorscheme gruvbox
 
 " neovim specific settings
 if has('nvim')
