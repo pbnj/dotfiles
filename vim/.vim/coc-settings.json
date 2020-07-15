@@ -1,4 +1,6 @@
 {
+  "coc.preferences.enableFloatHighlight": false,
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "markdown",
     "go",
@@ -9,11 +11,36 @@
     "tfvars",
     "ruby"
   ],
-  "coc.preferences.enableFloatHighlight": false,
-  "coc.preferences.extensionUpdateCheck": "daily",
   "codeLens.enable": true,
   "git.addGBlameToVirtualText": true,
   "git.enableGutters": true,
+  "git.gitlab.hosts": ["gitlab.com", "gitlab.zeta.tools"],
+  "languageserver": {
+    "bash": {
+      "args": ["start"],
+      "command": "bash-language-server",
+      "filetypes": ["sh", "bash"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dockerfile": {
+      "args": ["--stdio"],
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile", "Dockerfile"]
+    },
+    "golang": {
+      "command": "gopls",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "completeUnimported": true,
+        "usePlaceholders": true
+      },
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["tf", "terraform"]
+    }
+  },
   "suggest.autoTrigger": "always",
   "suggest.defaultSortMethod": "alphabetical",
   "suggest.floatEnable": true,
@@ -21,33 +48,5 @@
   "yaml.completion": true,
   "yaml.hover": true,
   "yaml.schemas": { "kubernetes": ["/kubernetes/*.yaml"] },
-  "yaml.validate": true,
-
-  "languageserver": {
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile", "Dockerfile"],
-      "args": ["--stdio"]
-    },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true,
-        "completeUnimported": true
-      }
-    },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh", "bash"],
-      "ignoredRootPaths": ["~"]
-    },
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["tf", "terraform"]
-    }
-  }
+  "yaml.validate": true
 }
-

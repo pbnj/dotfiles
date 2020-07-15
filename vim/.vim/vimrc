@@ -37,17 +37,21 @@ Plug 'godlygeek/tabular'
 Plug 'airblade/vim-rooter'
 
 " commenter
-Plug 'preservim/nerdcommenter'
-let g:NERDSpaceDelims = 1
+Plug 'preservim/nerdcommenter' | let g:NERDSpaceDelims = 1
 
 " tpope
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+" Plug 'ciaranm/detectindent' " alternative to vim-sleuth
 
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
@@ -65,6 +69,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 filetype on        " Enable filetype detection
@@ -75,34 +80,37 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: General > FileTypes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-augroup general
-  autocmd!
-  autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2  |
-        \ setlocal expandtab
-augroup END
+" augroup general
+  " autocmd!
+  " autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm
+        " \ setlocal softtabstop=2 |
+        " \ setlocal shiftwidth=2  |
+        " \ setlocal expandtab
+" augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
-function! GutterColors() abort
-  highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=DarkGreen  gui=NONE guibg=NONE guifg=Green
-  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=Yellow
-  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=DarkRed    gui=NONE guibg=NONE guifg=Red
+colorscheme gruvbox
+let g:gruvbox_invert_selection = 0
 
-  highlight LineNr     NONE
-  highlight SignColumn NONE
-endfunction
+" " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
+" function! GutterColors() abort
+  " highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=DarkGreen  gui=NONE guibg=NONE guifg=Green
+  " highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=Yellow
+  " highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=DarkRed    gui=NONE guibg=NONE guifg=Red
 
-augroup MyColors
-  autocmd!
-  autocmd ColorScheme * call GutterColors()
-augroup END
+  " highlight LineNr     NONE
+  " highlight SignColumn NONE
+" endfunction
 
-colorscheme default
+" augroup MyColors
+  " autocmd!
+  " autocmd ColorScheme * call GutterColors()
+" augroup END
+
+" colorscheme default
 
 " neovim specific settings
 if has('nvim')
@@ -286,63 +294,6 @@ nnoremap <leader>TS :TestSuite<CR>
 nnoremap <leader>TV :TestVisit<CR>
 let test#strategy = "dispatch"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > neomake
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:neomake_open_list = 0 " do not auto open QF/LOC drawer
-
-" call neomake#configure#automake('w')
-
-" set statusline+=\ %{neomake#statusline#QflistStatus('QF:\ ')}
-" set statusline+=\ %{neomake#statusline#LoclistStatus('LOC:\ ')}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > LanguageClient-neovim.nvim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" npm i -g dockerfile-language-server-nodejs
-" npm i -g bash-language-server
-" npm i -g yaml-language-server
-" npm i -g vim-language-server
-
-" let g:LanguageClient_serverCommands = {
-      " \ 'go': ['gopls'],
-      " \ 'rust': ['rust-analyzer'],
-      " \ 'Dockerfile': ['docker-langserver', '--stdio'],
-      " \ 'sh': ['bash-language-server', 'start'],
-      " \ 'yaml': ['yaml-language-server', '--stdio'],
-      " \ 'vim': ['vim-language-server', '--stdio'],
-      " \ }
-
-" nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-" nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-" nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-" nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-" nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-" nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-" nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-" nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-
-" nnoremap <silent>gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent>gr :call LanguageClient#textDocument_references()<CR>
-" nnoremap <silent>gy :call LanguageClient#textDocument_typeDefinition()<CR>
-" nnoremap <silent>go :call LanguageClient_textDocument_documentSymbol()<CR>
-" nnoremap <silent>K :call LanguageClient#textDocument_hover()<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > signify
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:signify_sign_add               = '+'
-" let g:signify_sign_delete            = '-'
-" let g:signify_sign_delete_first_line = '-'
-" let g:signify_sign_change            = '~'
-
-" nnoremap <silent>gS :SignifyDiff<cr>
-" nnoremap <silent>gs :SignifyHunkDiff<cr>
-
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > coc.nvim
 """"""""""""""""""""""""""""""""""""""""
@@ -367,7 +318,6 @@ let g:coc_global_extensions = [
       \ 'coc-rust-analyzer',
       \ 'coc-snippets',
       \ 'coc-solargraph',
-      \ 'coc-sql',
       \ 'coc-syntax',
       \ 'coc-tsserver',
       \ 'coc-vimlsp',
