@@ -213,6 +213,16 @@ set wildmode=longest,full
 " SETTINGS: General > Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
 " Misc
 nnoremap j gj
 nnoremap k gk
@@ -255,17 +265,17 @@ command! StripTrailingWhitespace :call StripTrailingWhitespace()
 " SETTINGS: Plugins > neoformat
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:neoformat_basic_format_trim  = 1
-let g:neoformat_try_formatprg      = 1
-let g:neoformat_run_all_formatters = 1
+" let g:neoformat_basic_format_trim  = 1
+" let g:neoformat_try_formatprg      = 1
+" let g:neoformat_run_all_formatters = 1
 
-" opa
-let g:neoformat_rego_opa     = {
-      \ 'exe': 'opa',
-      \ 'args': ['fmt'],
-      \ 'stdin': 1,
-      \ }
-let g:neoformat_enabled_rego = ['opa']
+" " opa
+" let g:neoformat_rego_opa     = {
+      " \ 'exe': 'opa',
+      " \ 'args': ['fmt'],
+      " \ 'stdin': 1,
+      " \ }
+" let g:neoformat_enabled_rego = ['opa']
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > vim-go
