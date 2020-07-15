@@ -47,9 +47,10 @@ if command -v helm &>/dev/null; then
 fi
 
 ## aliases to activate various k8s environments
+alias kcfg='export KUBECONFIG=$(find ${HOME}/.kube/configs -exec realpath {} \; | fzf)'
 if [[ -d "$HOME/.kube/configs" ]]; then
         for config in $(ls "${HOME}/.kube/configs"); do
-                alias k${config}="echo exporting KUBECONFIG=${HOME}/.kube/configs/${config} && export KUBECONFIG=${HOME}/.kube/configs/${config}"
+                alias kcfg-${config}="export KUBECONFIG=${HOME}/.kube/configs/${config}"
         done
 fi
 
