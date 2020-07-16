@@ -132,19 +132,19 @@ endif
 
 set statusline=
 set statusline+=%#CursorColumn#
-set statusline+=%F\                                           " file name
-set statusline+=%m                                            " modified?
-set statusline+=%r                                            " read only?
-set statusline+=%h                                            " help?
-set statusline+=%w                                            " preview?
+set statusline+=%F\                                         " file name
+set statusline+=%m                                          " modified?
+set statusline+=%r                                          " read only?
+set statusline+=%h                                          " help?
+set statusline+=%w                                          " preview?
 set statusline+=%#PMenuSel#
-set statusline+=%{FugitiveStatusline()}                       " git info
+set statusline+=%{FugitiveStatusline()}                     " git info
 set statusline+=%#CursorColumn#
-set statusline+=[%{&ff}]                                      " file format
-set statusline+=%y                                            " syntax
-set statusline+=[line:\ %l/%L\ (%p%%)]                        " current line / total # lines (% into file)
-set statusline+=[col:\ %04v]                                  " current line & column
-set statusline+=[ts/sts/sw/et:\ %{&ts}/%{&sts}/%{&sw}/%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
+set statusline+=[%{&ff}]                                    " file format
+set statusline+=%y                                          " syntax
+set statusline+=[line:%l/%L\ (%p%%)]                        " current line / total # lines (% into file)
+set statusline+=[col:%04v]                                  " current line & column
+set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
