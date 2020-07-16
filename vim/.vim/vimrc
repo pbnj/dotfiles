@@ -109,7 +109,8 @@ augroup MyColors
   autocmd ColorScheme * call GutterColors()
 augroup END
 
-colorscheme gruvbox
+colorscheme Tomorrow
+set background=light
 
 " neovim specific settings
 if has('nvim')
@@ -131,20 +132,19 @@ endif
 " statusline
 
 set statusline=
-set statusline+=%#CursorColumn#
+set statusline+=%#CursorColumn#                             " color of statusline
+set statusline+=[%n]\                                       " buffer number
 set statusline+=%F\                                         " file name
 set statusline+=%m                                          " modified?
 set statusline+=%r                                          " read only?
 set statusline+=%h                                          " help?
 set statusline+=%w                                          " preview?
-set statusline+=%#PMenuSel#
-set statusline+=%{FugitiveStatusline()}                     " git info
-set statusline+=%#CursorColumn#
 set statusline+=[%{&ff}]                                    " file format
 set statusline+=%y                                          " syntax
+set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
 set statusline+=[line:%l/%L\ (%p%%)]                        " current line / total # lines (% into file)
 set statusline+=[col:%04v]                                  " current line & column
-set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
+set statusline+=\ %{FugitiveStatusline()}                   " git info
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -152,7 +152,6 @@ set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabsto
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
