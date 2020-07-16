@@ -1,20 +1,14 @@
 {
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "markdown",
-    "go",
-    "yaml",
-    "json",
-    "tf",
-    "hcl",
-    "tfvars",
-    "ruby"
-  ],
   "codeLens.enable": true,
   "git.addGBlameToVirtualText": true,
+  "git.addedSign.text": "▌",
+  "git.changeRemovedSign.text": "▌",
+  "git.changedSign.text": "▌",
   "git.enableGutters": true,
-  "git.gitlab.hosts": ["gitlab.com", "gitlab.zeta.tools"],
+  "git.removedSign.text": "▌",
+  "git.topRemovedSign.text": "▌",
   "languageserver": {
     "bash": {
       "args": ["start"],

@@ -208,6 +208,10 @@ set wildignorecase
 set wildmenu
 set wildmode=longest,full
 
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --hidden\ --iglob='!.git'
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -243,7 +247,7 @@ nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 function! GenTOC() abort
   " npm i -g doctoc
-  silent ! doctoc --notitle %
+  silent ! doctoc --title "\#\# Table of Contents" %
   redraw!
 endfunction
 command! TOC :call GenTOC()
@@ -349,6 +353,7 @@ function! CocStatusDiagnostic() abort
 endfunction
 
 set statusline+=\ %{CocStatusDiagnostic()}
+" set statusline+=\ %{coc#status()}
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -367,7 +372,11 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+if has('nvim')
+  inoremap <silent><expr> <C-space> coc#refresh()
+else
+  inoremap <silent><expr> <C-@> coc#refresh()
+endif
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -452,12 +461,13 @@ command! -nargs=? Fold   :call CocAction('fold', <f-args>)
 command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Mappings using CoCList:
-nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>l  :<C-u>CocList<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 
