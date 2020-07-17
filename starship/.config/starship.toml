@@ -59,6 +59,7 @@ show_percentage = true
 show_swap = false
 threshold = 0
 symbol = " "
+style = "dimmed"
 
 [git_branch]
 symbol = " "
