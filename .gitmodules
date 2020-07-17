@@ -94,3 +94,6 @@
 [submodule "vim/.vim/pack/pbnj/start/vim-signify"]
 	path = vim/.vim/pack/pbnj/start/vim-signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "vim/.vim/pack/pbnj/start/vim-colorschemes"]
+	path = vim/.vim/pack/pbnj/start/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes
