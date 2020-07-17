@@ -97,3 +97,6 @@
 [submodule "vim/.vim/pack/pbnj/start/vim-colorschemes"]
 	path = vim/.vim/pack/pbnj/start/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes
+[submodule "vim/.vim/pack/pbnj/start/fzf"]
+	path = vim/.vim/pack/pbnj/start/fzf
+	url = https://github.com/junegunn/fzf
