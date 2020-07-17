@@ -52,11 +52,11 @@ install-deps: apt-update ## Install dependencies. Must run manually first.
 		ca-certificates \
 		curl \
 		git \
+		neovim \
+		python3-neovim \
 		stow \
 		tmux \
-		vim \
-		neovim \
-		python3-neovim
+		vim
 
 ################################################################################
 # STOW
