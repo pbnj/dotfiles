@@ -81,6 +81,9 @@ if command -v vault &>/dev/null; then
         complete -C /usr/local/bin/vault v
 fi
 
+# FZF
+alias fzfp="fzf --preview='cat {}'"
+
 # Linux
 if command -v apt &>/dev/null; then
         alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
