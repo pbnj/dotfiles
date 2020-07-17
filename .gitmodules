@@ -1,0 +1,3 @@
+[submodule "vim/.vim/pack/pbnj/start/vim-sensible"]
+	path = vim/.vim/pack/pbnj/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible
