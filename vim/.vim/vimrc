@@ -1,76 +1,13 @@
 set nocompatible
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS
+" PLUGINS under .vim/pack/pbnj/start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
-
-" auto-resize windows
-Plug 'roman/golden-ratio'
-
-" lsp
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" highlight yank
-Plug 'machakann/vim-highlightedyank'
-
-" formatters
-Plug 'sbdchd/neoformat'
-
-" makers
-Plug 'neomake/neomake'
-
-" test Runner
-Plug 'janko/vim-test'
-
-" tmux
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
-" fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" align
-Plug 'godlygeek/tabular'
-
-" change root dir
-Plug 'airblade/vim-rooter'
-
 " commenter
-Plug 'preservim/nerdcommenter' | let g:NERDSpaceDelims = 1
-
-" tpope
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-" Plug 'ciaranm/detectindent' " alternative to vim-sleuth
-
-" hashicorp tools
-Plug 'hashivim/vim-hashicorp-tools'
+let g:NERDSpaceDelims = 1
 
 " languages
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'rust-lang/rust.vim'
-Plug 'stephpy/vim-yaml'
-Plug 'cespare/vim-toml'
-Plug 'tsandall/vim-rego'
-Plug 'towolf/vim-helm'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'elzr/vim-json' | let g:vim_json_syntax_conceal = 0
-Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
-
-Plug 'flazz/vim-colorschemes'
-call plug#end()
+let g:vim_json_syntax_conceal = 0
 
 filetype on        " Enable filetype detection
 filetype indent on " Enable filetype-specific indenting
@@ -92,8 +29,6 @@ filetype plugin on " Enable filetype-specific plugins
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:gruvbox_invert_selection = 0
-
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! GutterColors() abort
   highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
@@ -109,7 +44,7 @@ augroup MyColors
   autocmd ColorScheme * call GutterColors()
 augroup END
 
-colorscheme Tomorrow
+colorscheme default
 set background=light
 
 " neovim specific settings
@@ -132,9 +67,8 @@ endif
 " statusline
 
 set statusline=
-set statusline+=%#CursorColumn#                             " color of statusline
 set statusline+=[%n]\                                       " buffer number
-set statusline+=%F\                                         " file name
+set statusline+=%f\                                         " file name
 set statusline+=%m                                          " modified?
 set statusline+=%r                                          " read only?
 set statusline+=%h                                          " help?
@@ -142,7 +76,7 @@ set statusline+=%w                                          " preview?
 set statusline+=[%{&ff}]                                    " file format
 set statusline+=%y                                          " syntax
 set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-set statusline+=[line:%l/%L\ (%p%%)]                        " current line / total # lines (% into file)
+set statusline+=[line:%03l/%L\ (%p%%)]                        " current line / total # lines (% into file)
 set statusline+=[col:%04v]                                  " current line & column
 set statusline+=\ %{FugitiveStatusline()}                   " git info
 
@@ -355,8 +289,8 @@ function! CocStatusDiagnostic() abort
   return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 endfunction
 
-set statusline+=\ %{CocStatusDiagnostic()}
-" set statusline+=\ %{coc#status()}
+" set statusline+=\ %{CocStatusDiagnostic()}
+set statusline+=\ %{coc#status()}
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
