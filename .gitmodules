@@ -1,6 +1,0 @@
-[submodule "vim/.vim/pack/pbnj/start/vim-colorschemes"]
-	path = vim/.vim/pack/pbnj/start/vim-colorschemes
-	url = https://github.com/flazz/vim-colorschemes
-[submodule "vim/.vim/pack/pbnj/opt/minpac"]
-	path = vim/.vim/pack/pbnj/opt/minpac
-	url = https://github.com/k-takata/minpac.git
