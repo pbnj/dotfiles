@@ -1,3 +1,33 @@
 [submodule "vim/.vim/pack/pbnj/start/vim-sensible"]
 	path = vim/.vim/pack/pbnj/start/vim-sensible
 	url = https://github.com/tpope/vim-sensible
+[submodule "vim/.vim/pack/pbnj/start/vim-fugitive"]
+	path = vim/.vim/pack/pbnj/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/.vim/pack/pbnj/start/vim-dadbod"]
+	path = vim/.vim/pack/pbnj/start/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
+[submodule "vim/.vim/pack/pbnj/start/vim-dispatch"]
+	path = vim/.vim/pack/pbnj/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "vim/.vim/pack/pbnj/start/vim-eunuch"]
+	path = vim/.vim/pack/pbnj/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/.vim/pack/pbnj/start/vim-jdaddy"]
+	path = vim/.vim/pack/pbnj/start/vim-jdaddy
+	url = https://github.com/tpope/vim-jdaddy
+[submodule "vim/.vim/pack/pbnj/start/vim-rhubarb"]
+	path = vim/.vim/pack/pbnj/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "vim/.vim/pack/pbnj/start/vim-sleuth"]
+	path = vim/.vim/pack/pbnj/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "vim/.vim/pack/pbnj/start/vim-surround"]
+	path = vim/.vim/pack/pbnj/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim/.vim/pack/pbnj/start/vim-unimpaired"]
+	path = vim/.vim/pack/pbnj/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim/.vim/pack/pbnj/start/vim-vinegar"]
+	path = vim/.vim/pack/pbnj/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
