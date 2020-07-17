@@ -31,3 +31,66 @@
 [submodule "vim/.vim/pack/pbnj/start/vim-vinegar"]
 	path = vim/.vim/pack/pbnj/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule "vim/.vim/pack/pbnj/start/vim-hashicorp-tools"]
+	path = vim/.vim/pack/pbnj/start/vim-hashicorp-tools
+	url = https://github.com/hashivim/vim-hashicorp-tools
+[submodule "vim/.vim/pack/pbnj/start/vim-ruby"]
+	path = vim/.vim/pack/pbnj/start/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby
+[submodule "vim/.vim/pack/pbnj/start/vim-rails"]
+	path = vim/.vim/pack/pbnj/start/vim-rails
+	url = https://github.com/tpope/vim-rails
+[submodule "vim/.vim/pack/pbnj/start/rust.vim"]
+	path = vim/.vim/pack/pbnj/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim/.vim/pack/pbnj/start/vim-yaml"]
+	path = vim/.vim/pack/pbnj/start/vim-yaml
+	url = https://github.com/stephpy/vim-yaml
+[submodule "vim/.vim/pack/pbnj/start/vim-toml"]
+	path = vim/.vim/pack/pbnj/start/vim-toml
+	url = https://github.com/cespare/vim-toml
+[submodule "vim/.vim/pack/pbnj/start/vim-rego"]
+	path = vim/.vim/pack/pbnj/start/vim-rego
+	url = https://github.com/tsandall/vim-rego
+[submodule "vim/.vim/pack/pbnj/start/vim-helm"]
+	path = vim/.vim/pack/pbnj/start/vim-helm
+	url = https://github.com/towolf/vim-helm
+[submodule "vim/.vim/pack/pbnj/start/Dockerfile.vim"]
+	path = vim/.vim/pack/pbnj/start/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim
+[submodule "vim/.vim/pack/pbnj/start/vim-markdown"]
+	path = vim/.vim/pack/pbnj/start/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/.vim/pack/pbnj/start/vim-json"]
+	path = vim/.vim/pack/pbnj/start/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "vim/.vim/pack/pbnj/start/vim-go"]
+	path = vim/.vim/pack/pbnj/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule "vim/.vim/pack/pbnj/start/nerdcommenter"]
+	path = vim/.vim/pack/pbnj/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter
+[submodule "vim/.vim/pack/pbnj/start/vim-rooter"]
+	path = vim/.vim/pack/pbnj/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter
+[submodule "vim/.vim/pack/pbnj/start/tabular"]
+	path = vim/.vim/pack/pbnj/start/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "vim/.vim/pack/pbnj/start/fzf.vim"]
+	path = vim/.vim/pack/pbnj/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/.vim/pack/pbnj/start/vim-tmux-focus-events"]
+	path = vim/.vim/pack/pbnj/start/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events
+[submodule "vim/.vim/pack/pbnj/start/vim-test"]
+	path = vim/.vim/pack/pbnj/start/vim-test
+	url = https://github.com/janko/vim-test
+[submodule "vim/.vim/pack/pbnj/start/golden-ratio"]
+	path = vim/.vim/pack/pbnj/start/golden-ratio
+	url = https://github.com/roman/golden-ratio
+[submodule "vim/.vim/pack/pbnj/start/vim-highlightedyank"]
+	path = vim/.vim/pack/pbnj/start/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank
+[submodule "vim/.vim/pack/pbnj/start/vim-signify"]
+	path = vim/.vim/pack/pbnj/start/vim-signify
+	url = https://github.com/mhinz/vim-signify
