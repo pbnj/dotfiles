@@ -58,6 +58,7 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 Plug 'flazz/vim-colorschemes'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -93,7 +94,7 @@ filetype plugin on " Enable filetype-specific plugins
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! GutterColors() abort
   highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
-  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=Yellow gui=NONE guibg=NONE guifg=Yellow
+  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=DarkYellow
   highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=Red
 
   highlight LineNr     NONE
@@ -127,20 +128,56 @@ endif
 
 " statusline
 
-set statusline=
-set statusline+=%#CursorColumn#
-set statusline+=[%n]\                                       " buffer number
-set statusline+=%f\                                         " file name
-set statusline+=%m                                          " modified?
-set statusline+=%r                                          " read only?
-set statusline+=%h                                          " help?
-set statusline+=%w                                          " preview?
-set statusline+=[%{&ff}]                                    " file format
-set statusline+=%y                                          " syntax
-set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-set statusline+=[line:%03l/%L\ (%p%%)]                        " current line / total # lines (% into file)
-set statusline+=[col:%04v]                                  " current line & column
-set statusline+=\ %{FugitiveStatusline()}                   " git info
+" set statusline=
+" set statusline+=%#CursorColumn#
+" set statusline+=[%n]\                                       " buffer number
+" set statusline+=%f\                                         " file name
+" set statusline+=%m                                          " modified?
+" set statusline+=%r                                          " read only?
+" set statusline+=%h                                          " help?
+" set statusline+=%w                                          " preview?
+" set statusline+=[%{&ff}]                                    " file format
+" set statusline+=%y                                          " syntax
+" set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
+" set statusline+=[line:%03l/%L\ (%p%%)]                        " current line / total # lines (% into file)
+" set statusline+=[col:%04v]                                  " current line & column
+" set statusline+=\ %{FugitiveStatusline()}                   " git info
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'filename', 'readonly', 'modified', 'git', 'diagnostic' ] ],
+      \   'right':[
+      \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+      \     [ 'blame' ] ],
+      \ },
+      \ 'component_function': {
+      \   'git': 'CocGit',
+      \   'diagnostic': 'CocStatusDiagnostic',
+      \   'blame': 'CocBlame',
+      \ },
+      \ }
+
+function! CocGit() abort
+  return get(g:, 'coc_git_status', '')
+endfunction
+
+function! CocBlame() abort
+  return get(b:, 'coc_git_blame', '')
+endfunction
+
+function! CocStatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -322,20 +359,8 @@ let g:coc_global_extensions = [
       \ ]
 
 " statusline
-function! CocStatusDiagnostic() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) | return '' | endif
-  let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, 'E' . info['error'])
-  endif
-  if get(info, 'warning', 0)
-    call add(msgs, 'W' . info['warning'])
-  endif
-  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
-endfunction
 
-set statusline+=\ %{CocStatusDiagnostic()}
+" set statusline+=\ %{CocStatusDiagnostic()}
 " set statusline+=\ %{coc#status()}
 
 " Use tab for trigger completion with characters ahead and navigate.

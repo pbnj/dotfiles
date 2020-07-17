@@ -2,7 +2,6 @@
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "codeLens.enable": true,
-  "git.addGBlameToVirtualText": true,
   "git.enableGutters": true,
   "languageserver": {
     "bash": {
