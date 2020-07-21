@@ -61,10 +61,8 @@ fi
 ## GO
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -f "$HOME/.gimme/envs/latest.env" ]] && source "$HOME/.gimme/envs/latest.env"
-if [[ -d "$HOME/go" ]]; then
-        export GOPATH="${HOME}/go"
-        export PATH="${GOPATH}/bin:${PATH}"
-fi
+export GOPATH="${HOME}/go"
+export PATH="${GOPATH}/bin:${PATH}"
 
 ## CARGO
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

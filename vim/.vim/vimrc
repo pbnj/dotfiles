@@ -19,13 +19,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " align
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
+Plug 'tommcdo/vim-lion'
 
 " change root dir
 Plug 'airblade/vim-rooter'
 
-" commenter
-Plug 'preservim/nerdcommenter'
+" text objects
+Plug 'wellle/targets.vim'
 
 " tpope
 Plug 'tpope/vim-dadbod'
@@ -39,10 +40,16 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-commentary'
 " Plug 'ciaranm/detectindent' " alternative to vim-sleuth
 
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
+
+" tags
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'tomtom/ttags_vim'
 
 " languages
 Plug 'vim-ruby/vim-ruby'
@@ -58,22 +65,22 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 Plug 'flazz/vim-colorschemes'
-Plug 'itchyny/lightline.vim'
 
 call plug#end()
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS under .vim/pack/pbnj/start
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" commenter
-let g:NERDSpaceDelims = 1
-
-" languages
-let g:vim_json_syntax_conceal = 0
 
 filetype on        " Enable filetype detection
 filetype indent on " Enable filetype-specific indenting
 filetype plugin on " Enable filetype-specific plugins
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: PLUGINS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" languages
+let g:vim_json_syntax_conceal = 0
+
+" lion
+let g:lion_squeeze_spaces = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > FileTypes
@@ -128,42 +135,25 @@ endif
 
 " statusline
 
-" set statusline=
-" set statusline+=%#CursorColumn#
-" set statusline+=[%n]\                                       " buffer number
-" set statusline+=%f\                                         " file name
-" set statusline+=%m                                          " modified?
-" set statusline+=%r                                          " read only?
-" set statusline+=%h                                          " help?
-" set statusline+=%w                                          " preview?
-" set statusline+=[%{&ff}]                                    " file format
-" set statusline+=%y                                          " syntax
-" set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-" set statusline+=[line:%03l/%L\ (%p%%)]                        " current line / total # lines (% into file)
-" set statusline+=[col:%04v]                                  " current line & column
+set statusline=
+set statusline+=%#CursorColumn#
+set statusline+=[%n]\                                       " buffer number
+set statusline+=%f\                                         " file name
+set statusline+=%m                                          " modified?
+set statusline+=%r                                          " read only?
+set statusline+=%h                                          " help?
+set statusline+=%w                                          " preview?
+set statusline+=[%{&ff}]                                    " file format
+set statusline+=%y                                          " syntax
+set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
+set statusline+=[line:%03l/%L\ (%p%%)]                        " current line / total # lines (% into file)
+set statusline+=[col:%04v]                                  " current line & column
 " set statusline+=\ %{FugitiveStatusline()}                   " git info
-
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename', 'readonly', 'modified', 'git', 'diagnostic' ] ],
-      \   'right':[
-      \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-      \     [ 'blame' ] ],
-      \ },
-      \ 'component_function': {
-      \   'git': 'CocGit',
-      \   'diagnostic': 'CocStatusDiagnostic',
-      \   'blame': 'CocBlame',
-      \ },
-      \ }
+set statusline+=\ [%{CocGit()}]
+set statusline+=\ %{CocStatusDiagnostic()}
 
 function! CocGit() abort
   return get(g:, 'coc_git_status', '')
-endfunction
-
-function! CocBlame() abort
-  return get(b:, 'coc_git_blame', '')
 endfunction
 
 function! CocStatusDiagnostic() abort
@@ -403,7 +393,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 nmap gs <Plug>(coc-git-chunkinfo)
-nmap gc <Plug>(coc-git-commit)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
