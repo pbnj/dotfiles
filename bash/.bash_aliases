@@ -65,13 +65,13 @@ command -v gh &>/dev/null && source <(gh completion --shell bash)
 # vim
 alias vi=vim
 ## select one or more files from current working directory to edit
-alias vif='vim $(fzf --multi)'
+alias vif='vim $(fzf --multi --preview="cat {}")'
 ## select one or more git files to edit
-alias vig='vim $(git ls-files | fzf --multi)'
+alias vig='vim $(git ls-files | fzf --multi --preview="cat {}")'
 ## select one or more git-modified files to edit
-alias vis='vim $(git ls-files --modified | fzf --multi)'
+alias vis='vim $(git ls-files --modified | fzf --multi --preview="cat {}")'
 ## select one or more TODO files to edit
-alias vit='vim $(git grep -l "TODO" | fzf --multi)'
+alias vit='vim $(git grep -l "TODO" | fzf --multi --preview="cat {}")'
 
 # vault
 ## brew install vault
