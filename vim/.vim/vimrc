@@ -32,7 +32,7 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' | Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
@@ -51,7 +51,12 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tomtom/ttags_vim'
 
+" romainl
+Plug 'romainl/vim-qf'
+Plug 'romainl/vim-qlist'
+
 " languages
+Plug 'chrisbra/csv.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'rust-lang/rust.vim'
@@ -64,8 +69,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
-Plug 'flazz/vim-colorschemes'
-
 call plug#end()
 
 filetype on        " Enable filetype detection
@@ -73,36 +76,14 @@ filetype indent on " Enable filetype-specific indenting
 filetype plugin on " Enable filetype-specific plugins
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: PLUGINS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" languages
-let g:vim_json_syntax_conceal = 0
-
-" lion
-let g:lion_squeeze_spaces = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: General > FileTypes
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" augroup general
-  " autocmd!
-  " autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm
-        " \ setlocal softtabstop=2 |
-        " \ setlocal shiftwidth=2  |
-        " \ setlocal expandtab
-" augroup END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! GutterColors() abort
-  highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=Green
+  highlight DiffAdd    cterm=NONE ctermbg=NONE ctermfg=Green  gui=NONE guibg=NONE guifg=DarkGreen
   highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=DarkYellow gui=NONE guibg=NONE guifg=DarkYellow
-  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=Red
+  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=Red    gui=NONE guibg=NONE guifg=DarkRed
 
   highlight LineNr     NONE
   highlight SignColumn NONE
@@ -113,13 +94,13 @@ augroup MyColors
   autocmd ColorScheme * call GutterColors()
 augroup END
 
-colorscheme Tomorrow
+set termguicolors
 set background=light
+colorscheme default
 
 " neovim specific settings
 if has('nvim')
   set inccommand=split
-  set termguicolors
 endif
 
 " set font for vim GUIs
@@ -146,28 +127,9 @@ set statusline+=%w                                          " preview?
 set statusline+=[%{&ff}]                                    " file format
 set statusline+=%y                                          " syntax
 set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-set statusline+=[line:%03l/%L\ (%p%%)]                        " current line / total # lines (% into file)
+set statusline+=[line:%03l/%L\ (%p%%)]                      " current line / total # lines (% into file)
 set statusline+=[col:%04v]                                  " current line & column
-" set statusline+=\ %{FugitiveStatusline()}                   " git info
-set statusline+=\ [%{CocGit()}]
-set statusline+=\ %{CocStatusDiagnostic()}
-
-function! CocGit() abort
-  return get(g:, 'coc_git_status', '')
-endfunction
-
-function! CocStatusDiagnostic() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) | return '' | endif
-  let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, 'E' . info['error'])
-  endif
-  if get(info, 'warning', 0)
-    call add(msgs, 'W' . info['warning'])
-  endif
-  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
-endfunction
+set statusline+=\ %{FugitiveStatusline()}                   " git info
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -239,6 +201,18 @@ if executable('rg')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: General > FileTypes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" augroup general
+  " autocmd!
+  " autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm
+        " \ setlocal softtabstop=2 |
+        " \ setlocal shiftwidth=2  |
+        " \ setlocal expandtab
+" augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -289,6 +263,22 @@ function! StripTrailingWhitespace() abort
   endif
 endfunction
 command! StripTrailingWhitespace :call StripTrailingWhitespace()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: PLUGINS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" languages
+let g:vim_json_syntax_conceal = 0
+
+" lion
+let g:lion_squeeze_spaces = 1
+
+" fugitive-gitlab
+let g:fugitive_gitlab_domains = [
+      \ 'https://gitlab.zeta.tools',
+      \ 'https://gitlab.com'
+      \ ]
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > vim-go
@@ -349,9 +339,20 @@ let g:coc_global_extensions = [
       \ ]
 
 " statusline
+set statusline+=\ %{CocStatusDiagnostic()}
 
-" set statusline+=\ %{CocStatusDiagnostic()}
-" set statusline+=\ %{coc#status()}
+function! CocStatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, 'E' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, 'W' . info['warning'])
+  endif
+  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+endfunction
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

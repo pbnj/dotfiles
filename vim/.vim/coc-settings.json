@@ -3,6 +3,10 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "codeLens.enable": true,
   "git.enableGutters": true,
+  "git.gitlab.hosts": [
+    "gitlab.zeta.tools",
+    "gitlab.com"
+  ],
   "languageserver": {
     "bash": {
       "args": ["start"],
@@ -24,10 +28,7 @@
       },
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"]
     },
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["tf", "terraform"]
-    }
+    "terraform": {"command": "terraform-lsp", "filetypes": ["tf", "terraform"]}
   },
   "suggest.autoTrigger": "always",
   "suggest.defaultSortMethod": "alphabetical",
@@ -35,6 +36,6 @@
   "suggest.noselect": false,
   "yaml.completion": true,
   "yaml.hover": true,
-  "yaml.schemas": { "kubernetes": ["/kubernetes/*.yaml"] },
+  "yaml.schemas": {"kubernetes": ["/kubernetes/*.yaml"]},
   "yaml.validate": true
 }
