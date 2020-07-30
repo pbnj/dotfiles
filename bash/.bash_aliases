@@ -62,6 +62,9 @@ alias gd="git diff"
 ## gh
 command -v gh &>/dev/null && source <(gh completion --shell bash)
 
+# op
+command -v op &>/dev/null && source <(op completion bash)
+
 # vim
 alias vi=vim
 ## select one or more files from current working directory to edit
