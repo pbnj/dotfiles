@@ -46,7 +46,7 @@ whitespace = fix
 
 [core]
 # Use custom `.gitignore` and `.gitattributes`
-excludesfile = ~/.config/git/.gitignore
+# excludesfile = ~/.config/git/.gitignore
 attributesfile = ~/.config/git/.gitattributes
 
 # Treat spaces before tabs and all kinds of trailing whitespace as an error
