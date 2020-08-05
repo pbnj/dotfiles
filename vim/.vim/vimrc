@@ -2,8 +2,20 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+" statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
+
+" startup time debugger
+Plug 'tweekmonster/startuptime.vim'
+
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
+
+" formatters
+Plug 'sbdchd/neoformat'
+Plug 'joereynolds/gq.vim'
 
 " highlight yanks
 Plug 'machakann/vim-highlightedyank'
@@ -57,6 +69,7 @@ Plug 'hashivim/vim-hashicorp-tools'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'tomtom/tlib_vim'
 Plug 'tomtom/ttags_vim'
+Plug 'majutsushi/tagbar'
 
 " romainl
 Plug 'romainl/vim-qf'
@@ -78,6 +91,7 @@ Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " vim colorscheme
 Plug 'flazz/vim-colorschemes'
+" Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -112,9 +126,9 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-colorscheme github
+colorscheme gruvbox
 
-set background=light
+set background=dark
 
 " syntax off
 " let g:syntax_on = 0
@@ -135,20 +149,20 @@ if has("gui_running")
   endif
 endif
 
-" statusline
-set statusline=
-set statusline+=[%n]\                                       " buffer number
-set statusline+=%f\                                         " file name
-set statusline+=%m                                          " modified?
-set statusline+=%r                                          " read only?
-set statusline+=%h                                          " help?
-set statusline+=%w                                          " preview?
-set statusline+=[%{&ff}]                                    " file format
-set statusline+=%y                                          " syntax
-set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-set statusline+=[line:%03l/%L\ (%p%%)]                      " current line / total # lines (% into file)
-set statusline+=[col:%04v]                                  " current line & column
-set statusline+=\ %{FugitiveStatusline()}                   " git info
+" " statusline
+" set statusline=
+" set statusline+=[%n]\                                       " buffer number
+" set statusline+=%f\                                         " file name
+" set statusline+=%m                                          " modified?
+" set statusline+=%r                                          " read only?
+" set statusline+=%h                                          " help?
+" set statusline+=%w                                          " preview?
+" set statusline+=[%{&ff}]                                    " file format
+" set statusline+=%y                                          " syntax
+" set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
+" set statusline+=[line:%03l/%L\ (%p%%)]                      " current line / total # lines (% into file)
+" set statusline+=[col:%04v]                                  " current line & column
+" set statusline+=\ %{FugitiveStatusline()}                   " git info
 
 function! ToggleSyntax() abort
   if exists("g:syntax_on") | syntax off | else | syntax enable | endif
@@ -239,6 +253,9 @@ set wildmode=longest,full
 " SETTINGS: General > Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" create new files if they don't exist on 'gf'
+map gf :e <cfile><cr>
+
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -291,6 +308,9 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 " SETTINGS: PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" airline
+let g:airline_theme='base16_gruvbox_dark_hard'
+
 " languages
 let g:vim_json_syntax_conceal = 0
 
@@ -314,8 +334,23 @@ nnoremap gs :SignifyHunkDiff<cr>
 " SETTINGS: Plugins > vim-markdown
 """"""""""""""""""""""""""""""""""""""""
 
+let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: Plugins > neoformat
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:neoformat_try_formatprg      = 1
+
+" opa
+let g:neoformat_rego_opa     = {
+      \ 'exe': 'opa',
+      \ 'args': ['fmt'],
+      \ 'stdin': 1,
+      \ }
+let g:neoformat_enabled_rego = ['opa']
 
 """"""""""""""""""""""""""""""""""""""""
 " SETTINGS: Plugins > vim-test
