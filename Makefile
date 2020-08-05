@@ -5,7 +5,7 @@ SHELL         := /bin/bash
 
 PROJECT := dotfiles
 
--include Makefile.*
+-include makefiles/*.mk
 
 .PHONY: help
 help: ## Print help
