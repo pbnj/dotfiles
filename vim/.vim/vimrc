@@ -2,11 +2,6 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-" statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'itchyny/lightline.vim'
-
 " startup time debugger
 Plug 'tweekmonster/startuptime.vim'
 
@@ -89,9 +84,11 @@ Plug 'plasticboy/vim-markdown'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
-" vim colorscheme
+" appearance
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
-" Plug 'morhetz/gruvbox'
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -119,6 +116,13 @@ function! MyColors() abort
   " highlight Visual     term=underline cterm=underline ctermbg=NONE ctermfg=NONE gui=underline guibg=NONE guifg=NONE
   " highlight CursorLine term=underline cterm=underline ctermbg=NONE ctermfg=NONE gui=underline guibg=NONE guifg=NONE
 
+  " disable fzf colors on light background
+  if &background ==# 'light'
+    let $FZF_DEFAULT_OPTS = "--color=bw"
+  else
+    let $FZF_DEFAULT_OPTS = ""
+  endif
+
 endfunction
 
 augroup MyColors
@@ -126,12 +130,10 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-colorscheme gruvbox
+colorscheme PaperColor
+let g:airline_theme='papercolor'
 
-set background=dark
-
-" syntax off
-" let g:syntax_on = 0
+set background=light
 
 " neovim specific settings
 if has('nvim')
@@ -149,25 +151,20 @@ if has("gui_running")
   endif
 endif
 
-" " statusline
-" set statusline=
-" set statusline+=[%n]\                                       " buffer number
-" set statusline+=%f\                                         " file name
-" set statusline+=%m                                          " modified?
-" set statusline+=%r                                          " read only?
-" set statusline+=%h                                          " help?
-" set statusline+=%w                                          " preview?
-" set statusline+=[%{&ff}]                                    " file format
-" set statusline+=%y                                          " syntax
-" set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-" set statusline+=[line:%03l/%L\ (%p%%)]                      " current line / total # lines (% into file)
-" set statusline+=[col:%04v]                                  " current line & column
-" set statusline+=\ %{FugitiveStatusline()}                   " git info
-
 function! ToggleSyntax() abort
   if exists("g:syntax_on") | syntax off | else | syntax enable | endif
 endfunction
 command! ToggleSyntax :call ToggleSyntax()
+
+" tmuxline
+let g:tmuxline_status_justify = 'left'
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : '#I #W #F',
+      \'cwin' : '#I #W #F',
+      \'y'    : [ '%a', '%r', '%Y-%m-%d' ],
+      \'z'    : '#H',
+      \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -307,9 +304,6 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" airline
-let g:airline_theme='base16_gruvbox_dark_hard'
 
 " languages
 let g:vim_json_syntax_conceal = 0
