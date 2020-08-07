@@ -2,8 +2,8 @@
 # for custom symbols: https://www.nerdfonts.com/cheat-sheet
 
 prompt_order = [
-	"username",
-	"hostname",
+	# "username",
+	# "hostname",
 	"directory",
 	"git_branch",
 	"git_commit",
