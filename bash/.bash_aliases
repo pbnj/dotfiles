@@ -2,7 +2,6 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
-alias vi="vim -u NONE"
 
 # cargo install exa
 if command -v exa &>/dev/null; then
@@ -66,7 +65,7 @@ command -v gh &>/dev/null && source <(gh completion --shell bash)
 command -v op &>/dev/null && source <(op completion bash)
 
 # vim
-alias vi=vim
+alias vi="vim -u NONE"
 ## select one or more files from current working directory to edit
 alias vif='vim $(fzf --multi --preview="cat {}")'
 ## select one or more git files to edit
