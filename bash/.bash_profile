@@ -10,8 +10,9 @@ shopt -s globstar
 
 # EXPORTS
 
-export DOTFILES="$HOME/.dotfiles"
-command -v nvim &>/dev/null && export EDITOR=nvim || export EDITOR=vim
+export DOTFILES="${HOME}/.dotfiles"
+export EDITOR=vim
+command -v nvim &>/dev/null && export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob='!.git' --sort=path"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
@@ -28,12 +29,12 @@ export MANPAGER="less -X"
 # SETTINGS
 
 ## PATH
-[[ -d "$HOME/bin" ]] && export PATH="$HOME/bin:$PATH"
-[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "${HOME}/bin" ]] && export PATH="${HOME}/bin:$PATH"
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:$PATH"
 [[ -d "/usr/local/sbin" ]] && export PATH="/usr/local/sbin:$PATH"
 
 ## SSH
-SSH_ENV="$HOME/.ssh/environment"
+SSH_ENV="${HOME}/.ssh/environment"
 function start_agent() {
         echo "Initialising new SSH agent..."
         /usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
@@ -46,7 +47,7 @@ function start_agent() {
 # Source SSH settings, if applicable
 if [ -f "${SSH_ENV}" ]; then
         . "${SSH_ENV}" >/dev/null
-        ps -ef | grep ${SSH_AGENT_PID} | grep -E "ssh-agent$" >/dev/null || {
+        ps -ef | grep "${SSH_AGENT_PID}" | grep -E "ssh-agent$" >/dev/null || {
                 start_agent
         }
 else
@@ -59,35 +60,33 @@ fi
 
 ## GO
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
-[[ -f "$HOME/.gimme/envs/latest.env" ]] && source "$HOME/.gimme/envs/latest.env"
+[[ -f "${HOME}/.gimme/envs/latest.env" ]] && source "${HOME}/.gimme/envs/latest.env"
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
 ## CARGO
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-if [[ -d "$HOME/.cargo" ]]; then
-        source "$HOME/.cargo/env"
+if [[ -d "${HOME}/.cargo" ]]; then
+        source "${HOME}/.cargo/env"
         source <(rustup completions bash)
         source <(rustup completions bash cargo)
 fi
 
 ## NVM
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+export NVM_DIR="${HOME}/.nvm"
+[[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh"
 
 ## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-[[ -f "$HOME/.fzf.bash" ]] && source "$HOME/.fzf.bash"
+[[ -f "${HOME}/.fzf.bash" ]] && source "${HOME}/.fzf.bash"
 
 # PROFILES & ALIASES
-[[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
-[[ -f "$HOME/.profile" ]] && source "$HOME/.profile" # contains private/work stuff
+[[ -f "${HOME}/.bash_aliases" ]] && source "${HOME}/.bash_aliases"
+[[ -f "${HOME}/.profile" ]] && source "${HOME}/.profile" # contains private/work stuff
 
 # PROMPT
 
 ## starship
 # cargo install starship
-if command -v starship &>/dev/null; then
-        eval "$(starship init bash)"
-fi
+command -v starship &>/dev/null && eval "$(starship init bash)"
