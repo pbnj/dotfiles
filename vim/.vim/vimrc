@@ -55,7 +55,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
-" Plug 'ciaranm/detectindent' " alternative to vim-sleuth
 
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
@@ -71,6 +70,7 @@ Plug 'romainl/vim-qf'
 Plug 'romainl/vim-qlist'
 
 " languages
+Plug 'dense-analysis/ale'
 Plug 'chrisbra/csv.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
@@ -81,6 +81,7 @@ Plug 'tsandall/vim-rego'
 Plug 'towolf/vim-helm'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
@@ -102,19 +103,11 @@ filetype plugin on " Enable filetype-specific plugins
 
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! MyColors() abort
-
   highlight SignColumn NONE
 
-  " highlight clear DiffAdd
-  " highlight clear DiffChange
-  " highlight clear DiffDelete
-
-  " highlight DiffAdd    cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
-  " highlight DiffChange cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
-  " highlight DiffDelete cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
-
-  " highlight Visual     term=underline cterm=underline ctermbg=NONE ctermfg=NONE gui=underline guibg=NONE guifg=NONE
-  " highlight CursorLine term=underline cterm=underline ctermbg=NONE ctermfg=NONE gui=underline guibg=NONE guifg=NONE
+  if has('termguicolors')
+    set termguicolors
+  endif
 
   " disable fzf colors on light background
   if &background ==# 'light'
@@ -130,9 +123,7 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-colorscheme PaperColor
-let g:airline_theme='papercolor'
-
+colorscheme Tomorrow
 set background=light
 
 " neovim specific settings
@@ -163,7 +154,7 @@ let g:tmuxline_preset = {
       \'win'  : '#I #W #F',
       \'cwin' : '#I #W #F',
       \'y'    : [ '%a', '%r', '%Y-%m-%d' ],
-      \'z'    : '#H',
+      \'z'    : '#(whoami)@#H',
       \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -202,6 +193,8 @@ set nobackup
 set nofoldenable
 set nomodeline
 set norelativenumber
+set noshowcmd
+set noshowmode
 set nospell
 set noswapfile
 set novisualbell
@@ -214,9 +207,7 @@ set pumheight=10
 set ruler
 set secure
 set shortmess+=c
-set showcmd
 set showmatch
-set showmode
 set signcolumn=yes
 set smartcase
 set smarttab
@@ -224,7 +215,6 @@ set splitbelow
 set splitright
 set t_ut=
 set tags+=tags
-set termguicolors
 set textwidth=79
 set ttyfast
 set undodir=$HOME/.vim/undo
@@ -238,13 +228,16 @@ set wildmode=longest,full
 " SETTINGS: General > FileTypes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" augroup general
-  " autocmd!
-  " autocmd FileType vim,markdown,json,terraform,hcl,tf,ruby,yaml,helm
-        " \ setlocal softtabstop=2 |
-        " \ setlocal shiftwidth=2  |
-        " \ setlocal expandtab
-" augroup END
+augroup general
+  autocmd!
+
+  autocmd FileType yaml.docker-compose
+        \ setlocal keywordprg=~/.vim/mans/docker-compose
+
+  autocmd FileType Dockerfile
+        \ setlocal keywordprg=~/.vim/mans/docker
+
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > Mappings
@@ -305,6 +298,21 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 " SETTINGS: PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" ale
+set omnifunc=ale#completion#OmniFunc
+let g:ale_hover_cursor = 0
+let g:ale_set_quickfix = 1
+let g:ale_fixers = {
+      \ 'bash': [ 'shfmt' ],
+      \ 'go': [ 'goimports' ],
+      \ 'javascript': [ 'prettier' ],
+      \ 'json': [ 'prettier' ],
+      \ 'markdown': [ 'prettier' ],
+      \ 'sh': [ 'shfmt' ],
+      \ 'terraform': [ 'terraform' ],
+      \ 'yaml': [ 'prettier' ],
+      \ }
+
 " languages
 let g:vim_json_syntax_conceal = 0
 
@@ -324,21 +332,14 @@ let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
 nnoremap gs :SignifyHunkDiff<cr>
 
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > vim-markdown
-""""""""""""""""""""""""""""""""""""""""
-
+" vim-markdown
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > neoformat
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" neoformat
 let g:neoformat_try_formatprg      = 1
 
-" opa
 let g:neoformat_rego_opa     = {
       \ 'exe': 'opa',
       \ 'args': ['fmt'],
@@ -346,10 +347,7 @@ let g:neoformat_rego_opa     = {
       \ }
 let g:neoformat_enabled_rego = ['opa']
 
-""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: Plugins > vim-test
-""""""""""""""""""""""""""""""""""""""""
-
+" vim-test
 nnoremap <leader>TF :TestFile<CR>
 nnoremap <leader>TL :TestLast<CR>
 nnoremap <leader>TN :TestNearest<CR>
