@@ -24,7 +24,7 @@ fi
 
 # kube
 ## sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
-command -v kubectl &>/dev/null && source <(kubectl completion bash)
+command -v kubectl &>/dev/null && source <(which kubectl completion bash)
 
 ## kops
 command -v kops &>/dev/null && source <(kops completion bash)
@@ -48,7 +48,7 @@ fi
 ## aliases to activate various k8s environments
 alias kcfg='export KUBECONFIG=$(find ${HOME}/.kube/configs -exec realpath {} \; | fzf)'
 if [[ -d "$HOME/.kube/configs" ]]; then
-        for config in $(ls "${HOME}/.kube/configs"); do
+        for config in "${HOME}"/.kube/configs/*; do
                 alias kcfg-${config}="export KUBECONFIG=${HOME}/.kube/configs/${config}"
         done
 fi
