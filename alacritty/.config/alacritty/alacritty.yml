@@ -51,32 +51,32 @@ key_bindings:
   - {key: B, mods: Alt, chars: "\x1bb"}
   - {key: N, mods: Command, action: SpawnNewInstance}
 
-# Colors (Jellybeans)
+# Colors (Tomorrow)
 colors:
   bright:
-    black: '#bdbdbd'
-    blue: '#b1d8f6'
-    cyan: '#1ab2a8'
-    green: '#bddeab'
-    magenta: '#fbdaff'
-    red: '#ffa1a1'
+    black: '#000000'
+    blue: '#4271ae'
+    cyan: '#3e999f'
+    green: '#718c00'
+    magenta: '#8959a8'
+    red: '#c82829'
     white: '#ffffff'
-    yellow: '#ffdca0'
+    yellow: '#eab700'
   cursor:
-    cursor: '#ffa560'
+    cursor: '#4d4d4c'
     text: '#ffffff'
   normal:
-    black: '#929292'
-    blue: '#97bedc'
-    cyan: '#00988e'
-    green: '#94b979'
-    magenta: '#e1c0fa'
-    red: '#e27373'
-    white: '#dedede'
-    yellow: '#ffba7b'
+    black: '#000000'
+    blue: '#4271ae'
+    cyan: '#3e999f'
+    green: '#718c00'
+    magenta: '#8959a8'
+    red: '#c82829'
+    white: '#ffffff'
+    yellow: '#eab700'
   primary:
-    background: '#121212'
-    foreground: '#dedede'
+    background: '#ffffff'
+    foreground: '#4d4d4c'
   selection:
-    background: '#474e91'
-    text: '#f4f4f4'
+    background: '#d6d6d6'
+    text: '#4d4d4c'
