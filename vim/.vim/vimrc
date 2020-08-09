@@ -19,7 +19,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-signify'
 
 " tab completion
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
+Plug 'ajh17/VimCompletesMe'
 
 " test Runner
 Plug 'janko/vim-test'
@@ -279,7 +280,7 @@ function! GenTOC() abort
   redraw!
 endfunction
 command! TOC :call GenTOC()
-nnoremap <buffer> <leader>T :TOC<CR>
+nnoremap <leader>T :TOC<CR>
 
 " https://www.vi-improved.org/recommendations/
 function! TrimTrailingWhitespace() abort
