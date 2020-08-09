@@ -86,9 +86,8 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " appearance
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
@@ -123,8 +122,8 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-colorscheme Tomorrow
 set background=light
+colorscheme PaperColor
 
 " neovim specific settings
 if has('nvim')
@@ -269,7 +268,6 @@ nnoremap <Leader>i :Ilist<space>
 nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
-nnoremap <Leader>t :TTags<space>*<space>*<space>.<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > Functions & Commands
@@ -281,6 +279,7 @@ function! GenTOC() abort
   redraw!
 endfunction
 command! TOC :call GenTOC()
+nnoremap <buffer> <leader>T :TOC<CR>
 
 " https://www.vi-improved.org/recommendations/
 function! TrimTrailingWhitespace() abort
@@ -303,14 +302,14 @@ set omnifunc=ale#completion#OmniFunc
 let g:ale_hover_cursor = 0
 let g:ale_set_quickfix = 1
 let g:ale_fixers = {
-      \ 'bash': [ 'shfmt' ],
-      \ 'go': [ 'goimports' ],
+      \ 'bash':       [ 'shfmt' ],
+      \ 'go':         [ 'goimports' ],
       \ 'javascript': [ 'prettier' ],
-      \ 'json': [ 'prettier' ],
-      \ 'markdown': [ 'prettier' ],
-      \ 'sh': [ 'shfmt' ],
-      \ 'terraform': [ 'terraform' ],
-      \ 'yaml': [ 'prettier' ],
+      \ 'json':       [ 'prettier' ],
+      \ 'markdown':   [ 'prettier' ],
+      \ 'sh':         [ 'shfmt' ],
+      \ 'terraform':  [ 'terraform' ],
+      \ 'yaml':       [ 'prettier' ],
       \ }
 
 " languages
@@ -348,10 +347,7 @@ let g:neoformat_rego_opa     = {
 let g:neoformat_enabled_rego = ['opa']
 
 " vim-test
-nnoremap <leader>TF :TestFile<CR>
-nnoremap <leader>TL :TestLast<CR>
-nnoremap <leader>TN :TestNearest<CR>
-nnoremap <leader>TS :TestSuite<CR>
-nnoremap <leader>TV :TestVisit<CR>
 let test#strategy = "dispatch"
 
+" tagbar
+nnoremap <Leader>t :TagbarToggle<CR>
