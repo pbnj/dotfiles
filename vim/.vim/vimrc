@@ -87,8 +87,9 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " appearance
-Plug 'flazz/vim-colorschemes'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
@@ -123,8 +124,8 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-set background=light
-colorscheme PaperColor
+set background=dark
+colorscheme gruvbox
 
 " neovim specific settings
 if has('nvim')
