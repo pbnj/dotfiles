@@ -1,33 +1,32 @@
 # General
 
-brew "bat"
+brew "bat" # next-gen cat
 brew "coreutils"
 brew "ddgr"
 brew "docker"
-brew "exa"
-brew "fzf"
-brew "gh"
+brew "exa" # next-gen ls
+brew "fzf" # fuzzy finder
+brew "gh" # github cli
 brew "git"
-brew "git-delta"
+brew "glow" # markdown previewer cli
 brew "googler"
 brew "gpg"
-brew "hadolint"
-brew "htop"
-brew "hub"
+brew "hadolint" # dockerfile linter
+brew "hub" # github cli
 brew "jq"
 brew "neovim"
 brew "pandoc"
 brew "reattach-to-user-namespace"
-brew "ripgrep"
+brew "ripgrep" # next-gen grep
 brew "shellcheck"
-brew "shfmt"
+brew "shfmt" # shell formatter
 brew "stow"
 brew "terraform"
 brew "tmux"
 brew "vim"
 brew "watch"
 brew "yamllint"
-brew "yq"
+brew "yq" # like jq but for yaml
 
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags"
