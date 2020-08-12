@@ -9,8 +9,8 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " formatters
-Plug 'sbdchd/neoformat'
-Plug 'joereynolds/gq.vim'
+" Plug 'sbdchd/neoformat'
+" Plug 'joereynolds/gq.vim'
 
 " highlight yanks
 Plug 'machakann/vim-highlightedyank'
@@ -90,7 +90,7 @@ Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -295,6 +295,26 @@ function! TrimTrailingWhitespace() abort
 endfunction
 command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS: General > Formatters
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let s:formatprg_for_filetype = {
+      \ "css"        : "prettier --stdin-filepath",
+      \ "go"         : "gofmt",
+      \ "html"       : "prettier --stdin-filepath",
+      \ "javascript" : "prettier --stdin-filepath",
+      \ "json"       : "prettier --stdin-filepath",
+      \ "markdown"   : "prettier --stdin-filepath",
+      \ "sql"        : "sqlformat -k upper -r -",
+      \ "yaml"       : "prettier --stdin-filepath",
+      \ "terraform"  : "terraform fmt",
+      \ }
+
+for [ft, fp] in items(s:formatprg_for_filetype)
+  execute "autocmd FileType ".ft." let &l:formatprg=\"".fp."\" | setlocal formatexpr="
+endfor
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -339,14 +359,13 @@ let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
 
 " neoformat
-let g:neoformat_try_formatprg      = 1
-
-let g:neoformat_rego_opa     = {
-      \ 'exe': 'opa',
-      \ 'args': ['fmt'],
-      \ 'stdin': 1,
-      \ }
-let g:neoformat_enabled_rego = ['opa']
+" let g:neoformat_try_formatprg      = 1
+" let g:neoformat_rego_opa     = {
+"       \ 'exe': 'opa',
+"       \ 'args': ['fmt'],
+"       \ 'stdin': 1,
+"       \ }
+" let g:neoformat_enabled_rego = ['opa']
 
 " vim-test
 let test#strategy = "dispatch"
