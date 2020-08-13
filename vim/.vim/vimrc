@@ -88,9 +88,9 @@ Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " appearance
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
@@ -147,16 +147,6 @@ function! ToggleSyntax() abort
   if exists("g:syntax_on") | syntax off | else | syntax enable | endif
 endfunction
 command! ToggleSyntax :call ToggleSyntax()
-
-" tmuxline
-let g:tmuxline_status_justify = 'left'
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'win'  : '#I #W #F',
-      \'cwin' : '#I #W #F',
-      \'y'    : [ '%a', '%r', '%Y-%m-%d' ],
-      \'z'    : '#(whoami)@#H',
-      \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
