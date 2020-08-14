@@ -124,8 +124,8 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-set background=dark
 colorscheme gruvbox
+set background=dark
 
 " neovim specific settings
 if has('nvim')
@@ -290,15 +290,15 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:formatprg_for_filetype = {
-      \ "css"        : "prettier --stdin-filepath",
+      \ "css"        : "prettier --parser css",
       \ "go"         : "gofmt",
-      \ "html"       : "prettier --stdin-filepath",
-      \ "javascript" : "prettier --stdin-filepath",
-      \ "json"       : "prettier --stdin-filepath",
-      \ "markdown"   : "prettier --stdin-filepath",
+      \ "html"       : "prettier --parser html",
+      \ "javascript" : "prettier",
+      \ "json"       : "prettier --parser json",
+      \ "markdown"   : "prettier --parser markdown",
       \ "sql"        : "sqlformat -k upper -r -",
-      \ "yaml"       : "prettier --stdin-filepath",
-      \ "terraform"  : "terraform fmt",
+      \ "yaml"       : "prettier --parser yaml",
+      \ "terraform"  : "terraform fmt -",
       \ }
 
 for [ft, fp] in items(s:formatprg_for_filetype)
