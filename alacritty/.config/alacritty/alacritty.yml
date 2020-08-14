@@ -15,24 +15,24 @@ window:
   decorations: none
 
 # Font configuration
-# brew cask install font-jetbrainsmono-nerd-font
+# brew cask install font-sauce-code-pro-nerd-font
 # Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'`
 font:
   normal:
-    family: JetBrainsMono Nerd Font
-    style: Regular
+    family: FiraCode Nerd Font
+    style: Light
   bold:
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: FiraCode Nerd Font
     style: Bold Italic
-  size: 11.0
+  size: 12.0
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
