@@ -8,10 +8,6 @@ Plug 'tweekmonster/startuptime.vim'
 " editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
-" formatters
-" Plug 'sbdchd/neoformat'
-" Plug 'joereynolds/gq.vim'
-
 " highlight yanks
 Plug 'machakann/vim-highlightedyank'
 
@@ -19,7 +15,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-signify'
 
 " tab completion
-" Plug 'ervandew/supertab'
 Plug 'ajh17/VimCompletesMe'
 
 " test Runner
@@ -89,8 +84,7 @@ Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 " appearance
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -124,8 +118,8 @@ augroup MyColors
   autocmd ColorScheme * call MyColors()
 augroup END
 
-colorscheme gruvbox
-set background=dark
+colorscheme PaperColor
+set background=light
 
 " neovim specific settings
 if has('nvim')
@@ -147,6 +141,19 @@ function! ToggleSyntax() abort
   if exists("g:syntax_on") | syntax off | else | syntax enable | endif
 endfunction
 command! ToggleSyntax :call ToggleSyntax()
+
+" statusline
+let g:lightline = {
+      \ 'colorscheme': 'PaperColor',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ], 
+      \             [ 'gitbranch' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -221,13 +228,10 @@ set wildmode=longest,full
 
 augroup general
   autocmd!
-
   autocmd FileType yaml.docker-compose
         \ setlocal keywordprg=~/.vim/mans/docker-compose
-
   autocmd FileType Dockerfile
         \ setlocal keywordprg=~/.vim/mans/docker
-
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -347,15 +351,6 @@ nnoremap gs :SignifyHunkDiff<cr>
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_frontmatter = 1
-
-" neoformat
-" let g:neoformat_try_formatprg      = 1
-" let g:neoformat_rego_opa     = {
-"       \ 'exe': 'opa',
-"       \ 'args': ['fmt'],
-"       \ 'stdin': 1,
-"       \ }
-" let g:neoformat_enabled_rego = ['opa']
 
 " vim-test
 let test#strategy = "dispatch"
