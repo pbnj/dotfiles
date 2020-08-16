@@ -19,20 +19,20 @@ window:
 # Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'`
 font:
   normal:
-    family: FiraCode Nerd Font
-    style: Light
+    family: JetBrainsMono Nerd Font
+    style: Regular
   bold:
-    family: FiraCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
-    family: FiraCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Italic
   bold_italic:
-    family: FiraCode Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
   size: 12.0
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -51,32 +51,32 @@ key_bindings:
   - {key: B, mods: Alt, chars: "\x1bb"}
   - {key: N, mods: Command, action: SpawnNewInstance}
 
-# Colors (Gruvbox Dark)
+# Colors (Tomorrow)
 colors:
   bright:
-    black: '#7f7061'
-    blue: '#719586'
-    cyan: '#7db669'
-    green: '#aab01e'
-    magenta: '#c77089'
-    red: '#f73028'
-    white: '#e6d4a3'
-    yellow: '#f7b125'
+    black: '#000000'
+    blue: '#4271ae'
+    cyan: '#3e999f'
+    green: '#718c00'
+    magenta: '#8959a8'
+    red: '#c82829'
+    white: '#ffffff'
+    yellow: '#eab700'
   cursor:
-    cursor: '#e6d4a3'
-    text: '#1e1e1e'
+    cursor: '#4d4d4c'
+    text: '#ffffff'
   normal:
-    black: '#1e1e1e'
-    blue: '#377375'
-    cyan: '#578e57'
-    green: '#868715'
-    magenta: '#a04b73'
-    red: '#be0f17'
-    white: '#978771'
-    yellow: '#cc881a'
+    black: '#000000'
+    blue: '#4271ae'
+    cyan: '#3e999f'
+    green: '#718c00'
+    magenta: '#8959a8'
+    red: '#c82829'
+    white: '#ffffff'
+    yellow: '#eab700'
   primary:
-    background: '#1e1e1e'
-    foreground: '#e6d4a3'
+    background: '#ffffff'
+    foreground: '#4d4d4c'
   selection:
-    background: '#e6d4a3'
-    text: '#534a42'
+    background: '#d6d6d6'
+    text: '#4d4d4c'
