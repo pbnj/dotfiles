@@ -66,6 +66,7 @@ Plug 'romainl/vim-qf'
 Plug 'romainl/vim-qlist'
 
 " languages
+let g:ale_completion_enabled=1
 Plug 'dense-analysis/ale'
 Plug 'chrisbra/csv.vim'
 Plug 'vim-ruby/vim-ruby'
@@ -81,11 +82,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
-" appearance
-Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'itchyny/lightline.vim'
-
 call plug#end()
 
 filetype on        " Enable filetype detection
@@ -98,7 +94,12 @@ filetype plugin on " Enable filetype-specific plugins
 
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! MyColors() abort
-  highlight SignColumn NONE
+  highlight SignColumn   NONE
+  highlight LineNr       NONE
+  highlight CursorLineNr NONE
+
+  highlight Statusline   cterm=NONE ctermbg=Black ctermfg=White gui=NONE guibg=Black guifg=White
+  highlight StatuslineNC cterm=NONE ctermbg=Gray ctermfg=Black gui=NONE guibg=Gray guifg=Black
 
   if has('termguicolors')
     set termguicolors
@@ -116,9 +117,11 @@ endfunction
 augroup MyColors
   autocmd!
   autocmd ColorScheme * call MyColors()
+  autocmd InsertEnter * setlocal cursorline
+  autocmd InsertLeave * setlocal nocursorline
 augroup END
 
-colorscheme PaperColor
+colorscheme default
 set background=light
 
 " neovim specific settings
@@ -137,22 +140,84 @@ if has("gui_running")
   endif
 endif
 
+let g:syntax_on = 1
 function! ToggleSyntax() abort
   if exists("g:syntax_on") | syntax off | else | syntax enable | endif
 endfunction
 command! ToggleSyntax :call ToggleSyntax()
 
+" netrw
+let g:netrw_liststyle = 3
+let g:netrw_winsize   = 25
+
 " statusline
-let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+let g:currentmode={
+       \ 'n'  : 'NORMAL',
+       \ 'v'  : 'VISUAL',
+       \ 'V'  : 'V·Line',
+       \ '' : 'V·Block',
+       \ 'i'  : 'INSERT',
+       \ 'R'  : 'REPLACE',
+       \ 'Rv' : 'V·REPLACE',
+       \ 'c'  : 'COMMAND',
+       \ }
+
+set statusline=
+" current mode
+set statusline+=%{'\ '} " space
+set statusline+=%{toupper(g:currentmode[mode()])}
+set statusline+=%{'\ '}
+" git info
+set statusline+=%#CursorLine#
+set statusline+=%{'\ '}
+set statusline+=%{FugitiveHead()}
+set statusline+=%{'\ '}
+set statusline+=%*
+" file name
+set statusline+=%{'\ '}
+set statusline+=%F
+set statusline+=%{'\ '}
+
+set statusline+=%{'\ '}
+set statusline+=%{&spell?'[SPELL]':''}
+set statusline+=%{'\ '}
+
+set statusline+=%#Warnings#
+set statusline+=%{'\ '}
+set statusline+=%{&paste?'[PASTE]':''}
+set statusline+=%{'\ '}
+set statusline+=%*
+
+" modified?
+set statusline+=%m
+" read only?
+set statusline+=%r
+" help?
+set statusline+=%h
+" preview?
+set statusline+=%w
+" truncate here
+set statusline+=%<
+
+" separate left/right aligned items
+set statusline+=%=
+
+set statusline+=%{'\ '}
+" tabstop/softtabstop/shiftwidth/expandtab
+set statusline+=[ts/sts/sw/et:\ %{&ts}/%{&sts}/%{&sw}/%{&et}]
+set statusline+=%{'\ '}
+" file format
+set statusline+=[%{&ff}]
+set statusline+=%{'\ '}
+" filetype
+set statusline+=%y
+set statusline+=%{'\ '}
+" current line & column
+set statusline+=[col:\ %03c]
+set statusline+=%{'\ '}
+" current line / total # lines (% into file)
+set statusline+=[line:\ %l/%L\ (%p%%)]
+set statusline+=%{'\ '}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Options
@@ -168,7 +233,6 @@ set cmdheight=2
 set colorcolumn=+1
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
-set cursorline
 set display=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -187,6 +251,7 @@ set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
 set nomodeline
 set norelativenumber
@@ -263,6 +328,7 @@ nnoremap <Leader>i :Ilist<space>
 nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
+nnoremap <Leader>f :Lex!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > Functions & Commands
@@ -314,6 +380,17 @@ endfor
 
 " ale
 set omnifunc=ale#completion#OmniFunc
+let g:ale_linters_explicit = 0
+let g:ale_linters = {
+      \ 'go': 'all',
+      \ 'json': 'all',
+      \ 'markdown': 'all',
+      \ 'ruby': 'all',
+      \ 'rust': 'all',
+      \ 'sh': 'all',
+      \ 'terraform': 'all',
+      \ 'yaml': 'all',
+      \ }
 let g:ale_hover_cursor = 0
 let g:ale_set_quickfix = 1
 let g:ale_fixers = {
@@ -326,8 +403,18 @@ let g:ale_fixers = {
       \ 'terraform':  [ 'terraform' ],
       \ 'yaml':       [ 'prettier' ],
       \ }
+nmap gd :ALEGoToDefinition<cr>
+nmap gr :ALEFindReferences<cr>
 
 " languages
+
+" vim-go
+let g:go_code_completion_enabled = 0
+let g:go_def_mapping_enabled     = 0
+let g:go_doc_keywordprg_enabled  = 0
+let g:go_gopls_enabled           = 0
+
+" json
 let g:vim_json_syntax_conceal = 0
 
 " lion
