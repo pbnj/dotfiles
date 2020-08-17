@@ -6,13 +6,10 @@ brew "ddgr"
 brew "docker"
 brew "exa" # next-gen ls
 brew "fzf" # fuzzy finder
-brew "gh" # github cli
-brew "git"
 brew "glow" # markdown previewer cli
 brew "googler"
 brew "gpg"
 brew "hadolint" # dockerfile linter
-brew "hub" # github cli
 brew "jq"
 brew "neovim"
 brew "pandoc"
@@ -28,11 +25,20 @@ brew "watch"
 brew "yamllint"
 brew "yq" # like jq but for yaml
 
-tap "universal-ctags/universal-ctags"
-brew "universal-ctags"
+# Git
+brew "git"
+brew "gh" # github cli
+brew "hub" # github cli
+
+tap "profclems/tap"
+brew "glab" # gitlab cli
 
 tap "rockyluke/devops"
 brew "gitlint"
+
+# Tags
+tap "universal-ctags/universal-ctags"
+brew "universal-ctags"
 
 # Go
 tap "golangci/tap"
