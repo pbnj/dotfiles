@@ -17,6 +17,8 @@ function! MyColors() abort
   highlight Statusline   cterm=NONE ctermbg=Black ctermfg=White gui=NONE guibg=Black guifg=White
   highlight StatuslineNC cterm=NONE ctermbg=Gray ctermfg=Black gui=NONE guibg=Gray guifg=Black
 
+  highlight User1 cterm=NONE ctermbg=Green ctermfg=Black gui=NONE guibg=Green guifg=Black
+
   if has('termguicolors')
     set termguicolors
   endif
@@ -64,11 +66,12 @@ let g:currentmode={
        \ 'c'  : 'COMMAND',
        \ }
 
-set statusline=
 " current mode
+set statusline=%1*
 set statusline+=%{'\ '} " space
 set statusline+=%{toupper(g:currentmode[mode()])}
 set statusline+=%{'\ '}
+set statusline+=%*
 
 " file name
 set statusline+=%{'\ '}
