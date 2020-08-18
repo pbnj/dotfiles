@@ -10,19 +10,18 @@ filetype plugin on " enable filetype-specific plugins
 
 " https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
 function! MyColors() abort
-  highlight SignColumn   NONE
-  highlight LineNr       NONE
-  highlight CursorLineNr NONE
-
-  highlight Statusline   cterm=NONE ctermbg=Black ctermfg=White gui=NONE guibg=Black guifg=White
-  highlight StatuslineNC cterm=NONE ctermbg=Gray ctermfg=Black gui=NONE guibg=Gray guifg=Black
-
   highlight User1 cterm=NONE ctermbg=Green ctermfg=Black gui=NONE guibg=Green guifg=Black
 
-  if has('termguicolors')
-    set termguicolors
-  endif
+  highlight Visual cterm=NONE ctermbg=Gray ctermfg=Black gui=NONE guibg=Gray guifg=Black
+  highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE gui=underline guibg=NONE guifg=NONE
+
+  highlight Pmenu ctermbg=Gray ctermfg=Black guibg=Gray guifg=Black
+  highlight PmenuSel ctermbg=Blue ctermfg=White guibg=Blue guifg=White
 endfunction
+
+if has('termguicolors')
+set termguicolors
+endif
 
 augroup MyColors
   autocmd!
@@ -32,7 +31,7 @@ augroup MyColors
 augroup END
 
 colorscheme default
-set background=light
+set background=dark
 
 " neovim specific settings
 if has('nvim')
@@ -171,7 +170,6 @@ set ruler
 set secure
 set shortmess+=c
 set showmatch
-set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
