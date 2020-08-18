@@ -1,92 +1,8 @@
-set nocompatible
+set nocompatible " this is redundant, but I like explicit configurations
 
-call plug#begin('~/.vim/plugged')
-
-" startup time debugger
-Plug 'tweekmonster/startuptime.vim'
-
-" editorconfig
-Plug 'editorconfig/editorconfig-vim'
-
-" highlight yanks
-Plug 'machakann/vim-highlightedyank'
-
-" git gutters
-Plug 'mhinz/vim-signify'
-
-" tab completion
-Plug 'ajh17/VimCompletesMe'
-
-" test Runner
-Plug 'janko/vim-test'
-
-" tmux
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
-" fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" alignment
-Plug 'godlygeek/tabular'
-Plug 'tommcdo/vim-lion'
-
-" change root dir
-Plug 'airblade/vim-rooter'
-
-" text objects
-Plug 'wellle/targets.vim'
-
-" tpope
-Plug 'tpope/vim-dadbod'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive' | Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-commentary'
-
-" hashicorp tools
-Plug 'hashivim/vim-hashicorp-tools'
-
-" tags
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'tomtom/tlib_vim'
-Plug 'tomtom/ttags_vim'
-Plug 'majutsushi/tagbar'
-
-" romainl
-Plug 'romainl/vim-qf'
-Plug 'romainl/vim-qlist'
-
-" languages
-let g:ale_completion_enabled=1
-Plug 'dense-analysis/ale'
-Plug 'chrisbra/csv.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'rust-lang/rust.vim'
-Plug 'stephpy/vim-yaml'
-Plug 'cespare/vim-toml'
-Plug 'tsandall/vim-rego'
-Plug 'towolf/vim-helm'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'elzr/vim-json'
-Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
-
-call plug#end()
-
-filetype on        " Enable filetype detection
-filetype indent on " Enable filetype-specific indenting
-filetype plugin on " Enable filetype-specific plugins
+filetype on        " enable filetype detection
+filetype indent on " enable filetype-specific indenting
+filetype plugin on " enable filetype-specific plugins
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: Appearance
@@ -104,14 +20,6 @@ function! MyColors() abort
   if has('termguicolors')
     set termguicolors
   endif
-
-  " disable fzf colors on light background
-  if &background ==# 'light'
-    let $FZF_DEFAULT_OPTS = "--color=bw"
-  else
-    let $FZF_DEFAULT_OPTS = ""
-  endif
-
 endfunction
 
 augroup MyColors
@@ -140,12 +48,6 @@ if has("gui_running")
   endif
 endif
 
-let g:syntax_on = 1
-function! ToggleSyntax() abort
-  if exists("g:syntax_on") | syntax off | else | syntax enable | endif
-endfunction
-command! ToggleSyntax :call ToggleSyntax()
-
 " netrw
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
@@ -167,12 +69,7 @@ set statusline=
 set statusline+=%{'\ '} " space
 set statusline+=%{toupper(g:currentmode[mode()])}
 set statusline+=%{'\ '}
-" git info
-set statusline+=%#CursorLine#
-set statusline+=%{'\ '}
-set statusline+=%{FugitiveHead()}
-set statusline+=%{'\ '}
-set statusline+=%*
+
 " file name
 set statusline+=%{'\ '}
 set statusline+=%F
@@ -233,12 +130,13 @@ set cmdheight=2
 set colorcolumn=+1
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
-set display=lastline
+set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
 set formatoptions+=j " remove comment leader when joining lines
 set formatoptions+=n " when formatting text, recognize numbered lists
 set formatoptions-=t " don't auto-wrap text using textwidth
+set history=1000
 set hidden
 set hlsearch
 set ignorecase
@@ -285,6 +183,21 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 set wildmode=longest,full
+set scrolloff=1
+set sidescrolloff=5
+
+if !has('nvim') && &ttimeoutlen == -1
+  set ttimeout
+  set ttimeoutlen=100
+endif
+
+if findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > FileTypes
@@ -305,16 +218,6 @@ augroup END
 " create new files if they don't exist on 'gf'
 map gf :e <cfile><cr>
 
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
 " Misc
 nnoremap j gj
 nnoremap k gk
@@ -329,6 +232,14 @@ nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
 nnoremap <Leader>f :Lex!<cr>
+nnoremap <Leader>g :silent lgrep<Space>
+
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprevious<CR>
+
+nnoremap <leader>t :TOC<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General > Functions & Commands
@@ -340,7 +251,6 @@ function! GenTOC() abort
   redraw!
 endfunction
 command! TOC :call GenTOC()
-nnoremap <leader>T :TOC<CR>
 
 " https://www.vi-improved.org/recommendations/
 function! TrimTrailingWhitespace() abort
@@ -373,73 +283,3 @@ let s:formatprg_for_filetype = {
 for [ft, fp] in items(s:formatprg_for_filetype)
   execute "autocmd FileType ".ft." let &l:formatprg=\"".fp."\" | setlocal formatexpr="
 endfor
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: PLUGINS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" ale
-set omnifunc=ale#completion#OmniFunc
-let g:ale_linters_explicit = 0
-let g:ale_linters = {
-      \ 'go': 'all',
-      \ 'json': 'all',
-      \ 'markdown': 'all',
-      \ 'ruby': 'all',
-      \ 'rust': 'all',
-      \ 'sh': 'all',
-      \ 'terraform': 'all',
-      \ 'yaml': 'all',
-      \ }
-let g:ale_hover_cursor = 0
-let g:ale_set_quickfix = 1
-let g:ale_fixers = {
-      \ 'bash':       [ 'shfmt' ],
-      \ 'go':         [ 'goimports' ],
-      \ 'javascript': [ 'prettier' ],
-      \ 'json':       [ 'prettier' ],
-      \ 'markdown':   [ 'prettier' ],
-      \ 'sh':         [ 'shfmt' ],
-      \ 'terraform':  [ 'terraform' ],
-      \ 'yaml':       [ 'prettier' ],
-      \ }
-nmap gd :ALEGoToDefinition<cr>
-nmap gr :ALEFindReferences<cr>
-
-" languages
-
-" vim-go
-let g:go_code_completion_enabled = 0
-let g:go_def_mapping_enabled     = 0
-let g:go_doc_keywordprg_enabled  = 0
-let g:go_gopls_enabled           = 0
-
-" json
-let g:vim_json_syntax_conceal = 0
-
-" lion
-let g:lion_squeeze_spaces = 1
-
-" fugitive-gitlab
-let g:fugitive_gitlab_domains = [
-      \ 'https://gitlab.zeta.tools',
-      \ 'https://gitlab.com'
-      \ ]
-
-" signify
-let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '_'
-let g:signify_sign_delete_first_line = '‾'
-let g:signify_sign_change            = '~'
-nnoremap gs :SignifyHunkDiff<cr>
-
-" vim-markdown
-let g:vim_markdown_no_default_key_mappings = 1
-let g:vim_markdown_new_list_item_indent = 2
-let g:vim_markdown_frontmatter = 1
-
-" vim-test
-let test#strategy = "dispatch"
-
-" tagbar
-nnoremap <Leader>t :TagbarToggle<CR>
