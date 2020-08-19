@@ -1,0 +1,9 @@
+[submodule "vim/.vim/pack/pbnj/start/gruvbox"]
+	path = vim/.vim/pack/pbnj/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
+[submodule "vim/.vim/pack/pbnj/start/fzf.vim"]
+	path = vim/.vim/pack/pbnj/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/.vim/pack/pbnj/start/fzf"]
+	path = vim/.vim/pack/pbnj/start/fzf
+	url = https://github.com/junegunn/fzf
