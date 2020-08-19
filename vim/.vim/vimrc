@@ -19,14 +19,42 @@ if has('termguicolors')
   set termguicolors
 endif
 
-highlight CursorLine
-      \ cterm=underline ctermbg=NONE ctermfg=NONE
-      \ gui=underline guibg=NONE guifg=NONE
-highlight CursorLineNr cterm=NONE
-highlight clear LineNr
+""""""""""""""""""""""""""""""""""""""""
+" COLORS
+""""""""""""""""""""""""""""""""""""""""
 
-autocmd InsertEnter * setlocal cursorline
-autocmd InsertLeave * setlocal nocursorline
+" overwrite highlights/colors, the right way
+" https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
+function! MyColors() abort
+  highlight CursorLine
+        \ cterm=underline ctermbg=NONE ctermfg=NONE
+        \ gui=underline guibg=NONE guifg=NONE
+  highlight CursorLineNr cterm=NONE
+  highlight clear LineNr
+  highlight Visual
+        \ cterm=NONE ctermbg=Gray ctermfg=Black
+        \ gui=NONE guibg=Gray guifg=Black
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call MyColors()
+  autocmd InsertEnter * setlocal cursorline
+  autocmd InsertLeave * setlocal nocursorline
+augroup END
+
+colorscheme darkblue
+
+" disable fzf colors on light background
+if &background ==# 'light'
+  let $FZF_DEFAULT_OPTS="--color=bw"
+else
+  let $FZF_DEFAULT_OPTS=""
+endif
+
+""""""""""""""""""""""""""""""""""""""""
+" FONTS
+""""""""""""""""""""""""""""""""""""""""
 
 " set font for vim GUIs
 if has("gui_running")
@@ -39,9 +67,17 @@ if has("gui_running")
   endif
 endif
 
+""""""""""""""""""""""""""""""""""""""""
+" FILE EXPLORER
+""""""""""""""""""""""""""""""""""""""""
+
 " netrw
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
+
+""""""""""""""""""""""""""""""""""""""""
+" STATUSLINE
+""""""""""""""""""""""""""""""""""""""""
 
 " statusline
 let g:currentmode={
@@ -66,27 +102,27 @@ set statusline+=%{'\ '}
 set statusline+=%F
 set statusline+=%{'\ '}
 " spell?
-set statusline+=%#WarningMsg#
+set statusline+=%#Error#
 set statusline+=%{&spell?'[SPELL]':''}
 set statusline+=%*
 " paste?
-set statusline+=%#WarningMsg#
+set statusline+=%#Error#
 set statusline+=%{&paste?'[PASTE]':''}
 set statusline+=%*
 " modified?
-set statusline+=%#WarningMsg#
+set statusline+=%#Error#
 set statusline+=%m
 set statusline+=%*
 " read only?
-set statusline+=%#WarningMsg#
+set statusline+=%#Error#
 set statusline+=%r
 set statusline+=%*
 " help?
-set statusline+=%#WarningMsg#
+set statusline+=%#Error#
 set statusline+=%h
 set statusline+=%*
 " preview?
-set statusline+=%#WarningMsg#
+set statusline+=%#Error#
 set statusline+=%w
 set statusline+=%*
 " truncate from here on
@@ -235,8 +271,9 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [b :bprevious<CR>
 
 " mappings to custom functions. see functions & commands
-nnoremap <leader>t :TOC<CR>
-nnoremap <leader>d :GDiff<CR>
+nnoremap <leader>T :TOC<CR>
+nnoremap <leader>D :GDiff<CR>
+nnoremap <leader>G :Git<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS & COMMANDS
@@ -272,6 +309,18 @@ function! GitDiff() abort
 endfunction
 command! GDiff :call GitDiff()
 
+" brew install gitui lazygit
+function! Git() abort
+  silent ! clear
+  if executable('gitui')
+    silent ! gitui
+  elseif executable('lazygit')
+    silent ! lazygit
+  endif
+  redraw!
+endfunction
+command! Git :call Git()
+
 " git open
 " npm i -g git-open
 function! GitBrowse() abort
@@ -286,15 +335,16 @@ command! GBrowse :call GitBrowse()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:formatprg_for_filetype = {
-      \ "css"        : "prettier --parser css",
-      \ "go"         : "gofmt",
-      \ "html"       : "prettier --parser html",
-      \ "javascript" : "prettier",
-      \ "json"       : "prettier --parser json",
-      \ "markdown"   : "prettier --parser markdown",
-      \ "sql"        : "sqlformat -k upper -r -",
-      \ "yaml"       : "prettier --parser yaml",
-      \ "terraform"  : "terraform fmt -",
+      \ "css": "prettier --parser=css --stdin-filepath --",
+      \ "go": "gofmt",
+      \ "html": "prettier --parser=html --stdin-filepath --",
+      \ "javascript": "prettier --stdin-filepath --",
+      \ "json": "prettier --parser=json --stdin-filepath --",
+      \ "markdown": "prettier --parser=markdown --stdin-filepath --",
+      \ "sql": "sqlformat -k upper -r -",
+      \ "yaml": "prettier --parser=yaml --stdin-filepath --",
+      \ "terraform": "terraform fmt -",
+      \ "rust": "rustfmt",
       \ }
 
 for [ft, fp] in items(s:formatprg_for_filetype)
