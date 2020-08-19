@@ -1,5 +1,4 @@
 [alias]
-
 	# delete branch locally & remotely
 	delete = !"git push -d origin ${1}; git branch -d ${1}"
 
@@ -43,13 +42,14 @@
 	# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
 	alias=!git config -l | grep ^alias | cut -c 7- | sort
 
-[apply]
+	# https://docs.gitlab.com/ee/user/project/merge_requests/reviewing_and_managing_merge_requests.html
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 
+[apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
 [core]
-
 	# Use custom `.gitignore` and `.gitattributes`
 	# excludesfile = ~/.config/git/.gitignore
 	attributesfile = ~/.config/git/.gitattributes
@@ -64,49 +64,41 @@
 	trustctime = false
 
 	# brew install git-delta
-	; pager = delta
+	pager = delta
 
 [color]
-
 	ui = auto
 
 [push]
-
 	default = simple
 
 [hub]
-
 	host = github.com
 	protocol = https
 
 [user]
-
 	name = Peter Benjamin
 	email = petermbenjamin@gmail.com
 
 [credential "https://github.com"]
-
 	username = pbnj
 
 [credential]
-
 	helper = store
 
 [pull]
-
 	rebase = true
 
 [interactive]
-
 	diffFilter = delta --color-only
 
 [delta]
-
 	features = side-by-side line-numbers decorations
 	whitespace-error-style = 22 reverse
+	navigate = true
 
 [delta "decorations"]
-
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
+
