@@ -24,17 +24,20 @@ brew "vim"
 brew "watch"
 brew "yamllint"
 brew "yq" # like jq but for yaml
+brew "lazydocker" # docker terminal ui
 
 # Git
 brew "git"
 brew "gh" # github cli
 brew "hub" # github cli
+brew "lazygit" # git terminal ui
 
 tap "profclems/tap"
 brew "glab" # gitlab cli
 
 tap "rockyluke/devops"
 brew "gitlint"
+
 
 # Tags
 tap "universal-ctags/universal-ctags"
