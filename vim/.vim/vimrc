@@ -31,9 +31,6 @@ function! MyColors() abort
         \ gui=underline guibg=NONE guifg=NONE
   highlight CursorLineNr cterm=NONE
   highlight clear LineNr
-  highlight Visual
-        \ cterm=NONE ctermbg=Gray ctermfg=Black
-        \ gui=NONE guibg=Gray guifg=Black
 endfunction
 
 augroup MyColors
@@ -43,7 +40,10 @@ augroup MyColors
   autocmd InsertLeave * setlocal nocursorline
 augroup END
 
-colorscheme darkblue
+set background=dark
+let g:gruvbox_invert_selection = 0
+
+colorscheme gruvbox
 
 " disable fzf colors on light background
 if &background ==# 'light'
