@@ -64,7 +64,7 @@
 	trustctime = false
 
 	# brew install git-delta
-	pager = delta
+	; pager = delta
 
 [color]
 	ui = auto
@@ -93,11 +93,14 @@
 	diffFilter = delta --color-only
 
 [delta]
-	features = side-by-side line-numbers decorations
+	features = decorations
+	side-by-side = true
+	line-numbers = true
 	whitespace-error-style = 22 reverse
 	navigate = true
 
 [delta "decorations"]
+	; syntax-theme=github
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
