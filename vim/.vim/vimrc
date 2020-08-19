@@ -10,36 +10,23 @@ syntax on
 " APPEARANCE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
-function! MyColors() abort
-  highlight CursorLineNr cterm=NONE
-  "highlight User1 cterm=NONE ctermbg=Green ctermfg=Black gui=NONE guibg=Green guifg=Black
-
-  highlight Visual cterm=NONE ctermbg=Gray ctermfg=Black gui=NONE guibg=Gray guifg=Black
-  highlight CursorLine cterm=underline ctermbg=NONE ctermfg=NONE gui=underline guibg=NONE guifg=NONE
-
-  "highlight Pmenu ctermbg=Gray ctermfg=Black guibg=Gray guifg=Black
-  "highlight PmenuSel ctermbg=Blue ctermfg=White guibg=Blue guifg=White
-endfunction
-
-if has('termguicolors')
-set termguicolors
-endif
-
-augroup MyColors
-  autocmd!
-  autocmd ColorScheme * call MyColors()
-  autocmd InsertEnter * setlocal cursorline
-  autocmd InsertLeave * setlocal nocursorline
-augroup END
-
-colorscheme darkblue
-set background=dark
-
 " neovim specific settings
 if has('nvim')
   set inccommand=split
 endif
+
+if has('termguicolors')
+  set termguicolors
+endif
+
+highlight CursorLine
+      \ cterm=underline ctermbg=NONE ctermfg=NONE
+      \ gui=underline guibg=NONE guifg=NONE
+highlight CursorLineNr cterm=NONE
+highlight clear LineNr
+
+autocmd InsertEnter * setlocal cursorline
+autocmd InsertLeave * setlocal nocursorline
 
 " set font for vim GUIs
 if has("gui_running")
@@ -69,7 +56,7 @@ let g:currentmode={
        \ }
 
 " current mode
-set statusline=
+set statusline=%#StatusLineTerm#
 set statusline+=%{'\ '} " space
 set statusline+=%{toupper(g:currentmode[mode()])}
 set statusline+=%{'\ '}
