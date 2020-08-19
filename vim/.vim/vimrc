@@ -30,7 +30,6 @@ function! MyColors() abort
         \ cterm=underline ctermbg=NONE ctermfg=NONE
         \ gui=underline guibg=NONE guifg=NONE
   highlight CursorLineNr cterm=NONE
-  highlight clear LineNr
 endfunction
 
 augroup MyColors
