@@ -111,6 +111,17 @@ endif
 " COLORS
 """"""""""""""""""""""""""""""""""""""""
 
+function! MyHL() abort
+  highlight! Signcolumn NONE
+endfunction
+
+augroup MyColors
+  autocmd!
+  autocmd ColorScheme * call MyHL()
+  autocmd InsertEnter * setlocal cursorline
+  autocmd InsertLeave * setlocal nocursorline
+augroup END
+
 set background=dark
 let g:gruvbox_invert_selection = 0
 
@@ -185,8 +196,8 @@ set fileencoding=utf-8
 set formatoptions+=j " remove comment leader when joining lines
 set formatoptions+=n " when formatting text, recognize numbered lists
 set formatoptions-=t " don't auto-wrap text using textwidth
-set history=1000
 set hidden
+set history=1000
 set hlsearch
 set ignorecase
 set incsearch
@@ -214,9 +225,12 @@ set number
 set path+=**
 set pumheight=10
 set ruler
+set scrolloff=1
 set secure
 set shortmess+=c
 set showmatch
+set sidescrolloff=5
+set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
@@ -231,8 +245,6 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 set wildmode=longest,full
-set scrolloff=1
-set sidescrolloff=5
 
 if !has('nvim') && &ttimeoutlen == -1
   set ttimeout
