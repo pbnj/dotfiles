@@ -52,12 +52,13 @@
       ]
     }
   },
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
   "suggest.autoTrigger": "always",
   "suggest.defaultSortMethod": "alphabetical",
   "suggest.floatEnable": true,
   "suggest.noselect": false,
-  "solargraph.diagnostics": true,
-  "solargraph.formatting": true,
   "yaml.completion": true,
   "yaml.hover": true,
   "yaml.schemas": {
