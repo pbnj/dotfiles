@@ -515,7 +515,8 @@ command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeIm
 
 " Mappings using CoCList:
 nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e  :<C-u>CocCommand explorer<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>m  :<C-u>CocList marketplace<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
