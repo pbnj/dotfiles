@@ -177,18 +177,23 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'         ],
       \             [ 'gitbranch', 'filename' ],
-      \             [ 'readonly', 'modified'  ]
+      \             [ 'readonly', 'modified' ],
       \           ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'filetype', 'fileformat', 'fileencoding' ],
+      \   'right': [ [ 'lineinfo', 'percent' ],
+      \              [ 'filetype', 'fileformat', 'fileencoding'  ],
+      \              [ 'gitblame' ],
       \            ],
       \ },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead',
-      \   'cocstatus': 'coc#status'
+      \   'cocstatus': 'coc#status',
+      \   'gitblame': 'CocGitBlame',
       \ },
       \ }
+
+function! CocGitBlame() abort
+  return get(b:, 'coc_git_blame', '')
+endfunction
 
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
