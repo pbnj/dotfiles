@@ -123,7 +123,16 @@ call timer_start(1000 * 60, function('ToggleBackground'), {'repeat': -1})
 call ToggleBackground(0) " run on startup
 
 function! MyHL() abort
-  highlight! Signcolumn NONE
+  highlight Signcolumn NONE
+  highlight DiffAdd
+        \ cterm=NONE ctermbg=NONE ctermfg=Green
+        \ gui=NONE guibg=NONE guifg=Green
+  highlight DiffChange
+        \ cterm=NONE ctermbg=NONE ctermfg=Brown
+        \ gui=NONE guibg=NONE guifg=Brown
+  highlight DiffDelete
+        \ cterm=NONE ctermbg=NONE ctermfg=Red
+        \ gui=NONE guibg=NONE guifg=Red
 endfunction
 
 augroup MyColors
@@ -164,6 +173,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 
 " netrw
+let g:loaded_netrwPlugin = 1 " disable netrw
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
@@ -372,6 +382,7 @@ let g:go_doc_keywordprg_enabled = 0
 let g:coc_global_extensions = [
       \ 'coc-docker',
       \ 'coc-eslint',
+      \ 'coc-explorer',
       \ 'coc-git',
       \ 'coc-go',
       \ 'coc-highlight',
@@ -509,7 +520,7 @@ command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeIm
 
 " Mappings using CoCList:
 nnoremap <silent> <space>g  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e  :<C-u>CocCommand explorer<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
