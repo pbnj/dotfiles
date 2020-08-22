@@ -132,6 +132,7 @@ augroup MyColors
   autocmd InsertLeave * setlocal nocursorline
 augroup END
 
+set background=light
 " let g:gruvbox_invert_selection = 0
 
 colorscheme PaperColor
