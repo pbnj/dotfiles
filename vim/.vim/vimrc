@@ -324,27 +324,6 @@ endfunction
 command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FORMATTERS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let s:formatprg_for_filetype = {
-"       \ "css": "prettier --parser=css --stdin-filepath --",
-"       \ "go": "gofmt",
-"       \ "html": "prettier --parser=html --stdin-filepath --",
-"       \ "javascript": "prettier --stdin-filepath --",
-"       \ "json": "prettier --parser=json --stdin-filepath --",
-"       \ "markdown": "prettier --parser=markdown --stdin-filepath --",
-"       \ "sql": "sqlformat -k upper -r -",
-"       \ "yaml": "prettier --parser=yaml --stdin-filepath --",
-"       \ "terraform": "terraform fmt -",
-"       \ "rust": "rustfmt",
-"       \ }
-" 
-" for [ft, fp] in items(s:formatprg_for_filetype)
-"   execute "autocmd FileType ".ft." let &l:formatprg=\"".fp."\" | setlocal formatexpr="
-" endfor
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
