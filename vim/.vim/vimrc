@@ -84,6 +84,7 @@ Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -111,6 +112,16 @@ endif
 " COLORS
 """"""""""""""""""""""""""""""""""""""""
 
+" switch 'background' depending on macOS light/dark mode
+function! ToggleBackground(timer_id) abort
+  if has('macunix')
+    let s:mode = trim(system("defaults read -g AppleInterfaceStyle"))
+  endif
+  let &background = ( s:mode == "Dark" ? 'dark' : 'light')
+endfunction
+call timer_start(1000 * 60, function('ToggleBackground'), {'repeat': -1})
+call ToggleBackground(0) " run on startup
+
 function! MyHL() abort
   highlight! Signcolumn NONE
 endfunction
@@ -122,10 +133,9 @@ augroup MyColors
   autocmd InsertLeave * setlocal nocursorline
 augroup END
 
-set background=dark
-let g:gruvbox_invert_selection = 0
+" let g:gruvbox_invert_selection = 0
 
-colorscheme gruvbox
+colorscheme PaperColor
 
 " disable fzf colors on light background
 if &background ==# 'light'
