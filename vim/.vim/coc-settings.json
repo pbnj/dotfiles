@@ -1,15 +1,4 @@
 {
-  "diagnostic.errorSign": "✖",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": "●",
-  "diagnostic.hintSign": "○",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.file.showHiddenFiles": true,
-  "git.addedSign.text": "┃",
-  "git.topRemovedSign.text": "┃",
-  "git.changedSign.text": "┃",
-  "git.changeRemovedSign.text": "┃",
-  "git.removedSign.text": "┃",
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
@@ -26,8 +15,17 @@
     "yaml"
   ],
   "codeLens.enable": true,
-  "git.addGBlameToVirtualText": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.hintSign": "○",
+  "diagnostic.infoSign": "●",
+  "diagnostic.warningSign": "⚠",
+  "git.addGBlameToBufferVar": true,
+  "git.addedSign.text": "┃",
+  "git.changeRemovedSign.text": "┃",
+  "git.changedSign.text": "┃",
   "git.enableGutters": true,
+  "git.removedSign.text": "┃",
+  "git.topRemovedSign.text": "┃",
   "languageserver": {
     "bash": {
       "args": ["start"],
