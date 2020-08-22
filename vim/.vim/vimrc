@@ -112,16 +112,6 @@ endif
 " COLORS
 """"""""""""""""""""""""""""""""""""""""
 
-" switch 'background' depending on macOS light/dark mode
-function! ToggleBackground(timer_id) abort
-  if has('macunix')
-    let s:mode = trim(system("defaults read -g AppleInterfaceStyle"))
-  endif
-  let &background = ( s:mode == "Dark" ? 'dark' : 'light')
-endfunction
-call timer_start(1000 * 60, function('ToggleBackground'), {'repeat': -1})
-call ToggleBackground(0) " run on startup
-
 function! MyHL() abort
   highlight Signcolumn NONE
   highlight DiffAdd
