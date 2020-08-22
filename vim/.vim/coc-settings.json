@@ -1,4 +1,15 @@
 {
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "●",
+  "diagnostic.hintSign": "○",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
+  "git.addedSign.text": "┃",
+  "git.topRemovedSign.text": "┃",
+  "git.changedSign.text": "┃",
+  "git.changeRemovedSign.text": "┃",
+  "git.removedSign.text": "┃",
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
