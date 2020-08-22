@@ -162,6 +162,7 @@ let g:netrw_winsize   = 25
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste'         ],
       \             [ 'gitbranch', 'filename' ],
