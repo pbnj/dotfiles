@@ -1,0 +1,105 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    // gitlab tasks
+    {
+      "label": "gitlab: list pipelines",
+      "type": "shell",
+      "command": "glab pipe list",
+      "problemMatcher": []
+    },
+    {
+      "label": "gitlab: log ci pipelines",
+      "type": "shell",
+      "command": "glab pipe ci trace",
+      "problemMatcher": []
+    },
+    {
+      "label": "gitlab: list issues",
+      "type": "shell",
+      "command": "glab issue list",
+      "problemMatcher": []
+    },
+    {
+      "label": "gitlab: view issue",
+      "type": "shell",
+      "command": "glab issue view ${input:number}",
+      "problemMatcher": [],
+      "dependsOn": ["gitlab: list issues"]
+    },
+    {
+      "label": "gitlab: list merge requests",
+      "type": "shell",
+      "command": "glab mr list",
+      "problemMatcher": []
+    },
+    {
+      "label": "gitlab: view merge request",
+      "type": "shell",
+      "command": "glab mr view ${input:number}",
+      "problemMatcher": [],
+      "dependsOn": ["gitlab: list merge requests"]
+    },
+    // github tasks
+    {
+      "label": "github: view repo",
+      "type": "shell",
+      "command": "gh repo view",
+      "problemMatcher": []
+    },
+    {
+      "label": "github: list issues",
+      "type": "shell",
+      "command": "gh issue list",
+      "problemMatcher": []
+    },
+    {
+      "label": "github: view issue",
+      "type": "shell",
+      "command": "gh issue view ${input:number}",
+      "problemMatcher": [],
+      "dependsOn": ["github: list issues"]
+    },
+    {
+      "label": "github: list pull-requests",
+      "type": "shell",
+      "command": "gh pr list",
+      "problemMatcher": []
+    },
+    {
+      "label": "github: view pull-request",
+      "type": "shell",
+      "command": "gh pr view ${input:number}",
+      "problemMatcher": [],
+      "dependsOn": ["github: list pull-requests"]
+    },
+    // make tasks
+    {
+      "label": "make: help",
+      "type": "shell",
+      "command": "make help",
+      "problemMatcher": []
+    },
+    {
+      "label": "make",
+      "type": "shell",
+      "command": "make ${input:makeTarget}",
+      "problemMatcher": [],
+      "dependsOn": ["make: help"]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "number",
+      "type": "promptString",
+      "description": "Enter the GitHub/GitLab Issue or MR/PR number"
+    },
+    {
+      "id": "makeTarget",
+      "type": "promptString",
+      "description": "Enter the make target you'd like to run"
+    }
+  ]
+}

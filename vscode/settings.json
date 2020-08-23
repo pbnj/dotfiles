@@ -1,38 +1,166 @@
 {
   "[dockerfile]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "atlascode.bitbucket.enabled": false,
+  "atlascode.bitbucket.statusbar.enabled": false,
+  "atlascode.bitbucket.statusbar.showLogin": false,
+  "atlascode.bitbucket.statusbar.showProduct": false,
+  "atlascode.bitbucket.statusbar.showUser": false,
+  "atlascode.jira.jqlList": [
+    {
+      "enabled": true,
+      "id": "1afa2c5d-b2e9-4027-b135-9eb35a1e017f",
+      "monitor": true,
+      "name": "My jira.zuora.com Issues",
+      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "siteId": "jira.zuora.com"
+    }
+  ],
+  "atlascode.jira.statusbar.enabled": false,
+  "atlascode.jira.statusbar.showActiveIssue": false,
+  "atlascode.jira.statusbar.showLogin": false,
+  "atlascode.jira.statusbar.showProduct": false,
+  "atlascode.jira.statusbar.showUser": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'JetBrainsMono Nerd Font ', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.formatOnType": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
+  "editor.scrollBeyondLastLine": false,
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "extensions.showRecommendationsOnlyOnDemand": true,
+  "files.associations": {
+    "*.hcl": "terraform",
+    "Dockerfile.*": "dockerfile"
+  },
   "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
   "git.rebaseWhenSync": true,
-  "git.suggestSmartCommit": false,
+  "gitlab.customQueries": [
+    {
+      "name": "Issues assigned to me",
+      "noItemText": "There is no issue assigned to you.",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "type": "issues"
+    },
+    {
+      "name": "Issues created by me",
+      "noItemText": "There is no issue created by you.",
+      "scope": "created_by_me",
+      "state": "opened",
+      "type": "issues"
+    },
+    {
+      "name": "Merge requests assigned to me",
+      "noItemText": "There is no MR assigned to you.",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "type": "merge_requests"
+    },
+    {
+      "name": "Merge requests created by me",
+      "noItemText": "There is no MR created by you.",
+      "scope": "created_by_me",
+      "state": "opened",
+      "type": "merge_requests"
+    },
+    {
+      "name": "All project merge requests",
+      "noItemText": "The project has no merge requests",
+      "scope": "all",
+      "state": "opened",
+      "type": "merge_requests"
+    }
+  ],
+  "gitlab.instanceUrl": "https://gitlab.zeta.tools",
+  "gitlab.showPipelineUpdateNotifications": true,
+  "gitlens.advanced.abbreviatedShaLength": 5,
+  "gitlens.blame.dateFormat": "",
   "gitlens.blame.highlight.enabled": true,
+  "gitlens.currentLine.dateFormat": "",
   "gitlens.currentLine.enabled": true,
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "gitlens.statusBar.dateFormat": "",
+  "go.autocompleteUnimportedPackages": true,
+  "go.lintFlags": ["--fast"],
+  "go.lintTool": "golangci-lint",
   "go.useLanguageServer": true,
-  "rust-analyzer.updates.askBeforeDownload": false,
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODUwLFwiaGVpZ2h0XCI6MTEwMH0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+  "liveshare.connectionMode": "direct",
+  "markdown.extension.italic.indicator": "_",
+  "material-icon-theme.files.associations": {
+    "Dockerfile.*": "dockerfile"
+  },
+  "projectManager.git.baseFolders": ["/Users/pbenjamin/work/gitlab.zeta.tools"],
+  "projectManager.groupList": true,
+  "projectManager.showProjectNameInStatusBar": false,
+  "projectManager.sortList": "Name",
+  "rest-client.fontFamily": "'JetBrainsMono Nerd Font'",
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.lint": {
+    "rubocop": true,
+    "ruby": true
+  },
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
   "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.scrollback": 10000,
+  "terraform.languageServer": {
+    "args": ["serve"],
+    "external": true
+  },
   "todo-tree.tree.showScanModeButton": false,
+  "vim.enableNeovim": true,
   "vim.highlightedyank.enable": true,
   "vim.useSystemClipboard": true,
-  "workbench.colorTheme": "GitHub Light",
+  "vs-kubernetes": {
+    "vs-kubernetes.helm-path.mac": "/usr/local/bin/helm",
+    "vs-kubernetes.knownKubeconfigs": [
+      "/Users/pbenjamin/.kube/configs/zord",
+      "/Users/pbenjamin/.kube/configs/2-dev-auw2-zuora"
+    ],
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/zord",
+    "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+    "vs-kubernetes.minikube-path.mac": "/usr/local/bin/minikube"
+  },
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "yaml.schemaStore.enable": true
+  "yaml.schemaStore.enable": true,
+  "yaml.schemas": {
+    "Kubernetes": "/manifests/*.yaml",
+    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.7.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  }
 }
