@@ -11,7 +11,6 @@ brew "googler"
 brew "gpg"
 brew "hadolint" # dockerfile linter
 brew "jq"
-brew "neovim"
 brew "pandoc"
 brew "reattach-to-user-namespace"
 brew "ripgrep" # next-gen grep
