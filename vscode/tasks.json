@@ -2,78 +2,106 @@
   // See https://go.microsoft.com/fwlink/?LinkId=733558
   // for the documentation about the tasks.json format
   "version": "2.0.0",
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": true,
+    "panel": "shared",
+    "showReuseMessage": true,
+    "clear": true
+  },
   "tasks": [
+    // jira tasks
+    {
+      "label": "jira: list issues",
+      "type": "shell",
+      "command": "jira issue",
+      "problemMatcher": []
+    },
+    {
+      "label": "jira: list projects",
+      "type": "shell",
+      "command": "jira project",
+      "problemMatcher": []
+    },
+    {
+      "label": "jira: view issue ...",
+      "type": "shell",
+      "command": "jira issue ${input:jiraIssue}",
+      "problemMatcher": [],
+      "dependsOn": ["jira: list issues"]
+    },
     // gitlab tasks
     {
-      "label": "gitlab: list pipelines",
+      "label": "gl: list pipelines",
       "type": "shell",
       "command": "glab pipe list",
       "problemMatcher": []
     },
     {
-      "label": "gitlab: log ci pipelines",
+      "label": "gl: log ci pipelines",
       "type": "shell",
       "command": "glab pipe ci trace",
       "problemMatcher": []
     },
     {
-      "label": "gitlab: list issues",
+      "label": "gl: list issues",
       "type": "shell",
       "command": "glab issue list",
       "problemMatcher": []
     },
     {
-      "label": "gitlab: view issue",
+      "label": "gl: view issue ...",
       "type": "shell",
       "command": "glab issue view ${input:number}",
       "problemMatcher": [],
-      "dependsOn": ["gitlab: list issues"]
+      "dependsOn": ["gl: list issues"]
     },
     {
-      "label": "gitlab: list merge requests",
+      "label": "gl: list merge requests",
       "type": "shell",
       "command": "glab mr list",
       "problemMatcher": []
     },
     {
-      "label": "gitlab: view merge request",
+      "label": "gl: view merge request ...",
       "type": "shell",
       "command": "glab mr view ${input:number}",
       "problemMatcher": [],
-      "dependsOn": ["gitlab: list merge requests"]
+      "dependsOn": ["gl: list merge requests"]
     },
     // github tasks
     {
-      "label": "github: view repo",
+      "label": "gh: view repo",
       "type": "shell",
       "command": "gh repo view",
       "problemMatcher": []
     },
     {
-      "label": "github: list issues",
+      "label": "gh: list issues",
       "type": "shell",
       "command": "gh issue list",
       "problemMatcher": []
     },
     {
-      "label": "github: view issue",
+      "label": "gh: view issue ...",
       "type": "shell",
       "command": "gh issue view ${input:number}",
       "problemMatcher": [],
-      "dependsOn": ["github: list issues"]
+      "dependsOn": ["gh: list issues"]
     },
     {
-      "label": "github: list pull-requests",
+      "label": "gh: list pull-requests",
       "type": "shell",
       "command": "gh pr list",
       "problemMatcher": []
     },
     {
-      "label": "github: view pull-request",
+      "label": "gh: view pull-request ...",
       "type": "shell",
       "command": "gh pr view ${input:number}",
       "problemMatcher": [],
-      "dependsOn": ["github: list pull-requests"]
+      "dependsOn": ["gh: list pull-requests"]
     },
     // make tasks
     {
@@ -83,11 +111,17 @@
       "problemMatcher": []
     },
     {
-      "label": "make",
+      "label": "make ...",
       "type": "shell",
       "command": "make ${input:makeTarget}",
       "problemMatcher": [],
       "dependsOn": ["make: help"]
+    },
+    {
+      "label": "make",
+      "type": "shell",
+      "command": "make",
+      "problemMatcher": []
     }
   ],
   "inputs": [
@@ -95,6 +129,11 @@
       "id": "number",
       "type": "promptString",
       "description": "Enter the GitHub/GitLab Issue or MR/PR number"
+    },
+    {
+      "id": "jiraIssue",
+      "type": "promptString",
+      "description": "Enter the JIRA Issue number"
     },
     {
       "id": "makeTarget",
