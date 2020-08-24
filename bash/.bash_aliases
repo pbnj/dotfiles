@@ -8,10 +8,10 @@ alias grep="grep --color=auto"
 
 # cargo install exa
 if command -v exa &>/dev/null; then
-        alias ls="exa"
-        alias ll="exa --all --long --git --group-directories-first"
+    alias ls="exa"
+    alias ll="exa --all --long --git --group-directories-first"
 else
-        alias ll="ls -alFh --group-directories-first"
+    alias ll="ls -alFh --group-directories-first"
 fi
 
 # For safety
@@ -25,7 +25,7 @@ alias mv='mv -i'
 
 ## brew
 if command -v brew &>/dev/null; then
-        alias bubu="brew upgrade && brew cask upgrade && brew cleanup"
+    alias bubu="brew upgrade; brew cask upgrade; brew cleanup"
 fi
 
 ################################################################################
@@ -61,26 +61,26 @@ alias vi="vim -u NONE"
 
 ## select one or more files from current working directory to edit
 vif() {
-        FILES=$(fzf --multi --preview="cat {}")
-        [[ -n "${FILES}" ]] && vim "${FILES}"
+    FILES=$(fzf --multi --preview="cat {}")
+    [[ -n "${FILES}" ]] && vim "${FILES}"
 }
 
 ## select one or more git files to edit
 vig() {
-        FILES=$(git ls-files | fzf --multi --preview="cat {}")
-        [[ -n "${FILES}" ]] && vim "${FILES}"
+    FILES=$(git ls-files | fzf --multi --preview="cat {}")
+    [[ -n "${FILES}" ]] && vim "${FILES}"
 }
 
 ## select one or more git-modified files to edit
 vis() {
-        FILES=$(git ls-files --modified | fzf --multi --preview="cat {}")
-        [[ -n "${FILES}" ]] && vim "${FILES}"
+    FILES=$(git ls-files --modified | fzf --multi --preview="cat {}")
+    [[ -n "${FILES}" ]] && vim "${FILES}"
 }
 
 ## select one or more TODO files to edit
 vit() {
-        FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
-        [[ -n "${FILES}" ]] && vim "${FILES}"
+    FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
+    [[ -n "${FILES}" ]] && vim "${FILES}"
 }
 
 ################################################################################
@@ -101,7 +101,7 @@ alias fzfp="fzf --preview='cat {}'"
 ################################################################################
 
 if command -v apt &>/dev/null; then
-        alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
+    alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 fi
 
 ################################################################################
