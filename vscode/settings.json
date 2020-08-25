@@ -152,9 +152,10 @@
     "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
     "vs-kubernetes.minikube-path.mac": "/usr/local/bin/minikube"
   },
+  "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Default Light+",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
