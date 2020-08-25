@@ -25,7 +25,7 @@ alias mv='mv -i'
 
 ## brew
 if command -v brew &>/dev/null; then
-    alias bubu="brew upgrade; brew cask upgrade; brew cleanup"
+    alias bubu="brew upgrade && brew cask upgrade && brew cleanup"
 fi
 
 ################################################################################
