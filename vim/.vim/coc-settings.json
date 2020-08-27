@@ -24,12 +24,7 @@
   "explorer.position": "right",
   "explorer.previewAction.onHover": false,
   "git.addGBlameToBufferVar": true,
-  "git.addedSign.text": "┃",
-  "git.changeRemovedSign.text": "┃",
-  "git.changedSign.text": "┃",
   "git.enableGutters": true,
-  "git.removedSign.text": "┃",
-  "git.topRemovedSign.text": "┃",
   "languageserver": {
     "bash": {
       "args": ["start"],
