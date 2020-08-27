@@ -416,6 +416,7 @@ endfunction
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
+  " vim handles <c-space> differently
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
