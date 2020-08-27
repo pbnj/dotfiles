@@ -34,6 +34,14 @@ fi
 
 ## sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
+kubectl() {
+    docker run \
+        --rm \
+        -it \
+        -v ${HOME}/.kube/configs:${HOME}/.kube/configs \
+        -e KUBECONFIG \
+        registry.zeta.tools/tools/docker/kubectl:1.18 $@
+}
 
 ## kops
 command -v kops &>/dev/null && source <(kops completion bash)
