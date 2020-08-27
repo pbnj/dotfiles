@@ -27,9 +27,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'tommcdo/vim-lion'
 
-" change root dir
-Plug 'airblade/vim-rooter'
-
 " text objects
 Plug 'wellle/targets.vim'
 
