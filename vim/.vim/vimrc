@@ -129,10 +129,10 @@ augroup MyColors
   autocmd InsertLeave * setlocal nocursorline
 augroup END
 
-" set background=light
-" let g:gruvbox_invert_selection = 0
+set background=dark
+let g:gruvbox_invert_selection = 0
 
-colorscheme PaperColor
+colorscheme gruvbox
 
 " disable fzf colors on light background
 if &background ==# 'light'
