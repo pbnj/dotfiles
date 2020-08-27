@@ -309,11 +309,11 @@ nnoremap <Leader>i :Ilist<space>
 nnoremap <Leader>j :tjump /
 nnoremap <Leader>m :make<cr>
 nnoremap <Leader>q :b#<cr>
-nnoremap <Leader>f :Lex!<cr>
-nnoremap <Leader>g :silent lgrep<Space>
 
 " mappings to custom functions. see functions & commands
-nnoremap <leader>T :TOC<CR>
+nnoremap <leader>t :TOC<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>r :Rg
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS & COMMANDS
