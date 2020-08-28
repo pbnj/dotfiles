@@ -34,6 +34,7 @@
   "atlascode.jira.statusbar.showLogin": false,
   "atlascode.jira.statusbar.showProduct": false,
   "atlascode.jira.statusbar.showUser": false,
+  "bashIde.highlightParsingErrors": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
@@ -47,7 +48,7 @@
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
-  "editor.scrollBeyondLastLine": false,
+  "editor.scrollBeyondLastLine": true,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
@@ -57,6 +58,7 @@
     "Dockerfile.*": "dockerfile"
   },
   "git.alwaysSignOff": true,
+  "git.autoStash": true,
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
@@ -140,46 +142,11 @@
     "external": true
   },
   "todo-tree.tree.showScanModeButton": false,
-  "vim.enableNeovim": true,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
   "vim.incsearch": true,
   "vim.leader": "<space>",
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", ":"],
-      "commands": ["workbench.action.showCommands"]
-    },
-    {
-      "before": ["<leader>", "c"],
-      "commands": ["editor.action.commentLine"]
-    },
-    {
-      "before": ["<leader>", "g", "w"],
-      "commands": ["git.stageSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "g", "c"],
-      "commands": ["git.commit"]
-    }
-  ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "g", "w"],
-      "commands": ["git.stage"]
-    },
-    {
-      "before": ["<leader>", "g", "W"],
-      "commands": ["git.stageSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "g", "c"],
-      "commands": ["git.commit"]
-    },
-    {
-      "before": ["g", "s"],
-      "commands": ["editor.action.dirtydiff.next"]
-    },
     {
       "before": ["<leader>", ":"],
       "commands": ["workbench.action.showCommands"]
@@ -189,15 +156,11 @@
       "commands": ["workbench.action.tasks.runTask"]
     },
     {
-      "before": ["<leader>", "c"],
-      "commands": ["editor.action.commentLine"]
+      "before": ["<leader>", "t"],
+      "commands": ["markdown.extension.toc.create"]
     },
     {
-      "before": ["<leader>", "b"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    {
-      "before": ["<leader>", "f"],
+      "before": ["<leader>", "p"],
       "commands": ["workbench.action.quickOpen"]
     },
     {
@@ -226,11 +189,11 @@
     },
     {
       "before": ["]", "q"],
-      "commands": ["editor.action.marker.nextInFiles"]
+      "commands": ["editor.action.marker.next"]
     },
     {
       "before": ["[", "q"],
-      "commands": ["editor.action.marker.prevInFiles"]
+      "commands": ["editor.action.marker.prev"]
     },
     {
       "before": ["K"],
@@ -241,46 +204,71 @@
       "commands": ["editor.action.revealDefinition"]
     },
     {
-      "before": ["<leader>", "T"],
-      "commands": ["markdown.extension.toc.create"]
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
     },
     {
-      "before": ["<leader>", "p"],
-      "commands": ["projectManager.listProjects"]
+      "before": ["g", "o"],
+      "commands": ["workbench.action.gotoSymbol"]
     },
     {
-      "before": ["<leader>", "P"],
-      "commands": ["projectManager.listProjectsNewWindow"]
+      "before": ["g", "O"],
+      "commands": ["workbench.action.showAllSymbols"]
     },
     {
-      "before": ["<leader>", "K"],
-      "commands": ["extension.vsKubernetesExplorer.focus"]
+      "before": ["<leader>", "g", "s"],
+      "commands": ["gitlens.showQuickRepoStatus"]
     },
     {
-      "before": ["<leader>", "D"],
-      "commands": ["dockerContainers.focus"]
+      "before": ["<leader>", "g", "w"],
+      "commands": ["git.stage"]
+    },
+    {
+      "before": ["<leader>", "g", "W"],
+      "commands": ["git.stageSelectedRanges"]
+    },
+    {
+      "before": ["g", "s"],
+      "commands": ["editor.action.dirtydiff.next"]
+    },
+    {
+      "before": ["<leader>", "g", "c"],
+      "commands": ["git.commit"]
     }
   ],
   "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "g", "w"],
+      "commands": ["git.stageSelectedRanges"]
+    }
+  ],
   "vs-kubernetes": {
+    "vs-kubernetes.draft-path.linux": "/home/vagrant/.vs-kubernetes/tools/draft/linux-amd64/draft",
+    "vs-kubernetes.helm-path.linux": "/home/vagrant/.vs-kubernetes/tools/helm/linux-amd64/helm",
     "vs-kubernetes.helm-path.mac": "/usr/local/bin/helm",
     "vs-kubernetes.knownKubeconfigs": [
       "/Users/pbenjamin/.kube/configs/zord",
-      "/Users/pbenjamin/.kube/configs/2-dev-auw2-zuora"
+      "/Users/pbenjamin/.kube/configs/0-ecc"
     ],
-    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/zord",
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/0-ecc",
+    "vs-kubernetes.kubectl-path.linux": "/home/vagrant/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+    "vs-kubernetes.minikube-path.linux": "/home/vagrant/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
     "vs-kubernetes.minikube-path.mac": "/usr/local/bin/minikube"
   },
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "Default Light+",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
-    "Kubernetes": "/manifests/*.yaml"
+    "Kubernetes": "/manifests/*.yaml",
+    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.7.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   }
 }

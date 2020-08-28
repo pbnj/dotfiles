@@ -1,57 +1,43 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "ctrl+alt+`",
-    "command": "workbench.action.toggleMaximizedPanel"
+    "command": "workbench.action.toggleMaximizedPanel",
+    "key": "ctrl+alt+`"
   },
   {
-    "key": "ctrl+alt+cmd+p",
-    "command": "pr:github.focus"
-  },
-  {
-    "key": "ctrl+alt+cmd+i",
-    "command": "issues:github.focus"
-  },
-  {
-    "key": "ctrl+alt+cmd+k",
-    "command": "extension.vsKubernetesExplorer.focus"
-  },
-  {
-    "key": "cmd+b",
     "command": "-markdown.extension.editing.toggleBold",
+    "key": "cmd+b",
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
   },
   {
-    "key": "shift+alt+cmd+p",
-    "command": "projectManager.listProjectsNewWindow"
+    "command": "-workbench.action.files.newUntitledFile",
+    "key": "cmd+n"
   },
   {
-    "key": "cmd+0",
-    "command": "workbench.action.zoomReset"
+    "command": "explorer.newFile",
+    "key": "cmd+n"
   },
   {
-    "key": "cmd+numpad0",
-    "command": "-workbench.action.zoomReset"
+    "command": "-workbench.action.focusSideBar",
+    "key": "cmd+0"
   },
   {
-    "key": "cmd+n",
-    "command": "-workbench.action.files.newUntitledFile"
+    "command": "workbench.action.zoomReset",
+    "key": "cmd+0"
   },
   {
-    "key": "cmd+n",
-    "command": "explorer.newFile"
+    "command": "-workbench.action.zoomReset",
+    "key": "cmd+numpad0"
   },
   {
-    "key": "\\ shift+t",
-    "command": "markdown.extension.toc.create",
-    "when": "editorTextFocus && vim.mode == 'Normal'"
+    "command": "projectManager.listProjectsNewWindow",
+    "key": "ctrl+alt+cmd+p"
   },
   {
-    "key": "cmd+f1",
-    "command": "workbench.action.tasks.runTask"
+    "command": "extension.vsKubernetesExplorer.focus",
+    "key": "ctrl+alt+cmd+k"
   },
   {
-    "key": "cmd+0",
-    "command": "-workbench.action.focusSideBar"
+    "command": "dockerContainers.focus",
+    "key": "ctrl+alt+cmd+d"
   }
 ]
