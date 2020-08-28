@@ -60,6 +60,7 @@ fi
 ## GO
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
 [[ -f "${HOME}/.gimme/envs/latest.env" ]] && source "${HOME}/.gimme/envs/latest.env"
+export GODEBUG=x509ignoreCN=0
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
@@ -89,3 +90,5 @@ export NVM_DIR="${HOME}/.nvm"
 ## starship
 # cargo install starship
 command -v starship &>/dev/null && eval "$(starship init bash)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
