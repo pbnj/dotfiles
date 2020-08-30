@@ -11,7 +11,7 @@ shopt -s globstar
 # EXPORTS
 
 export DOTFILES="${HOME}/.dotfiles"
-export EDITOR=vim
+export EDITOR="vim --clean"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob='!.git' --sort=path"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
@@ -24,6 +24,8 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
+
+command -v code &>/dev/null && export EDITOR="code --wait"
 
 # SETTINGS
 
