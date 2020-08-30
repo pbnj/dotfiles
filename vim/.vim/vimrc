@@ -48,11 +48,11 @@ Plug 'tpope/vim-commentary'
 " hashicorp tools
 Plug 'hashivim/vim-hashicorp-tools'
 
-" tags
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'tomtom/tlib_vim'
-Plug 'tomtom/ttags_vim'
-Plug 'majutsushi/tagbar'
+" " tags
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'tomtom/tlib_vim'
+" Plug 'tomtom/ttags_vim'
+" Plug 'majutsushi/tagbar'
 
 " romainl
 Plug 'romainl/vim-qf'
