@@ -20,14 +20,6 @@ graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%
 # List contributors with number of commits
 contributors = shortlog --summary --numbered
 
-# Codereview aliases
-change = codereview change
-gofmt = codereview gofmt
-mail = codereview mail
-pending = codereview pending
-submit = codereview submit
-sync = codereview sync
-
 # from seth vargo https://gist.github.com/sethvargo/6b2f7b592853381690bfe3bd00947e8f
 unreleased = "!f() { git fetch --tags && git diff $(git tag | tail -n 1); }; f"
 up = !git pull origin master && git remote prune origin && git submodule update --init --recursive
