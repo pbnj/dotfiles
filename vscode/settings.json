@@ -294,7 +294,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
-    "Kubernetes": "/manifests/*.yaml",
-    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.7.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "Kubernetes": "/manifests/*.yaml"
   }
 }
