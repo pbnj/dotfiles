@@ -11,6 +11,9 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -148,6 +151,14 @@
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
       "before": ["<leader>", ":"],
       "commands": ["workbench.action.showCommands"]
     },
@@ -162,6 +173,22 @@
     {
       "before": ["<leader>", "p"],
       "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<C-w>", "H"],
+      "commands": ["workbench.action.moveEditorToLeftGroup"]
+    },
+    {
+      "before": ["<C-w>", "L"],
+      "commands": ["workbench.action.moveEditorToRightGroup"]
+    },
+    {
+      "before": ["<C-w>", "J"],
+      "commands": ["workbench.action.moveEditorToBelowGroup"]
+    },
+    {
+      "before": ["<C-w>", "K"],
+      "commands": ["workbench.action.moveEditorToAboveGroup"]
     },
     {
       "before": ["<C-w>", "\\"],
@@ -260,7 +287,6 @@
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Default Light+",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
