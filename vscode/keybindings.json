@@ -53,5 +53,9 @@
   {
     "key": "ctrl+alt+cmd+g",
     "command": "gitlens.views.repositories:gitlens.focus"
+  },
+  {
+    "key": "ctrl+alt+cmd+j",
+    "command": "atlascode.views.jira.customJql.focus"
   }
 ]
