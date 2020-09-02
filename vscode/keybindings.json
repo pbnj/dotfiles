@@ -49,5 +49,9 @@
     "key": "shift+cmd+[",
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+alt+cmd+g",
+    "command": "gitlens.views.repositories:gitlens.focus"
   }
 ]
