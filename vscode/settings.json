@@ -278,7 +278,7 @@
       "/Users/pbenjamin/.kube/configs/zord",
       "/Users/pbenjamin/.kube/configs/0-ecc"
     ],
-    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/0-ecc",
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/zord",
     "vs-kubernetes.kubectl-path.linux": "/home/vagrant/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
     "vs-kubernetes.minikube-path.linux": "/home/vagrant/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
@@ -286,7 +286,7 @@
   },
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
-  "workbench.activityBar.visible": true,
+  "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
@@ -294,6 +294,8 @@
   "workbench.startupEditor": "newUntitledFile",
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
-    "Kubernetes": "/manifests/*.yaml"
-  }
+    "Kubernetes": "/manifests/*.yaml",
+    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.7.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "workbench.colorTheme": "Default Light+"
 }
