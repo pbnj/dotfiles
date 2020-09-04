@@ -96,5 +96,3 @@ command -v direnv &>/dev/null && eval "$(direnv hook bash)"
 ## starship
 # cargo install starship
 command -v starship &>/dev/null && eval "$(starship init bash)"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
