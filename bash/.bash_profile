@@ -87,6 +87,10 @@ export NVM_DIR="${HOME}/.nvm"
 [[ -f "${HOME}/.bash_aliases" ]] && source "${HOME}/.bash_aliases"
 [[ -f "${HOME}/.profile" ]] && source "${HOME}/.profile" # contains private/work stuff
 
+## DIRENV
+# brew install direnv
+command -v direnv &>/dev/null && eval "$(direnv hook bash)"
+
 # PROMPT
 
 ## starship
