@@ -39,6 +39,8 @@
   "atlascode.jira.statusbar.showUser": false,
   "bashIde.highlightParsingErrors": true,
   "diffEditor.ignoreTrimWhitespace": false,
+  "dotfiles.repository": "https://github.com/pbnj/dotfiles.git",
+  "dotfiles.targetPath": "~/.dotfiles",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true
@@ -63,9 +65,10 @@
   "git.alwaysSignOff": true,
   "git.autoStash": true,
   "git.autofetch": true,
-  "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.rebaseWhenSync": true,
+  "git.showPushSuccessNotification": true,
+  "git.supportCancellation": true,
   "gitlab.customQueries": [
     {
       "name": "Issues assigned to me",
@@ -122,7 +125,10 @@
   "material-icon-theme.files.associations": {
     "Dockerfile.*": "dockerfile"
   },
-  "projectManager.git.baseFolders": ["/Users/pbenjamin/work/gitlab.zeta.tools"],
+  "projectManager.git.baseFolders": [
+    "/Users/pbenjamin/work",
+    "/Users/pbenjamin/projects"
+  ],
   "projectManager.groupList": true,
   "projectManager.showProjectNameInStatusBar": false,
   "projectManager.sortList": "Name",
@@ -140,6 +146,7 @@
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.shell.osx": "/usr/local/bin/bash",
   "terraform.languageServer": {
     "args": ["serve"],
     "external": true
@@ -151,12 +158,12 @@
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["j"],
-      "after": ["g", "j"]
+      "after": ["g", "j"],
+      "before": ["j"]
     },
     {
-      "before": ["k"],
-      "after": ["g", "k"]
+      "after": ["g", "k"],
+      "before": ["k"]
     },
     {
       "before": ["<leader>", ":"],
@@ -287,6 +294,7 @@
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Default Light+",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
@@ -294,8 +302,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
-    "Kubernetes": "/manifests/*.yaml",
-    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.7.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "workbench.colorTheme": "Default Light+"
+    "Kubernetes": "/manifests/*.yaml"
+  }
 }
