@@ -46,7 +46,6 @@
     "source.organizeImports": true
   },
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -143,7 +142,6 @@
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.shell.osx": "/usr/local/bin/bash",
@@ -294,7 +292,6 @@
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Default Light+",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
