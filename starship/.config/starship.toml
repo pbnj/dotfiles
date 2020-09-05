@@ -30,16 +30,16 @@ prompt_order = [
 ]
 
 [aws]
-symbol = " "
+symbol = "aws:"
 
 [directory]
 truncation_length = 0
 
 [battery]
 disabled = false
-full_symbol = " "
-charging_symbol = " "
-discharging_symbol = " "
+full_symbol = "batt:"
+charging_symbol = "batt:"
+discharging_symbol = "batt:"
 
 [[battery.display]]
 threshold = 20
@@ -58,11 +58,11 @@ disabled = false
 show_percentage = true
 show_swap = false
 threshold = 0
-symbol = " "
+symbol = "mem:"
 style = "dimmed"
 
 [git_branch]
-symbol = " "
+symbol = "git:"
 
 [git_status]
 deleted = "x"
@@ -70,31 +70,31 @@ show_sync_count = true
 style = "red"
 
 [rust]
-symbol = " "
+symbol = "rust:"
 
 [ruby]
-symbol = " "
+symbol = "ruby:"
 
 [golang]
-symbol = " "
+symbol = "go:"
 
 [nodejs]
-symbol = " "
+symbol = "node:"
 
 [python]
-symbol = " "
+symbol = "python:"
 
 [package]
-symbol = " "
+symbol = "package:"
 
 [terraform]
-symbol = " "
+symbol = "terraform:"
 
 [docker_context]
-symbol= " "
+symbol= "docker:"
 
 [kubernetes]
-symbol = "ﴱ "
+symbol = "k8s:"
 disabled = false
 
 [jobs]
@@ -104,4 +104,3 @@ symbol = "%"
 symbol = "$"
 style_success = "green"
 style_failure = "red"
-
