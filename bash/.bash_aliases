@@ -6,12 +6,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
 
+alias ll="ls -alFh"
+
 # cargo install exa
 if command -v exa &>/dev/null; then
     alias ls="exa"
     alias ll="exa --all --long --git --group-directories-first"
-else
-    alias ll="ls -alFh --group-directories-first"
 fi
 
 # For safety
@@ -62,25 +62,25 @@ alias vi="vim -u NONE"
 ## select one or more files from current working directory to edit
 vif() {
     FILES=$(fzf --multi --preview="cat {}")
-    [[ -n "${FILES}" ]] && vim "${FILES}"
+    [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more git files to edit
 vig() {
     FILES=$(git ls-files | fzf --multi --preview="cat {}")
-    [[ -n "${FILES}" ]] && vim "${FILES}"
+    [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more git-modified files to edit
 vis() {
     FILES=$(git ls-files --modified | fzf --multi --preview="cat {}")
-    [[ -n "${FILES}" ]] && vim "${FILES}"
+    [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more TODO files to edit
 vit() {
     FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
-    [[ -n "${FILES}" ]] && vim "${FILES}"
+    [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ################################################################################
