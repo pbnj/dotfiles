@@ -1,45 +1,42 @@
 # https://starship.rs/config/
 # for custom symbols: https://www.nerdfonts.com/cheat-sheet
 
-prompt_order = [
-	# "username",
-	# "hostname",
-	"directory",
-	"git_branch",
-	"git_commit",
-	"git_state",
-	"git_status",
-	"package",
-	"golang",
-	"nodejs",
-	"python",
-	"ruby",
-	"rust",
-	"terraform",
-	"conda",
-	"aws",
-	"env_var",
-	"docker_context",
-	"kubernetes",
-	"battery",
-	"memory_usage",
-	"jobs",
-	"cmd_duration",
-	"line_break",
-	"character",
-]
+format = """\
+	$directory\
+	$git_branch\
+	$git_commit\
+	$git_state\
+	$git_status\
+	$package\
+	$golang\
+	$nodejs\
+	$python\
+	$ruby\
+	$rust\
+	$terraform\
+	$aws\
+	$env_var\
+	$docker_context\
+	$kubernetes\
+	$battery\
+	$memory_usage\
+	$time\
+	$jobs\
+	$cmd_duration\
+	$line_break\
+	$character
+"""
 
 [aws]
 symbol = "aws:"
-
-[directory]
-truncation_length = 0
+format = "[$symbol$profile(\\($region\\))]($style) "
 
 [battery]
 disabled = false
 full_symbol = "batt:"
 charging_symbol = "batt:"
 discharging_symbol = "batt:"
+format = "[$symbol$percentage]($style) "
 
 [[battery.display]]
 threshold = 20
@@ -53,54 +50,59 @@ style = "yellow"
 threshold = 100
 style = "green"
 
-[memory_usage]
-disabled = false
-show_percentage = true
-show_swap = false
-threshold = 0
-symbol = "mem:"
+[cmd_duration]
 style = "dimmed"
+format = "[duration:$duration]($style)"
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 symbol = "git:"
+format = "[$symbol$branch]($style) "
 
 [git_status]
 deleted = "x"
 show_sync_count = true
 style = "red"
+format = "[$all_status$ahead_behind]($style) "
 
 [rust]
 symbol = "rust:"
+format = "[$symbol$version]($style) "
 
 [ruby]
 symbol = "ruby:"
+format = "[$symbol$version]($style) "
 
 [golang]
 symbol = "go:"
+format = "[$symbol$version]($style) "
 
 [nodejs]
 symbol = "node:"
-
-[python]
-symbol = "python:"
+format = "[$symbol$version]($style) "
 
 [package]
 symbol = "package:"
+format = "[$symbol$version]($style) "
 
 [terraform]
 symbol = "terraform:"
+format = "[$symbol$version]($style) "
 
 [docker_context]
 symbol= "docker:"
+format = "[$symbol$context]($style) "
 
 [kubernetes]
 symbol = "k8s:"
 disabled = false
+format = "[$symbol$context(\\($namespace\\))]($style) "
 
 [jobs]
 symbol = "%"
 
 [character]
-symbol = "$"
-style_success = "green"
-style_failure = "red"
+success_symbol = "[\\$](green) "
+error_symbol = "[\\$](red) "
