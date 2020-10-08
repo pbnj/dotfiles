@@ -11,7 +11,6 @@
     "clear": true
   },
   "tasks": [
-    // jira tasks
     {
       "label": "jira: list issues",
       "type": "shell",
@@ -31,7 +30,6 @@
       "problemMatcher": [],
       "dependsOn": ["jira: list issues"]
     },
-    // gitlab tasks
     {
       "label": "gl: list pipelines",
       "type": "shell",
@@ -70,7 +68,6 @@
       "problemMatcher": [],
       "dependsOn": ["gl: list merge requests"]
     },
-    // github tasks
     {
       "label": "gh: view repo",
       "type": "shell",
@@ -81,7 +78,8 @@
       "label": "gh: list issues",
       "type": "shell",
       "command": "gh issue list",
-      "problemMatcher": []
+      "problemMatcher": [],
+      "group": "test"
     },
     {
       "label": "gh: view issue ...",
@@ -103,7 +101,6 @@
       "problemMatcher": [],
       "dependsOn": ["gh: list pull-requests"]
     },
-    // make tasks
     {
       "label": "make: help",
       "type": "shell",

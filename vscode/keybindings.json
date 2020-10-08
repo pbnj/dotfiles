@@ -9,14 +9,6 @@
     "when": "editorTextFocus && !editorReadonly && editorLangId == 'markdown'"
   },
   {
-    "command": "-workbench.action.files.newUntitledFile",
-    "key": "cmd+n"
-  },
-  {
-    "command": "explorer.newFile",
-    "key": "cmd+n"
-  },
-  {
     "command": "-workbench.action.focusSideBar",
     "key": "cmd+0"
   },
@@ -57,5 +49,31 @@
   {
     "key": "ctrl+alt+cmd+j",
     "command": "atlascode.views.jira.customJql.focus"
+  },
+  {
+    "key": "alt+cmd+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+.",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+.",
+    "command": "-editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+f3",
+    "command": "-hediet.vscode-drawio.linkCodeWithSelectedNode"
   }
 ]
