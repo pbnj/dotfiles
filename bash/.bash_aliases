@@ -3,6 +3,7 @@
 ################################################################################
 
 alias ..="cd .."
+
 alias ...="cd ../.."
 alias grep="grep --color=auto"
 
@@ -25,8 +26,21 @@ alias mv='mv -i'
 
 ## brew
 if command -v brew &>/dev/null; then
-    alias bubu="brew upgrade && brew cask upgrade && brew cleanup"
+    alias bubu="brew upgrade && brew upgrade --cask && brew cleanup"
 fi
+
+################################################################################
+# code-server
+# from: https://github.com/cdr/code-server/blob/v3.5.0/doc/install.md
+################################################################################
+code-server() {
+    cat "${HOME}"/.config/code-server/config.yaml
+    docker run -it -p 127.0.0.1:8080:8080 \
+        -v "$HOME/.config:/home/coder/.config" \
+        -v "$PWD:/home/coder/project" \
+        -u "$(id -u):$(id -g)" \
+        codercom/code-server:latest
+}
 
 ################################################################################
 # kubernetes
@@ -35,23 +49,14 @@ fi
 ## sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
 command -v kubectl &>/dev/null && source <(kubectl completion bash)
 
-## kops
-command -v kops &>/dev/null && source <(kops completion bash)
-
 ## GO111MODULE="on" go get sigs.k8s.io/kind@v0.7.0
-command -v kind &>/dev/null && source <(kind completion bash)
+# command -v kind &>/dev/null && source <(kind completion bash)
 
 ## brew install helm
-command -v helm &>/dev/null && source <(helm completion bash)
+# command -v helm &>/dev/null && source <(helm completion bash)
 
 ## activate various k8s environments
 alias kcfg='export KUBECONFIG=$(find ${HOME}/.kube/configs -exec realpath {} \; | fzf)'
-
-################################################################################
-# 1Password
-################################################################################
-
-command -v op &>/dev/null && source <(op completion bash)
 
 ################################################################################
 # vim
@@ -82,30 +87,3 @@ vit() {
     FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
-
-################################################################################
-# vault
-################################################################################
-
-## brew install vault
-command -v vault &>/dev/null && complete -C /usr/local/bin/vault vault
-
-################################################################################
-# fzf
-################################################################################
-
-alias fzfp="fzf --preview='cat {}'"
-
-################################################################################
-# Linux
-################################################################################
-
-if command -v apt &>/dev/null; then
-    alias auau="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
-fi
-
-################################################################################
-# gh
-################################################################################
-
-command -v gh &>/dev/null && source <(gh completion --shell bash)
