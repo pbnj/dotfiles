@@ -44,7 +44,7 @@
   "atlascode.jira.statusbar.showUser": false,
   "bashIde.highlightParsingErrors": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": false,
+  "diffEditor.renderSideBySide": true,
   "dotfiles.repository": "pbnj/dotfiles",
   "dotfiles.targetPath": "~/.dotfiles",
   "editor.codeActionsOnSave": {
