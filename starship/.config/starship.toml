@@ -104,5 +104,5 @@ format = "[$symbol$context(\\($namespace\\))]($style) "
 symbol = "%"
 
 [character]
-success_symbol = "[\\$](green) "
-error_symbol = "[\\$](red) "
+success_symbol = "[\\$](green)"
+error_symbol = "[\\$](red)"
