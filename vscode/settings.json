@@ -52,7 +52,8 @@
     "source.organizeImports": true
   },
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -63,13 +64,13 @@
   "editor.wordWrap": "off",
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
   "extensions.showRecommendationsOnlyOnDemand": true,
   "files.associations": {
     "*.hcl": "terraform",
     "Dockerfile.*": "dockerfile"
   },
   "git.alwaysSignOff": true,
-  "git.autoStash": true,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "git.rebaseWhenSync": true,
@@ -128,6 +129,7 @@
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2F3czQ7a3ViZXJuZXRlc1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
   "liveshare.connectionMode": "direct",
   "markdown.extension.italic.indicator": "_",
+  "markdown.extension.orderedList.marker": "one",
   "material-icon-theme.files.associations": {
     "Dockerfile.*": "dockerfile"
   },
@@ -138,9 +140,8 @@
   ],
   "projectManager.git.maxDepthRecursion": 0,
   "projectManager.groupList": true,
-  "projectManager.showProjectNameInStatusBar": false,
   "projectManager.sortList": "Name",
-  "rest-client.fontFamily": "'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+  "rest-client.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "ruby.codeCompletion": "rcodetools",
   "ruby.format": "rubocop",
   "ruby.intellisense": "rubyLocate",
@@ -151,6 +152,7 @@
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
   "todo-tree.tree.showScanModeButton": false,
@@ -280,33 +282,24 @@
     }
   ],
   "vs-kubernetes": {
-    "vs-kubernetes.draft-path.linux": "/home/vagrant/.vs-kubernetes/tools/draft/linux-amd64/draft",
     "vs-kubernetes.draft-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/draft/darwin-amd64/draft",
-    "vs-kubernetes.helm-path.linux": "/home/vagrant/.vs-kubernetes/tools/helm/linux-amd64/helm",
     "vs-kubernetes.helm-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vs-kubernetes.knownKubeconfigs": [
-      "/Users/pbenjamin/.kube/configs/0-ecc",
-      "/Users/pbenjamin/.kube/configs/2-prod"
-    ],
-    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/2-prod",
-    "vs-kubernetes.kubectl-path.linux": "/home/vagrant/.vs-kubernetes/tools/kubectl/kubectl",
-    "vs-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
-    "vs-kubernetes.minikube-path.linux": "/home/vagrant/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "vs-kubernetes.knownKubeconfigs": [],
+    "vs-kubernetes.kubeconfig": "",
     "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
-  "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "Default Light+",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.preferredDarkColorTheme": "GitHub Dark",
-  "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.indent": 10,
+  "workbench.tree.renderIndentGuides": "always",
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "Kubernetes": "/manifests/*.yaml",
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "workbench.editor.enablePreviewFromQuickOpen": false
+  }
 }
