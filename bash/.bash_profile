@@ -1,6 +1,5 @@
 # SHELL OPTIONS
 
-shopt -s direxpand
 shopt -s nocaseglob
 shopt -s histappend
 shopt -s dirspell
@@ -28,6 +27,9 @@ export MANPAGER="less -X"
 command -v code &>/dev/null && export EDITOR="code --wait"
 
 # SETTINGS
+
+## BREW
+eval "$(brew shellenv)"
 
 ## PATH
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"

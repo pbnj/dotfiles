@@ -1,4 +1,4 @@
-################################################################################
+##############################################################################
 # Generic
 ################################################################################
 
@@ -28,19 +28,6 @@ alias mv='mv -i'
 if command -v brew &>/dev/null; then
     alias bubu="brew upgrade && brew upgrade --cask && brew cleanup"
 fi
-
-################################################################################
-# code-server
-# from: https://github.com/cdr/code-server/blob/v3.5.0/doc/install.md
-################################################################################
-code-server() {
-    cat "${HOME}"/.config/code-server/config.yaml
-    docker run -it -p 127.0.0.1:8080:8080 \
-        -v "$HOME/.config:/home/coder/.config" \
-        -v "$PWD:/home/coder/project" \
-        -u "$(id -u):$(id -g)" \
-        codercom/code-server:latest
-}
 
 ################################################################################
 # kubernetes
