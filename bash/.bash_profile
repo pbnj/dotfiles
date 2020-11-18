@@ -9,9 +9,10 @@ shopt -s globstar
 
 # EXPORTS
 
+export BAT_CONFIG_PATH="${HOME}/.config/bat/config"
 export DOTFILES="${HOME}/.dotfiles"
-export EDITOR="vim --clean"
-export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob='!.git' --sort=path"
+export EDITOR="nvim"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
 export LANG="en_US.UTF-8"
@@ -23,8 +24,6 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
-
-command -v code &>/dev/null && export EDITOR="code --wait"
 
 # SETTINGS
 
@@ -78,11 +77,18 @@ if [ -d "${HOME}/.cargo" ]; then
         source <(rustup completions bash cargo)
 fi
 
-## NVM
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+## NODE
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
 if [ -d "${HOME}/.nvm" ]; then
         export NVM_DIR="${HOME}/.nvm"
         [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+fi
+
+## RUBY
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+if [ -d "${HOME}/.rvm" ]; then
+        export PATH="$PATH:$HOME/.rvm/bin"
+        [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
 ## FZF
