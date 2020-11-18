@@ -13,7 +13,6 @@ format = """\
 	$python\
 	$ruby\
 	$rust\
-	$terraform\
 	$aws\
 	$env_var\
 	$docker_context\
@@ -85,10 +84,6 @@ format = "[$symbol$version]($style) "
 
 [package]
 symbol = "package:"
-format = "[$symbol$version]($style) "
-
-[terraform]
-symbol = "terraform:"
 format = "[$symbol$version]($style) "
 
 [docker_context]
