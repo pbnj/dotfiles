@@ -71,6 +71,7 @@
     "Dockerfile.*": "dockerfile"
   },
   "git.alwaysSignOff": true,
+  "git.autoStash": true,
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "git.rebaseWhenSync": true,
@@ -128,8 +129,6 @@
   "go.useLanguageServer": true,
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2F3czQ7a3ViZXJuZXRlc1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
   "liveshare.connectionMode": "direct",
-  "markdown.extension.italic.indicator": "_",
-  "markdown.extension.orderedList.marker": "one",
   "material-icon-theme.files.associations": {
     "Dockerfile.*": "dockerfile"
   },
@@ -155,6 +154,13 @@
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
+  "terraform.languageServer": {
+    "args": ["serve"],
+    "external": true,
+    "maxNumberOfProblems": 100,
+    "pathToBinary": "",
+    "trace.server": "messages"
+  },
   "todo-tree.tree.showScanModeButton": false,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
@@ -179,7 +185,7 @@
     },
     {
       "before": ["<leader>", "t"],
-      "commands": ["markdown.extension.toc.create"]
+      "commands": ["workbench.action.tasks.runTask"]
     },
     {
       "before": ["<leader>", "p"],
@@ -284,13 +290,14 @@
   "vs-kubernetes": {
     "vs-kubernetes.draft-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/draft/darwin-amd64/draft",
     "vs-kubernetes.helm-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vs-kubernetes.knownKubeconfigs": [],
-    "vs-kubernetes.kubeconfig": "",
-    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vs-kubernetes.knownKubeconfigs": ["/Users/pbenjamin/.kube/configs/0-ecc"],
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/0-ecc",
+    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl"
   },
+  "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
-  "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Default Light+",
+  "workbench.activityBar.visible": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
@@ -300,6 +307,11 @@
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "Kubernetes": "/manifests/*.yaml",
-    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  }
+    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.colorTheme": "GitHub Dark",
+  "markdown.extension.toc.updateOnSave": false,
+  "editor.smoothScrolling": true
 }
