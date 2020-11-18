@@ -50,24 +50,28 @@ whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 trustctime = false
 
-# use vscode editor
-editor = code --wait
+editor = nvim
+# editor = idea --wait # idea
 
-[diff]
-tool = default-difftool
+pager = delta
 
-[difftool "default-difftool"]
-cmd = code --wait --diff ${LOCAL} ${REMOTE}
+[interactive]
+diffFilter = delta --color-only
+
+[delta]
+features = side-by-side line-numbers decorations
+whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+commit-decoration-style = bold yellow box ul
+file-style = bold yellow ul
+file-decoration-style = none
 
 [color]
 ui = auto
 
 [push]
 default = simple
-
-[hub]
-host = github.com
-protocol = https
 
 [user]
 name = Peter Benjamin
