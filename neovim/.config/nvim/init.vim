@@ -11,7 +11,7 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " tab completion
-Plug 'ajh17/VimCompletesMe'
+" Plug 'ajh17/VimCompletesMe'
 
 " test Runner
 Plug 'janko/vim-test'
@@ -52,12 +52,16 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
 " lsp
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'nvim-lua/lsp_extensions.nvim'
-" Plug 'nvim-lua/lsp-status.nvim'
-" Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'nvim-lua/lsp-status.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'steelsojka/completion-buffers'
+Plug 'nvim-treesitter/completion-treesitter'
+Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'kristijanhusak/completion-tags'
 
 " languages
 Plug 'chrisbra/csv.vim'
@@ -75,7 +79,7 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go' , { 'do': ':GoUpdateBinaries' }
 
 " colorscheme
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
@@ -281,7 +285,16 @@ let g:go_gopls_enabled          = 0
 let g:go_doc_keywordprg_enabled = 0
 
 """"""""""""""""""""""""""""""""""""""""
+" vim-test
+""""""""""""""""""""""""""""""""""""""""
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+""""""""""""""""""""""""""""""""""""""""
 " lsp
 """"""""""""""""""""""""""""""""""""""""
-source $HOME/.config/nvim/coc.vim
-" source $HOME/.config/nvim/lsp.vim
+" source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/lsp.vim
