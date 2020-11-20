@@ -307,11 +307,12 @@
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "Kubernetes": "/manifests/*.yaml",
-    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.colorTheme": "GitHub Dark",
   "markdown.extension.toc.updateOnSave": false,
-  "editor.smoothScrolling": true
+  "editor.smoothScrolling": true,
+  "yarn.enableTouchbar": true
 }
