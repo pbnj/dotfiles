@@ -8,6 +8,7 @@
     "json",
     "jsonc",
     "markdown",
+    "ruby",
     "rust",
     "sh",
     "terraform",
@@ -23,8 +24,13 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.position": "right",
   "explorer.previewAction.onHover": false,
-  "git.addGBlameToBufferVar": true,
+  "git.addGBlameToVirtualText": true,
   "git.enableGutters": true,
+  "git.addedSign.text": "┃",
+  "git.topRemovedSign.text": "┃",
+  "git.changedSign.text": "┃",
+  "git.changeRemovedSign.text": "┃",
+  "git.removedSign.text": "┃",
   "languageserver": {
     "bash": {
       "args": ["start"],

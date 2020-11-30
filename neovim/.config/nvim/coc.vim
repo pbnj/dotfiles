@@ -10,6 +10,7 @@
 " https://github.com/rcjsuen/dockerfile-language-server-nodejs
 " https://solargraph.org/guides/getting-started
 let g:coc_global_extensions = [
+      \ 'coc-db',
       \ 'coc-docker',
       \ 'coc-eslint',
       \ 'coc-explorer',
