@@ -25,9 +25,17 @@ alias mv='mv -i'
 ################################################################################
 
 ## brew
-if command -v brew &>/dev/null; then
-    alias bubu="brew upgrade && brew upgrade --cask && brew cleanup"
-fi
+command -v brew &>/dev/null && alias bubu="brew upgrade && brew upgrade --cask && brew cleanup"
+
+################################################################################
+# git
+################################################################################
+
+## brew install glab
+command -v glab &>/dev/null && source <(glab completion --shell bash)
+
+## brew install gh
+command -v gh &>/dev/null && source <(gh completion --shell bash)
 
 ################################################################################
 # kubernetes
@@ -44,6 +52,8 @@ command -v kubectl &>/dev/null && source <(kubectl completion bash)
 
 ## activate various k8s environments
 alias kcfg='export KUBECONFIG=$(find ${HOME}/.kube/configs -exec realpath {} \; | fzf)'
+alias k='kubectl'
+complete -F __start_kubectl k
 
 ################################################################################
 # vim

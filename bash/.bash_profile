@@ -66,7 +66,7 @@ if command -v go &>/dev/null; then
         [ -f "${HOME}/.gimme/envs/latest.env" ] && source "${HOME}/.gimme/envs/latest.env"
         export GODEBUG=x509ignoreCN=0
         export GOPATH="${HOME}/go"
-        export PATH="${GOPATH}/bin:${PATH}"
+        export PATH="${PATH}:${GOPATH}/bin"
 fi
 
 ## CARGO
@@ -87,8 +87,8 @@ fi
 ## RUBY
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 if [ -d "${HOME}/.rvm" ]; then
-        export PATH="$PATH:$HOME/.rvm/bin"
-        [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+        export PATH="${HOME}/.rvm/bin:${PATH}"
+        [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
 ## FZF
