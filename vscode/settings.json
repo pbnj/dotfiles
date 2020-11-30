@@ -2,6 +2,21 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+      "source.fixAll": true
+    }
+  },
+  "[go.mod]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true,
+      "source.fixAll": true
+    }
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -127,8 +142,17 @@
   "go.lintFlags": ["--fast"],
   "go.lintTool": "golangci-lint",
   "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "diagnostics": true,
+    "documentLink": true
+  },
+  "gopls": {
+    "usePlaceholders": true,
+    "deepCompletion": true,
+    "completeUnimported": true
+  },
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2F3czQ7a3ViZXJuZXRlc1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
-  "liveshare.connectionMode": "direct",
   "material-icon-theme.files.associations": {
     "Dockerfile.*": "dockerfile"
   },
@@ -154,13 +178,6 @@
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.scrollback": 10000,
-  "terraform.languageServer": {
-    "args": ["serve"],
-    "external": true,
-    "maxNumberOfProblems": 100,
-    "pathToBinary": "",
-    "trace.server": "messages"
-  },
   "todo-tree.tree.showScanModeButton": false,
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
@@ -311,8 +328,8 @@
   },
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Light",
   "markdown.extension.toc.updateOnSave": false,
   "editor.smoothScrolling": true,
-  "yarn.enableTouchbar": true
+  "update.mode": "start"
 }
