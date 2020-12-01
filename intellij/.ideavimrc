@@ -1,0 +1,25 @@
+set argtextobj
+set clipboard=unnamed
+set commentary
+set easymotion
+set highlightedyank
+set hlsearch
+set ideajoin
+set ignorecase
+set incsearch
+set multiple-cursors
+set showcmd
+set smartcase
+set surround
+set textobj-entire
+set visualbell
+
+nnoremap [q :action GotoPreviousError<CR>
+nnoremap ]q :action GotoNextError<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gy :action GotoTypeDeclaration<CR>
+nnoremap gd :action GotoDeclarationOnly<CR>
+nnoremap gr :action GotoDeclaration<CR>
