@@ -11,7 +11,7 @@ shopt -s globstar
 
 export BAT_CONFIG_PATH="${HOME}/.config/bat/config"
 export DOTFILES="${HOME}/.dotfiles"
-export EDITOR="nvim"
+export EDITOR="vim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoredups
@@ -28,7 +28,7 @@ export MANPAGER="less -X"
 # SETTINGS
 
 ## BREW
-eval "$(brew shellenv)"
+command -v brew &>/dev/null && eval "$(brew shellenv)"
 
 ## PATH
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
