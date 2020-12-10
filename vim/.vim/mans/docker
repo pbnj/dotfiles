@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-open https://docs.docker.com/engine/reference/builder/#${1,,}

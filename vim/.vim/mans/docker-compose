@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-open https://docs.docker.com/compose/compose-file/#${1,,}
