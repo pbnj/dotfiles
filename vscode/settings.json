@@ -77,11 +77,8 @@
   "editor.rulers": [
     80
   ],
-  "editor.scrollBeyondLastLine": true,
   "editor.smoothScrolling": true,
   "editor.wordWrap": "off",
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "extensions.showRecommendationsOnlyOnDemand": true,
   "files.associations": {
@@ -469,7 +466,11 @@
     ],
     "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/0-ecc",
     "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl",
-    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vs-kubernetes.kubectl-path.linux": "/root/.vs-kubernetes/tools/kubectl/kubectl",
+    "vs-kubernetes.minikube-path.linux": "/root/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "vs-kubernetes.helm-path.linux": "/root/.vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft"
   },
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
@@ -487,5 +488,7 @@
   "yaml.schemas": {
     "Kubernetes": "/manifests/*.yaml",
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  }
+  },
+  "testExplorer.addToEditorContextMenu": true,
+  "scm.defaultViewMode": "tree"
 }
