@@ -75,5 +75,13 @@
   {
     "key": "shift+f3",
     "command": "-hediet.vscode-drawio.linkCodeWithSelectedNode"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "-workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.terminal.newInActiveWorkspace"
   }
 ]

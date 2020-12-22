@@ -472,10 +472,9 @@
     "vs-kubernetes.helm-path.linux": "/root/.vs-kubernetes/tools/helm/linux-amd64/helm",
     "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft"
   },
-  "window.autoDetectColorScheme": true,
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Night Owl Light",
+  "workbench.colorTheme": "Night Owl",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Night Owl",
@@ -490,5 +489,13 @@
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "testExplorer.addToEditorContextMenu": true,
-  "scm.defaultViewMode": "tree"
+  "scm.defaultViewMode": "tree",
+  "ruby.interpreter.commandPath": "/Users/pbenjamin/.rvm/rubies/ruby-2.7.2/bin/ruby",
+  "ruby.pathToBundler": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle",
+  "window.autoDetectColorScheme": true,
+  "rubyTestExplorer.minitestCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rake",
+  "rubyTestExplorer.rspecCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rspec",
+  "rubyTestExplorer.rspecDirectory": "./spec",
+  "rubyTestExplorer.logpanel": true,
+  "rubyTestExplorer.testFramework": "rspec"
 }
