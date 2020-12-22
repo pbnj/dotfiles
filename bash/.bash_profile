@@ -9,7 +9,6 @@ shopt -s globstar
 
 # EXPORTS
 
-export BAT_CONFIG_PATH="${HOME}/.config/bat/config"
 export DOTFILES="${HOME}/.dotfiles"
 export EDITOR="vim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
