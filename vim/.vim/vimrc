@@ -26,6 +26,8 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'rust-lang/rust.vim'
