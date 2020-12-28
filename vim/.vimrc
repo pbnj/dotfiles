@@ -123,10 +123,6 @@ if has("gui_running")
   set guioptions-=L
 endif
 
-if findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
@@ -186,11 +182,14 @@ endif
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
-if &background == 'light'
-  let $FZF_DEFAULT_OPTS='--color=bw'
-else
-  let $FZF_DEFAULT_OPTS=''
-endif
+let g:gruvbox_invert_selection=0
+colorscheme gruvbox
+
+" if &background == 'light'
+"   let $FZF_DEFAULT_OPTS='--color=bw'
+" else
+"   let $FZF_DEFAULT_OPTS=''
+" endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -248,6 +247,10 @@ endfor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 
 """"""""""""""""""""""""""""""""""""""""
 " vim-signify
