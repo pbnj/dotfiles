@@ -82,9 +82,7 @@ set nomodeline
 set norelativenumber
 set noshowcmd
 set noshowmode
-set nospell
 set noswapfile
-set novisualbell
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
 set nowritebackup
@@ -102,7 +100,7 @@ set smartcase
 set smarttab
 set splitbelow
 set splitright
-set t_ut=
+set t_ut
 set tabline
 set tags+=tags
 set termguicolors
@@ -256,15 +254,12 @@ endif
 " vim-signify
 """"""""""""""""""""""""""""""""""""""""
 
-" let g:signify_sign_add = '┃'
-" let g:signify_sign_delete = '┃'
-" let g:signify_sign_delete_first_line = '┃'
-" let g:signify_sign_change = '┃'
-
-" let g:signify_sign_add = '+'
-" let g:signify_sign_delete = '-'
-" let g:signify_sign_delete_first_line = '-'
-" let g:signify_sign_change = '!'
+if has("gui_running")
+  let g:signify_sign_add = '┃'
+  let g:signify_sign_delete = '┃'
+  let g:signify_sign_delete_first_line = '┃'
+  let g:signify_sign_change = '┃'
+endif
 
 nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
 
