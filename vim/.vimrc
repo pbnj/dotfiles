@@ -39,7 +39,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'hashivim/vim-hashicorp-tools'
 
-Plug 'haishanh/night-owl.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -57,13 +57,13 @@ set cmdheight=2
 set colorcolumn=+1
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
+set cursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
 set formatoptions+=j " remove comment leader when joining lines
 set formatoptions+=n " when formatting text, recognize numbered lists
 set formatoptions-=t " don't auto-wrap text using textwidth
-set guifont=JetBrainsMono\ Nerd\ Font
 set hidden
 set history=1000
 set hlsearch
@@ -77,7 +77,6 @@ set list
 set listchars=tab:\|·,extends:≫,precedes:≪,nbsp:·,trail:·
 set mouse=a
 set nobackup
-set nocursorline
 set nofoldenable
 set nomodeline
 set norelativenumber
@@ -104,7 +103,9 @@ set smarttab
 set splitbelow
 set splitright
 set t_ut=
+set tabline
 set tags+=tags
+set termguicolors
 set textwidth=79
 set ttyfast
 set undodir=$HOME/.vim/undo
@@ -113,8 +114,14 @@ set updatetime=100
 set wildignorecase
 set wildmenu
 set wildmode=longest,full
-set guifont=JetBrainsMono\ Nerd\ Font
-set termguicolors
+
+if has("gui_running")
+  set guifont=JetBrainsMono\ Nerd\ Font
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
+endif
 
 if findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
@@ -123,6 +130,7 @@ endif
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUSLINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,17 +140,16 @@ endif
 " set statusline+=%{'\ '}
 " set statusline+=%F
 " set statusline+=%{'\ '}
-
+" " spell
 " set statusline+=%{'\ '}
 " set statusline+=%{&spell?'[SPELL]':''}
 " set statusline+=%{'\ '}
-
+" " paste
 " set statusline+=%#Warnings#
 " set statusline+=%{'\ '}
 " set statusline+=%{&paste?'[PASTE]':''}
 " set statusline+=%{'\ '}
 " set statusline+=%*
-
 " " modified?
 " set statusline+=%m
 " " read only?
@@ -153,27 +160,21 @@ endif
 " set statusline+=%w
 " " truncate here
 " set statusline+=%<
-
 " " separate left/right aligned items
 " set statusline+=%=
-
 " " tabstop/softtabstop/shiftwidth/expandtab
 " set statusline+=%{'\ '}
 " set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}]
 " set statusline+=%{'\ '}
-
 " " file format
 " set statusline+=[%{&ff}]
 " set statusline+=%{'\ '}
-
 " " filetype
 " set statusline+=%y
 " set statusline+=%{'\ '}
-
 " " current line & column
 " set statusline+=[col:%03c]
 " set statusline+=%{'\ '}
-
 " " current line / total # lines (% into file)
 " set statusline+=[line:%l/%L\ (%p%%)]
 " set statusline+=%{'\ '}
@@ -185,8 +186,11 @@ endif
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
-" colorscheme night-owl
-colorscheme gruvbox
+if &background == 'light'
+  let $FZF_DEFAULT_OPTS='--color=bw'
+else
+  let $FZF_DEFAULT_OPTS=''
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -249,15 +253,15 @@ endfor
 " vim-signify
 """"""""""""""""""""""""""""""""""""""""
 
-let g:signify_sign_add = '┃'
-let g:signify_sign_delete = '┃'
-let g:signify_sign_delete_first_line = '┃'
-let g:signify_sign_change = '┃'
+" let g:signify_sign_add = '┃'
+" let g:signify_sign_delete = '┃'
+" let g:signify_sign_delete_first_line = '┃'
+" let g:signify_sign_change = '┃'
 
 " let g:signify_sign_add = '+'
 " let g:signify_sign_delete = '-'
 " let g:signify_sign_delete_first_line = '-'
-" let g:signify_sign_change = '~'
+" let g:signify_sign_change = '!'
 
 nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
 
