@@ -273,9 +273,9 @@ let g:fugitive_gitlab_domains = ['https://gitlab.zeta.tools']
 """"""""""""""""""""""""""""""""""""""""
 " vim-test
 """"""""""""""""""""""""""""""""""""""""
-nmap <silent> <leader>tn :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ts :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tv :TestVisit<CR>
+nnoremap <silent> <leader>tn :TestNearest<CR>
+nnoremap <silent> <leader>tf :TestFile<CR>
+nnoremap <silent> <leader>ts :TestSuite<CR>
+nnoremap <silent> <leader>tl :TestLast<CR>
+nnoremap <silent> <leader>tv :TestVisit<CR>
 
