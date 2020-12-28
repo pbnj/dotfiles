@@ -1,6 +1,7 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-rooter'
 Plug 'mhinz/vim-signify'
 Plug 'machakann/vim-highlightedyank'
 Plug 'godlygeek/tabular'
