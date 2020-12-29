@@ -1,0 +1,3 @@
+## starship
+# cargo install starship
+command -v starship &>/dev/null && eval "$(starship init bash)"

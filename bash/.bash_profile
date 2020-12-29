@@ -9,25 +9,9 @@ shopt -s globstar
 
 # EXPORTS
 
-export DOTFILES="${HOME}/.dotfiles"
-export EDITOR="vim"
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
-export GIT_TERMINAL_PROMPT=1
-export HISTCONTROL=ignoredups
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export MANPAGER="less -X"
+[ -f "${HOME}/.exports" ] && source "${HOME}/.exports"
 
 # SETTINGS
-
-## BREW
-command -v brew &>/dev/null && eval "$(brew shellenv)"
 
 ## PATH
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
@@ -58,6 +42,10 @@ fi
 ## BASH COMPLETION
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 [ -r /usr/local/etc/profile.d/bash_completion.sh ] && source /usr/local/etc/profile.d/bash_completion.sh
+
+## BREW
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+command -v brew &>/dev/null && eval "$(brew shellenv)"
 
 ## GO
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
@@ -94,16 +82,15 @@ fi
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 [ -f "${HOME}/.fzf.bash" ] && source "${HOME}/.fzf.bash"
 
-# PROFILES & ALIASES
-[ -f "${HOME}/.bash_aliases" ] && source "${HOME}/.bash_aliases"
-[ -f "${HOME}/.profile" ] && source "${HOME}/.profile" # contains private/work stuff
-
 ## DIRENV
 # brew install direnv
 command -v direnv &>/dev/null && eval "$(direnv hook bash)"
 
+# PROFILES & ALIASES
+
+[ -f "${HOME}/.bash_aliases" ] && source "${HOME}/.bash_aliases"
+[ -f "${HOME}/.profile" ] && source "${HOME}/.profile" # contains private/work stuff
+
 # PROMPT
 
-## starship
-# cargo install starship
-command -v starship &>/dev/null && eval "$(starship init bash)"
+[ -f "${HOME}/.bash_prompt" ] && source "${HOME}/.bash_prompt"
