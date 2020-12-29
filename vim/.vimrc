@@ -1,47 +1,47 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-rooter'
-Plug 'mhinz/vim-signify'
-Plug 'machakann/vim-highlightedyank'
-Plug 'godlygeek/tabular'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'wellle/targets.vim'
-Plug 'tweekmonster/startuptime.vim'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/airblade/vim-rooter'
+Plug 'https://github.com/mhinz/vim-signify'
+Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/godlygeek/tabular'
+Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/tweekmonster/startuptime.vim'
+Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
+Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
-Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive' | Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'https://github.com/tpope/vim-dispatch'
+Plug 'https://github.com/tpope/vim-eunuch'
+Plug 'https://github.com/tpope/vim-fugitive' | Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'https://github.com/tpope/vim-jdaddy'
+Plug 'https://github.com/tpope/vim-rhubarb'
+Plug 'https://github.com/tpope/vim-sensible'
+Plug 'https://github.com/tpope/vim-sleuth'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-unimpaired'
+Plug 'https://github.com/tpope/vim-vinegar'
+Plug 'https://github.com/tpope/vim-characterize'
+Plug 'https://github.com/tpope/vim-commentary'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'rust-lang/rust.vim'
-Plug 'Quramy/vison'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'editorconfig/editorconfig-vim'
-Plug 'janko/vim-test'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
-Plug 'hashivim/vim-hashicorp-tools'
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/vim-ruby/vim-ruby'
+Plug 'https://github.com/tpope/vim-rails'
+Plug 'https://github.com/rust-lang/rust.vim'
+Plug 'https://github.com/Quramy/vison'
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'https://github.com/janko/vim-test'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'https://github.com/majutsushi/tagbar'
+Plug 'https://github.com/hashivim/vim-hashicorp-tools'
 
-Plug 'ryanoasis/vim-devicons'
-Plug 'morhetz/gruvbox'
+Plug 'https://github.com/ryanoasis/vim-devicons'
+Plug 'https://github.com/NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -50,7 +50,6 @@ syntax on
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -96,14 +95,14 @@ set scrolloff=1
 set secure
 set shortmess+=c
 set showmatch
+set showtabline=2
 set sidescrolloff=5
 set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
 set splitright
-set t_ut
-set tabline
+set t_ut=
 set tags+=tags
 set termguicolors
 set textwidth=79
@@ -116,7 +115,8 @@ set wildmenu
 set wildmode=longest,full
 
 if has("gui_running")
-  set guifont=JetBrainsMono\ Nerd\ Font
+  " set guifont=JetBrainsMono\ Nerd\ Font
+  set guifont=Hack\ Nerd\ Font
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -128,68 +128,13 @@ if executable("rg")
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" STATUSLINE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" " file name
-" set statusline=
-" set statusline+=%{'\ '}
-" set statusline+=%F
-" set statusline+=%{'\ '}
-" " spell
-" set statusline+=%{'\ '}
-" set statusline+=%{&spell?'[SPELL]':''}
-" set statusline+=%{'\ '}
-" " paste
-" set statusline+=%#Warnings#
-" set statusline+=%{'\ '}
-" set statusline+=%{&paste?'[PASTE]':''}
-" set statusline+=%{'\ '}
-" set statusline+=%*
-" " modified?
-" set statusline+=%m
-" " read only?
-" set statusline+=%r
-" " help?
-" set statusline+=%h
-" " preview?
-" set statusline+=%w
-" " truncate here
-" set statusline+=%<
-" " separate left/right aligned items
-" set statusline+=%=
-" " tabstop/softtabstop/shiftwidth/expandtab
-" set statusline+=%{'\ '}
-" set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}]
-" set statusline+=%{'\ '}
-" " file format
-" set statusline+=[%{&ff}]
-" set statusline+=%{'\ '}
-" " filetype
-" set statusline+=%y
-" set statusline+=%{'\ '}
-" " current line & column
-" set statusline+=[col:%03c]
-" set statusline+=%{'\ '}
-" " current line / total # lines (% into file)
-" set statusline+=[line:%l/%L\ (%p%%)]
-" set statusline+=%{'\ '}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
-let g:gruvbox_invert_selection=0
-colorscheme gruvbox
-
-" if &background == 'light'
-"   let $FZF_DEFAULT_OPTS='--color=bw'
-" else
-"   let $FZF_DEFAULT_OPTS=''
-" endif
+colorscheme PaperColor
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -201,19 +146,32 @@ vnoremap j gj
 vnoremap k gk
 
 " Getting around
-nnoremap <Leader>b :b <C-d>
-nnoremap <Leader>e :e **/
-nnoremap <Leader>i :Ilist<space>
-nnoremap <Leader>j :tjump /
-nnoremap <Leader>m :make<cr>
-nnoremap <Leader>q :b#<cr>
-nnoremap <Leader>f :Files<cr>
-nnoremap <Leader>g :silent lgrep<Space>
+nnoremap <Leader>b <cmd>b <C-d>
+nnoremap <Leader>e <cmd>e **/
+nnoremap <Leader>i <cmd>Ilist<space>
+nnoremap <Leader>j <cmd>tjump /
+nnoremap <Leader>m <cmd>make<cr>
+nnoremap <Leader>q <cmd>b#<cr>
+nnoremap <Leader>f <cmd>Files<cr>
+nnoremap <Leader>g <cmd>Rg<cr>
+" nnoremap <Leader>g :silent lgrep<Space>
 
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [l :lprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprevious<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FUNCTIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" generate table of contents for markdown
+function! TableOfContents() abort
+  if &filetype == 'markdown'
+    silent ! clear; npx doctoc --notitle %
+  endif
+endfunction
+command! TOC :call TableOfContents()
 
 " trim trailing whitespace
 " https://www.vi-improved.org/recommendations/
@@ -227,22 +185,6 @@ function! TrimTrailingWhitespace() abort
   endif
 endfunction
 command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
-
-let g:formatprg_for_filetype = {
-      \ "css"        : "prettier --parser css",
-      \ "go"         : "gofmt",
-      \ "html"       : "prettier --parser html",
-      \ "javascript" : "prettier",
-      \ "json"       : "prettier --parser json",
-      \ "markdown"   : "prettier --parser markdown",
-      \ "sql"        : "sqlformat -k upper -r -",
-      \ "yaml"       : "prettier --parser yaml",
-      \ "terraform"  : "terraform fmt -",
-      \ }
-
-for [ft, fp] in items(g:formatprg_for_filetype)
-  execute "autocmd FileType ".ft." let &l:formatprg=\"".fp."\" | setlocal formatexpr="
-endfor
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
