@@ -1,6 +1,7 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
+" misc
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/machakann/vim-highlightedyank'
@@ -10,8 +11,9 @@ Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
-Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/dense-analysis/ale'
 
+" tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'https://github.com/tpope/vim-dispatch'
 Plug 'https://github.com/tpope/vim-eunuch'
@@ -26,6 +28,7 @@ Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tpope/vim-characterize'
 Plug 'https://github.com/tpope/vim-commentary'
 
+" languages
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/pangloss/vim-javascript'
@@ -39,14 +42,16 @@ Plug 'https://github.com/janko/vim-test'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/hashivim/vim-hashicorp-tools'
+Plug 'https://github.com/jparise/vim-graphql'
 
+" aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'https://github.com/NLKNguyen/papercolor-theme'
+Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/arcticicestudio/nord-vim'
 
 call plug#end()
 
 filetype plugin indent on
-syntax on
 
 set autoindent
 set autoread
@@ -75,11 +80,11 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|·,extends:≫,precedes:≪,nbsp:·,trail:·
+set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
+set modeline
 set mouse=a
 set nobackup
 set nofoldenable
-set nomodeline
 set norelativenumber
 set noshowcmd
 set noshowmode
@@ -104,7 +109,6 @@ set splitbelow
 set splitright
 set t_ut=
 set tags+=tags
-set termguicolors
 set textwidth=79
 set ttyfast
 set undodir=$HOME/.vim/undo
@@ -114,9 +118,12 @@ set wildignorecase
 set wildmenu
 set wildmode=longest,full
 
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
+
 if has("gui_running")
-  " set guifont=JetBrainsMono\ Nerd\ Font
-  set guifont=Hack\ Nerd\ Font
+  set guifont=JetBrainsMono\ Nerd\ Font
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -134,7 +141,11 @@ endif
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
-colorscheme PaperColor
+syntax on
+
+set background=dark
+
+colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -168,7 +179,7 @@ nnoremap <silent> [q :cprevious<CR>
 " generate table of contents for markdown
 function! TableOfContents() abort
   if &filetype == 'markdown'
-    silent ! clear; npx doctoc --notitle %
+    :Start npx doctoc --notitle %
   endif
 endfunction
 command! TOC :call TableOfContents()
@@ -190,9 +201,9 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
+" install built-in `matchit` plugin.
+" :h matchit-install
+packadd! matchit
 
 """"""""""""""""""""""""""""""""""""""""
 " vim-signify
@@ -221,3 +232,24 @@ nnoremap <silent> <leader>ts :TestSuite<CR>
 nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
+""""""""""""""""""""""""""""""""""""""""
+" ale
+""""""""""""""""""""""""""""""""""""""""
+
+let g:ale_fixers = {
+      \ '*': [ "remove_trailing_lines", "trim_whitespace" ],
+      \ 'sh': ["shfmt"],
+      \ 'bash': ["shfmt"],
+      \ 'javascript': ["prettier"],
+      \ 'typescript': ["prettier"],
+      \ 'markdown': ["prettier"],
+      \ 'yaml': ["prettier"],
+      \ 'json': ["prettier"],
+      \ 'go': ["goimports"],
+      \ 'rust': ["rustfmt"],
+      \ 'ruby': ["rubocop"],
+      \ 'graphql': ["prettier"],
+      \ 'hcl': ["terraform"],
+      \ 'terraform': ["terraform"],
+      \ 'html': ["prettier"],
+      \ }
