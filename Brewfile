@@ -1,64 +1,81 @@
-# General
-brew "bat" # next-gen cat
+# FORMULAE
+
+brew "bash"
+brew "bash-completion"
+brew "bat"
+brew "bottom"
+brew "commitizen"
 brew "coreutils"
 brew "ddgr"
+brew "direnv"
+brew "dive"
 brew "docker"
-brew "exa" # next-gen ls
-brew "fzf" # fuzzy finder
-brew "glow" # markdown previewer cli
+brew "exa"
+brew "fzf"
+brew "gh"
+brew "gimme"
+brew "git"
+brew "git-delta"
+brew "glab"
+brew "glow"
+brew "go"
 brew "googler"
 brew "gpg"
-brew "hadolint" # dockerfile linter
+brew "hadolint"
+brew "helm"
+brew "httpie"
+brew "hub"
 brew "jq"
-brew "lazydocker" # docker terminal ui
-brew "neovim"
+brew "kind"
+brew "kubectl"
+brew "lazydocker"
+brew "lazygit"
+brew "lynx"
+brew "mkdocs"
+brew "octant"
 brew "pandoc"
+brew "pre-commit"
 brew "reattach-to-user-namespace"
-brew "ripgrep" # next-gen grep
+brew "ripgrep"
 brew "shellcheck"
-brew "shfmt" # shell formatter
+brew "shfmt"
+brew "starship"
 brew "stow"
 brew "terraform"
+brew "tfenv"
+brew "tldr"
 brew "tmux"
+brew "trivy"
+brew "vault"
+brew "vim"
 brew "watch"
+brew "wget"
 brew "yamllint"
-brew "yq" # like jq but for yaml
+brew "yarn"
+brew "yq"
 
-# Git
-brew "git"
-brew "gh" # github cli
-brew "hub" # github cli
-brew "lazygit" # git terminal ui
-brew "git-delta" # git delta diff viewer
-brew "glab" # gitlab cli
+# TAPS
 
 tap "rockyluke/devops"
 brew "gitlint"
 
-# Tags
 tap "universal-ctags/universal-ctags"
 brew "universal-ctags"
 
-# Go
-brew "go"
-brew "gimme"
 tap "golangci/tap"
 brew "golangci-lint"
 
-# Kubernetes
-
-brew "helm"
-brew "kubectl"
 tap "derailed/k9s"
 brew "k9s"
+
 tap "instrumenta/instrumenta"
 brew "conftest"
 
-# Font
 tap "homebrew/cask-fonts"
 cask "font-jetbrainsmono-nerd-font"
+cask "font-iosevka-nerd-font"
 
-# Casks
+# CASKS
 tap "homebrew/cask"
 
 cask "1password"
@@ -70,3 +87,6 @@ cask "kap"
 cask "keycastr"
 cask "slack"
 cask "spectacle"
+cask "drawio"
+cask "lens"
+cask "macvim"
