@@ -15,7 +15,6 @@ shopt -s globstar
 
 ## PATH
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
-[ -d "${HOME}/.local/bin" ] && export PATH="${HOME}/.local/bin:$PATH"
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
 ## SSH
@@ -43,9 +42,16 @@ fi
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 [ -r /usr/local/etc/profile.d/bash_completion.sh ] && source /usr/local/etc/profile.d/bash_completion.sh
 
-## BREW
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-command -v brew &>/dev/null && eval "$(brew shellenv)"
+## PYTHON
+# Linux
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
+# Mac
+if [ -d "$HOME/Library/Python/3.9/bin/" ] ; then
+    export PATH="${HOME}/Library/Python/3.9/bin/:${PATH}"
+fi
 
 ## GO
 # curl -sL -o /usr/local/bin/gimme https://raw.githubusercontent.com/travis-ci/gimme/master/gimme && chmod +x /usr/local/bin/gimme
@@ -85,6 +91,10 @@ fi
 ## DIRENV
 # brew install direnv
 command -v direnv &>/dev/null && eval "$(direnv hook bash)"
+
+## GIPHY CLI
+# https://github.com/pbnj/giphy-cli
+[ -f "${HOME}/Projects/giphy-cli/giphy.sh" ] && source "${HOME}/Projects/giphy-cli/giphy.sh"
 
 # PROFILES & ALIASES
 
