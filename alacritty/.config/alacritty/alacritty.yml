@@ -1,4 +1,3 @@
-
 # For full list of configurable options, see:
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 ---
@@ -6,9 +5,10 @@ window:
   decorations: none
 
 # Font configuration
-# brew cask install font-sauce-code-pro-nerd-font
 # Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'`
 font:
+
+  # brew install --cask font-jetbrains-mono-nerd-font
   normal:
     family: JetBrainsMono Nerd Font
     style: Regular
@@ -22,8 +22,6 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
   size: 12.0
-
-draw_bold_text_with_bright_colors: false
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -42,3 +40,61 @@ key_bindings:
   - { key: B, mods: Alt, chars: "\x1bb" }
   - { key: N, mods: Command, action: SpawnNewInstance }
 
+draw_bold_text_with_bright_colors: false
+
+# Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
+# Copyright (c) 2017-present Sven Greb <code@svengreb.de>
+# Project:    Nord Alacritty
+# Version:    0.1.0
+# Repository: https://github.com/arcticicestudio/nord-alacritty
+# License:    MIT
+# References:
+#   https://github.com/alacritty/alacritty
+colors:
+  primary:
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
+  normal:
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
+  bright:
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
