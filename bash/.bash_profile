@@ -13,6 +13,10 @@ shopt -s globstar
 
 # SETTINGS
 
+## BREW
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 ## PATH
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
