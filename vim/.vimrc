@@ -116,7 +116,7 @@ set undofile
 set updatetime=100
 set wildignorecase
 set wildmenu
-set wildmode=longest,full
+set wildmode=longest:full,full
 
 if has('nvim') || has('termguicolors')
   set termguicolors
