@@ -26,7 +26,7 @@ wttr() {
     local domain="wttr.in"
     local location="${1}"
     local options="${2}"
-    curl ${domain}/${location:-""}?${options:-"qF"}
+    curl "${domain}/${location:-""}?${options:-"qF"}"
 }
 
 ################################################################################
