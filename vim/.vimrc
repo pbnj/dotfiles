@@ -48,7 +48,7 @@ Plug 'https://github.com/jparise/vim-graphql'
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/arcticicestudio/nord-vim'
+Plug 'https://github.com/morhetz/gruvbox'
 
 call plug#end()
 
@@ -119,10 +119,6 @@ set wildignorecase
 set wildmenu
 set wildmode=longest:full,full
 
-if has('nvim') || has('termguicolors')
-  set termguicolors
-endif
-
 if has("gui_running")
   set guifont=JetBrainsMono\ Nerd\ Font
   set guioptions-=r
@@ -146,7 +142,12 @@ syntax on
 
 set background=dark
 
-colorscheme nord
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
+
+let g:gruvbox_invert_selection = 0
+colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
