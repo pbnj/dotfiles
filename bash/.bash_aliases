@@ -20,6 +20,15 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+# Weather: http://wttr.in/:help
+# usage: wttr [location] [options]
+wttr() {
+    local domain="wttr.in"
+    local location="${1}"
+    local options="${2}"
+    curl ${domain}/${location:-""}?${options:-"qF"}
+}
+
 ################################################################################
 # git
 # $ brew install git
