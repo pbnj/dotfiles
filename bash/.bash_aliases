@@ -20,6 +20,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+# brew install glab
+alias gl='glab'
+
 # Weather: http://wttr.in/:help
 # usage: wttr [location] [options]
 wttr() {
