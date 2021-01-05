@@ -7,6 +7,8 @@ env:
 window:
   decorations: none
 
+background_opacity: 1.0
+
 # Font configuration
 # Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'`
 font:
