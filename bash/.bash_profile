@@ -103,7 +103,7 @@ command -v direnv &>/dev/null && eval "$(direnv hook bash)"
 # PROFILES & ALIASES
 
 [ -f "${HOME}/.bash_aliases" ] && source "${HOME}/.bash_aliases"
-# [ -f "${HOME}/.profile" ] && source "${HOME}/.profile" # contains private/work stuff
+[ -f "${HOME}/.work_profile" ] && source "${HOME}/.work_profile"
 
 # PROMPT
 
