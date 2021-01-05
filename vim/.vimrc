@@ -12,7 +12,6 @@ Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/dense-analysis/ale'
-Plug 'https://github.com/edkolev/tmuxline.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -44,6 +43,7 @@ Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/hashivim/vim-hashicorp-tools'
 Plug 'https://github.com/jparise/vim-graphql'
+Plug 'https://github.com/habamax/vim-asciidoctor'
 
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
