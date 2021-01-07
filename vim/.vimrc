@@ -179,12 +179,13 @@ nnoremap <silent> [q :cprevious<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " generate table of contents for markdown
-function! TableOfContents() abort
+function! GenTableOfContents() abort
   if &filetype == 'markdown'
-    :Start npx doctoc --notitle %
+    execute "Spawn! npx doctoc --notitle %"
+    edit
   endif
 endfunction
-command! TOC :call TableOfContents()
+command! TOC :call GenTableOfContents()
 
 " trim trailing whitespace
 " https://www.vi-improved.org/recommendations/
@@ -198,6 +199,54 @@ function! TrimTrailingWhitespace() abort
   endif
 endfunction
 command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
+
+""""""""""""""""""""""""""""""""""""""""
+" CONFIGURATION FILE GENERATORS
+""""""""""""""""""""""""""""""""""""""""
+function! GenYAMLLint() abort
+  if filereadable(expand("~/.dotfiles/templates/.yamllint.yaml"))
+    execute "Spawn! cp "
+          \ . expand("~/.dotfiles/templates/.yamllint.yaml")
+          \ . " "
+          \ . expand("%:h")
+  endif
+endfunction
+
+function! GenMarkdownLint() abort
+  if filereadable(expand("~/.dotfiles/templates/.markdownlint.yaml"))
+    execute "Spawn! cp "
+          \ . expand("~/.dotfiles/templates/.markdownlint.yaml")
+          \ . " "
+          \ . expand("%:h")
+  endif
+endfunction
+
+function! GenPrettierRC() abort
+  if filereadable(expand("~/.dotfiles/templates/.prettierrc.yaml"))
+    execute "Spawn! cp "
+          \ . expand("~/.dotfiles/templates/.prettierrc.yaml")
+          \ . " "
+          \ . expand("%:h")
+  endif
+endfunction
+
+function! GenReleaseRC() abort
+  if filereadable(expand("~/.dotfiles/templates/.releaserc.yaml"))
+    execute "Spawn! cp "
+          \ . expand("~/.dotfiles/templates/.releaserc.yaml")
+          \ . " "
+          \ . expand("%:h")
+  endif
+endfunction
+
+function! GenEditorConfig() abort
+  if filereadable(expand("~/.dotfiles/templates/.editorconfig"))
+    execute "Spawn! cp "
+          \ . expand("~/.dotfiles/templates/.editorconfig")
+          \ . " "
+          \ . expand("%:h")
+  endif
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
