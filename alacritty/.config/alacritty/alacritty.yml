@@ -42,6 +42,7 @@ key_bindings:
   - { key: B, mods: Alt, chars: "\x1bb" }
   - { key: N, mods: Command, action: SpawnNewInstance }
 
+# Gruvbox
 # :read ! curl -fsSL https://github.com/eendroroy/alacritty-theme/raw/master/themes/gruvbox_dark.yaml
 colors:
   primary:
@@ -65,4 +66,3 @@ colors:
     magenta: '0xd3869b'
     cyan:    '0x8ec07c'
     white:   '0xebdbb2'
-
