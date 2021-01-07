@@ -1,3 +1,5 @@
+# config: https://yamllint.readthedocs.io/en/stable/configuration.html
+# rules: https://yamllint.readthedocs.io/en/stable/rules.html
 ---
 
 extends: default
