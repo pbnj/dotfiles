@@ -11,7 +11,6 @@ Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
-Plug 'https://github.com/dense-analysis/ale'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -27,8 +26,10 @@ Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tpope/vim-characterize'
 Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-projectionist'
 
 " languages
+Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/pangloss/vim-javascript'
@@ -167,7 +168,6 @@ nnoremap <Leader>m <cmd>make<cr>
 nnoremap <Leader>q <cmd>b#<cr>
 nnoremap <Leader>f <cmd>Files<cr>
 nnoremap <Leader>g <cmd>Rg<cr>
-" nnoremap <Leader>g :silent lgrep<Space>
 
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [l :lprevious<CR>
