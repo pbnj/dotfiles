@@ -1,0 +1,35 @@
+# config: https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md
+# plugins: https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md
+---
+
+branches:
+  - master
+  - name: *
+    prerelease: true
+
+preset: "conventionalcommits"
+
+plugins:
+  # https://github.com/semantic-release/commit-analyzer
+  - "@semantic-release/commit-analyzer"
+
+  # https://github.com/semantic-release/release-notes-generator
+  - "@semantic-release/release-notes-generator"
+
+  # https://github.com/semantic-release/changelog
+  - "@semantic-release/changelog"
+
+  # https://github.com/semantic-release/git
+  - - "@semantic-release/git"
+    - assets:
+      - CHANGELOG.md
+      message: "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+
+  # https://github.com/semantic-release/gitlab
+  # - "@semantic-release/gitlab"
+
+  # https://github.com/semantic-release/github
+  # - "@semantic-release/github"
+
+  # https://github.com/semantic-release/npm
+  # - "@semantic-release/npm"
