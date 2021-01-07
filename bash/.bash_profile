@@ -81,12 +81,9 @@ if [ -d "${HOME}/.nvm" ]; then
         [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
 fi
 
-## RUBY
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-if [ -d "${HOME}/.rvm" ]; then
-        export PATH="${HOME}/.rvm/bin:${PATH}"
-        [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-fi
+## RBENV
+# brew install rbenv
+eval "$(rbenv init -)"
 
 ## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
