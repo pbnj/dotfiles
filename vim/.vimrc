@@ -202,6 +202,18 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 """"""""""""""""""""""""""""""""""""""""
 " CONFIGURATION FILE GENERATORS
 """"""""""""""""""""""""""""""""""""""""
+
+" commitlint
+function! GenCommitLintRC() abort
+  if filereadable(expand("~/.dotfiles/templates/.commitlintrc.yml"))
+    execute "Spawn! cp "
+          \ . expand("~/.dotfiles/templates/.commitlintrc.yml")
+          \ . " "
+          \ . expand("%:h")
+  endif
+endfunction
+
+" yamllint
 function! GenYAMLLint() abort
   if filereadable(expand("~/.dotfiles/templates/.yamllint.yaml"))
     execute "Spawn! cp "
@@ -211,6 +223,7 @@ function! GenYAMLLint() abort
   endif
 endfunction
 
+" markdownlint
 function! GenMarkdownLint() abort
   if filereadable(expand("~/.dotfiles/templates/.markdownlint.yaml"))
     execute "Spawn! cp "
@@ -220,6 +233,7 @@ function! GenMarkdownLint() abort
   endif
 endfunction
 
+" prettier
 function! GenPrettierRC() abort
   if filereadable(expand("~/.dotfiles/templates/.prettierrc.yaml"))
     execute "Spawn! cp "
@@ -229,6 +243,7 @@ function! GenPrettierRC() abort
   endif
 endfunction
 
+" semantic-release
 function! GenReleaseRC() abort
   if filereadable(expand("~/.dotfiles/templates/.releaserc.yaml"))
     execute "Spawn! cp "
@@ -238,6 +253,7 @@ function! GenReleaseRC() abort
   endif
 endfunction
 
+" editorconfig
 function! GenEditorConfig() abort
   if filereadable(expand("~/.dotfiles/templates/.editorconfig"))
     execute "Spawn! cp "
