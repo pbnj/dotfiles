@@ -181,8 +181,7 @@ nnoremap <silent> [q :cprevious<CR>
 " generate table of contents for markdown
 function! GenTableOfContents() abort
   if &filetype == 'markdown'
-    execute "Spawn! npx doctoc --notitle %"
-    edit
+    execute "Spawn npx doctoc --notitle %" | edit
   endif
 endfunction
 command! TOC :call GenTableOfContents()
