@@ -54,7 +54,7 @@ stow {alacritty,bash,git,starship,tmux,vim}
 - [`vim-plug`](https://github.com/junegunn/vim-plug):
 
   ```sh
-  url -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ```
 
