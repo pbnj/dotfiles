@@ -11,6 +11,7 @@ Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
+Plug 'https://github.com/christoomey/vim-tmux-navigator'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -45,11 +46,12 @@ Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/hashivim/vim-hashicorp-tools'
 Plug 'https://github.com/jparise/vim-graphql'
 Plug 'https://github.com/habamax/vim-asciidoctor'
+Plug 'https://github.com/towolf/vim-helm'
 
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -147,8 +149,7 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
-let g:gruvbox_invert_selection = 0
-colorscheme gruvbox
+colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
