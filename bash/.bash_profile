@@ -2,7 +2,6 @@
 
 shopt -s nocaseglob
 shopt -s histappend
-shopt -s direxpand
 shopt -s dirspell
 shopt -s cdspell
 shopt -s autocd
