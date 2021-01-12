@@ -1,2 +1,4 @@
 vim/.vim/plugged/
 vim/.vim/undo
+tags.lock
+tags.temp
