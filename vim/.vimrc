@@ -47,14 +47,13 @@ Plug 'https://github.com/hashivim/vim-hashicorp-tools'
 Plug 'https://github.com/jparise/vim-graphql'
 Plug 'https://github.com/habamax/vim-asciidoctor'
 Plug 'https://github.com/towolf/vim-helm'
+Plug 'https://github.com/cespare/vim-toml'
+Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-
-" challenger deep theme
-Plug 'https://github.com/challenger-deep-theme/vim', { 'as': 'challenger-deep-vim' }
-Plug 'https://github.com/challenger-deep-theme/iterm', { 'as': 'challenger-deep-iterm', 'do': 'open challenger-deep.itermcolors' }
+Plug 'https://github.com/Lokaltog/vim-monotone'
 
 call plug#end()
 
@@ -93,7 +92,6 @@ set mouse=a
 set nobackup
 set nofoldenable
 set norelativenumber
-set noshowcmd
 set noshowmode
 set noswapfile
 set nowrap
@@ -106,6 +104,7 @@ set ruler
 set scrolloff=1
 set secure
 set shortmess+=c
+set showcmd
 set showmatch
 set showtabline=2
 set sidescrolloff=5
@@ -126,7 +125,7 @@ set wildmenu
 set wildmode=longest:full,full
 
 if has("gui_running")
-  set guifont=JetBrainsMono\ Nerd\ Font
+  set guifont=JetBrainsMono\ Nerd\ Font:h13
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -146,14 +145,9 @@ let g:netrw_winsize   = 25
 
 syntax on
 
-set background=dark
-
 if has('nvim') || has('termguicolors')
   set termguicolors
 endif
-
-colorscheme challenger_deep
-" colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -172,12 +166,16 @@ nnoremap <Leader>j <cmd>tjump /
 nnoremap <Leader>m <cmd>make<cr>
 nnoremap <Leader>q <cmd>b#<cr>
 nnoremap <Leader>f <cmd>Files<cr>
+nnoremap <Leader>F <cmd>GFiles?<cr>
 nnoremap <Leader>g <cmd>Rg<cr>
 
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [l :lprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprevious<CR>
+
+" https://github.com/onivim/oni/issues/2342
+tnoremap <s-space> <space>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS
@@ -279,13 +277,6 @@ packadd! matchit
 """"""""""""""""""""""""""""""""""""""""
 " vim-signify
 """"""""""""""""""""""""""""""""""""""""
-
-if has("gui_running")
-  let g:signify_sign_add = '┃'
-  let g:signify_sign_delete = '┃'
-  let g:signify_sign_delete_first_line = '┃'
-  let g:signify_sign_change = '┃'
-endif
 
 nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
 
