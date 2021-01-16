@@ -219,7 +219,7 @@ function! GenCommitLintRC() abort
     execute "Spawn! cp "
           \ . expand("~/.dotfiles/templates/.commitlintrc.yml")
           \ . " "
-          \ . expand("%:h")
+          \ . FindRootDirectory()
   endif
 endfunction
 
@@ -229,7 +229,7 @@ function! GenYAMLLint() abort
     execute "Spawn! cp "
           \ . expand("~/.dotfiles/templates/.yamllint.yaml")
           \ . " "
-          \ . expand("%:h")
+          \ . FindRootDirectory()
   endif
 endfunction
 
@@ -239,7 +239,7 @@ function! GenMarkdownLint() abort
     execute "Spawn! cp "
           \ . expand("~/.dotfiles/templates/.markdownlint.yaml")
           \ . " "
-          \ . expand("%:h")
+          \ . FindRootDirectory()
   endif
 endfunction
 
@@ -249,7 +249,7 @@ function! GenPrettierRC() abort
     execute "Spawn! cp "
           \ . expand("~/.dotfiles/templates/.prettierrc.yaml")
           \ . " "
-          \ . expand("%:h")
+          \ . FindRootDirectory()
   endif
 endfunction
 
@@ -259,7 +259,7 @@ function! GenReleaseRC() abort
     execute "Spawn! cp "
           \ . expand("~/.dotfiles/templates/.releaserc.yaml")
           \ . " "
-          \ . expand("%:h")
+          \ . FindRootDirectory()
   endif
 endfunction
 
@@ -269,7 +269,7 @@ function! GenEditorConfig() abort
     execute "Spawn! cp "
           \ . expand("~/.dotfiles/templates/.editorconfig")
           \ . " "
-          \ . expand("%:h")
+          \ . FindRootDirectory()
   endif
 endfunction
 
