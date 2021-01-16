@@ -53,7 +53,7 @@ Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/Lokaltog/vim-monotone'
+Plug 'https://github.com/cocopon/iceberg.vim'
 
 call plug#end()
 
@@ -149,9 +149,16 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
+colorscheme iceberg
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <silent> <Up>    <cmd>resize +5<CR>
+nnoremap <silent> <Down>  <cmd>resize -5<CR>
+nnoremap <silent> <Left>  <cmd>vertical resize +5<CR>
+nnoremap <silent> <Right> <cmd>vertical resize -5<CR>
 
 nnoremap j gj
 nnoremap k gk
