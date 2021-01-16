@@ -51,7 +51,10 @@ Plug 'https://github.com/towolf/vim-helm'
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/arcticicestudio/nord-vim'
+
+" challenger deep theme
+Plug 'https://github.com/challenger-deep-theme/vim', { 'as': 'challenger-deep-vim' }
+Plug 'https://github.com/challenger-deep-theme/iterm', { 'as': 'challenger-deep-iterm', 'do': 'open challenger-deep.itermcolors' }
 
 call plug#end()
 
@@ -149,7 +152,8 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
-colorscheme nord
+colorscheme challenger_deep
+" colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
