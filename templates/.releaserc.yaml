@@ -1,7 +1,6 @@
 # config: https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md
 # plugins: https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md
 ---
-
 branches:
   - master
   - name: *

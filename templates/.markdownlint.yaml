@@ -1,7 +1,6 @@
 # config: https://github.com/DavidAnson/markdownlint#configuration
 # rules: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 ---
-
 # enable all by default
 default: true
 
