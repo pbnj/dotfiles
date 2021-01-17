@@ -220,65 +220,45 @@ command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
 """"""""""""""""""""""""""""""""""""""""
 " CONFIGURATION FILE GENERATORS
 """"""""""""""""""""""""""""""""""""""""
+" helper function
+function! s:copy_config(config)
+  if filereadable(expand(a:config))
+    execute printf('!cp %s %s', a:config, FindRootDirectory())
+  else
+    echohl Error
+    echomsg printf('config file not found: %s', a:config)
+    echohl None
+  endif
+endfunction
 
 " commitlint
 function! GenCommitLintRC() abort
-  if filereadable(expand("~/.dotfiles/templates/.commitlintrc.yml"))
-    execute "Spawn! cp "
-          \ . expand("~/.dotfiles/templates/.commitlintrc.yml")
-          \ . " "
-          \ . FindRootDirectory()
-  endif
+  call s:copy_config('~/.dotfiles/templates/.commitlintrc.yml')
 endfunction
 
 " yamllint
 function! GenYAMLLint() abort
-  if filereadable(expand("~/.dotfiles/templates/.yamllint.yaml"))
-    execute "Spawn! cp "
-          \ . expand("~/.dotfiles/templates/.yamllint.yaml")
-          \ . " "
-          \ . FindRootDirectory()
-  endif
+  call s:copy_config('~/.dotfiles/templates/.yamllint.yaml')
 endfunction
 
 " markdownlint
 function! GenMarkdownLint() abort
-  if filereadable(expand("~/.dotfiles/templates/.markdownlint.yaml"))
-    execute "Spawn! cp "
-          \ . expand("~/.dotfiles/templates/.markdownlint.yaml")
-          \ . " "
-          \ . FindRootDirectory()
-  endif
+  call s:copy_config('~/.dotfiles/templates/.markdownlint.yaml')
 endfunction
 
 " prettier
 function! GenPrettierRC() abort
-  if filereadable(expand("~/.dotfiles/templates/.prettierrc.yaml"))
-    execute "Spawn! cp "
-          \ . expand("~/.dotfiles/templates/.prettierrc.yaml")
-          \ . " "
-          \ . FindRootDirectory()
-  endif
+  call s:copy_config('~/.dotfiles/templates/.prettierrc.yaml')
 endfunction
 
 " semantic-release
 function! GenReleaseRC() abort
-  if filereadable(expand("~/.dotfiles/templates/.releaserc.yaml"))
-    execute "Spawn! cp "
-          \ . expand("~/.dotfiles/templates/.releaserc.yaml")
-          \ . " "
-          \ . FindRootDirectory()
-  endif
+  call s:copy_config('~/.dotfiles/templates/.releaserc.yaml')
 endfunction
 
 " editorconfig
 function! GenEditorConfig() abort
-  if filereadable(expand("~/.dotfiles/templates/.editorconfig"))
-    execute "Spawn! cp "
-          \ . expand("~/.dotfiles/templates/.editorconfig")
-          \ . " "
-          \ . FindRootDirectory()
-  endif
+  call s:copy_config('~/.dotfiles/templates/.editorconfig')
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
