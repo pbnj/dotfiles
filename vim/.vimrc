@@ -1,7 +1,7 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
-" misc
+" utilities
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/machakann/vim-highlightedyank'
@@ -13,6 +13,8 @@ Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/tyru/open-browser.vim'
+Plug 'https://github.com/skanehira/docker.vim'
+Plug 'https://github.com/skanehira/docker-compose.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -50,6 +52,8 @@ Plug 'https://github.com/habamax/vim-asciidoctor'
 Plug 'https://github.com/towolf/vim-helm'
 Plug 'https://github.com/cespare/vim-toml'
 Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
+Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/ianks/vim-tsx'
 
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
