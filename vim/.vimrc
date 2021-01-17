@@ -186,6 +186,7 @@ nnoremap <silent> [q :cprevious<CR>
 
 " https://github.com/onivim/oni/issues/2342
 tnoremap <s-space> <space>
+tnoremap <ESC><ESC> <C-\><C-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS
