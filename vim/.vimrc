@@ -12,6 +12,7 @@ Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
+Plug 'https://github.com/tyru/open-browser.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -282,6 +283,14 @@ endfunction
 " install built-in `matchit` plugin.
 " :h matchit-install
 packadd! matchit
+
+""""""""""""""""""""""""""""""""""""""""
+" open-browser
+""""""""""""""""""""""""""""""""""""""""
+" disable netrw's gx mapping.
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 """"""""""""""""""""""""""""""""""""""""
 " vim-signify
