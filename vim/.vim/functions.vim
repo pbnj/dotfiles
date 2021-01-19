@@ -1,3 +1,7 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FUNCTIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " generate table of contents for markdown
 function! GenTableOfContents() abort
   if &filetype == 'markdown'
@@ -67,7 +71,7 @@ endfunction
 " UTILITIES
 """"""""""""""""""""""""""""""""""""""""
 function! Btm() abort
-  terminal ++shell btm
+  terminal ++close ++shell btm
 endfunction
 command! Btm call Btm()
 
