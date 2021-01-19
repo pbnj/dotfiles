@@ -9,5 +9,5 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
-colorscheme iceberg
+colorscheme nord
 
