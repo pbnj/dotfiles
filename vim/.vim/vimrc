@@ -1,0 +1,93 @@
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
+
+" utilities
+Plug 'https://github.com/airblade/vim-rooter'
+Plug 'https://github.com/mhinz/vim-signify'
+Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/godlygeek/tabular'
+Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/tweekmonster/startuptime.vim'
+Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
+Plug 'https://github.com/christoomey/vim-tmux-navigator'
+Plug 'https://github.com/tyru/open-browser.vim'
+Plug 'https://github.com/skanehira/docker.vim'
+Plug 'https://github.com/skanehira/docker-compose.vim'
+
+" tpope
+Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'https://github.com/tpope/vim-dispatch'
+Plug 'https://github.com/tpope/vim-eunuch'
+Plug 'https://github.com/tpope/vim-fugitive' | Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'https://github.com/tpope/vim-jdaddy'
+Plug 'https://github.com/tpope/vim-rhubarb'
+Plug 'https://github.com/tpope/vim-sensible'
+Plug 'https://github.com/tpope/vim-sleuth'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-unimpaired'
+Plug 'https://github.com/tpope/vim-vinegar'
+Plug 'https://github.com/tpope/vim-characterize'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-projectionist'
+
+" languages
+Plug 'https://github.com/dense-analysis/ale'
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/vim-ruby/vim-ruby'
+Plug 'https://github.com/tpope/vim-rails'
+Plug 'https://github.com/rust-lang/rust.vim'
+Plug 'https://github.com/Quramy/vison'
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'https://github.com/janko/vim-test'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'https://github.com/majutsushi/tagbar'
+Plug 'https://github.com/hashivim/vim-hashicorp-tools'
+Plug 'https://github.com/jparise/vim-graphql'
+Plug 'https://github.com/habamax/vim-asciidoctor'
+Plug 'https://github.com/towolf/vim-helm'
+Plug 'https://github.com/cespare/vim-toml'
+Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
+Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/ianks/vim-tsx'
+
+" aesthetics
+Plug 'https://github.com/ryanoasis/vim-devicons'
+Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/cocopon/iceberg.vim'
+
+call plug#end()
+
+filetype plugin indent on
+
+source ${HOME}/.vim/options.vim
+
+source ${HOME}/.vim/guioptions.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" APPEARANCE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+source ${HOME}/.vim/appearance.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPINGS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+source ${HOME}/.vim/mappings.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FUNCTIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+source ${HOME}/.vim/functions.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+source ${HOME}/.vim/plugins.vim
