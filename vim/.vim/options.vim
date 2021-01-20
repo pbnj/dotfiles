@@ -45,7 +45,6 @@ set secure
 set shortmess+=c
 set showcmd
 set showmatch
-set showtabline=2
 set sidescrolloff=5
 set signcolumn=yes
 set smartcase
