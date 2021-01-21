@@ -118,7 +118,7 @@ set shortmess+=c
 set showcmd
 set showmatch
 set sidescrolloff=5
-set signcolumn=no
+set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
@@ -160,6 +160,11 @@ let g:syntax_on = 0
 if has('nvim')
   set termguicolors
 endif
+
+highlight SignColumn NONE
+highlight DiffAdd NONE
+highlight DiffChange NONE
+highlight DiffDelete NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
