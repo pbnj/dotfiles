@@ -15,6 +15,7 @@ Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
+Plug 'https://github.com/nathanaelkane/vim-indent-guides'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -58,6 +59,7 @@ Plug 'https://github.com/ianks/vim-tsx'
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/nanotech/jellybeans.vim'
 Plug 'https://github.com/arcticicestudio/nord-vim'
 Plug 'https://github.com/arcticicestudio/nord-iterm2', { 'do': 'open src/xml/Nord.itermcolors' }
 Plug 'https://github.com/arcticicestudio/nord-alacritty'
@@ -131,7 +133,7 @@ set undofile
 set updatetime=100
 set wildignorecase
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=longest,full
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -154,17 +156,11 @@ let g:netrw_nogx = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
-syntax off
-let g:syntax_on = 0
+syntax on
 
 if has('nvim')
   set termguicolors
 endif
-
-highlight SignColumn NONE
-highlight DiffAdd NONE
-highlight DiffChange NONE
-highlight DiffDelete NONE
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -312,6 +308,12 @@ nnoremap <silent> <leader>tf :TestFile<CR>
 nnoremap <silent> <leader>ts :TestSuite<CR>
 nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
+
+""""""""""""""""""""""""""""""""""""""""
+" vim-indent-guide
+""""""""""""""""""""""""""""""""""""""""
+
+let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " ale
