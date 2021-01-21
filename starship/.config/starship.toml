@@ -27,14 +27,14 @@ format = """\
 """
 
 [aws]
-symbol = "aws:"
+symbol = " "
 format = "[$symbol$profile(\\($region\\))]($style) "
 
 [battery]
 disabled = false
-full_symbol = "batt:"
-charging_symbol = "batt:"
-discharging_symbol = "batt:"
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
 format = "[$symbol$percentage]($style) "
 
 [[battery.display]]
@@ -57,7 +57,7 @@ format = "[duration:$duration]($style)"
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = "git:"
+symbol = " "
 format = "[$symbol$branch]($style) "
 
 [git_status]
@@ -67,36 +67,36 @@ style = "red"
 format = "[$all_status$ahead_behind]($style) "
 
 [rust]
-symbol = "rust:"
+symbol = " "
 format = "[$symbol$version]($style) "
 
 [ruby]
-symbol = "ruby:"
+symbol = " "
 format = "[$symbol$version]($style) "
 
 [golang]
-symbol = "go:"
+symbol = " "
 format = "[$symbol$version]($style) "
 
 [nodejs]
-symbol = "node:"
+symbol = " "
 format = "[$symbol$version]($style) "
 
 [package]
-symbol = "package:"
+symbol = " "
 format = "[$symbol$version]($style) "
 
 [docker_context]
-symbol= "docker:"
+symbol= " "
 format = "[$symbol$context]($style) "
 
 [kubernetes]
-symbol = "k8s:"
+symbol = "ﴱ "
 disabled = false
 format = "[$symbol$context(\\($namespace\\))]($style) "
 
 [jobs]
-symbol = "%"
+symbol = " "
 
 [character]
 success_symbol = "[\\$](green)"
