@@ -70,29 +70,262 @@ filetype plugin indent on
 " OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ${HOME}/.vim/options.vim
-source ${HOME}/.vim/guioptions.vim
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set belloff=all
+set breakindent
+set clipboard=unnamed,unnamedplus
+set cmdheight=2
+set completeopt=menu,noinsert,noselect
+set conceallevel=0
+set cursorline
+set display+=lastline
+set encoding=utf-8
+set fileencoding=utf-8
+set formatoptions+=j " remove comment leader when joining lines
+set formatoptions+=n " when formatting text, recognize numbered lists
+set formatoptions-=t " don't auto-wrap text using textwidth
+set hidden
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set infercase
+set laststatus=2
+set lazyredraw
+set linebreak
+set list
+set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
+set modeline
+set mouse=a
+set nobackup
+set nofoldenable
+set nonumber
+set norelativenumber
+set noshowmode
+set noswapfile
+set nowrap
+set nowrapscan " stop searching at end of file. do not restart search from top
+set nowritebackup
+set path=.,**
+set pumheight=10
+set ruler
+set scrolloff=1
+set secure
+set shortmess+=c
+set showcmd
+set showmatch
+set sidescrolloff=5
+set signcolumn=no
+set smartcase
+set smarttab
+set splitbelow
+set splitright
+set t_ut=
+set tags+=tags
+set ttyfast
+set undodir=$HOME/.vim/undo
+set undofile
+set updatetime=100
+set wildignorecase
+set wildmenu
+set wildmode=longest:full,full
+
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
+
+if has("gui_running")
+  set guifont=JetBrainsMono\ Nerd\ Font:h13
+  set guioptions-=r
+  set guioptions-=R
+  set guioptions-=l
+  set guioptions-=L
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ${HOME}/.vim/appearance.vim
+" disable netrw's gx mapping. see open-browser.vim plugin.
+let g:netrw_nogx = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize   = 25
+
+syntax off
+let g:syntax_on = 0
+
+if has('nvim')
+  set termguicolors
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ${HOME}/.vim/mappings.vim
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+" Getting around
+nnoremap <Leader>b <cmd>b <C-d>
+nnoremap <Leader>e <cmd>e **/
+nnoremap <Leader>i <cmd>Ilist<space>
+nnoremap <Leader>j <cmd>tjump /
+nnoremap <Leader>m <cmd>make<cr>
+nnoremap <Leader>q <cmd>b#<cr>
+nnoremap <Leader>f <cmd>Files<cr>
+nnoremap <Leader>F <cmd>GFiles?<cr>
+nnoremap <Leader>g <cmd>Rg<cr>
+
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprevious<CR>
+
+" https://github.com/onivim/oni/issues/2342
+tnoremap <s-space> <space>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ${HOME}/.vim/functions.vim
+" generate table of contents for markdown
+function! GenTableOfContents() abort
+  if &filetype == 'markdown'
+    execute "Spawn npx doctoc --notitle %" | edit
+  endif
+endfunction
+command! TOC :call GenTableOfContents()
+
+" trim trailing whitespace
+" https://www.vi-improved.org/recommendations/
+function! TrimTrailingWhitespace() abort
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
+
+""""""""""""""""""""""""""""""""""""""""
+" CONFIGURATION FILE GENERATORS
+""""""""""""""""""""""""""""""""""""""""
+" helper function
+function! s:copy_config(config)
+  if filereadable(expand(a:config))
+    execute printf('!cp %s %s', a:config, FindRootDirectory())
+  else
+    echohl Error
+    echomsg printf('config file not found: %s', a:config)
+    echohl None
+  endif
+endfunction
+
+" commitlint
+function! GenCommitLintRC() abort
+  call s:copy_config('~/.dotfiles/templates/.commitlintrc.yml')
+endfunction
+
+" yamllint
+function! GenYAMLLint() abort
+  call s:copy_config('~/.dotfiles/templates/.yamllint.yaml')
+endfunction
+
+" markdownlint
+function! GenMarkdownLint() abort
+  call s:copy_config('~/.dotfiles/templates/.markdownlint.yaml')
+endfunction
+
+" prettier
+function! GenPrettierRC() abort
+  call s:copy_config('~/.dotfiles/templates/.prettierrc.yaml')
+endfunction
+
+" semantic-release
+function! GenReleaseRC() abort
+  call s:copy_config('~/.dotfiles/templates/.releaserc.yaml')
+endfunction
+
+" editorconfig
+function! GenEditorConfig() abort
+  call s:copy_config('~/.dotfiles/templates/.editorconfig')
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""
+" UTILITIES
+""""""""""""""""""""""""""""""""""""""""
+function! Btm() abort
+  terminal ++close ++shell btm
+endfunction
+command! Btm call Btm()
+
+function! BrewUp() abort
+  terminal ++shell brew update && brew upgrade && brew cleanup
+endfunction
+command! BrewUp call BrewUp()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ${HOME}/.vim/plugins.vim
+" install built-in `matchit` plugin.
+" :h matchit-install
+packadd! matchit
+
+""""""""""""""""""""""""""""""""""""""""
+" open-browser
+""""""""""""""""""""""""""""""""""""""""
+
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+""""""""""""""""""""""""""""""""""""""""
+" vim-signify
+""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
+
+""""""""""""""""""""""""""""""""""""""""
+" vim-fugitive
+""""""""""""""""""""""""""""""""""""""""
+
+let g:fugitive_gitlab_domains = ['https://gitlab.zeta.tools']
+
+""""""""""""""""""""""""""""""""""""""""
+" vim-test
+""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <silent> <leader>tn :TestNearest<CR>
+nnoremap <silent> <leader>tf :TestFile<CR>
+nnoremap <silent> <leader>ts :TestSuite<CR>
+nnoremap <silent> <leader>tl :TestLast<CR>
+nnoremap <silent> <leader>tv :TestVisit<CR>
+
+""""""""""""""""""""""""""""""""""""""""
+" ale
+""""""""""""""""""""""""""""""""""""""""
+
+let g:ale_fixers = {
+      \ '*': [ "remove_trailing_lines", "trim_whitespace" ],
+      \ 'sh': ["shfmt"],
+      \ 'bash': ["shfmt"],
+      \ 'javascript': ["prettier"],
+      \ 'typescript': ["prettier"],
+      \ 'markdown': ["prettier"],
+      \ 'yaml': ["prettier"],
+      \ 'json': ["prettier"],
+      \ 'go': ["goimports"],
+      \ 'rust': ["rustfmt"],
+      \ 'ruby': ["rubocop"],
+      \ 'graphql': ["prettier"],
+      \ 'hcl': ["terraform"],
+      \ 'terraform': ["terraform"],
+      \ 'html': ["prettier"],
+      \ }
