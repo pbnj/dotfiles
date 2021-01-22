@@ -58,7 +58,6 @@ Plug 'https://github.com/ianks/vim-tsx'
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/cocopon/iceberg.vim'
 Plug 'https://github.com/arcticicestudio/nord-vim'
 Plug 'https://github.com/arcticicestudio/nord-iterm2', { 'do': 'open src/xml/Nord.itermcolors' }
 Plug 'https://github.com/arcticicestudio/nord-alacritty'
@@ -161,7 +160,7 @@ if has('nvim')
   set termguicolors
 endif
 
-colorscheme PaperColor
+colorscheme nord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
