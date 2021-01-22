@@ -102,13 +102,13 @@ set modeline
 set mouse=a
 set nobackup
 set nofoldenable
-set nonumber
 set norelativenumber
 set noshowmode
 set noswapfile
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
 set nowritebackup
+set number
 set path=.,**
 set pumheight=10
 set ruler
@@ -156,7 +156,7 @@ let g:netrw_winsize   = 25
 
 syntax on
 
-if has('nvim')
+if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
