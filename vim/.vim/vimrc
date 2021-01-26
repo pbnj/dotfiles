@@ -61,6 +61,7 @@ Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airlin
 Plug 'https://github.com/arcticicestudio/nord-vim'
 Plug 'https://github.com/arcticicestudio/nord-iterm2', { 'do': 'open src/xml/Nord.itermcolors' }
 Plug 'https://github.com/arcticicestudio/nord-alacritty'
+Plug 'https://github.com/nanotech/jellybeans.vim'
 
 call plug#end()
 
@@ -80,7 +81,6 @@ set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
-set cursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -101,6 +101,7 @@ set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
 set modeline
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
 set norelativenumber
 set noshowmode
@@ -149,6 +150,26 @@ endif
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+function! MyColors() abort
+  highlight SignColumn NONE
+  highlight LineNr cterm=NONE ctermfg=grey ctermbg=NONE
+  highlight DiffAdd cterm=NONE ctermbg=NONE ctermfg=green gui=NONE guibg=NONE guifg=green
+  highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=yellow gui=NONE guibg=NONE guifg=yellow
+  highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=red gui=NONE guibg=NONE guifg=red
+endfunction
+
+augroup MyHighlights
+  autocmd!
+  autocmd ColorScheme default call MyColors()
+augroup END
+
+" https://stackoverflow.com/a/6489348
+augroup CursorLine
+  autocmd!
+  autocmd InsertEnter * set cursorline
+  autocmd InsertLeave * set nocursorline
+augroup END
+
 " disable netrw's gx mapping. see open-browser.vim plugin.
 let g:netrw_nogx = 1
 let g:netrw_liststyle = 3
@@ -156,11 +177,13 @@ let g:netrw_winsize   = 25
 
 syntax on
 
-if has('nvim') || has('termguicolors')
+if has('nvim')
   set termguicolors
 endif
 
-colorscheme nord
+colorscheme jellybeans
+
+set background=dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -197,7 +220,7 @@ tnoremap <s-space> <space>
 " generate table of contents for markdown
 function! GenTableOfContents() abort
   if &filetype == 'markdown'
-    execute "Spawn npx doctoc --notitle %" | edit
+    execute "silent ! npx doctoc --notitle %" | checktime | silent redraw!
   endif
 endfunction
 command! TOC :call GenTableOfContents()
