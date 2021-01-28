@@ -1,5 +1,5 @@
 # https://starship.rs/config/
-# for custom symbols: https://www.nerdfonts.com/cheat-sheet
+# custom symbols: https://www.nerdfonts.com/cheat-sheet
 
 format = """\
 	$directory\
@@ -14,9 +14,9 @@ format = """\
 	$ruby\
 	$rust\
 	$aws\
-	$env_var\
 	$docker_context\
 	$kubernetes\
+	$helm\
 	$battery\
 	$memory_usage\
 	$time\
@@ -26,10 +26,12 @@ format = """\
 	$character
 """
 
+# https://starship.rs/config/#aws
 [aws]
 symbol = " "
 format = "[$symbol$profile(\\($region\\))]($style) "
 
+# https://starship.rs/config/#battery
 [battery]
 disabled = false
 full_symbol = " "
@@ -49,55 +51,86 @@ style = "yellow"
 threshold = 100
 style = "green"
 
+# https://starship.rs/config/#command-duration
 [cmd_duration]
 style = "dimmed"
 format = "[duration:$duration]($style)"
 
+# https://starship.rs/config/#directory
 [directory]
 format = "[$path]($style)[$read_only]($read_only_style) "
 
+# https://starship.rs/config/#git-branch
 [git_branch]
 symbol = " "
 format = "[$symbol$branch]($style) "
 
+# https://starship.rs/config/#git-state
+[git_state]
+format = "([$state( $progress_current/$progress_total)]($style)) "
+disabled = false
+
+# https://starship.rs/config/#git-status
 [git_status]
 deleted = "x"
 show_sync_count = true
 style = "red"
 format = "[$all_status$ahead_behind]($style) "
 
+# https://starship.rs/config/#helm
+[helm]
+symbol = " "
+disabled = false
+format = "[$symbol($version)]($style) "
+
+# https://starship.rs/config/#rust
 [rust]
 symbol = " "
 format = "[$symbol$version]($style) "
 
+# https://starship.rs/config/#ruby
 [ruby]
 symbol = " "
 format = "[$symbol$version]($style) "
 
+# https://starship.rs/config/#golang
 [golang]
 symbol = " "
 format = "[$symbol$version]($style) "
 
+# https://starship.rs/config/#nodejs
 [nodejs]
 symbol = " "
 format = "[$symbol$version]($style) "
 
+# https://starship.rs/config/#package-version
 [package]
 symbol = " "
 format = "[$symbol$version]($style) "
 
+# https://starship.rs/config/#docker-context
 [docker_context]
 symbol= " "
 format = "[$symbol$context]($style) "
 
+# https://starship.rs/config/#kubernetes
 [kubernetes]
 symbol = "ﴱ "
 disabled = false
 format = "[$symbol$context(\\($namespace\\))]($style) "
 
+# https://starship.rs/config/#jobs
 [jobs]
 symbol = " "
 
+# https://starship.rs/config/#character
 [character]
 success_symbol = "[\\$](green)"
 error_symbol = "[\\$](red)"
+
+# https://starship.rs/config/#memory-usage
+[memory_usage]
+format = "[$symbol$ram_pct]($style) "
+symbol = " "
+disabled = false
+
