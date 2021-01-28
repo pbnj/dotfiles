@@ -11,7 +11,6 @@ Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
-Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
@@ -77,6 +76,7 @@ set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
+set cursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -97,15 +97,14 @@ set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
 set modeline
 set mouse=a
 set nobackup
-set nocursorline
 set nofoldenable
+set nonumber
 set norelativenumber
 set noshowmode
 set noswapfile
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
 set nowritebackup
-set number
 set path=.,**
 set pumheight=10
 set ruler
@@ -146,25 +145,26 @@ endif
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-highlight SignColumn NONE
-highlight LineNr cterm=NONE ctermfg=grey ctermbg=NONE
 highlight DiffAdd cterm=NONE ctermbg=NONE ctermfg=green gui=NONE guibg=NONE guifg=green
 highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=yellow gui=NONE guibg=NONE guifg=yellow
 highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=red gui=NONE guibg=NONE guifg=red
+highlight LineNr cterm=NONE ctermfg=grey ctermbg=NONE
+highlight SignColumn NONE
 
-" https://stackoverflow.com/a/6489348
-augroup CursorLine
-  autocmd!
-  autocmd InsertEnter * set cursorline
-  autocmd InsertLeave * set nocursorline
-augroup END
+" " https://stackoverflow.com/a/6489348
+" augroup CursorLine
+"   autocmd!
+"   autocmd InsertEnter * set cursorline
+"   autocmd InsertLeave * set nocursorline
+" augroup END
 
 " disable netrw's gx mapping. see open-browser.vim plugin.
 let g:netrw_nogx = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 25
 
-syntax on
+syntax off
+let g:syntax_on = 0
 
 if has('nvim')
   set termguicolors
