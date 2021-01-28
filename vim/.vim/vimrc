@@ -68,7 +68,6 @@ filetype plugin indent on
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -306,6 +305,11 @@ vmap gx <Plug>(openbrowser-smart-search)
 """"""""""""""""""""""""""""""""""""""""
 
 nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
+
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '-'
+let g:signify_sign_delete_first_line = '-'
+let g:signify_sign_change            = '~'
 
 """"""""""""""""""""""""""""""""""""""""
 " vim-fugitive
