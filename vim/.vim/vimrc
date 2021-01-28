@@ -145,10 +145,9 @@ endif
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-highlight DiffAdd cterm=NONE ctermbg=NONE ctermfg=green gui=NONE guibg=NONE guifg=green
-highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=yellow gui=NONE guibg=NONE guifg=yellow
-highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=red gui=NONE guibg=NONE guifg=red
-highlight LineNr cterm=NONE ctermfg=grey ctermbg=NONE
+highlight DiffAdd NONE
+highlight DiffChange NONE
+highlight DiffDelete NONE
 highlight SignColumn NONE
 
 " " https://stackoverflow.com/a/6489348
