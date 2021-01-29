@@ -136,7 +136,7 @@ if executable("rg")
 endif
 
 if has("gui_running")
-  set guifont=JetBrainsMono\ Nerd\ Font:h13
+  set guifont=JetBrainsMono\ Nerd\ Font:h12
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
