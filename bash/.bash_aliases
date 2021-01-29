@@ -12,7 +12,7 @@ alias ll="ls -alFh"
 # cargo install exa
 if command -v exa &>/dev/null; then
     alias ls="exa"
-    alias ll="ls --all --long --git --group-directories-first"
+    alias ll="ls --all --classify --long --git --group-directories-first"
 fi
 
 # For safety
