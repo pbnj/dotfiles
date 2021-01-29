@@ -50,22 +50,22 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 
-	editor = vim
+	editor = mvim --remote-wait
 	# editor = idea --wait # idea
 
-	pager = delta
+	; pager = delta
 
-[interactive]
-	diffFilter = delta --color-only
-
-[delta]
-	features = side-by-side line-numbers decorations
-	whitespace-error-style = 22 reverse
-
-[delta "decorations"]
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow ul
-	file-decoration-style = none
+; [interactive]
+; 	diffFilter = delta --color-only
+;
+; [delta]
+; 	features = side-by-side line-numbers decorations
+; 	whitespace-error-style = 22 reverse
+;
+; [delta "decorations"]
+; 	commit-decoration-style = bold yellow box ul
+; 	file-style = bold yellow ul
+; 	file-decoration-style = none
 
 [color]
 	ui = auto
@@ -73,12 +73,11 @@
 [push]
 	default = simple
 
-[user]
-	name = Peter Benjamin
-	email = petermbenjamin@gmail.com
+[includeIf "gitdir:~/Work/"]
+	path = ~/work/.gitconfig
 
-[credential "https://github.com"]
-	username = pbnj
+[includeIf "gitdir:~/Projects/"]
+	path = ~/Projects/.gitconfig
 
 [credential]
 	helper = store
