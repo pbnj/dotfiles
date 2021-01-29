@@ -141,6 +141,7 @@ if has("gui_running")
   set guioptions-=R
   set guioptions-=l
   set guioptions-=L
+  set guitablabel=%!finddir('.git/..',expand('%:p:h').';')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
