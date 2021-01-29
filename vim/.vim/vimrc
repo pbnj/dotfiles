@@ -53,6 +53,8 @@ Plug 'https://github.com/cespare/vim-toml'
 Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
 Plug 'https://github.com/mxw/vim-jsx'
 Plug 'https://github.com/ianks/vim-tsx'
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'https://github.com/honza/vim-snippets'
 
 " aesthetics
 Plug 'https://github.com/ryanoasis/vim-devicons'
