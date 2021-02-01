@@ -137,7 +137,7 @@ if executable("rg")
 endif
 
 if has("gui_running")
-  set guifont=JetBrainsMono\ Nerd\ Font:h12
+  set guifont=FiraCode\ Nerd\ Font:h13
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -203,19 +203,6 @@ function! GenTableOfContents() abort
 endfunction
 command! TOC :call GenTableOfContents()
 
-" trim trailing whitespace
-" https://www.vi-improved.org/recommendations/
-function! TrimTrailingWhitespace() abort
-  if !&binary && &filetype != 'diff'
-    normal mz
-    normal Hmy
-    %s/\s\+$//e
-    normal 'yz<CR>
-    normal `z
-  endif
-endfunction
-command! TrimTrailingWhitespace :call TrimTrailingWhitespace()
-
 """"""""""""""""""""""""""""""""""""""""
 " CONFIGURATION FILE GENERATORS
 """"""""""""""""""""""""""""""""""""""""
@@ -269,7 +256,7 @@ endfunction
 command! Btm call Btm()
 
 function! BrewUp() abort
-  terminal ++shell brew update && brew upgrade && brew cleanup
+  terminal ++shell brew update && brew upgrade && brew cleanup && echo done
 endfunction
 command! BrewUp call BrewUp()
 
@@ -278,7 +265,7 @@ command! BrewUp call BrewUp()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " install built-in `matchit` plugin.
-" :h matchit-install
+" See :h matchit-install
 packadd! matchit
 
 """"""""""""""""""""""""""""""""""""""""
@@ -286,7 +273,6 @@ packadd! matchit
 """"""""""""""""""""""""""""""""""""""""
 
 let g:airline_powerline_fonts = 1
-" let g:airline_symbols_ascii = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " open-browser
