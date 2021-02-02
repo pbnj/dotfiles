@@ -256,7 +256,7 @@ endfunction
 command! Btm call Btm()
 
 function! BrewUp() abort
-  terminal ++shell brew update && brew upgrade && brew cleanup && echo done
+  vertical terminal ++shell brew update && brew upgrade && brew cleanup && echo done
 endfunction
 command! BrewUp call BrewUp()
 
