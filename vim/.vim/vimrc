@@ -78,7 +78,7 @@ set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
-set cursorline
+set nocursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -148,6 +148,12 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup CursorShape
+  autocmd!
+  autocmd InsertEnter * set cursorline
+  autocmd InsertLeave * set nocursorline
+augroup END
 
 " disable netrw's gx mapping. see open-browser.vim plugin.
 let g:netrw_nogx = 1
