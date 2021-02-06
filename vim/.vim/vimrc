@@ -15,6 +15,7 @@ Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
 Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/edkolev/tmuxline.vim' | let g:tmuxline_powerline_separators = 0
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
