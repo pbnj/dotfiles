@@ -28,15 +28,15 @@ format = """\
 
 # https://starship.rs/config/#aws
 [aws]
-symbol = " "
+symbol = "aws:"
 format = "[$symbol$profile(\\($region\\))]($style) "
 
 # https://starship.rs/config/#battery
 [battery]
 disabled = false
-full_symbol = " "
-charging_symbol = " "
-discharging_symbol = " "
+full_symbol = "batt:■"
+charging_symbol = "batt:▲"
+discharging_symbol = "batt:▼"
 format = "[$symbol$percentage]($style) "
 
 [[battery.display]]
@@ -62,7 +62,7 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 
 # https://starship.rs/config/#git-branch
 [git_branch]
-symbol = " "
+symbol = "git:"
 format = "[$symbol$branch]($style) "
 
 # https://starship.rs/config/#git-state
@@ -79,49 +79,49 @@ format = "[$all_status$ahead_behind]($style) "
 
 # https://starship.rs/config/#helm
 [helm]
-symbol = " "
+symbol = "helm:"
 disabled = false
 format = "[$symbol($version)]($style) "
 
 # https://starship.rs/config/#rust
 [rust]
-symbol = " "
+symbol = "rust:"
 format = "[$symbol$version]($style) "
 
 # https://starship.rs/config/#ruby
 [ruby]
-symbol = " "
+symbol = "ruby:"
 format = "[$symbol$version]($style) "
 
 # https://starship.rs/config/#golang
 [golang]
-symbol = " "
+symbol = "go:"
 format = "[$symbol$version]($style) "
 
 # https://starship.rs/config/#nodejs
 [nodejs]
-symbol = " "
+symbol = "node:"
 format = "[$symbol$version]($style) "
 
 # https://starship.rs/config/#package-version
 [package]
-symbol = " "
+symbol = "package:"
 format = "[$symbol$version]($style) "
 
 # https://starship.rs/config/#docker-context
 [docker_context]
-symbol= " "
+symbol= "docker:"
 format = "[$symbol$context]($style) "
 
 # https://starship.rs/config/#kubernetes
 [kubernetes]
-symbol = "ﴱ "
+symbol = "k8s:"
 disabled = false
 format = "[$symbol$context(\\($namespace\\))]($style) "
 
 # https://starship.rs/config/#jobs
 [jobs]
-symbol = " "
+symbol = "%"
 
 # https://starship.rs/config/#character
 [character]
@@ -131,6 +131,6 @@ error_symbol = "[\\$](red)"
 # https://starship.rs/config/#memory-usage
 [memory_usage]
 format = "[$symbol$ram_pct]($style) "
-symbol = " "
+symbol = "mem:"
 disabled = false
 
