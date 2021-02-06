@@ -14,6 +14,7 @@ Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
+Plug 'https://github.com/vim-airline/vim-airline'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -133,7 +134,6 @@ if executable("rg")
 endif
 
 if has("gui_running")
-  set guifont=JetbrainsMono\ Nerd\ Font:h11
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -168,20 +168,39 @@ if has('nvim')
   set termguicolors
 endif
 
-set statusline=
-set statusline+=%F                                          " file name
-set statusline+=%{'\ '}
-set statusline+=%m                                          " modified
-set statusline+=%r                                          " read only
-set statusline+=%h                                          " help
-set statusline+=%w                                          " preview
-set statusline+=%{'\ '}
-set statusline+=[%{&ff}]                                    " file format
-set statusline+=%y                                          " syntax
-set statusline+=[%p%%]                                      " percentage into file
-set statusline+=[%04l/%04L,%04v]                            " current line & column
-set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
-set statusline+=%{FugitiveStatusline()}                     " git info
+" " ALE Status OK
+" function! ALEStatusOK() abort
+"     let l:counts = ale#statusline#Count(bufnr(''))
+"     let l:all_errors = l:counts.error + l:counts.style_error
+"     let l:all_non_errors = l:counts.total - l:all_errors
+"     return l:counts.total == 0 ? '[OK]' : ''
+" endfunction
+
+" " ALE Status NOT OK
+" function! ALEStatusNotOK() abort
+"     let l:counts = ale#statusline#Count(bufnr(''))
+"     let l:all_errors = l:counts.error + l:counts.style_error
+"     let l:all_non_errors = l:counts.total - l:all_errors
+"     return l:counts.total == 0 ? '' : printf('[W:%d/E:%d]', all_non_errors, all_errors)
+" endfunction
+
+" set statusline=                                                              " start statusline
+" set statusline+=%{'\ '}
+" set statusline+=%F                                                           " file name
+" set statusline+=%{'\ '}
+" set statusline+=%m                                                           " modified
+" set statusline+=%r                                                           " read only
+" set statusline+=%h                                                           " help
+" set statusline+=%w                                                           " preview
+" set statusline+=%{'\ '}
+" set statusline+=%{FugitiveStatusline()}                                      " git info
+" set statusline+=%{'\ '}
+" set statusline+=[%{&ff}]                                                     " file format
+" set statusline+=%y                                                           " syntax
+" set statusline+=[%p%%]                                                       " percentage into file
+" set statusline+=[%04l/%04L,%04v]                                             " current line & column
+" set statusline+=%{'\ '}
+" set statusline+=%#ALEInfo#%{ALEStatusOK()}%*%#ALEError#%{ALEStatusNotOK()}%* " ale info
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
