@@ -67,7 +67,7 @@ format = "[$symbol$branch]($style) "
 
 # https://starship.rs/config/#git-state
 [git_state]
-format = "([$state( $progress_current/$progress_total)]($style)) "
+format = "([$state($progress_current/$progress_total)]($style))"
 disabled = false
 
 # https://starship.rs/config/#git-status
