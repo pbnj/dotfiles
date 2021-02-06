@@ -56,11 +56,6 @@ Plug 'https://github.com/ianks/vim-tsx'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 
-" aesthetics
-Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'https://github.com/vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/cocopon/iceberg.vim'
-
 call plug#end()
 
 filetype plugin indent on
@@ -71,6 +66,7 @@ filetype plugin indent on
 
 set autoindent
 set autoread
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -78,7 +74,6 @@ set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
-set nocursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -99,10 +94,10 @@ set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
 set modeline
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
 set nonumber
 set norelativenumber
-set noshowmode
 set noswapfile
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
@@ -115,6 +110,7 @@ set secure
 set shortmess+=c
 set showcmd
 set showmatch
+set showmode
 set showtabline=2
 set sidescrolloff=5
 set signcolumn=yes
@@ -149,6 +145,11 @@ endif
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+highlight SignColumn NONE
+highlight DiffAdd cterm=NONE ctermbg=NONE ctermfg=green
+highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=yellow
+highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=red
+
 augroup CursorShape
   autocmd!
   autocmd InsertEnter * set cursorline
@@ -163,11 +164,24 @@ let g:netrw_winsize   = 25
 syntax on
 " let g:syntax_on = 0
 
-if has('nvim') || has('termguicolors')
+if has('nvim')
   set termguicolors
 endif
 
-colorscheme iceberg
+set statusline=
+set statusline+=%F                                          " file name
+set statusline+=%{'\ '}
+set statusline+=%m                                          " modified
+set statusline+=%r                                          " read only
+set statusline+=%h                                          " help
+set statusline+=%w                                          " preview
+set statusline+=%{'\ '}
+set statusline+=[%{&ff}]                                    " file format
+set statusline+=%y                                          " syntax
+set statusline+=[%p%%]                                      " percentage into file
+set statusline+=[%04l/%04L,%04v]                            " current line & column
+set statusline+=[ts:%{&ts}/sts:%{&sts}/sw:%{&sw}/et:%{&et}] " tabstop/softtabstop/shiftwidth/expandtab
+set statusline+=%{FugitiveStatusline()}                     " git info
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -273,12 +287,6 @@ command! BrewUp call BrewUp()
 " install built-in `matchit` plugin.
 " See :h matchit-install
 packadd! matchit
-
-""""""""""""""""""""""""""""""""""""""""
-" vim-airline
-""""""""""""""""""""""""""""""""""""""""
-
-let g:airline_powerline_fonts = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " open-browser
