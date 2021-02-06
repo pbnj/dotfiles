@@ -83,7 +83,7 @@ fi
 
 ## RBENV
 # brew install rbenv
-eval "$(rbenv init -)"
+command -v rbenv &>/dev/null && eval "$(rbenv init -)"
 
 ## FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
