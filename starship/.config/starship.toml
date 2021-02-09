@@ -34,7 +34,7 @@ format = "[$symbol$profile(\\($region\\))]($style) "
 # https://starship.rs/config/#battery
 [battery]
 disabled = false
-full_symbol = "batt:■"
+full_symbol = "batt:"
 charging_symbol = "batt:▲"
 discharging_symbol = "batt:▼"
 format = "[$symbol$percentage]($style) "
