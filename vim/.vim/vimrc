@@ -77,6 +77,7 @@ set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
+set cursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -97,7 +98,6 @@ set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
 set modeline
 set mouse=a
 set nobackup
-set nocursorline
 set nofoldenable
 set nonumber
 set norelativenumber
@@ -122,6 +122,7 @@ set smarttab
 set splitbelow
 set splitright
 set t_ut=
+set tabline=%!finddir('.git/..',expand('%:p:h').';')
 set tags+=tags
 set ttyfast
 set undodir=$HOME/.vim/undo
