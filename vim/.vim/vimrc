@@ -14,8 +14,9 @@ Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
-Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline' | Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/edkolev/tmuxline.vim' | let g:tmuxline_powerline_separators = 0
+Plug 'https://github.com/cocopon/iceberg.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -146,17 +147,6 @@ endif
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-highlight SignColumn NONE
-highlight DiffAdd cterm=NONE ctermbg=NONE ctermfg=green
-highlight DiffChange cterm=NONE ctermbg=NONE ctermfg=yellow
-highlight DiffDelete cterm=NONE ctermbg=NONE ctermfg=red
-
-augroup CursorShape
-  autocmd!
-  autocmd InsertEnter * set cursorline
-  autocmd InsertLeave * set nocursorline
-augroup END
-
 " disable netrw's gx mapping. see open-browser.vim plugin.
 let g:netrw_nogx = 1
 let g:netrw_liststyle = 3
@@ -165,43 +155,11 @@ let g:netrw_winsize   = 25
 syntax on
 " let g:syntax_on = 0
 
-if has('nvim')
+if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
-" " ALE Status OK
-" function! ALEStatusOK() abort
-"     let l:counts = ale#statusline#Count(bufnr(''))
-"     let l:all_errors = l:counts.error + l:counts.style_error
-"     let l:all_non_errors = l:counts.total - l:all_errors
-"     return l:counts.total == 0 ? '[OK]' : ''
-" endfunction
-
-" " ALE Status NOT OK
-" function! ALEStatusNotOK() abort
-"     let l:counts = ale#statusline#Count(bufnr(''))
-"     let l:all_errors = l:counts.error + l:counts.style_error
-"     let l:all_non_errors = l:counts.total - l:all_errors
-"     return l:counts.total == 0 ? '' : printf('[W:%d/E:%d]', all_non_errors, all_errors)
-" endfunction
-
-" set statusline=                                                              " start statusline
-" set statusline+=%{'\ '}
-" set statusline+=%F                                                           " file name
-" set statusline+=%{'\ '}
-" set statusline+=%m                                                           " modified
-" set statusline+=%r                                                           " read only
-" set statusline+=%h                                                           " help
-" set statusline+=%w                                                           " preview
-" set statusline+=%{'\ '}
-" set statusline+=%{FugitiveStatusline()}                                      " git info
-" set statusline+=%{'\ '}
-" set statusline+=[%{&ff}]                                                     " file format
-" set statusline+=%y                                                           " syntax
-" set statusline+=[%p%%]                                                       " percentage into file
-" set statusline+=[%04l/%04L,%04v]                                             " current line & column
-" set statusline+=%{'\ '}
-" set statusline+=%#ALEInfo#%{ALEStatusOK()}%*%#ALEError#%{ALEStatusNotOK()}%* " ale info
+colorscheme iceberg
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
