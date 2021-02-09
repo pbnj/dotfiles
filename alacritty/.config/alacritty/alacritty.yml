@@ -11,21 +11,8 @@ background_opacity: 1.0
 
 # Font configuration
 # Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'`
-# font:
-  # brew install font-jetbrains-mono-nerd-font
-  # normal:
-  #   family: JetBrainsMono Nerd Font
-  #   style: Regular
-  # bold:
-  #   family: JetBrainsMono Nerd Font
-  #   style: Bold
-  # italic:
-  #   family: JetBrainsMono Nerd Font
-  #   style: Italic
-  # bold_italic:
-  #   family: JetBrainsMono Nerd Font
-  #   style: Bold Italic
-  # size: 12.0
+font:
+  size: 12.0
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
