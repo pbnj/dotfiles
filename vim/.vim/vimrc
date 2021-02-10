@@ -307,6 +307,12 @@ nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""
+" airline
+""""""""""""""""""""""""""""""""""""""""
+
+let g:airline#extensions#tabline#enabled = 1
+
+""""""""""""""""""""""""""""""""""""""""
 " fzf.vim
 """"""""""""""""""""""""""""""""""""""""
 
