@@ -76,7 +76,7 @@ ddg() {
     fi
 
     # check args
-    if [ -z "${1}" ] ; then
+    if [ -z "${1}" ]; then
         echo "Missing: bang"
         echo "Usage: ddg <bang> <search-term>"
         echo ""
@@ -89,7 +89,7 @@ ddg() {
         return 1
     fi
 
-    if [ -z "${2}" ] ; then
+    if [ -z "${2}" ]; then
         echo "Missing: search-term"
         echo "Usage: ddg <bang> <search-term>"
         echo ""
