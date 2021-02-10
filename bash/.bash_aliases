@@ -141,25 +141,25 @@ alias vi="vim -u NONE"
 
 ## select one or more files from current working directory to edit
 vif() {
-    FILES=$(fzf --multi --preview="bat {}")
+    FILES=$(fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more git files to edit
 vig() {
-    FILES=$(git ls-files | fzf --multi --preview="bat {}")
+    FILES=$(git ls-files | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more git-modified files to edit
 vis() {
-    FILES=$(git ls-files --modified | fzf --multi --preview="bat {}")
+    FILES=$(git ls-files --modified | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more TODO files to edit
 vit() {
-    FILES=$(git grep -l "TODO" | fzf --multi --preview="bat {}")
+    FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
