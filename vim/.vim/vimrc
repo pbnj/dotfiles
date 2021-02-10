@@ -339,3 +339,6 @@ let g:ale_fixers = {
       \ 'terraform': ["terraform"],
       \ 'html': ["prettier"],
       \ }
+
+nnoremap <silent> <leader>af <cmd>ALEFix<cr>
+nnoremap <silent> <leader>al <cmd>ALELint<cr>
