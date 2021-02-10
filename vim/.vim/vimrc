@@ -259,6 +259,11 @@ function! BrewUp() abort
 endfunction
 command! BrewUp call BrewUp()
 
+function! DDG() abort
+  terminal ++shell ++close ddgr
+endfunction
+command! DDG call DDG()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
