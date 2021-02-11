@@ -173,12 +173,14 @@ vnoremap j gj
 vnoremap k gk
 
 " Getting around
-nnoremap <Leader>b <cmd>b <C-d>
 nnoremap <Leader>e <cmd>e **/
 nnoremap <Leader>i <cmd>Ilist<space>
 nnoremap <Leader>j <cmd>tjump /
 nnoremap <Leader>m <cmd>make<cr>
 nnoremap <Leader>q <cmd>b#<cr>
+
+" FZF mappings
+nnoremap <Leader>b <cmd>Buffers<cr>
 nnoremap <Leader>f <cmd>Files<cr>
 nnoremap <Leader>F <cmd>GFiles?<cr>
 nnoremap <Leader>g <cmd>Rg<cr>
@@ -312,8 +314,8 @@ nnoremap <silent> <leader>tv :TestVisit<CR>
 " airline
 """"""""""""""""""""""""""""""""""""""""
 
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " fzf.vim
