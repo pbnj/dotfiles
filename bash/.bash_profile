@@ -93,6 +93,13 @@ command -v rbenv &>/dev/null && eval "$(rbenv init -)"
 # brew install direnv
 command -v direnv &>/dev/null && eval "$(direnv hook bash)"
 
+## Git
+# brew install glab
+command -v glab &>/dev/null && source <(glab completion --shell bash)
+
+# brew install gh
+command -v gh &>/dev/null && source <(gh completion --shell bash)
+
 ## GIPHY CLI
 # https://github.com/pbnj/giphy-cli
 [ -f "${HOME}/Projects/giphy-cli/giphy.sh" ] && source "${HOME}/Projects/giphy-cli/giphy.sh"

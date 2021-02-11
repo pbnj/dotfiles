@@ -1,0 +1,43 @@
+##############################################################################
+# Generic
+################################################################################
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias grep="grep --color=auto"
+alias ll="ls -alFh"
+alias vi="vim -u NONE"
+
+# For safety
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# cargo install exa
+if command -v exa &>/dev/null; then
+    alias ls="exa"
+    alias ll="ls --all --classify --long --git --group-directories-first"
+fi
+
+# brew install glab
+alias gl='glab'
+
+################################################################################
+# kubernetes
+################################################################################
+
+## sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
+command -v kubectl &>/dev/null && source <(kubectl completion bash)
+
+## GO111MODULE="on" go get sigs.k8s.io/kind@v0.7.0
+# command -v kind &>/dev/null && source <(kind completion bash)
+
+## brew install helm
+command -v helm &>/dev/null && source <(helm completion bash)
+
+## activate various k8s environments
+alias kcfg='export KUBECONFIG=$(find ${HOME}/.kube/configs -exec realpath {} \; | fzf)'
+alias k='kubectl'
+complete -F __start_kubectl k
+
+# vim: ft=sh

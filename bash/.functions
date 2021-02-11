@@ -1,65 +1,11 @@
-##############################################################################
-# Generic
-################################################################################
-
-alias ..="cd .."
-
-alias ...="cd ../.."
-alias grep="grep --color=auto"
-
-alias ll="ls -alFh"
-
-# cargo install exa
-if command -v exa &>/dev/null; then
-    alias ls="exa"
-    alias ll="ls --all --classify --long --git --group-directories-first"
-fi
-
-# For safety
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-
-# brew install glab
-alias gl='glab'
-
 # Weather: http://wttr.in/:help
 # usage: wttr [location] [options]
 wttr() {
-    local domain="wttr.in"
-    local location="${1}"
-    local options="${2}"
+    domain="wttr.in"
+    location="${1}"
+    options="${2}"
     curl "${domain}/${location:-""}?${options:-"qF"}"
 }
-
-################################################################################
-# git
-# $ brew install git
-################################################################################
-
-## brew install glab
-command -v glab &>/dev/null && source <(glab completion --shell bash)
-
-## brew install gh
-command -v gh &>/dev/null && source <(gh completion --shell bash)
-
-################################################################################
-# kubernetes
-################################################################################
-
-## sh ${DOTFILES}/scripts/tools/kubernetes/kubectl.sh
-command -v kubectl &>/dev/null && source <(kubectl completion bash)
-
-## GO111MODULE="on" go get sigs.k8s.io/kind@v0.7.0
-# command -v kind &>/dev/null && source <(kind completion bash)
-
-## brew install helm
-# command -v helm &>/dev/null && source <(helm completion bash)
-
-## activate various k8s environments
-alias kcfg='export KUBECONFIG=$(find ${HOME}/.kube/configs -exec realpath {} \; | fzf)'
-alias k='kubectl'
-complete -F __start_kubectl k
 
 ################################################################################
 # ddgr
@@ -68,7 +14,7 @@ complete -F __start_kubectl k
 
 ddg() {
     # check if ddgr cli is installed
-    if ! command -v ddgr &>/dev/null; then
+    if ! command -v ddgr 2>&1 /dev/null; then
         echo "Error: could not find 'ddgr' cli in your path."
         echo "For installation instructions, see https://github.com/jarun/ddgr"
         echo "Or, if it is installed, make sure it is in your \${PATH} and try again."
@@ -105,31 +51,31 @@ ddg() {
     ddgr --np "!${1} ${2}"
 }
 
-ddg-google() {
+ddg_google() {
     ddg g "${1}"
 }
 
-ddg-gopkg() {
+ddg_gopkg() {
     ddg gopkg "${1}"
 }
 
-ddg-gh() {
+ddg_gh() {
     ddg gh "${1}"
 }
 
-ddg-dh() {
+ddg_dh() {
     ddg dh "${1}"
 }
 
-ddg-man() {
+ddg_man() {
     ddg man "${1}"
 }
 
-ddg-aws() {
+ddg_aws() {
     ddg aws "${1}"
 }
 
-ddg-gif() {
+ddg_gif() {
     ddg gif "${1}"
 }
 
@@ -137,7 +83,6 @@ ddg-gif() {
 # vim
 ################################################################################
 
-alias vi="vim -u NONE"
 
 ## select one or more files from current working directory to edit
 vif() {
@@ -161,6 +106,29 @@ vis() {
 vit() {
     FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
+}
+
+################################################################################
+# giphy
+################################################################################
+
+giphy() {
+	query="${1}"
+
+	if [ -z "${query}" ]; then
+		echo "Missing: <query>"
+		echo "Usage: giphy <query>"
+		echo "Examples:"
+		echo "  $ giphy yay"
+		echo "  $ open \$(giphy why)"
+		echo "  $ giphy laugh%20cry | pbcopy"
+		return 1
+	fi
+
+	curl -fsSL "https://giphy.com/search/${query}" \
+		| rg -oP "(?<=gifs: ).*?(?=,$)" \
+		| jq ".[$(echo $(( ${RANDOM} % 25 )) )] | .images.original.url" \
+		| tr -d '"'
 }
 
 # vim: ft=sh
