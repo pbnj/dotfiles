@@ -78,7 +78,6 @@
   "editor.smoothScrolling": true,
   "editor.wordWrap": "off",
   "explorer.openEditors.visible": 0,
-  "extensions.showRecommendationsOnlyOnDemand": true,
   "files.associations": {
     "*.hcl": "terraform",
     "Dockerfile.*": "dockerfile"
@@ -127,7 +126,6 @@
       "type": "merge_requests"
     }
   ],
-  "gitlab.enableExperimentalFeatures": true,
   "gitlab.instanceUrl": "https://gitlab.zeta.tools",
   "gitlab.showPipelineUpdateNotifications": true,
   "gitlens.advanced.abbreviatedShaLength": 5,
@@ -327,7 +325,6 @@
   },
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Night Owl Light",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Night Owl",
@@ -351,5 +348,9 @@
   "rubyTestExplorer.rspecDirectory": "./spec",
   "rubyTestExplorer.logpanel": true,
   "rubyTestExplorer.testFramework": "rspec",
-  "json.schemaDownload.enable": true
+  "json.schemaDownload.enable": true,
+  "workbench.colorTheme": "Night Owl",
+  "gitlens.advanced.messages": {
+    "suppressImproperWorkspaceCasingWarning": true
+  }
 }
