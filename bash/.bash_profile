@@ -106,7 +106,7 @@ command -v gh &>/dev/null && source <(gh completion --shell bash)
 
 # PROFILES & ALIASES
 
-[ -f "${HOME}/.bash_aliases" ] && source "${HOME}/.bash_aliases"
+[ -f "${HOME}/.aliases" ] && source "${HOME}/.aliases"
 [ -f "${HOME}/.work_profile" ] && source "${HOME}/.work_profile"
 
 # PROMPT
