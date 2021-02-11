@@ -83,5 +83,9 @@
   {
     "key": "ctrl+shift+`",
     "command": "workbench.action.terminal.newInActiveWorkspace"
+  },
+  {
+    "key": "ctrl+alt+cmd+m",
+    "command": "issuesAndMrs.focus"
   }
 ]
