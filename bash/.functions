@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 # Weather: http://wttr.in/:help
 # usage: wttr [location] [options]
 wttr() {
@@ -14,7 +16,7 @@ wttr() {
 
 ddg() {
     # check if ddgr cli is installed
-    if ! command -v ddgr 2>&1 /dev/null; then
+    if ! command -v ddgr /dev/null 2>&1; then
         echo "Error: could not find 'ddgr' cli in your path."
         echo "For installation instructions, see https://github.com/jarun/ddgr"
         echo "Or, if it is installed, make sure it is in your \${PATH} and try again."
@@ -83,27 +85,26 @@ ddg_gif() {
 # vim
 ################################################################################
 
-
 ## select one or more files from current working directory to edit
-vif() {
+vimf() {
     FILES=$(fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more git files to edit
-vig() {
+vimg() {
     FILES=$(git ls-files | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
-## select one or more git-modified files to edit
-vis() {
+## select one or more files from "git status" to edit
+vims() {
     FILES=$(git ls-files --modified | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
 
 ## select one or more TODO files to edit
-vit() {
+vimt() {
     FILES=$(git grep -l "TODO" | fzf --multi --preview="cat {}")
     [ -n "${FILES}" ] && vim "${FILES}"
 }
@@ -113,22 +114,22 @@ vit() {
 ################################################################################
 
 giphy() {
-	query="${1}"
+    query="${1}"
 
-	if [ -z "${query}" ]; then
-		echo "Missing: <query>"
-		echo "Usage: giphy <query>"
-		echo "Examples:"
-		echo "  $ giphy yay"
-		echo "  $ open \$(giphy why)"
-		echo "  $ giphy laugh%20cry | pbcopy"
-		return 1
-	fi
+    if [ -z "${query}" ]; then
+        echo "Missing: <query>"
+        echo "Usage: giphy <query>"
+        echo "Examples:"
+        echo "  $ giphy yay"
+        echo "  $ open \$(giphy why)"
+        echo "  $ giphy laugh%20cry | pbcopy"
+        return 1
+    fi
 
-	curl -fsSL "https://giphy.com/search/${query}" \
-		| rg -oP "(?<=gifs: ).*?(?=,$)" \
-		| jq ".[$(echo $(( ${RANDOM} % 25 )) )] | .images.original.url" \
-		| tr -d '"'
+    curl -fsSL "https://giphy.com/search/${query}" |
+        rg -oP "(?<=gifs: ).*?(?=,$)" |
+        jq ".[$(echo $((${RANDOM} % 25)))] | .images.original.url" |
+        tr -d '"'
 }
 
 # vim: ft=sh
