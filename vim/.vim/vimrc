@@ -15,7 +15,7 @@ Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/edkolev/tmuxline.vim' | let g:tmuxline_powerline_separators = 0
+Plug 'https://github.com/edkolev/tmuxline.vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
 
 " tpope
@@ -122,7 +122,6 @@ set smarttab
 set splitbelow
 set splitright
 set t_ut=
-set tabline=%!finddir('.git/..',expand('%:p:h').';')
 set tags+=tags
 set ttyfast
 set undodir=$HOME/.vim/undo
@@ -137,11 +136,11 @@ if executable("rg")
 endif
 
 if has("gui_running")
+  set guifont=JetBrainsMono\ Nerd\ Font:h11
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
   set guioptions-=L
-  set guitablabel=%!finddir('.git/..',expand('%:p:h').';')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -149,9 +148,11 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " disable netrw's gx mapping. see open-browser.vim plugin.
-let g:netrw_nogx = 1
-let g:netrw_liststyle = 3
-let g:netrw_winsize   = 25
+let g:netrw_nogx         = 1
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+let g:netrw_liststyle    = 3
+let g:netrw_winsize      = 25
 
 syntax on
 " let g:syntax_on = 0
@@ -249,6 +250,12 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""
 " UTILITIES
 """"""""""""""""""""""""""""""""""""""""
+
+function! Htop() abort
+  terminal ++close ++shell htop
+endfunction
+command! Htop call Htop()
+
 function! Btm() abort
   terminal ++close ++shell btm
 endfunction
@@ -258,11 +265,6 @@ function! BrewUp() abort
   vertical terminal ++shell brew update && brew upgrade && brew cleanup && echo done
 endfunction
 command! BrewUp call BrewUp()
-
-function! DDG() abort
-  terminal ++shell ++close ddgr
-endfunction
-command! DDG call DDG()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
@@ -311,6 +313,7 @@ nnoremap <silent> <leader>tv :TestVisit<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " fzf.vim
