@@ -17,6 +17,7 @@ Plug 'https://github.com/skanehira/docker-compose.vim'
 Plug 'https://github.com/vim-airline/vim-airline' | Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/edkolev/tmuxline.vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'https://github.com/morhetz/gruvbox' | Plug 'https://github.com/morhetz/gruvbox-contrib'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -94,7 +95,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
+set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·,space:·
 set modeline
 set mouse=a
 set nobackup
@@ -161,7 +162,7 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
-colorscheme iceberg
+colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
