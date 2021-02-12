@@ -31,7 +31,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "other": true,
+      "strings": true,
+      "comments": true
+    },
+    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestionsMode": "allDocuments"
   },
   "atlascode.bitbucket.enabled": false,
   "atlascode.bitbucket.statusbar.enabled": false,
@@ -59,7 +66,7 @@
   "atlascode.jira.statusbar.showUser": false,
   "bashIde.highlightParsingErrors": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": true,
+  "diffEditor.renderSideBySide": false,
   "dotfiles.repository": "pbnj/dotfiles",
   "dotfiles.targetPath": "~/.dotfiles",
   "editor.codeActionsOnSave": {
@@ -69,9 +76,6 @@
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
@@ -80,7 +84,9 @@
   "explorer.openEditors.visible": 0,
   "files.associations": {
     "*.hcl": "terraform",
-    "Dockerfile.*": "dockerfile"
+    "Dockerfile.*": "dockerfile",
+    "*.yaml": "yaml",
+    "**/templates/*.yaml": "helm"
   },
   "git.alwaysSignOff": true,
   "git.autoStash": true,
@@ -149,15 +155,15 @@
     "deepCompletion": true,
     "usePlaceholders": true
   },
-  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2F3czQ7a3ViZXJuZXRlc1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2F3czQ7a3ViZXJuZXRlczt0aHJlYXRNb2RlbGluZ1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
   "markdown.extension.toc.updateOnSave": false,
   "material-icon-theme.files.associations": {
     "Dockerfile.*": "dockerfile"
   },
   "projectManager.filterOnFullPath": true,
   "projectManager.git.baseFolders": [
-    "/Users/pbenjamin/work",
-    "/Users/pbenjamin/projects"
+    "/Users/pbenjamin/Work",
+    "/Users/pbenjamin/Projects"
   ],
   "projectManager.git.maxDepthRecursion": 0,
   "projectManager.groupList": true,
@@ -170,18 +176,15 @@
     "rubocop": true,
     "ruby": true
   },
-  "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
-  "terminal.integrated.scrollback": 10000,
   "todo-tree.tree.showScanModeButton": false,
   "update.mode": "start",
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
   "vim.incsearch": true,
-  "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": ["g", "j"],
@@ -196,15 +199,15 @@
       "commands": ["workbench.action.showCommands"]
     },
     {
-      "before": ["<leader>", ";"],
-      "commands": ["workbench.action.tasks.runTask"]
+      "before": ["<leader>", "a", "f"],
+      "commands": ["editor.action.formatDocument"]
     },
     {
       "before": ["<leader>", "t"],
       "commands": ["workbench.action.tasks.runTask"]
     },
     {
-      "before": ["<leader>", "p"],
+      "before": ["<leader>", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
     {
@@ -309,48 +312,46 @@
     {
       "before": ["<leader>", "g", "w"],
       "commands": ["git.stageSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "a", "f"],
+      "commands": ["editor.action.formatSelection"]
     }
   ],
   "vs-kubernetes": {
     "vs-kubernetes.draft-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/draft/darwin-amd64/draft",
     "vs-kubernetes.helm-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vs-kubernetes.knownKubeconfigs": ["/Users/pbenjamin/.kube/configs/0-ecc"],
-    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/0-ecc",
+    "vs-kubernetes.knownKubeconfigs": [
+      "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora"
+    ],
     "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
     "vs-kubernetes.kubectl-path.linux": "/root/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.minikube-path.linux": "/root/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
     "vs-kubernetes.helm-path.linux": "/root/.vs-kubernetes/tools/helm/linux-amd64/helm",
-    "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft"
+    "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft",
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora"
   },
-  "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.preferredDarkColorTheme": "Night Owl",
-  "workbench.preferredLightColorTheme": "Night Owl Light",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 10,
   "workbench.tree.renderIndentGuides": "always",
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
-    "Kubernetes": "/manifests/*.yaml",
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "testExplorer.addToEditorContextMenu": true,
-  "scm.defaultViewMode": "tree",
-  "ruby.interpreter.commandPath": "/Users/pbenjamin/.rvm/rubies/ruby-2.7.2/bin/ruby",
-  "ruby.pathToBundler": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle",
-  "window.autoDetectColorScheme": true,
   "rubyTestExplorer.minitestCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rake",
   "rubyTestExplorer.rspecCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rspec",
   "rubyTestExplorer.rspecDirectory": "./spec",
   "rubyTestExplorer.logpanel": true,
   "rubyTestExplorer.testFramework": "rspec",
   "json.schemaDownload.enable": true,
-  "workbench.colorTheme": "Night Owl",
   "gitlens.advanced.messages": {
     "suppressImproperWorkspaceCasingWarning": true
-  }
+  },
+  "gitlens.codeLens.enabled": false
 }

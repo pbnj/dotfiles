@@ -12,94 +12,10 @@
   },
   "tasks": [
     {
-      "label": "jira: list issues",
+      "label": "brew upgrade",
       "type": "shell",
-      "command": "jira issue",
+      "command": "brew update && brew upgrade && brew cleanup",
       "problemMatcher": []
-    },
-    {
-      "label": "jira: list projects",
-      "type": "shell",
-      "command": "jira project",
-      "problemMatcher": []
-    },
-    {
-      "label": "jira: view issue ...",
-      "type": "shell",
-      "command": "jira issue ${input:jiraIssue}",
-      "problemMatcher": [],
-      "dependsOn": ["jira: list issues"]
-    },
-    {
-      "label": "gl: list pipelines",
-      "type": "shell",
-      "command": "glab pipe list",
-      "problemMatcher": []
-    },
-    {
-      "label": "gl: log ci pipelines",
-      "type": "shell",
-      "command": "glab pipe ci trace",
-      "problemMatcher": []
-    },
-    {
-      "label": "gl: list issues",
-      "type": "shell",
-      "command": "glab issue list",
-      "problemMatcher": []
-    },
-    {
-      "label": "gl: view issue ...",
-      "type": "shell",
-      "command": "glab issue view ${input:number}",
-      "problemMatcher": [],
-      "dependsOn": ["gl: list issues"]
-    },
-    {
-      "label": "gl: list merge requests",
-      "type": "shell",
-      "command": "glab mr list",
-      "problemMatcher": []
-    },
-    {
-      "label": "gl: view merge request ...",
-      "type": "shell",
-      "command": "glab mr view ${input:number}",
-      "problemMatcher": [],
-      "dependsOn": ["gl: list merge requests"]
-    },
-    {
-      "label": "gh: view repo",
-      "type": "shell",
-      "command": "gh repo view",
-      "problemMatcher": []
-    },
-    {
-      "label": "gh: list issues",
-      "type": "shell",
-      "command": "gh issue list",
-      "problemMatcher": [],
-      "group": "test"
-    },
-    {
-      "label": "gh: view issue ...",
-      "type": "shell",
-      "command": "gh issue view ${input:number}",
-      "problemMatcher": [],
-      "dependsOn": ["gh: list issues"]
-    },
-    {
-      "label": "gh: list pull-requests",
-      "type": "shell",
-      "command": "gh pr list",
-      "problemMatcher": []
-    },
-    {
-      "label": "gh: view pull-request ...",
-      "type": "shell",
-      "command": "gh pr view ${input:number}",
-      "problemMatcher": [],
-      "dependsOn": ["gh: list pull-requests"]
     },
     {
       "label": "make: help",
@@ -122,16 +38,6 @@
     }
   ],
   "inputs": [
-    {
-      "id": "number",
-      "type": "promptString",
-      "description": "Enter the GitHub/GitLab Issue or MR/PR number"
-    },
-    {
-      "id": "jiraIssue",
-      "type": "promptString",
-      "description": "Enter the JIRA Issue number"
-    },
     {
       "id": "makeTarget",
       "type": "promptString",
