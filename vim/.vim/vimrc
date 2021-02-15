@@ -162,6 +162,7 @@ highlight SpecialKey ctermfg=DarkGray
 highlight NonText    ctermfg=DarkGray
 highlight Comment    ctermfg=DarkGray
 highlight Pmenu      ctermbg=DarkGray
+highlight Visual     ctermbg=DarkGray ctermfg=LightGray
 
 highlight DiffAdd     ctermbg=Green  ctermfg=Black
 highlight diffAdded   ctermbg=Green  ctermfg=Black
