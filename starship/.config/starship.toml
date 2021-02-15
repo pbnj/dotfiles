@@ -35,8 +35,8 @@ format = "[$symbol$profile(\\($region\\))]($style) "
 [battery]
 disabled = false
 full_symbol = "batt:"
-charging_symbol = "batt:▲"
-discharging_symbol = "batt:▼"
+charging_symbol = "batt:+"
+discharging_symbol = "batt:-"
 format = "[$symbol$percentage]($style) "
 
 [[battery.display]]
