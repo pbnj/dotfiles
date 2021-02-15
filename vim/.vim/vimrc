@@ -118,7 +118,6 @@ set smartcase
 set smarttab
 set splitbelow
 set splitright
-set t_ut=
 set tags+=tags
 set ttyfast
 set undodir=$HOME/.vim/undo
@@ -154,6 +153,14 @@ syntax on
 if has('nvim')
   set termguicolors
 endif
+
+highlight SignColumn NONE
+highlight SpecialKey term=NONE cterm=NONE ctermbg=NONE ctermfg=242
+highlight NonText NONE
+
+highlight DiffAdd    ctermbg=Green  ctermfg=Black
+highlight DiffDelete ctermbg=Red    ctermfg=Black
+highlight DiffChange ctermbg=Yellow ctermfg=Black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -303,13 +310,6 @@ nnoremap <silent> <leader>tf :TestFile<CR>
 nnoremap <silent> <leader>ts :TestSuite<CR>
 nnoremap <silent> <leader>tl :TestLast<CR>
 nnoremap <silent> <leader>tv :TestVisit<CR>
-
-""""""""""""""""""""""""""""""""""""""""
-" airline
-""""""""""""""""""""""""""""""""""""""""
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""
 " fzf.vim
