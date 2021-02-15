@@ -353,5 +353,6 @@
   "gitlens.advanced.messages": {
     "suppressImproperWorkspaceCasingWarning": true
   },
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "workbench.colorTheme": "GitHub Dark"
 }
