@@ -14,10 +14,7 @@ Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/skanehira/docker.vim'
 Plug 'https://github.com/skanehira/docker-compose.vim'
-Plug 'https://github.com/vim-airline/vim-airline' | Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/edkolev/tmuxline.vim'
-Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/morhetz/gruvbox' | Plug 'https://github.com/morhetz/gruvbox-contrib'
+Plug 'https://github.com/vim-airline/vim-airline'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -74,7 +71,6 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
-set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
@@ -149,20 +145,15 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " disable netrw's gx mapping. see open-browser.vim plugin.
-let g:netrw_nogx         = 1
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
-let g:netrw_liststyle    = 3
-let g:netrw_winsize      = 25
+let g:netrw_nogx      = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize   = 25
 
 syntax on
-" let g:syntax_on = 0
 
-if has('nvim') || has('termguicolors')
+if has('nvim')
   set termguicolors
 endif
-
-colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -204,7 +195,7 @@ function! GenTableOfContents() abort
     execute "silent ! npx doctoc --notitle %" | execute "silent ! npx prettier --write %" | checktime | silent redraw!
   endif
 endfunction
-command! TOC :call GenTableOfContents()
+command! TOC call GenTableOfContents()
 
 """"""""""""""""""""""""""""""""""""""""
 " CONFIGURATION FILE GENERATORS
@@ -268,6 +259,8 @@ function! BrewUp() abort
   vertical terminal ++shell brew update && brew upgrade && brew cleanup && echo done
 endfunction
 command! BrewUp call BrewUp()
+
+command! BuffOnly :%bdelete | edit# | normal `"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
