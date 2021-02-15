@@ -111,7 +111,6 @@ set shortmess+=c
 set showcmd
 set showmatch
 set showmode
-set showtabline=2
 set sidescrolloff=5
 set signcolumn=yes
 set smartcase
@@ -155,12 +154,21 @@ if has('nvim')
 endif
 
 highlight SignColumn NONE
-highlight SpecialKey term=NONE cterm=NONE ctermbg=NONE ctermfg=242
-highlight NonText NONE
+highlight ALEInfo    NONE
+highlight ALEWarning NONE
+highlight ALEError   NONE
 
-highlight DiffAdd    ctermbg=Green  ctermfg=Black
-highlight DiffDelete ctermbg=Red    ctermfg=Black
-highlight DiffChange ctermbg=Yellow ctermfg=Black
+highlight SpecialKey ctermfg=DarkGray
+highlight NonText    ctermfg=DarkGray
+highlight Comment    ctermfg=DarkGray
+highlight Pmenu      ctermbg=DarkGray
+
+highlight DiffAdd     ctermbg=Green  ctermfg=Black
+highlight diffAdded   ctermbg=Green  ctermfg=Black
+highlight DiffDelete  ctermbg=Red    ctermfg=Black
+highlight diffRemoved ctermbg=Red    ctermfg=Black
+highlight DiffChange  ctermbg=Yellow ctermfg=Black
+highlight diffChanged ctermbg=Yellow ctermfg=Black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
