@@ -21,27 +21,6 @@ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew
 [ -d "${HOME}/bin" ] && export PATH="${HOME}/bin:$PATH"
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
-## SSH
-SSH_ENV="${HOME}/.ssh/environment"
-function start_agent() {
-        echo "Initialising new SSH agent..."
-        /usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
-        echo succeeded
-        chmod 600 "${SSH_ENV}"
-        . "${SSH_ENV}" >/dev/null
-        /usr/bin/ssh-add
-}
-
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-        . "${SSH_ENV}" >/dev/null
-        ps -ef | grep "${SSH_AGENT_PID}" | grep -E "ssh-agent$" >/dev/null || {
-                start_agent
-        }
-else
-        start_agent
-fi
-
 ## BASH COMPLETION
 [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
 [ -r /usr/local/etc/profile.d/bash_completion.sh ] && source /usr/local/etc/profile.d/bash_completion.sh
@@ -74,12 +53,12 @@ if [ -d "${HOME}/.cargo" ]; then
         source <(rustup completions bash cargo)
 fi
 
-## NODE
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
-if [ -d "${HOME}/.nvm" ]; then
-        export NVM_DIR="${HOME}/.nvm"
-        [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
-fi
+# ## NODE
+# # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+# if [ -d "${HOME}/.nvm" ]; then
+#         export NVM_DIR="${HOME}/.nvm"
+#         [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+# fi
 
 ## RBENV
 # brew install rbenv
