@@ -15,3 +15,6 @@ help: ## Print help
 link-neovim: ## Symlink Neovim
 	mkdir -p $(HOME)/.config/nvim
 	ln -s $(CURDIR)/vim/.vim/vimrc $(HOME)/.config/nvim/init.vim
+
+link-vim: ## Symlink vim
+	ln -s $(CURDIR)/vim/.vim $(HOME)/.vim
