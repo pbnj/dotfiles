@@ -75,7 +75,7 @@
   },
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
