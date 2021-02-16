@@ -12,10 +12,6 @@ Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
-Plug 'https://github.com/skanehira/docker.vim'
-Plug 'https://github.com/skanehira/docker-compose.vim'
-Plug 'https://github.com/vim-airline/vim-airline' | let g:airline_symbols_ascii = 1
-Plug 'https://github.com/dag/vim-fish'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -72,6 +68,7 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
+set clipboard=unnamed
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
@@ -100,6 +97,7 @@ set nofoldenable
 set nonumber
 set norelativenumber
 set noswapfile
+set notermguicolors
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
 set nowritebackup
@@ -150,10 +148,6 @@ let g:netrw_winsize   = 25
 
 syntax on
 
-if has('nvim')
-  set termguicolors
-endif
-
 highlight SignColumn NONE
 highlight ALEInfo    NONE
 highlight ALEWarning NONE
@@ -162,7 +156,8 @@ highlight ALEError   NONE
 highlight SpecialKey ctermfg=DarkGray
 highlight NonText    ctermfg=DarkGray
 highlight Comment    ctermfg=DarkGray
-highlight Pmenu      ctermbg=DarkGray
+highlight Pmenu      ctermbg=DarkGray ctermfg=Black
+highlight PmenuSel   ctermbg=Black    ctermfg=LightGray
 highlight Visual     ctermbg=DarkGray ctermfg=LightGray
 
 highlight DiffAdd     ctermbg=Green  ctermfg=Black
@@ -171,6 +166,31 @@ highlight DiffDelete  ctermbg=Red    ctermfg=Black
 highlight diffRemoved ctermbg=Red    ctermfg=Black
 highlight DiffChange  ctermbg=Yellow ctermfg=Black
 highlight diffChanged ctermbg=Yellow ctermfg=Black
+
+function! ALEStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '[OK]' : printf(
+    \   '[W:%d|E:%d]',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
+set statusline=
+set statusline+=%f                      " file name
+set statusline+=%{'\ '}
+set statusline+=%m                      " modified
+set statusline+=%r                      " read only
+set statusline+=%h                      " help
+set statusline+=%w                      " preview
+set statusline+=%{'\ '}
+set statusline+=%y                      " syntax
+set statusline+=[%{&ff}]                " file format
+set statusline+=[%p%%\ %04l/%04L,%04v]  " percent of file, current line number, column number
+set statusline+=%{FugitiveStatusline()} " git info
+set statusline+=%{ALEStatus()}          " ale status
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -273,11 +293,16 @@ endfunction
 command! Btm call Btm()
 
 function! BrewUp() abort
-  vertical terminal ++shell brew update && brew upgrade && brew cleanup && echo done
+  terminal brew update && brew upgrade && brew cleanup && echo done
 endfunction
 command! BrewUp call BrewUp()
 
 command! BuffOnly :%bdelete | edit# | normal `"
+
+if has('neovim')
+  command! -nargs=* T split | terminal <args>
+  command! -nargs=* VT vsplit | terminal <args>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
