@@ -75,3 +75,6 @@
 	conflictstyle = diff3
 [init]
 	defaultBranch = main
+
+[url "https://"]
+	insteadOf = ssh://
