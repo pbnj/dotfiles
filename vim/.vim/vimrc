@@ -282,6 +282,17 @@ endfunction
 " UTILITIES
 """"""""""""""""""""""""""""""""""""""""
 
+function! Jira(...) abort
+  if !executable('jira')
+    ! yarn global add jira-cli
+    ! jira config
+  endif
+
+  let l:cmd = "jira " . join(a:000, " ")
+  execute "! clear && " . l:cmd
+endfunction
+command! -nargs=* Jira call Jira(<f-args>)
+
 function! Htop() abort
   terminal ++close ++shell htop
 endfunction
