@@ -72,7 +72,6 @@ set clipboard=unnamed
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
-set cursorline
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
@@ -93,14 +92,15 @@ set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·,space:·
 set modeline
 set mouse=a
 set nobackup
+set nocursorline
 set nofoldenable
-set nonumber
 set norelativenumber
 set noswapfile
 set notermguicolors
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
 set nowritebackup
+set number
 set path=.,**
 set pumheight=10
 set ruler
@@ -148,11 +148,17 @@ let g:netrw_winsize   = 25
 
 syntax on
 
+augroup CursorLine
+  autocmd InsertEnter * set cul
+  autocmd InsertLeave * set nocul
+augroup END
+
 highlight SignColumn NONE
 highlight ALEInfo    NONE
 highlight ALEWarning NONE
 highlight ALEError   NONE
 
+highlight LineNr     ctermfg=DarkGray
 highlight SpecialKey ctermfg=DarkGray
 highlight NonText    ctermfg=DarkGray
 highlight Comment    ctermfg=DarkGray
@@ -186,10 +192,12 @@ set statusline+=%r                      " read only
 set statusline+=%h                      " help
 set statusline+=%w                      " preview
 set statusline+=%{'\ '}
+set statusline+=%{FugitiveStatusline()} " git info
+set statusline+=%=
 set statusline+=%y                      " syntax
 set statusline+=[%{&ff}]                " file format
 set statusline+=[%p%%\ %04l/%04L,%04v]  " percent of file, current line number, column number
-set statusline+=%{FugitiveStatusline()} " git info
+set statusline+=%{'\ '}
 set statusline+=%{ALEStatus()}          " ale status
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -282,16 +290,11 @@ endfunction
 " UTILITIES
 """"""""""""""""""""""""""""""""""""""""
 
-function! Jira(...) abort
-  if !executable('jira')
-    ! yarn global add jira-cli
-    ! jira config
-  endif
+" yarn global add jira-cli
+command! -nargs=* Jira execute '! clear && jira <args>'
 
-  let l:cmd = "jira " . join(a:000, " ")
-  execute "! clear && " . l:cmd
-endfunction
-command! -nargs=* Jira call Jira(<f-args>)
+" brew install glab
+command! -nargs=* Glab execute '! clear && glab <args>'
 
 function! Htop() abort
   terminal ++close ++shell htop
