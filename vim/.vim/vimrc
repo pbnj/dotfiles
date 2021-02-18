@@ -221,13 +221,6 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Getting around
-nnoremap <Leader>e <cmd>e **/
-nnoremap <Leader>i <cmd>Ilist<space>
-nnoremap <Leader>j <cmd>tjump /
-nnoremap <Leader>m <cmd>make<cr>
-nnoremap <Leader>q <cmd>b#<cr>
-
 " FZF mappings
 nnoremap <Leader>b <cmd>Buffers<cr>
 nnoremap <Leader>f <cmd>Files<cr>
