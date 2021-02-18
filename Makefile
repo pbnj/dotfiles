@@ -16,5 +16,11 @@ link-neovim: ## Symlink Neovim
 	mkdir -p $(HOME)/.config/nvim
 	ln -s $(CURDIR)/vim/.vim/vimrc $(HOME)/.config/nvim/init.vim
 
+.PHONY: link-vim
 link-vim: ## Symlink vim
 	ln -s $(CURDIR)/vim/.vim $(HOME)/.vim
+
+.PHONY: link-fish
+link-fish: ## Symlink fish
+	rm $(HOME)/.config/fish
+	ln -s $(CURDIR)/fish/.config/fish $(HOME)/.config/fish
