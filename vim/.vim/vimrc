@@ -12,6 +12,7 @@ Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
+Plug 'https://github.com/itchyny/lightline.vim' | Plug 'https://github.com/maximbaz/lightline-ale'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -173,32 +174,36 @@ highlight diffRemoved ctermbg=Red    ctermfg=Black
 highlight DiffChange  ctermbg=Yellow ctermfg=Black
 highlight diffChanged ctermbg=Yellow ctermfg=Black
 
-function! ALEStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '[OK]' : printf(
-    \   '[W:%d|E:%d]',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunction
-
-set statusline=
-set statusline+=%f                      " file name
-set statusline+=%{'\ '}
-set statusline+=%m                      " modified
-set statusline+=%r                      " read only
-set statusline+=%h                      " help
-set statusline+=%w                      " preview
-set statusline+=%{'\ '}
-set statusline+=%{FugitiveStatusline()} " git info
-set statusline+=%=
-set statusline+=%y                      " syntax
-set statusline+=[%{&ff}]                " file format
-set statusline+=[%p%%\ %04l/%04L,%04v]  " percent of file, current line number, column number
-set statusline+=%{'\ '}
-set statusline+=%{ALEStatus()}          " ale status
+let g:lightline = {}
+let g:lightline.active = {}
+let g:lightline.active.left = [
+      \ ['mode', 'paste'],
+      \ ['readonly', 'filename', 'modified'],
+      \ [ 'gitbranch' ],
+      \ ]
+let g:lightline.active.right = [
+      \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+      \ [ 'lineinfo' ],
+      \ [ 'percent' ],
+      \ [ 'fileformat', 'fileencoding', 'filetype' ],
+      \ ]
+let g:lightline.component_function = {
+      \ 'gitbranch': 'FugitiveStatusline',
+      \ }
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
