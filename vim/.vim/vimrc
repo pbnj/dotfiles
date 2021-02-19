@@ -12,7 +12,8 @@ Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
-Plug 'https://github.com/itchyny/lightline.vim' | Plug 'https://github.com/maximbaz/lightline-ale'
+Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'https://github.com/maximbaz/lightline-ale'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -163,9 +164,9 @@ highlight LineNr     ctermfg=DarkGray
 highlight SpecialKey ctermfg=DarkGray
 highlight NonText    ctermfg=DarkGray
 highlight Comment    ctermfg=DarkGray
-highlight Pmenu      ctermbg=DarkGray ctermfg=Black
-highlight PmenuSel   ctermbg=Black    ctermfg=LightGray
-highlight Visual     ctermbg=DarkGray ctermfg=LightGray
+highlight Pmenu      ctermbg=White    ctermfg=Black
+highlight PmenuSel   ctermbg=DarkGray ctermfg=White     cterm=bold
+highlight Visual     ctermbg=White    ctermfg=Black
 
 highlight DiffAdd     ctermbg=Green  ctermfg=Black
 highlight diffAdded   ctermbg=Green  ctermfg=Black
@@ -178,14 +179,14 @@ let g:lightline = {}
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ ['mode', 'paste'],
-      \ ['readonly', 'filename', 'modified'],
+      \ ['readonly', 'relativepath', 'modified'],
       \ [ 'gitbranch' ],
       \ ]
 let g:lightline.active.right = [
       \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
       \ [ 'lineinfo' ],
       \ [ 'percent' ],
-      \ [ 'fileformat', 'fileencoding', 'filetype' ],
+      \ [ 'filetype', 'fileformat', 'fileencoding' ],
       \ ]
 let g:lightline.component_function = {
       \ 'gitbranch': 'FugitiveHead',
