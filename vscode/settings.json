@@ -353,5 +353,8 @@
     "suppressImproperWorkspaceCasingWarning": true
   },
   "gitlens.codeLens.enabled": false,
-  "workbench.colorTheme": "GitHub Dark"
+  "window.autoDetectColorScheme": true,
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.preferredLightColorTheme": "GitHub Light",
 }
