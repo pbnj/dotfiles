@@ -19,6 +19,9 @@ if command -v exa &>/dev/null; then
     alias ll="ls --all --classify --long --git --group-directories-first"
 fi
 
+alias bubu="brew update && brew upgrade && brew cleanup"
+
+# brew install kubectl
 alias k="kubectl"
 complete -F __start_kubectl k # kubectl auto completion for `k` alias
 alias kcfg='export KUBECONFIG="$(find "${HOME}/.kube/configs" -type f | fzf)"' # pipe list of kubeconfigs to fzf for interactive fuzzy-finding
