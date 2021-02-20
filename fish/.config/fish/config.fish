@@ -13,10 +13,9 @@ if test -f $HOME/.config/fish/work.fish
 	source $HOME/.config/fish/work.fish
 end
 
-
 # rm
-function rm --wraps rm
-	command rm -i $argv
+function rm
+	command rm -i
 end
 
 # ls
@@ -37,10 +36,20 @@ function ll
 	end
 end
 
+# brew
+function bubu
+	brew update && brew upgrade && brew cleanup
+end
+
 # kubectl
 abbr -a k kubectl
+abbr -a kga kubectl get all
 abbr -a kgp kubectl get pod
 abbr -a kgd kubectl get deploy
+
+function kcfg
+	set -gx KUBECONFIG (find $HOME/.kube/configs -type f | fzf)
+end
 
 # jira
 set -gx JIRA_CONFIG $HOME/.jira-cli/config.json
@@ -53,6 +62,7 @@ set -gx PATH $GOPATH/bin $PATH
 
 # git
 abbr -a gco git checkout
+abbr -a gcm git commit
 abbr -a gd git diff
 abbr -a gst git status -s
 abbr -a gpull git pull --rebase
@@ -71,6 +81,9 @@ rbenv init - | source
 
 # vault
 abbr -a v vault
+abbr -a vlogin vault login
+abbr -a vr vault read
+abbr -a vl vault list
 
 # terraform
 abbr -a tf terraform
@@ -85,3 +98,5 @@ direnv hook fish | source
 
 # starship
 starship init fish | source
+
+# vim: ft=conf
