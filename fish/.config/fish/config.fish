@@ -61,6 +61,7 @@ set -gx GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
 # git
+abbr -a ga git add
 abbr -a gco git checkout
 abbr -a gcm git commit
 abbr -a gd git diff
