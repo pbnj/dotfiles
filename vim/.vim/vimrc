@@ -14,6 +14,9 @@ Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/maximbaz/lightline-ale'
+Plug 'https://github.com/justinmk/vim-sneak'
+Plug 'https://github.com/cocopon/pgmnt.vim'
+Plug 'https://github.com/cocopon/iceberg.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -32,6 +35,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-projectionist'
 
 " languages
+let g:ale_completion_enabled = 1
 Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/leafgarland/typescript-vim'
@@ -98,7 +102,6 @@ set nocursorline
 set nofoldenable
 set norelativenumber
 set noswapfile
-set notermguicolors
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
 set nowritebackup
@@ -155,27 +158,34 @@ augroup CursorLine
   autocmd InsertLeave * set nocul
 augroup END
 
-highlight SignColumn NONE
-highlight ALEInfo    NONE
-highlight ALEWarning NONE
-highlight ALEError   NONE
+if has('termguicolors')
+  set termguicolors
+endif
 
-highlight LineNr     ctermfg=DarkGray
-highlight SpecialKey ctermfg=DarkGray
-highlight NonText    ctermfg=DarkGray
-highlight Comment    ctermfg=DarkGray
-highlight Pmenu      ctermbg=White    ctermfg=Black
-highlight PmenuSel   ctermbg=DarkGray ctermfg=White     cterm=bold
-highlight Visual     ctermbg=White    ctermfg=Black
+" highlight SignColumn NONE
+" highlight ALEInfo    NONE
+" highlight ALEWarning NONE
+" highlight ALEError   NONE
 
-highlight DiffAdd     ctermbg=Green  ctermfg=Black
-highlight diffAdded   ctermbg=Green  ctermfg=Black
-highlight DiffDelete  ctermbg=Red    ctermfg=Black
-highlight diffRemoved ctermbg=Red    ctermfg=Black
-highlight DiffChange  ctermbg=Yellow ctermfg=Black
-highlight diffChanged ctermbg=Yellow ctermfg=Black
+" highlight LineNr     ctermfg=DarkGray
+" highlight SpecialKey ctermfg=DarkGray
+" highlight NonText    ctermfg=DarkGray
+" highlight Comment    ctermfg=DarkGray
+" highlight Pmenu      ctermbg=White    ctermfg=Black
+" highlight PmenuSel   ctermbg=DarkGray ctermfg=White cterm=bold
+" highlight Visual     ctermbg=White    ctermfg=Black
+
+" highlight DiffAdd     ctermbg=Green  ctermfg=Black
+" highlight diffAdded   ctermbg=Green  ctermfg=Black
+" highlight DiffDelete  ctermbg=Red    ctermfg=Black
+" highlight diffRemoved ctermbg=Red    ctermfg=Black
+" highlight DiffChange  ctermbg=Yellow ctermfg=Black
+" highlight diffChanged ctermbg=Yellow ctermfg=Black
+
+colorscheme iceberg
 
 let g:lightline = {}
+let g:lightline.colorscheme = 'iceberg'
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ ['mode', 'paste'],
@@ -375,7 +385,7 @@ let g:fzf_layout = { 'down': '~40%' }
 """"""""""""""""""""""""""""""""""""""""
 " ale
 """"""""""""""""""""""""""""""""""""""""
-
+set omnifunc=ale#completion#OmniFunc
 let g:ale_fixers = {
       \ '*': [ "remove_trailing_lines", "trim_whitespace" ],
       \ 'sh': ["shfmt"],
