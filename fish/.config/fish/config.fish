@@ -13,11 +13,6 @@ if test -f $HOME/.config/fish/work.fish
 	source $HOME/.config/fish/work.fish
 end
 
-# rm
-function rm
-	command rm -i
-end
-
 # ls
 function ls
 	if type -q exa
@@ -93,6 +88,11 @@ abbr -a tfa terraform apply
 abbr -a tfaa terraform apply -auto-approve
 abbr -a tfd terraform destroy
 abbr -a tfda terraform destroy -auto-approve
+
+# ddgr
+abbr -a ddgg ddgr --noprompt --gui-browser !g
+abbr -a ddgdh ddgr --noprompt --gui-browser !dh
+abbr -a ddggh ddgr --noprompt --gui-browser !gh
 
 # direnv
 direnv hook fish | source

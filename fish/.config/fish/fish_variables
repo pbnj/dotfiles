@@ -2,6 +2,10 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_d:docker
+SETUVAR _fish_abbr_ddgdh:ddgr\x20\x2d\x2dnoprompt\x20\x2d\x2dgui\x2dbrowser\x20\x21dh
+SETUVAR _fish_abbr_ddgg:ddgr\x20\x2d\x2dnoprompt\x20\x2d\x2dgui\x2dbrowser\x20\x21g
+SETUVAR _fish_abbr_ddggh:ddgr\x20\x2d\x2dnoprompt\x20\x2d\x2dgui\x2dbrowser\x20\x21gh
+SETUVAR _fish_abbr_ddgrg:ddgr\x20\x2d\x2dno\x2dprompt\x20\x2d\x2dgui\x2dbrowser\x20\x21g
 SETUVAR _fish_abbr_di:docker\x20image\x20ls
 SETUVAR _fish_abbr_dr:docker\x20run
 SETUVAR _fish_abbr_drm:docker\x20rm
