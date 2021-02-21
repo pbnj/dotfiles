@@ -78,3 +78,6 @@
 
 [url "https://"]
 	insteadOf = ssh://
+[user]
+	email = petermbenjamin@gmail.com
+	name = Peter Benjamin
