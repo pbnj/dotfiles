@@ -354,7 +354,7 @@
   },
   "gitlens.codeLens.enabled": false,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "GitHub Dark",
-  "workbench.preferredDarkColorTheme": "GitHub Dark",
-  "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.colorTheme": "Night Owl",
+  "workbench.preferredDarkColorTheme": "Night Owl",
+  "workbench.preferredLightColorTheme": "Night Owl Light"
 }
