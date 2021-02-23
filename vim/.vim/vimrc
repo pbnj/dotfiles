@@ -162,26 +162,6 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" highlight SignColumn NONE
-" highlight ALEInfo    NONE
-" highlight ALEWarning NONE
-" highlight ALEError   NONE
-
-" highlight LineNr     ctermfg=DarkGray
-" highlight SpecialKey ctermfg=DarkGray
-" highlight NonText    ctermfg=DarkGray
-" highlight Comment    ctermfg=DarkGray
-" highlight Pmenu      ctermbg=White    ctermfg=Black
-" highlight PmenuSel   ctermbg=DarkGray ctermfg=White cterm=bold
-" highlight Visual     ctermbg=White    ctermfg=Black
-
-" highlight DiffAdd     ctermbg=Green  ctermfg=Black
-" highlight diffAdded   ctermbg=Green  ctermfg=Black
-" highlight DiffDelete  ctermbg=Red    ctermfg=Black
-" highlight diffRemoved ctermbg=Red    ctermfg=Black
-" highlight DiffChange  ctermbg=Yellow ctermfg=Black
-" highlight diffChanged ctermbg=Yellow ctermfg=Black
-
 colorscheme iceberg
 
 let g:lightline = {}
