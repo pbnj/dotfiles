@@ -41,3 +41,5 @@ key_bindings:
   - { key: B, mods: Alt, chars: "\x1bb" }
   - { key: N, mods: Command, action: SpawnNewInstance }
 
+import:
+  - "~/.config/alacritty/color.yml"
