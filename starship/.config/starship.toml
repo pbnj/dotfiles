@@ -128,9 +128,9 @@ symbol = "%"
 success_symbol = "[\\$](green)"
 error_symbol = "[\\$](red)"
 
-# https://starship.rs/config/#memory-usage
-[memory_usage]
-format = "[$symbol$ram_pct]($style) "
-symbol = "mem:"
-disabled = false
+# # https://starship.rs/config/#memory-usage
+# [memory_usage]
+# format = "[$symbol$ram_pct]($style) "
+# symbol = "mem:"
+# disabled = false
 
