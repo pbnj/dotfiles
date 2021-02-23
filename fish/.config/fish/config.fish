@@ -3,6 +3,7 @@ set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 set -gx EDITOR vim
 set -gx FZF_DEFAULT_COMMAND "rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
 set -gx GIT_TERMINAL_PROMPT 1
+set -gx DOTFILES "$HOME/.dotfiles"
 
 if test -d $HOME/bin
 	set -gx PATH $HOME/bin $PATH
