@@ -59,25 +59,24 @@
 [push]
 	default = simple
 
+[include]
+	path = ~/Projects/.gitconfig
+
 [includeIf "gitdir:~/Work/"]
 	path = ~/Work/.gitconfig
-
-[includeIf "gitdir:~/Projects/"]
-	path = ~/Projects/.gitconfig
 
 [credential]
 	helper = store
 
 [pull]
 	rebase = true
+
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
+
 [init]
 	defaultBranch = main
 
 [url "https://"]
 	insteadOf = ssh://
-[user]
-	email = petermbenjamin@gmail.com
-	name = Peter Benjamin
