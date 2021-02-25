@@ -35,6 +35,12 @@
       "type": "shell",
       "command": "make",
       "problemMatcher": []
+    },
+    {
+      "label": "Initialize Configs",
+      "type": "shell",
+      "command": "cp -R $HOME/.dotfiles/templates/${input:configName}/ .",
+      "problemMatcher": []
     }
   ],
   "inputs": [
@@ -42,6 +48,19 @@
       "id": "makeTarget",
       "type": "promptString",
       "description": "Enter the make target you'd like to run"
+    },
+    {
+      "id": "configName",
+      "type": "pickString",
+      "description": "Which configuration would you like to initialize?",
+      "options": [
+        "commitlint",
+        "editorconfig",
+        "markdownlint",
+        "prettier",
+        "semantic-release",
+        "yamllint",
+      ]
     }
   ]
 }

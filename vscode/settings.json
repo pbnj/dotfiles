@@ -51,13 +51,13 @@
       "id": "1afa2c5d-b2e9-4027-b135-9eb35a1e017f",
       "monitor": true,
       "name": "My jira.zuora.com Issues",
-      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "query": "assignee = currentUser() AND resolution = Unresolved AND status not in ( Cancelled ) ORDER BY key ASC",
       "siteId": "jira.zuora.com"
     }
   ],
   "atlascode.jira.lastCreateSiteAndProject": {
-    "projectKey": "ZIAS",
-    "siteId": "jira.zuora.com"
+    "siteId": "jira.zuora.com",
+    "projectKey": "ZIAS"
   },
   "atlascode.jira.statusbar.enabled": false,
   "atlascode.jira.statusbar.showActiveIssue": false,
@@ -85,7 +85,10 @@
     "*.hcl": "terraform",
     "Dockerfile.*": "dockerfile",
     "*.yaml": "yaml",
-    "**/templates/*.yaml": "helm"
+    "**/templates/*.yaml": "helm",
+    "*.envrc": "shellscript",
+    "kubeconfig_*": "yaml",
+    "*.tfvars": "terraform"
   },
   "git.alwaysSignOff": true,
   "git.autoStash": true,
@@ -185,6 +188,14 @@
   "vim.hlsearch": false,
   "vim.incsearch": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["]", "<space>"],
+      "after": ["o", "<esc>"]
+    },
+    {
+      "before": ["[", "<space>"],
+      "after": ["O", "<esc>"]
+    },
     {
       "after": ["g", "j"],
       "before": ["j"]
@@ -309,6 +320,14 @@
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
+      "before": ["]", "e"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["[", "e"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
       "before": ["<leader>", "g", "w"],
       "commands": ["git.stageSelectedRanges"]
     },
@@ -356,5 +375,5 @@
   "window.autoDetectColorScheme": true,
   "workbench.colorTheme": "Night Owl",
   "workbench.preferredDarkColorTheme": "Night Owl",
-  "workbench.preferredLightColorTheme": "Night Owl Light"
+  "workbench.preferredLightColorTheme": "Night Owl Light",
 }
