@@ -19,6 +19,8 @@ Plug 'https://github.com/cocopon/pgmnt.vim'
 " Plug 'https://github.com/cocopon/iceberg.vim'
 Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
 Plug 'https://github.com/preservim/nerdtree'
+Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+Plug 'https://github.com/ryanoasis/vim-devicons'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -149,9 +151,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " disable netrw's gx mapping. see open-browser.vim plugin.
-let g:netrw_nogx      = 1
-let g:netrw_liststyle = 3
-let g:netrw_winsize   = 25
+let g:netrw_nogx       = 1
+let g:netrw_liststyle  = 3
+let g:netrw_winsize    = 25
+let loaded_netrwPlugin = 1
 
 syntax on
 
@@ -325,6 +328,15 @@ endif
 packadd! matchit
 
 """"""""""""""""""""""""""""""""""""""""
+" nerdtree
+""""""""""""""""""""""""""""""""""""""""
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinPos     = "right"
+
+nnoremap <leader>t <cmd>NERDTreeToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""
 " open-browser
 """"""""""""""""""""""""""""""""""""""""
 
@@ -352,11 +364,11 @@ let g:fugitive_gitlab_domains = ['https://gitlab.zeta.tools']
 " vim-test
 """"""""""""""""""""""""""""""""""""""""
 
-nnoremap <silent> <leader>tn :TestNearest<CR>
-nnoremap <silent> <leader>tf :TestFile<CR>
-nnoremap <silent> <leader>ts :TestSuite<CR>
-nnoremap <silent> <leader>tl :TestLast<CR>
-nnoremap <silent> <leader>tv :TestVisit<CR>
+" nnoremap <silent> <leader>tn :TestNearest<CR>
+" nnoremap <silent> <leader>tf :TestFile<CR>
+" nnoremap <silent> <leader>ts :TestSuite<CR>
+" nnoremap <silent> <leader>tl :TestLast<CR>
+" nnoremap <silent> <leader>tv :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " fzf.vim
