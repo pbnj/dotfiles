@@ -1,6 +1,5 @@
-# EXPORTS
+# shellcheck shell=bash
 
-export DOTFILES="${HOME}/.dotfiles"
 export EDITOR="vim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
 export GIT_TERMINAL_PROMPT=1
@@ -14,5 +13,8 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
+
+export DOTFILES="${HOME}/.dotfiles"
+export JIRA_CONFIG="${HOME}/.jira-cli/config.json"
 
 # vim: ft=sh
