@@ -14,16 +14,20 @@ background_opacity: 1.0
 font:
   size: 13.0
   normal:
-    family: JetBrainsMono Nerd Font
+    # family: JetBrainsMono Nerd Font
+    family: Input Mono
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font
+    # family: JetBrainsMono Nerd Font
+    family: Input Mono
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font
+    # family: JetBrainsMono Nerd Font
+    family: Input Mono
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    # family: JetBrainsMono Nerd Font
+    family: Input Mono
     style: Bold Italic
 
 selection:
