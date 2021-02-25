@@ -16,7 +16,9 @@ Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/maximbaz/lightline-ale'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/cocopon/pgmnt.vim'
-Plug 'https://github.com/cocopon/iceberg.vim'
+" Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
+Plug 'https://github.com/preservim/nerdtree'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'

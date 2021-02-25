@@ -8,12 +8,15 @@ set ideajoin
 set ignorecase
 set incsearch
 set multiple-cursors
+set NERDTree
 set showcmd
 set smartcase
 set surround
 set textobj-entire
 set visualbell
 
+nnoremap ]<space> o<esc>
+nnoremap [<space> O<esc>
 nnoremap [q :action GotoPreviousError<CR>
 nnoremap ]q :action GotoNextError<CR>
 nnoremap [c :action VcsShowPrevChangeMarker<CR>
@@ -23,3 +26,10 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap gy :action GotoTypeDeclaration<CR>
 nnoremap gd :action GotoDeclarationOnly<CR>
 nnoremap gr :action GotoDeclaration<CR>
+
+nnoremap <leader>t :action RunAnything<CR>
+nnoremap <leader>r :action RunAnything<CR>
+nnoremap <leader>f :action GotoFile<CR>
+nnoremap <leader>F :NERDTreeToggle<CR>
+nnoremap <leader>s :action GotoSymbol<CR>
+nnoremap <leader>g :action ActivateCommitToolWindow<CR>
