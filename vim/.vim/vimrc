@@ -244,48 +244,22 @@ endfunction
 command! TOC call GenTableOfContents()
 
 """"""""""""""""""""""""""""""""""""""""
-" CONFIGURATION FILE GENERATORS
+" CONFIGURATION FILE INITIALIZER
 """"""""""""""""""""""""""""""""""""""""
 " helper function
-function! s:copy_config(config)
-  if filereadable(expand(a:config))
-    execute printf('!cp %s %s', a:config, FindRootDirectory())
-  else
-    echohl Error
-    echomsg printf('config file not found: %s', a:config)
-    echohl None
-  endif
+function! InitConfig(...)
+  for config in a:000
+    echomsg printf('cp -R ~/.dotfiles/templates/%s/ %s', config, FindRootDirectory())
+    execute printf('silent !cp -R ~/.dotfiles/templates/%s/ %s', config, FindRootDirectory())
+    redraw!
+  endfor
 endfunction
 
-" commitlint
-function! GenCommitLintRC() abort
-  call s:copy_config('~/.dotfiles/templates/.commitlintrc.yml')
+function! InitConfigCompletion(A, L, P) abort
+  return systemlist('ls ~/.dotfiles/templates')
 endfunction
 
-" yamllint
-function! GenYAMLLint() abort
-  call s:copy_config('~/.dotfiles/templates/.yamllint.yaml')
-endfunction
-
-" markdownlint
-function! GenMarkdownLint() abort
-  call s:copy_config('~/.dotfiles/templates/.markdownlint.yaml')
-endfunction
-
-" prettier
-function! GenPrettierRC() abort
-  call s:copy_config('~/.dotfiles/templates/.prettierrc.yaml')
-endfunction
-
-" semantic-release
-function! GenReleaseRC() abort
-  call s:copy_config('~/.dotfiles/templates/.releaserc.yaml')
-endfunction
-
-" editorconfig
-function! GenEditorConfig() abort
-  call s:copy_config('~/.dotfiles/templates/.editorconfig')
-endfunction
+command! -nargs=+ -complete=customlist,InitConfigCompletion InitConfig call InitConfig(<f-args>)
 
 """"""""""""""""""""""""""""""""""""""""
 " UTILITIES
@@ -381,21 +355,21 @@ let g:fzf_layout = { 'down': '~40%' }
 """"""""""""""""""""""""""""""""""""""""
 set omnifunc=ale#completion#OmniFunc
 let g:ale_fixers = {
-      \ '*': [ "remove_trailing_lines", "trim_whitespace" ],
-      \ 'sh': ["shfmt"],
-      \ 'bash': ["shfmt"],
-      \ 'javascript': ["prettier"],
-      \ 'typescript': ["prettier"],
-      \ 'markdown': ["prettier"],
-      \ 'yaml': ["prettier"],
-      \ 'json': ["prettier"],
-      \ 'go': ["goimports"],
-      \ 'rust': ["rustfmt"],
-      \ 'ruby': ["rubocop"],
-      \ 'graphql': ["prettier"],
-      \ 'hcl': ["terraform"],
-      \ 'terraform': ["terraform"],
-      \ 'html': ["prettier"],
+      \ '*'          : [ "remove_trailing_lines", "trim_whitespace" ] ,
+      \ 'sh'         : [ "shfmt"                                    ] ,
+      \ 'bash'       : [ "shfmt"                                    ] ,
+      \ 'javascript' : [ "prettier"                                 ] ,
+      \ 'typescript' : [ "prettier"                                 ] ,
+      \ 'markdown'   : [ "prettier"                                 ] ,
+      \ 'yaml'       : [ "prettier"                                 ] ,
+      \ 'json'       : [ "prettier"                                 ] ,
+      \ 'go'         : [ "goimports"                                ] ,
+      \ 'rust'       : [ "rustfmt"                                  ] ,
+      \ 'ruby'       : [ "rubocop"                                  ] ,
+      \ 'graphql'    : [ "prettier"                                 ] ,
+      \ 'hcl'        : [ "terraform"                                ] ,
+      \ 'terraform'  : [ "terraform"                                ] ,
+      \ 'html'       : [ "prettier"                                 ] ,
       \ }
 
 nnoremap <silent> <leader>af <cmd>ALEFix<cr>
