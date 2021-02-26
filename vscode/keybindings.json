@@ -87,5 +87,9 @@
   {
     "key": "ctrl+alt+cmd+m",
     "command": "issuesAndMrs.focus"
+  },
+  {
+    "key": "ctrl+alt+cmd+t",
+    "command": "todo-tree-view.focus"
   }
 ]

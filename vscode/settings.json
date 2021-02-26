@@ -31,14 +31,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.quickSuggestions": {
-      "other": true,
-      "strings": true,
-      "comments": true
-    },
-    "editor.wordBasedSuggestions": true,
-    "editor.wordBasedSuggestionsMode": "allDocuments"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "atlascode.bitbucket.enabled": false,
   "atlascode.bitbucket.statusbar.enabled": false,
@@ -56,8 +49,8 @@
     }
   ],
   "atlascode.jira.lastCreateSiteAndProject": {
-    "siteId": "jira.zuora.com",
-    "projectKey": "ZIAS"
+    "projectKey": "ZIAS",
+    "siteId": "jira.zuora.com"
   },
   "atlascode.jira.statusbar.enabled": false,
   "atlascode.jira.statusbar.showActiveIssue": false,
@@ -66,7 +59,6 @@
   "atlascode.jira.statusbar.showUser": false,
   "bashIde.highlightParsingErrors": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": false,
   "dotfiles.repository": "pbnj/dotfiles",
   "dotfiles.targetPath": "~/.dotfiles",
   "editor.codeActionsOnSave": {
@@ -74,7 +66,7 @@
     "source.organizeImports": true
   },
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
@@ -82,13 +74,13 @@
   "editor.wordWrap": "off",
   "explorer.openEditors.visible": 0,
   "files.associations": {
-    "*.hcl": "terraform",
-    "Dockerfile.*": "dockerfile",
-    "*.yaml": "yaml",
     "**/templates/*.yaml": "helm",
     "*.envrc": "shellscript",
-    "kubeconfig_*": "yaml",
-    "*.tfvars": "terraform"
+    "*.hcl": "terraform",
+    "*.tfvars": "terraform",
+    "*.yaml": "yaml",
+    "Dockerfile.*": "dockerfile",
+    "kubeconfig_*": "yaml"
   },
   "git.alwaysSignOff": true,
   "git.autoStash": true,
@@ -137,8 +129,12 @@
   "gitlab.instanceUrl": "https://gitlab.zeta.tools",
   "gitlab.showPipelineUpdateNotifications": true,
   "gitlens.advanced.abbreviatedShaLength": 5,
+  "gitlens.advanced.messages": {
+    "suppressImproperWorkspaceCasingWarning": true
+  },
   "gitlens.blame.dateFormat": "",
   "gitlens.blame.highlight.enabled": true,
+  "gitlens.codeLens.enabled": false,
   "gitlens.currentLine.dateFormat": "",
   "gitlens.currentLine.enabled": true,
   "gitlens.gitCommands.closeOnFocusOut": true,
@@ -158,6 +154,7 @@
     "usePlaceholders": true
   },
   "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2F3czQ7a3ViZXJuZXRlczt0aHJlYXRNb2RlbGluZ1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W10sXCJmb3JtYXRXaWR0aFwiOjI0MCxcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
+  "json.schemaDownload.enable": true,
   "markdown.extension.toc.updateOnSave": false,
   "material-icon-theme.files.associations": {
     "Dockerfile.*": "dockerfile"
@@ -170,7 +167,8 @@
   "projectManager.git.maxDepthRecursion": 0,
   "projectManager.groupList": true,
   "projectManager.sortList": "Name",
-  "rest-client.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "rest-client.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "rest-client.fontSize": 12,
   "ruby.codeCompletion": "rcodetools",
   "ruby.format": "rubocop",
   "ruby.intellisense": "rubyLocate",
@@ -179,9 +177,15 @@
     "ruby": true
   },
   "ruby.useLanguageServer": true,
+  "rubyTestExplorer.logpanel": true,
+  "rubyTestExplorer.minitestCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rake",
+  "rubyTestExplorer.rspecCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rspec",
+  "rubyTestExplorer.rspecDirectory": "./spec",
+  "rubyTestExplorer.testFramework": "rspec",
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
+  "testExplorer.addToEditorContextMenu": true,
   "todo-tree.tree.showScanModeButton": false,
   "update.mode": "start",
   "vim.highlightedyank.enable": true,
@@ -189,12 +193,12 @@
   "vim.incsearch": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["]", "<space>"],
-      "after": ["o", "<esc>"]
+      "after": ["o", "<esc>"],
+      "before": ["]", "<space>"]
     },
     {
-      "before": ["[", "<space>"],
-      "after": ["O", "<esc>"]
+      "after": ["O", "<esc>"],
+      "before": ["[", "<space>"]
     },
     {
       "after": ["g", "j"],
@@ -337,22 +341,26 @@
     }
   ],
   "vs-kubernetes": {
+    "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft",
     "vs-kubernetes.draft-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+    "vs-kubernetes.helm-path.linux": "/root/.vs-kubernetes/tools/helm/linux-amd64/helm",
     "vs-kubernetes.helm-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/helm/darwin-amd64/helm",
     "vs-kubernetes.knownKubeconfigs": [
-      "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora"
+      "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora",
+      "/Users/pbenjamin/.kube/configs/zord"
     ],
-    "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl",
-    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/zord",
     "vs-kubernetes.kubectl-path.linux": "/root/.vs-kubernetes/tools/kubectl/kubectl",
+    "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.minikube-path.linux": "/root/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
-    "vs-kubernetes.helm-path.linux": "/root/.vs-kubernetes/tools/helm/linux-amd64/helm",
-    "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft",
-    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora"
+    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
   "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Default Dark+",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "workbench.preferredLightColorTheme": "Default Light+",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 10,
@@ -361,19 +369,5 @@
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "testExplorer.addToEditorContextMenu": true,
-  "rubyTestExplorer.minitestCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rake",
-  "rubyTestExplorer.rspecCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rspec",
-  "rubyTestExplorer.rspecDirectory": "./spec",
-  "rubyTestExplorer.logpanel": true,
-  "rubyTestExplorer.testFramework": "rspec",
-  "json.schemaDownload.enable": true,
-  "gitlens.advanced.messages": {
-    "suppressImproperWorkspaceCasingWarning": true
-  },
-  "gitlens.codeLens.enabled": false,
-  "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Night Owl",
-  "workbench.preferredDarkColorTheme": "Night Owl",
-  "workbench.preferredLightColorTheme": "Night Owl Light",
+  "window.autoDetectColorScheme": true
 }
