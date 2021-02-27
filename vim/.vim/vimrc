@@ -16,10 +16,9 @@ Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/maximbaz/lightline-ale'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/cocopon/pgmnt.vim'
-" Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+Plug 'https://github.com/liuchengxu/vista.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -50,8 +49,6 @@ Plug 'https://github.com/Quramy/vison'
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'https://github.com/editorconfig/editorconfig-vim'
 Plug 'https://github.com/janko/vim-test'
-Plug 'https://github.com/ludovicchabant/vim-gutentags'
-Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/hashivim/vim-hashicorp-tools'
 Plug 'https://github.com/jparise/vim-graphql'
 Plug 'https://github.com/habamax/vim-asciidoctor'
@@ -124,7 +121,6 @@ set smartcase
 set smarttab
 set splitbelow
 set splitright
-set tags+=tags
 set ttyfast
 set undodir=$HOME/.vim/undo
 set undofile
@@ -138,7 +134,8 @@ if executable("rg")
 endif
 
 if has("gui_running")
-  set guifont=JetBrainsMono\ Nerd\ Font:h11
+  " set guifont=JetBrainsMono\ Nerd\ Font:h11
+  set guifont=Input\ Mono:h11
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -162,18 +159,13 @@ augroup CursorLine
   autocmd InsertLeave * set nocul
 augroup END
 
-if has('termguicolors')
-  set termguicolors
-endif
-
-colorscheme iceberg
+colorscheme pbnj
 
 """"""""""""""""""""""""""""""""""""""""
 " statusline
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'iceberg'
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ ['mode', 'paste'],
@@ -184,10 +176,11 @@ let g:lightline.active.right = [
       \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
       \ [ 'lineinfo' ],
       \ [ 'percent' ],
-      \ [ 'filetype', 'fileformat', 'fileencoding' ],
+      \ [ 'method', 'filetype', 'fileformat', 'fileencoding' ],
       \ ]
 let g:lightline.component_function = {
       \ 'gitbranch': 'FugitiveHead',
+      \ 'method': 'NearestMethodOrFunction',
       \ }
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
@@ -212,12 +205,6 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-
-" FZF mappings
-nnoremap <Leader>b <cmd>Buffers<cr>
-nnoremap <Leader>f <cmd>Files<cr>
-nnoremap <Leader>F <cmd>GFiles?<cr>
-nnoremap <Leader>g <cmd>Rg<cr>
 
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [l :lprevious<CR>
@@ -336,6 +323,12 @@ let g:fugitive_gitlab_domains = ['https://gitlab.zeta.tools']
 """"""""""""""""""""""""""""""""""""""""
 
 let g:fzf_layout = { 'down': '~40%' }
+
+" FZF mappings
+nnoremap <Leader>b <cmd>Buffers<cr>
+nnoremap <Leader>f <cmd>Files<cr>
+nnoremap <Leader>F <cmd>GFiles?<cr>
+nnoremap <Leader>g <cmd>Rg<cr>
 
 """"""""""""""""""""""""""""""""""""""""
 " ale
