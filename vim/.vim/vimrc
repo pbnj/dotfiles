@@ -19,6 +19,7 @@ Plug 'https://github.com/cocopon/pgmnt.vim'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/liuchengxu/vista.vim'
+Plug 'https://github.com/pbnj/vim-colors-pbnj'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -155,6 +156,7 @@ let loaded_netrwPlugin = 1
 syntax on
 
 augroup CursorLine
+  autocmd!
   autocmd InsertEnter * set cul
   autocmd InsertLeave * set nocul
 augroup END
@@ -166,6 +168,7 @@ colorscheme pbnj
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
+let g:lightline.colorscheme = 'landscape'
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ ['mode', 'paste'],
@@ -205,6 +208,11 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+nnoremap <C-a> <Home>
+nnoremap <C-e> <End>
+vnoremap <C-a> <Home>
+vnoremap <C-e> <End>
 
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [l :lprevious<CR>
