@@ -168,7 +168,6 @@ colorscheme pbnj
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'landscape'
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ ['mode', 'paste'],
