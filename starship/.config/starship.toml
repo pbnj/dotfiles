@@ -16,7 +16,6 @@ format = """\
 	$aws\
 	$docker_context\
 	$kubernetes\
-	$helm\
 	$battery\
 	$memory_usage\
 	$time\
@@ -76,12 +75,6 @@ deleted = "x"
 show_sync_count = true
 style = "red"
 format = "[$all_status$ahead_behind]($style) "
-
-# https://starship.rs/config/#helm
-[helm]
-symbol = "helm:"
-disabled = false
-format = "[$symbol($version)]($style) "
 
 # https://starship.rs/config/#rust
 [rust]
