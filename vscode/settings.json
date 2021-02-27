@@ -356,7 +356,6 @@
     "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Default Dark+",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Default Dark+",
@@ -369,5 +368,10 @@
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "window.autoDetectColorScheme": true
+  "window.autoDetectColorScheme": true,
+  "editor.inlineHints.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "window.title": "${rootName}${separator}${activeEditorMedium}",
+  "window.titleSeparator": " | ",
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true
 }
