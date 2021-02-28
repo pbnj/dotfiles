@@ -1,6 +1,18 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
+if has("nvim")
+  Plug 'https://github.com/nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'https://github.com/neovim/nvim-lspconfig'
+  Plug 'https://github.com/nvim-lua/completion-nvim'
+  Plug 'https://github.com/steelsojka/completion-buffers'
+  Plug 'https://github.com/nvim-treesitter/completion-treesitter'
+  Plug 'https://github.com/kristijanhusak/vim-dadbod-completion'
+  Plug 'https://github.com/nvim-lua/popup.nvim'
+  Plug 'https://github.com/nvim-lua/plenary.nvim'
+  Plug 'https://github.com/nvim-telescope/telescope.nvim'
+endif
+
 " utilities
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/mhinz/vim-signify'
@@ -366,3 +378,10 @@ let g:ale_fixers = {
 nnoremap <silent> <leader>af <cmd>ALEFix<cr>
 nnoremap <silent> <leader>al <cmd>ALELint<cr>
 
+""""""""""""""""""""""""""""""""""""""""
+" nvim-lspconfig
+""""""""""""""""""""""""""""""""""""""""
+
+if has("nvim")
+  lua require("lsp")
+endif
