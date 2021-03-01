@@ -95,7 +95,7 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
 set cmdheight=2
 set completeopt=menu,noinsert,noselect
 set conceallevel=0
