@@ -277,10 +277,12 @@ command! -nargs=+ -complete=customlist,InitConfigCompletion InitConfig call Init
 """"""""""""""""""""""""""""""""""""""""
 
 " yarn global add jira-cli
-command! -nargs=* Jira execute '! clear && jira <args>'
+command! -nargs=* Jira execute 'terminal jira <args>'
+command! -nargs=* VJira execute 'vertical terminal jira <args>'
 
 " brew install glab
-command! -nargs=* Glab execute '! clear && glab <args>'
+command! -nargs=* Glab execute 'terminal glab <args>'
+command! -nargs=* VGlab execute 'vertical terminal glab <args>'
 
 function! Htop() abort
   terminal ++close ++shell htop
