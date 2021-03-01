@@ -240,6 +240,7 @@ nnoremap <silent> [q :cprevious<CR>
 
 " https://github.com/onivim/oni/issues/2342
 tnoremap <s-space> <space>
+tnoremap <esc><esc> <C-\><C-N>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS
