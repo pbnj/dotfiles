@@ -391,6 +391,6 @@ nnoremap <silent> <leader>al <cmd>ALELint<cr>
 " nvim-lspconfig
 """"""""""""""""""""""""""""""""""""""""
 
-if has("nvim")
-  lua require("lsp")
-endif
+" if has("nvim")
+"   lua require("lsp")
+" endif
