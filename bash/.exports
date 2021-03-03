@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 
 export EDITOR="vim"
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
+# export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git' -g '!node_modules' --sort=path"
 export GIT_TERMINAL_PROMPT=1
 export HISTCONTROL=ignoreboth
 export LANG="en_US.UTF-8"
