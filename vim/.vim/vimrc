@@ -317,6 +317,8 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos     = "right"
 let g:NERDTreeWinSize    = 80
 let g:NERDTreeMinimalUI  = 1
+let NERDTreeDirArrowExpandable="+"
+let NERDTreeDirArrowCollapsible="-"
 
 nnoremap <leader>t <cmd>NERDTreeToggle<CR>
 
