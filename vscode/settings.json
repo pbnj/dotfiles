@@ -362,11 +362,7 @@
     "vs-kubernetes.draft-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/draft/darwin-amd64/draft",
     "vs-kubernetes.helm-path.linux": "/root/.vs-kubernetes/tools/helm/linux-amd64/helm",
     "vs-kubernetes.helm-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/helm/darwin-amd64/helm",
-    "vs-kubernetes.knownKubeconfigs": [
-      "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora",
-      "/Users/pbenjamin/.kube/configs/zord",
-      "/Users/pbenjamin/.kube/configs/eks-14-dev-auw2-zuora"
-    ],
+    "vs-kubernetes.knownKubeconfigs": [],
     "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/eks-14-dev-auw2-zuora",
     "vs-kubernetes.kubectl-path.linux": "/root/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl",
