@@ -23,6 +23,29 @@ schemes:
       cyan: "0x95c4ce"
       white: "0xd2d4de"
 
+  iceberg_light: &iceberg_light
+    primary:
+      background: "0xe8e9ec"
+      foreground: "0x33374c"
+    normal:
+      black: "0xdcdfe7"
+      red: "0xcc517a"
+      green: "0x668e3d"
+      yellow: "0xc57339"
+      blue: "0x2d539e"
+      magenta: "0x7759b4"
+      cyan: "0x3f83a6"
+      white: "0x33374c"
+    bright:
+      black: "0x8389a3"
+      red: "0xcc3768"
+      green: "0x598030"
+      yellow: "0xb6662d"
+      blue: "0x22478e"
+      magenta: "0x6845ad"
+      cyan: "0x327698"
+      white: "0x262a3f"
+
   ayu_dark: &ayu_dark
     primary:
       background: '0x0A0E14'
@@ -47,4 +70,5 @@ schemes:
       white:   '0xFFFFFF'
 
 # colors: *iceberg_dark
+# colors: *iceberg_light
 colors: *ayu_dark
