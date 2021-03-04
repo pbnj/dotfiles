@@ -86,6 +86,7 @@
   "git.alwaysSignOff": true,
   "git.autoStash": true,
   "git.autofetch": true,
+  "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.rebaseWhenSync": true,
   "git.showPushSuccessNotification": true,
@@ -189,6 +190,12 @@
   "testExplorer.addToEditorContextMenu": true,
   "todo-tree.tree.showScanModeButton": false,
   "update.mode": "start",
+  "vim.cursorStylePerMode.insert": "line-thin",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.replace": "underline",
+  "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.cursorStylePerMode.visualline": "block",
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
   "vim.incsearch": true,
@@ -357,6 +364,7 @@
       "commands": ["editor.action.formatSelection"]
     }
   ],
+  "vim.wrapscan": false,
   "vs-kubernetes": {
     "vs-kubernetes.draft-path.linux": "/root/.vs-kubernetes/tools/draft/linux-amd64/draft",
     "vs-kubernetes.draft-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/draft/darwin-amd64/draft",
@@ -374,12 +382,13 @@
   "window.title": "${rootName}${separator}${activeEditorMedium}",
   "window.titleSeparator": " | ",
   "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Night Owl Light",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.preferredDarkColorTheme": "Default Dark+",
-  "workbench.preferredLightColorTheme": "Default Light+",
+  "workbench.preferredDarkColorTheme": "Night Owl",
+  "workbench.preferredLightColorTheme": "Night Owl Light",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 10,
@@ -388,12 +397,6 @@
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "vim.cursorStylePerMode.insert": "line",
-  "vim.cursorStylePerMode.normal": "block",
-  "vim.cursorStylePerMode.replace": "underline",
-  "vim.cursorStylePerMode.visual": "block",
-  "vim.cursorStylePerMode.visualblock": "block",
-  "vim.cursorStylePerMode.visualline": "block",
-  "vim.wrapscan": false,
-  "workbench.colorTheme": "Default Light+"
+  "editor.codeLensFontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "diffEditor.renderSideBySide": false
 }
