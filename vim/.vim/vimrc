@@ -215,6 +215,17 @@ let g:lightline.component_type = {
       \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FILETYPES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+augroup FileTypes
+  autocmd!
+  autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+        \ indentkeys-=0# indentkeys-=<:>
+        \ foldmethod=indent
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -368,7 +379,7 @@ let g:ale_fixers = {
       \ 'sh'         : [ "shfmt"                                    ] ,
       \ 'bash'       : [ "shfmt"                                    ] ,
       \ 'javascript' : [ "prettier"                                 ] ,
-      \ 'typescript' : [ "prettier"                                 ] ,
+      \ 'typescript' : [ "prettier", "eslint"                       ] ,
       \ 'markdown'   : [ "prettier"                                 ] ,
       \ 'yaml'       : [ "prettier"                                 ] ,
       \ 'json'       : [ "prettier"                                 ] ,
