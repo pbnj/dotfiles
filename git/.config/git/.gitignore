@@ -152,3 +152,7 @@ tmp/
 TODO.md
 TODO.txt
 node_modules
+
+## Terraform
+.terraform.lock.hcl
+.terraform/
