@@ -66,7 +66,8 @@
     "source.organizeImports": true
   },
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.inlineHints.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
@@ -167,7 +168,7 @@
   "projectManager.git.maxDepthRecursion": 0,
   "projectManager.groupList": true,
   "projectManager.sortList": "Name",
-  "rest-client.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "rest-client.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "rest-client.fontSize": 12,
   "ruby.codeCompletion": "rcodetools",
   "ruby.format": "rubocop",
@@ -183,7 +184,7 @@
   "rubyTestExplorer.rspecDirectory": "./spec",
   "rubyTestExplorer.testFramework": "rspec",
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
   "testExplorer.addToEditorContextMenu": true,
   "todo-tree.tree.showScanModeButton": false,
@@ -192,6 +193,14 @@
   "vim.hlsearch": false,
   "vim.incsearch": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": ["$"],
+      "before": ["<C-e>"]
+    },
+    {
+      "after": ["^"],
+      "before": ["<C-a>"]
+    },
     {
       "after": ["o", "<esc>"],
       "before": ["]", "<space>"]
@@ -324,6 +333,14 @@
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
+      "after": ["$"],
+      "before": ["<C-e>"]
+    },
+    {
+      "after": ["^"],
+      "before": ["<C-a>"]
+    },
+    {
       "before": ["]", "e"],
       "commands": ["editor.action.moveLinesDownAction"]
     },
@@ -347,15 +364,22 @@
     "vs-kubernetes.helm-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/helm/darwin-amd64/helm",
     "vs-kubernetes.knownKubeconfigs": [
       "/Users/pbenjamin/.kube/configs/eks-4-ecc-auw2-zuora",
-      "/Users/pbenjamin/.kube/configs/zord"
+      "/Users/pbenjamin/.kube/configs/zord",
+      "/Users/pbenjamin/.kube/configs/eks-14-dev-auw2-zuora"
     ],
-    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/zord",
+    "vs-kubernetes.kubeconfig": "/Users/pbenjamin/.kube/configs/eks-14-dev-auw2-zuora",
     "vs-kubernetes.kubectl-path.linux": "/root/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.kubectl-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/kubectl/kubectl",
     "vs-kubernetes.minikube-path.linux": "/root/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
-    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+    "vscode-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
+  "window.autoDetectColorScheme": true,
+  "window.title": "${rootName}${separator}${activeEditorMedium}",
+  "window.titleSeparator": " | ",
   "workbench.activityBar.visible": true,
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Default Dark+",
@@ -368,10 +392,12 @@
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "window.autoDetectColorScheme": true,
-  "editor.inlineHints.fontFamily": "'Input Mono', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "window.title": "${rootName}${separator}${activeEditorMedium}",
-  "window.titleSeparator": " | ",
-  "workbench.editor.decorations.badges": true,
-  "workbench.editor.decorations.colors": true
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.replace": "underline",
+  "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.cursorStylePerMode.visualline": "block",
+  "vim.wrapscan": false,
+  "workbench.colorTheme": "Default Light+"
 }
