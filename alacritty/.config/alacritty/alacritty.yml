@@ -7,23 +7,23 @@ env:
 window:
   decorations: none
 
-background_opacity: 1.0
+background_opacity: 0.8
 
 # Font configuration
 # Test string: oOD08 iIlL1! g9q CGQ ~--__+==> `'""'` {([])}
 font:
-  size: 11.0
+  size: 12.0
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: Iosevka Nerd Font
     style: Bold Italic
 
 selection:
