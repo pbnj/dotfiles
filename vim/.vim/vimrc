@@ -27,7 +27,8 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/liuchengxu/vista.vim'
 " Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
+" Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
+Plug 'https://github.com/pbnj/vim-colors-pbnj'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -107,7 +108,7 @@ set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
 set modeline
 set mouse=a
 set nobackup
-set cursorline
+set nocursorline
 set nofoldenable
 set norelativenumber
 set noswapfile
@@ -155,6 +156,12 @@ endif
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+augroup CursorLine
+  autocmd!
+  autocmd InsertEnter * set cursorline
+  autocmd InsertLeave * set nocursorline
+augroup END
+
 " disable netrw's gx mapping. see open-browser.vim plugin.
 let g:netrw_nogx       = 1
 
@@ -165,17 +172,17 @@ let loaded_netrwPlugin = 1
 syntax on
 
 if has("termguicolors")
-  set termguicolors
+  set notermguicolors
 endif
 
-colorscheme iceberg
+colorscheme pbnj
 
 """"""""""""""""""""""""""""""""""""""""
 " statusline
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'iceberg'
+let g:lightline.colorscheme = 'default'
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ [ 'mode', 'paste'                        ] ,
