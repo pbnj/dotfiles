@@ -18,47 +18,79 @@
     {
       "label": "make: help",
       "type": "shell",
-      "command": "make help",
+      "command": "make",
+      "args": ["-C", "${fileWorkspaceFolder}", "help"],
       "problemMatcher": []
     },
     {
       "label": "make ...",
       "type": "shell",
-      "command": "make ${input:makeTarget}",
-      "problemMatcher": [],
-      "dependsOn": ["make: help"]
+      "command": "make",
+      "args": ["-C", "${fileWorkspaceFolder}", "${input:makeTarget}"],
+      "problemMatcher": []
     },
     {
       "label": "make",
       "type": "shell",
       "command": "make",
+      "args": ["-C", "${fileWorkspaceFolder}"],
       "problemMatcher": []
     },
     {
       "label": "Initialize Configs",
       "type": "shell",
-      "command": "cp -R $HOME/.dotfiles/templates/${input:configName}/ .",
+      "command": "cp",
+      "args": [
+        "-R",
+        "${HOME}/.dotfiles/templates/${input:configName}/",
+        "${fileWorkspaceFolder}"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Okta",
+      "type": "shell",
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-it",
+        "--volume=\"${HOME}/.aws:/root/.aws\"",
+        "--volume=\"${HOME}/.okta-aws-login/config.properties:/config.properties\"",
+        "registry.zeta.tools/security/okta-aws-login:latest",
+        "${input:oktaProfiles}"
+      ],
       "problemMatcher": []
     }
   ],
   "inputs": [
     {
       "id": "makeTarget",
-      "type": "promptString",
-      "description": "Enter the make target you'd like to run"
+      "type": "command",
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "make2help ${fileWorkspaceFolder}/Makefile",
+        "fieldSeparator": ":",
+        "description": "Select a make target to execute"
+      }
     },
     {
       "id": "configName",
-      "type": "pickString",
-      "description": "Which configuration would you like to initialize?",
-      "options": [
-        "commitlint",
-        "editorconfig",
-        "markdownlint",
-        "prettier",
-        "semantic-release",
-        "yamllint"
-      ]
+      "type": "command",
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "ls ~/.dotfiles/templates/",
+        "description": "Select a config file"
+      }
+    },
+    {
+      "id": "oktaProfiles",
+      "type": "command",
+      "command": "shellCommand.execute",
+      "args": {
+        "command": "cat ~/.okta-aws-login/config.properties | grep -E '\\[.*\\]' | tr -d '[,]'",
+        "description": "Select an Okta Profile"
+      }
     }
   ]
 }
