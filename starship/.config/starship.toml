@@ -7,12 +7,6 @@ format = """\
 	$git_commit\
 	$git_state\
 	$git_status\
-	$package\
-	$golang\
-	$nodejs\
-	$python\
-	$ruby\
-	$rust\
 	$aws\
 	$docker_context\
 	$kubernetes\
@@ -76,31 +70,6 @@ show_sync_count = true
 style = "red"
 format = "[$all_status$ahead_behind]($style) "
 
-# https://starship.rs/config/#rust
-[rust]
-symbol = "rust:"
-format = "[$symbol$version]($style) "
-
-# https://starship.rs/config/#ruby
-[ruby]
-symbol = "ruby:"
-format = "[$symbol$version]($style) "
-
-# https://starship.rs/config/#golang
-[golang]
-symbol = "go:"
-format = "[$symbol$version]($style) "
-
-# https://starship.rs/config/#nodejs
-[nodejs]
-symbol = "node:"
-format = "[$symbol$version]($style) "
-
-# https://starship.rs/config/#package-version
-[package]
-symbol = "package:"
-format = "[$symbol$version]($style) "
-
 # https://starship.rs/config/#docker-context
 [docker_context]
 symbol= "docker:"
@@ -120,10 +89,4 @@ symbol = "%"
 [character]
 success_symbol = "[\\$](green)"
 error_symbol = "[\\$](red)"
-
-# # https://starship.rs/config/#memory-usage
-# [memory_usage]
-# format = "[$symbol$ram_pct]($style) "
-# symbol = "mem:"
-# disabled = false
 
