@@ -59,12 +59,14 @@
   "atlascode.jira.statusbar.showUser": false,
   "bashIde.highlightParsingErrors": true,
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
   "dotfiles.repository": "pbnj/dotfiles",
   "dotfiles.targetPath": "~/.dotfiles",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true
   },
+  "editor.codeLensFontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.inlineHints.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
@@ -199,6 +201,7 @@
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
   "vim.incsearch": true,
+  "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": ["$"],
@@ -325,10 +328,6 @@
       "commands": ["git.stage"]
     },
     {
-      "before": ["<leader>", "g", "W"],
-      "commands": ["git.stageSelectedRanges"]
-    },
-    {
       "before": ["g", "s"],
       "commands": ["editor.action.dirtydiff.next"]
     },
@@ -396,7 +395,5 @@
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "editor.codeLensFontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "diffEditor.renderSideBySide": false
+  }
 }
