@@ -15,20 +15,18 @@ Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/wellle/tmux-complete.vim' | let g:tmuxcomplete#trigger = 'omnifunc'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
-Plug 'https://github.com/itchyny/lightline.vim'
-Plug 'https://github.com/maximbaz/lightline-ale'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/cocopon/pgmnt.vim'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/liuchengxu/vista.vim'
-" Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
 Plug 'https://github.com/pbnj/vim-colors-pbnj'
+Plug 'https://github.com/cocopon/inspecthi.vim'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -80,7 +78,6 @@ filetype plugin indent on
 
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -111,6 +108,7 @@ set nobackup
 set nocursorline
 set nofoldenable
 set norelativenumber
+set noshowmode
 set noswapfile
 set nowrap
 set nowrapscan " stop searching at end of file. do not restart search from top
@@ -118,13 +116,12 @@ set nowritebackup
 set number
 set path=.,**
 set pumheight=10
-set ruler
+set noruler
 set scrolloff=1
 set secure
 set shortmess+=c
 set showcmd
 set showmatch
-set showmode
 set sidescrolloff=5
 set signcolumn=yes
 set smartcase
@@ -181,38 +178,83 @@ colorscheme pbnj
 " statusline
 """"""""""""""""""""""""""""""""""""""""
 
-let g:lightline = {}
-let g:lightline.colorscheme = 'iceberg'
-let g:lightline.active = {}
-let g:lightline.active.left = [
-      \ [ 'mode', 'paste'                        ] ,
-      \ [ 'readonly', 'relativepath', 'modified' ] ,
-      \ [ 'gitbranch'                            ] ,
-      \ ]
-let g:lightline.active.right = [
-      \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ,
-      \ [ 'lineinfo'                                                                         ] ,
-      \ [ 'percent'                                                                          ] ,
-      \ [ 'method', 'filetype', 'fileformat', 'fileencoding'                                 ] ,
-      \ ]
-let g:lightline.component_function = {
-      \ 'gitbranch': 'FugitiveHead',
-      \ 'method': 'NearestMethodOrFunction',
-      \ }
-let g:lightline.component_expand = {
-      \ 'linter_checking': 'lightline#ale#checking',
-      \ 'linter_infos': 'lightline#ale#infos',
-      \ 'linter_warnings': 'lightline#ale#warnings',
-      \ 'linter_errors': 'lightline#ale#errors',
-      \ 'linter_ok': 'lightline#ale#ok',
-      \ }
-let g:lightline.component_type = {
-      \ 'linter_checking': 'right',
-      \ 'linter_infos': 'right',
-      \ 'linter_warnings': 'warning',
-      \ 'linter_errors': 'error',
-      \ 'linter_ok': 'right',
-      \ }
+highlight NormalColor   ctermbg=Green     ctermfg=Black
+highlight InsertColor   ctermbg=Cyan      ctermfg=Black
+highlight ReplaceColor  ctermbg=Magenta   ctermfg=Black
+highlight VisualColor   ctermbg=Red       ctermfg=Black
+highlight CommandColor  ctermbg=LightGray ctermfg=Black
+highlight ShellColor    ctermbg=Yellow    ctermfg=Black
+highlight TerminalColor ctermbg=Blue      ctermfg=Black
+highlight SelectColor   ctermbg=White     ctermfg=Black
+
+highlight clear StatusLine
+highlight clear StatusLineNC
+
+highlight RedFG ctermbg=NONE ctermfg=Red
+highlight MagentaFG ctermbg=NONE ctermfg=Magenta
+highlight CyanFG ctermbg=NONE ctermfg=Cyan
+highlight BlueFG ctermbg=NONE ctermfg=Blue
+highlight DarkBlueFG ctermbg=NONE ctermfg=DarkBlue
+
+function! ALEStatusOK() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '[OK]' : ''
+endfunction
+
+function! ALEStatusError() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:all_errors > 0 ? printf('[E:%d]', all_errors) : ''
+endfunction
+
+function! ALEStatusWarn() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:all_non_errors > 0 ? printf('[W:%d]', all_non_errors) : ''
+endfunction
+
+set statusline=
+set statusline+=%*
+set statusline+=%#NormalColor#%{(mode()=='n')?'[NORMAL]':''}
+set statusline+=%#InsertColor#%{(mode()=='i')?'[INSERT]':''}
+set statusline+=%#ReplaceColor#%{(mode()=='R')?'[REPLACE]':''}
+set statusline+=%#VisualColor#%{(mode()=='v')?'[VISUAL]':''}
+set statusline+=%#SelectColor#%{(mode()=='s')?'[SELECT]':''}
+set statusline+=%#TerminalColor#%{(mode()=='t')?'[TERMINAL]':''}
+set statusline+=%#CommandColor#%{(mode()=='c')?'[COMMAND]':''}
+set statusline+=%#ShellColor#%{(mode()=='!')?'[SHELL]':''}
+set statusline+=%*
+set statusline+=[%n] " buffer number, helpful for diff
+set statusline+=%#CyanFG#
+set statusline+=%F " file name
+set statusline+=%*
+set statusline+=%#StatusLine#
+set statusline+=%#RedFG#
+set statusline+=%m " modified
+set statusline+=%*
+set statusline+=%#StatusLine#
+set statusline+=%r " read only
+set statusline+=%h " help
+set statusline+=%w " preview
+set statusline+=%#MagentaFG#
+set statusline+=%{FugitiveStatusline()} " git branch name
+set statusline+=%*
+set statusline+=%#StatusLine#
+set statusline+=%#BlueFG#
+set statusline+=%y " syntax
+set statusline+=%*
+set statusline+=%#StatusLine#
+set statusline+=%#DarkBlueFG#
+set statusline+=[%{&ff}] " file format
+set statusline+=%*
+set statusline+=%#MoreMsg#%{ALEStatusOK()}
+set statusline+=%#ALEWarningSign#%{ALEStatusWarn()}
+set statusline+=%#ALEErrorSign#%{ALEStatusError()}
+set statusline+=%*
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPES
@@ -328,8 +370,9 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos     = "right"
 let g:NERDTreeWinSize    = 80
 let g:NERDTreeMinimalUI  = 1
-let NERDTreeDirArrowExpandable="+"
-let NERDTreeDirArrowCollapsible="-"
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="-"
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 nnoremap <leader>t <cmd>NERDTreeToggle<CR>
 
