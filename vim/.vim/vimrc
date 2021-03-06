@@ -27,7 +27,7 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/liuchengxu/vista.vim'
 " Plug 'https://github.com/cocopon/iceberg.vim'
-" Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
+Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
 Plug 'https://github.com/pbnj/vim-colors-pbnj'
 
 " tpope
@@ -182,7 +182,7 @@ colorscheme pbnj
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'default'
+let g:lightline.colorscheme = 'iceberg'
 let g:lightline.active = {}
 let g:lightline.active.left = [
       \ [ 'mode', 'paste'                        ] ,
@@ -394,4 +394,3 @@ let g:ale_fixers = {
 
 nnoremap <silent> <leader>af <cmd>ALEFix<cr>
 nnoremap <silent> <leader>al <cmd>ALELint<cr>
-
