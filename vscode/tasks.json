@@ -10,7 +10,32 @@
   },
   "tasks": [
     {
-      "label": "brew upgrade",
+      "label": "dotfiles",
+      "type": "shell",
+      "command": "code",
+      "args": ["~/.dotfiles"],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "glab: ci status",
+      "type": "shell",
+      "command": "glab",
+      "args": ["ci", "status", "--live"],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileWorkspaceFolder}"
+      }
+    },
+    {
+      "label": "brew: upgrade",
       "type": "shell",
       "command": "brew update && brew upgrade && brew cleanup",
       "problemMatcher": []
@@ -19,33 +44,40 @@
       "label": "make: help",
       "type": "shell",
       "command": "make",
-      "args": ["-C", "${fileWorkspaceFolder}", "help"],
-      "problemMatcher": []
+      "args": ["help"],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileWorkspaceFolder}"
+      }
     },
     {
       "label": "make ...",
       "type": "shell",
       "command": "make",
-      "args": ["-C", "${fileWorkspaceFolder}", "${input:makeTarget}"],
-      "problemMatcher": []
+      "args": ["${input:makeTarget}"],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileWorkspaceFolder}"
+      }
     },
     {
       "label": "make",
       "type": "shell",
       "command": "make",
-      "args": ["-C", "${fileWorkspaceFolder}"],
-      "problemMatcher": []
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileWorkspaceFolder}"
+      }
     },
     {
       "label": "Initialize Configs",
       "type": "shell",
       "command": "cp",
-      "args": [
-        "-R",
-        "${HOME}/.dotfiles/templates/${input:configName}/",
-        "${fileWorkspaceFolder}"
-      ],
-      "problemMatcher": []
+      "args": ["-R", "${HOME}/.dotfiles/templates/${input:configName}/", "."],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${fileWorkspaceFolder}"
+      }
     },
     {
       "label": "Okta",
@@ -69,7 +101,7 @@
       "type": "command",
       "command": "shellCommand.execute",
       "args": {
-        "command": "make2help ${fileWorkspaceFolder}/Makefile",
+        "command": "make2help",
         "fieldSeparator": ":",
         "description": "Select a make target to execute"
       }
