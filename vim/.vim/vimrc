@@ -315,7 +315,7 @@ function! InitConfig(...)
 endfunction
 
 function! InitConfigCompletion(A, L, P) abort
-  return systemlist('ls ~/.dotfiles/templates')
+  return readdir(expand("~/.dotfiles/templates/"), { d -> d =~ a:A})
 endfunction
 
 command! -nargs=+ -complete=customlist,InitConfigCompletion InitConfig call InitConfig(<f-args>)
