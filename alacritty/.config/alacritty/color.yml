@@ -68,6 +68,6 @@ schemes:
       cyan: "0x95E6CB"
       white: "0xFFFFFF"
 
-# colors: *iceberg_dark
+colors: *iceberg_dark
 # colors: *iceberg_light
-colors: *ayu_dark
+# colors: *ayu_dark
