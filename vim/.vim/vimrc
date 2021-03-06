@@ -142,7 +142,7 @@ endif
 
 if has("gui_running")
   " set guifont=JetBrainsMono\ Nerd\ Font:h11
-  set guifont=Input\ Mono:h11
+  set guifont=Iosevka\ Nerd\ Font:h11
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -168,93 +168,7 @@ let loaded_netrwPlugin = 1
 
 syntax on
 
-if has("termguicolors")
-  set notermguicolors
-endif
-
 colorscheme pbnj
-
-""""""""""""""""""""""""""""""""""""""""
-" statusline
-""""""""""""""""""""""""""""""""""""""""
-
-highlight NormalColor   ctermbg=Green     ctermfg=Black
-highlight InsertColor   ctermbg=Cyan      ctermfg=Black
-highlight ReplaceColor  ctermbg=Magenta   ctermfg=Black
-highlight VisualColor   ctermbg=Red       ctermfg=Black
-highlight CommandColor  ctermbg=LightGray ctermfg=Black
-highlight ShellColor    ctermbg=Yellow    ctermfg=Black
-highlight TerminalColor ctermbg=Blue      ctermfg=Black
-highlight SelectColor   ctermbg=White     ctermfg=Black
-
-highlight clear StatusLine
-highlight clear StatusLineNC
-
-highlight RedFG ctermbg=NONE ctermfg=Red
-highlight MagentaFG ctermbg=NONE ctermfg=Magenta
-highlight CyanFG ctermbg=NONE ctermfg=Cyan
-highlight BlueFG ctermbg=NONE ctermfg=Blue
-highlight DarkBlueFG ctermbg=NONE ctermfg=DarkBlue
-
-function! ALEStatusOK() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '[OK]' : ''
-endfunction
-
-function! ALEStatusError() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:all_errors > 0 ? printf('[E:%d]', all_errors) : ''
-endfunction
-
-function! ALEStatusWarn() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:all_non_errors > 0 ? printf('[W:%d]', all_non_errors) : ''
-endfunction
-
-set statusline=
-set statusline+=%*
-set statusline+=%#NormalColor#%{(mode()=='n')?'[NORMAL]':''}
-set statusline+=%#InsertColor#%{(mode()=='i')?'[INSERT]':''}
-set statusline+=%#ReplaceColor#%{(mode()=='R')?'[REPLACE]':''}
-set statusline+=%#VisualColor#%{(mode()=='v')?'[VISUAL]':''}
-set statusline+=%#SelectColor#%{(mode()=='s')?'[SELECT]':''}
-set statusline+=%#TerminalColor#%{(mode()=='t')?'[TERMINAL]':''}
-set statusline+=%#CommandColor#%{(mode()=='c')?'[COMMAND]':''}
-set statusline+=%#ShellColor#%{(mode()=='!')?'[SHELL]':''}
-set statusline+=%*
-set statusline+=[%n] " buffer number, helpful for diff
-set statusline+=%#CyanFG#
-set statusline+=%F " file name
-set statusline+=%*
-set statusline+=%#StatusLine#
-set statusline+=%#RedFG#
-set statusline+=%m " modified
-set statusline+=%*
-set statusline+=%#StatusLine#
-set statusline+=%r " read only
-set statusline+=%h " help
-set statusline+=%w " preview
-set statusline+=%#MagentaFG#
-set statusline+=%{FugitiveStatusline()} " git branch name
-set statusline+=%*
-set statusline+=%#StatusLine#
-set statusline+=%#BlueFG#
-set statusline+=%y " syntax
-set statusline+=%*
-set statusline+=%#StatusLine#
-set statusline+=%#DarkBlueFG#
-set statusline+=[%{&ff}] " file format
-set statusline+=%*
-set statusline+=%#MoreMsg#%{ALEStatusOK()}
-set statusline+=%#ALEWarningSign#%{ALEStatusWarn()}
-set statusline+=%#ALEErrorSign#%{ALEStatusError()}
-set statusline+=%*
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPES
