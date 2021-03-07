@@ -20,18 +20,41 @@ My configuration files. Here be dragons.
 
 ```text
 .
-├── alacritty
-├── bash
+├── .aliases
+├── .bash_profile
+├── .bash_prompt
+├── .config
+│  ├── alacritty
+│  ├── git
+│  ├── nvim
+│  ├── starship.toml
+│  └── yarn
+├── .exports
+├── .functions
+├── .inputrc
+├── .ssh
+│  └── config
+├── .tmux.conf
+├── .vim
+│  └── vimrc
 ├── Brewfile
-├── git
 ├── intellij
-├── scripts
-├── ssh
-├── starship
+│  └── .ideavimrc
+├── Makefile
 ├── templates
-├── tmux
-├── vim
+│  ├── commitlint
+│  ├── editorconfig
+│  ├── husky
+│  ├── lintstaged
+│  ├── markdownlint
+│  ├── prettier
+│  ├── semantic-release
+│  └── yamllint
 └── vscode
+   ├── extensions.txt
+   ├── keybindings.json
+   ├── settings.json
+   └── tasks.json
 ```
 
 ## Install
@@ -39,26 +62,33 @@ My configuration files. Here be dragons.
 ### Pre-requisites
 
 - [`brew`](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-- [`stow`](https://www.gnu.org/software/stow/): `brew install stow`
 
-### Stow
+### Symlink
 
 Symlink config files to their expected locations:
 
 ```sh
-stow {alacritty,bash,git,starship,tmux,vim}
+make link-bash link-config link-vim link-neovim link-tmux
 ```
 
 ### vim
 
-- [`vim-plug`](https://github.com/junegunn/vim-plug):
+vim-plug and plugins will be installed at first launch
 
-  ```sh
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  ```
+### templates
 
-### etc
+These are common configuration files used across projects, such as:
+
+- `.markdownlint.yaml`
+- `.yamllint.yaml`
+- `.prettierrc.yaml`
+- `.release.yaml`
+- `.huskyrc.yaml`
+- `.lintstagedrc.yaml`
+- `.commitlint.yaml`
+- `.editorconfig`
+
+### misc
 
 The rest are simply installed via `brew`, directly from the project's website,
 or built from source (see [`scripts/`](scripts) for various build and install
