@@ -32,7 +32,7 @@ link-neovim:
 ## Symlink bash
 .PHONY: link-bash
 link-bash:
-	$(RM) -r $(HOME)/.{bash_profile,inputrc,exports,functions,aliases}
+	$(RM) -r $(HOME)/.{bash_profile,bash_prompt,inputrc,exports,functions,aliases}
 	ln -s $(CURDIR)/.bash_profile $(HOME)/.bash_profile
 	ln -s $(CURDIR)/.bash_prompt $(HOME)/.bash_prompt
 	ln -s $(CURDIR)/.inputrc $(HOME)/.inputrc
