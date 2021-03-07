@@ -88,6 +88,11 @@ These are common configuration files used across projects, such as:
 - `.commitlint.yaml`
 - `.editorconfig`
 
+These can be installed simply by copying them into the expected directories. But also, there is a few convienient functions/scripts to automate this:
+
+- In vim, run `:InitConfig <tab>` to pick one or more configs to initialize ([ref](https://github.com/pbnj/dotfiles/blob/3a6975f62327cb80a3e36ae118216134ec1e1365/.config/nvim/init.vim#L224-L240))
+- In any git repo, run `git initconfig` for an interactive fuzzy-finder prompt to select one or more configs to initialize ([ref](https://github.com/pbnj/dotfiles/blob/3a6975f62327cb80a3e36ae118216134ec1e1365/.config/git/config#L35))
+
 ### misc
 
 The rest are simply installed via `brew`, directly from the project's website,
