@@ -27,6 +27,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/pbnj/vim-colors-pbnj'
 Plug 'https://github.com/cocopon/inspecthi.vim'
+Plug 'https://github.com/osyo-manga/vim-over'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
