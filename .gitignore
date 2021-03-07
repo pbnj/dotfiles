@@ -1,6 +1,6 @@
-vim/.vim/sessions/
-vim/.vim/plugged/
-vim/.vim/undo
+.vim/sessions/
+.vim/plugged/
+.vim/undo
 tags.lock
 tags.temp
 work.fish
