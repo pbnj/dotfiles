@@ -1,9 +1,11 @@
 .vim/sessions/
 .vim/plugged/
-.vim/undo
+.vim/undo/
 tags.lock
 tags.temp
 work.fish
 .work_profile
 .profile_work
 .work
+.config/nvim/
+.config/yarn/

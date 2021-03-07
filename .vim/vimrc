@@ -142,6 +142,10 @@ if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
+if has("nvim")
+  set inccommand=split
+endif
+
 if has("gui_running")
   " set guifont=JetBrainsMono\ Nerd\ Font:h11
   set guifont=Iosevka\ Nerd\ Font:h11
@@ -265,7 +269,7 @@ command! BrewUp call BrewUp()
 
 command! BuffOnly :%bdelete | edit# | normal `"
 
-if has('neovim')
+if has('nvim')
   command! -nargs=* T split | terminal <args>
   command! -nargs=* VT vsplit | terminal <args>
 endif
