@@ -34,6 +34,7 @@ link-neovim:
 link-bash:
 	$(RM) -r $(HOME)/.{bash_profile,inputrc,exports,functions,aliases}
 	ln -s $(CURDIR)/.bash_profile $(HOME)/.bash_profile
+	ln -s $(CURDIR)/.bash_prompt $(HOME)/.bash_prompt
 	ln -s $(CURDIR)/.inputrc $(HOME)/.inputrc
 	ln -s $(CURDIR)/.exports $(HOME)/.exports
 	ln -s $(CURDIR)/.functions $(HOME)/.functions
