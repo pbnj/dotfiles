@@ -78,6 +78,7 @@ filetype plugin indent on
 
 set autoindent
 set autoread
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -88,6 +89,7 @@ set conceallevel=0
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
+set fillchars=stl:*,stlnc:.,
 set formatoptions+=j " remove comment leader when joining lines
 set formatoptions+=n " when formatting text, recognize numbered lists
 set formatoptions-=t " don't auto-wrap text using textwidth
@@ -108,6 +110,7 @@ set nobackup
 set nocursorline
 set nofoldenable
 set norelativenumber
+set noruler
 set noshowmode
 set noswapfile
 set nowrap
@@ -116,7 +119,6 @@ set nowritebackup
 set number
 set path=.,**
 set pumheight=10
-set noruler
 set scrolloff=1
 set secure
 set shortmess+=c
