@@ -32,7 +32,14 @@ link-bash:
 	ln -s $(CURDIR)/.functions $(HOME)/.functions
 	ln -s $(CURDIR)/.aliases $(HOME)/.aliases
 
+## Symlink tmux
+.PHONY: link-tmux
+link-tmux:
+	$(RM) -rf $(HOME)/.tmux.conf
+	ln -s $(CURDIR)/.tmux.conf $(HOME)/.tmux.conf
+
 ## Symlink intellij files
+.PHONY: link-ideavim
 link-ideavim:
 	$(RM) -rf $(HOME)/.ideavimrc
 	ln -s $(CURDIR)/intellij/.ideavimrc $(HOME)/.ideavimrc
