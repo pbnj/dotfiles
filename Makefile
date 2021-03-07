@@ -1,5 +1,3 @@
-# vi: set ft=make :
-
 .DEFAULT_GOAL := help
 SHELL         := /bin/bash
 
@@ -7,27 +5,36 @@ PROJECT := dotfiles
 
 -include makefiles/*.mk
 
+## Print help
 .PHONY: help
-help: ## Print help
-	@grep -oh -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s	%s\n", $$1, $$2}'
+help:
+	@make2help $(MAKEFILE_LIST)
 
-.PHONY: link-neovim
-link-neovim: ## Symlink Neovim
-	$(RM) -rf $(HOME)/.config/nvim
-	mkdir -p $(HOME)/.config/nvim
-	ln -s $(CURDIR)/vim/.vim/vimrc $(HOME)/.config/nvim/init.vim
+## Symlink .config directory, e.g. alacritty, starship, git, neovim
+.PHONY: link-config
+link-config:
+	$(RM) -rf $(HOME)/.config
+	ln -s $(CURDIR)/.config $(HOME)/.config
 
+## Symlink vim
 .PHONY: link-vim
-link-vim: ## Symlink vim
+link-vim:
 	$(RM) -rf $(HOME)/.vim
-	ln -s $(CURDIR)/vim/.vim $(HOME)/.vim
+	ln -s $(CURDIR)/.vim $(HOME)/.vim
 
-.PHONY: link-fish
-link-fish: ## Symlink fish
-	$(RM) -rf $(HOME)/.config/fish
-	ln -s $(CURDIR)/fish/.config/fish $(HOME)/.config/fish
+## Symlink bash
+.PHONY: link-bash
+link-bash:
+	$(RM) -rf $(HOME)/.{bash_profile,inputrc,exports,functions,aliases}
+	ln -s $(CURDIR)/.bash_profile $(HOME)/.bash_profile
+	ln -s $(CURDIR)/.inputrc $(HOME)/.inputrc
+	ln -s $(CURDIR)/.exports $(HOME)/.exports
+	ln -s $(CURDIR)/.functions $(HOME)/.functions
+	ln -s $(CURDIR)/.aliases $(HOME)/.aliases
 
-.PHONY: link-ideavim
-link-ideavim: ## Symlink intellij files
+## Symlink intellij files
+link-ideavim:
 	$(RM) -rf $(HOME)/.ideavimrc
 	ln -s $(CURDIR)/intellij/.ideavimrc $(HOME)/.ideavimrc
+
+# vim: ft=make
