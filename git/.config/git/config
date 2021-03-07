@@ -32,6 +32,8 @@
 	# https://docs.gitlab.com/ee/user/project/merge_requests/reviewing_and_managing_merge_requests.html
 	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 
+	initconf = "!f() { for conf in $(ls ~/.dotfiles/templates | fzf --multi) ; do cp -R ~/.dotfiles/templates/\"${conf}\"/ \"$(git rev-parse --show-toplevel)\"/ ; done }; f"
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
