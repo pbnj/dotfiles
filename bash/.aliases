@@ -6,7 +6,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
 alias ll="ls -alFh"
-alias vi="vim -u NONE"
+alias vi="vim --clean"
 
 # For safety
 alias rm='rm -i'
