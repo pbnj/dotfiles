@@ -9,3 +9,4 @@ work.fish
 .work
 .config/nvim/
 .config/yarn/
+.config/glab-cli/config.yml
