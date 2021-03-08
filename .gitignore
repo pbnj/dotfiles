@@ -13,3 +13,6 @@ work.fish
 .config/dconf/
 .config/pulse/
 .config/jira-cli/
+.config/vscode-sqltools/
+.config/Code/
+.config/configstore/
