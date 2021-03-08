@@ -10,3 +10,5 @@ work.fish
 .config/nvim/
 .config/yarn/
 .config/glab-cli/config.yml
+.config/dconf/
+.config/pulse/
