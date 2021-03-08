@@ -54,12 +54,12 @@ if [ -d "${HOME}/.cargo" ]; then
         source <(rustup completions bash cargo)
 fi
 
-# ## NODE
-# # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
-# if [ -d "${HOME}/.nvm" ]; then
-#         export NVM_DIR="${HOME}/.nvm"
-#         [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
-# fi
+## NODE
+# git clone https://github.com/nvm-sh/nvm ${HOME}/.nvm
+if [ -d "${HOME}/.nvm" ]; then
+        export NVM_DIR="${HOME}/.nvm"
+        [ -s "${NVM_DIR}/nvm.sh" ] && source "${NVM_DIR}/nvm.sh"
+fi
 
 ## RBENV
 # brew install rbenv
