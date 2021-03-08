@@ -2,6 +2,7 @@
 # custom symbols: https://www.nerdfonts.com/cheat-sheet
 
 format = """\
+	$user\
 	$directory\
 	$git_branch\
 	$git_commit\
