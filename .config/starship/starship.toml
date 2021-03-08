@@ -3,6 +3,7 @@
 
 format = """\
 	$username\
+	$hostname\
 	$directory\
 	$git_branch\
 	$git_commit\
@@ -15,7 +16,6 @@ format = """\
 	$memory_usage\
 	$time\
 	$jobs\
-	$cmd_duration\
 	$line_break\
 	$character
 """
@@ -23,6 +23,10 @@ format = """\
 # https://starship.rs/config/#username
 [username]
 format = "[$user]($style) "
+
+[hostname]
+format = "[$hostname]($style) "
+
 # https://starship.rs/config/#aws
 [aws]
 symbol = "aws:"
@@ -47,11 +51,6 @@ style = "yellow"
 [[battery.display]]
 threshold = 100
 style = "green"
-
-# https://starship.rs/config/#command-duration
-[cmd_duration]
-style = "dimmed"
-format = "[duration:$duration]($style)"
 
 # https://starship.rs/config/#directory
 [directory]
