@@ -2,7 +2,7 @@
 # custom symbols: https://www.nerdfonts.com/cheat-sheet
 
 format = """\
-	$user\
+	$username\
 	$directory\
 	$git_branch\
 	$git_commit\
@@ -20,6 +20,9 @@ format = """\
 	$character
 """
 
+# https://starship.rs/config/#username
+[username]
+format = "[$user]($style) "
 # https://starship.rs/config/#aws
 [aws]
 symbol = "aws:"
