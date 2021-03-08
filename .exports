@@ -15,6 +15,7 @@ export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 
 export DOTFILES="${HOME}/.dotfiles"
-export JIRA_CONFIG="${HOME}/.jira-cli/config.json"
+export JIRA_CONFIG="${HOME}/.config/jira-cli/config.json"
+export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
 
 # vim: ft=sh
