@@ -15,7 +15,7 @@ Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/wellle/targets.vim'
-Plug 'https://github.com/wellle/tmux-complete.vim' | let g:tmuxcomplete#trigger = 'omnifunc'
+Plug 'https://github.com/wellle/tmux-complete.vim'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tyru/open-browser.vim'
@@ -23,7 +23,6 @@ Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/cocopon/pgmnt.vim'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/pbnj/vim-colors-pbnj'
 Plug 'https://github.com/cocopon/inspecthi.vim'
@@ -79,7 +78,7 @@ filetype plugin indent on
 
 set autoindent
 set autoread
-set background=dark
+set background&
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -90,12 +89,11 @@ set conceallevel=0
 set display+=lastline
 set encoding=utf-8
 set fileencoding=utf-8
-set formatoptions+=j " remove comment leader when joining lines
-set formatoptions+=n " when formatting text, recognize numbered lists
-set formatoptions-=t " don't auto-wrap text using textwidth
+set formatoptions+=j
+set formatoptions+=n
+set formatoptions-=t
 set hidden
 set history=1000
-set hlsearch
 set ignorecase
 set incsearch
 set infercase
@@ -109,14 +107,15 @@ set mouse=a
 set nobackup
 set nocursorline
 set nofoldenable
+set nohlsearch
+set nonumber
 set norelativenumber
 set noruler
 set noshowmode
 set noswapfile
 set nowrap
-set nowrapscan " stop searching at end of file. do not restart search from top
+set nowrapscan
 set nowritebackup
-set number
 set path=.,**
 set pumheight=10
 set scrolloff=1
@@ -125,7 +124,7 @@ set shortmess+=c
 set showcmd
 set showmatch
 set sidescrolloff=5
-set signcolumn=yes
+set signcolumn=no
 set smartcase
 set smarttab
 set splitbelow
@@ -167,14 +166,71 @@ augroup END
 
 " disable netrw's gx mapping. see open-browser.vim plugin.
 let g:netrw_nogx       = 1
-
 let g:netrw_liststyle  = 3
 let g:netrw_winsize    = 25
 let loaded_netrwPlugin = 1
 
-syntax on
+" disable all colors
+syntax off
+let g:syntax_on = 0
 
-colorscheme pbnj
+""""""""""""""""""""""""""""""""""""""""
+" STATUSLINE
+""""""""""""""""""""""""""""""""""""""""
+
+function! ALEStatusOK() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '[OK]' : ''
+endfunction
+
+function! ALEStatusError() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:all_errors > 0 ? printf('[E:%d]', all_errors) : ''
+endfunction
+
+function! ALEStatusWarn() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:all_non_errors > 0 ? printf('[W:%d]', all_non_errors) : ''
+endfunction
+
+set statusline=
+set statusline+=%{(mode()=='n')?'[NORMAL]':''}
+set statusline+=%{(mode()=='i')?'[INSERT]':''}
+set statusline+=%{(mode()=='R')?'[REPLACE]':''}
+set statusline+=%{(mode()=='v')?'[VISUAL]':''}
+set statusline+=%{(mode()=='s')?'[SELECT]':''}
+set statusline+=%{(mode()=='t')?'[TERMINAL]':''}
+set statusline+=%{(mode()=='c')?'[COMMAND]':''}
+set statusline+=%{(mode()=='!')?'[SHELL]':''}
+" show buffer number, helpful for diff
+set statusline+=[%n]
+" show file name
+set statusline+=[%f]
+" show if modified
+set statusline+=%m
+" show if read only
+set statusline+=%r
+" show if help text
+set statusline+=%h
+" show if preview
+set statusline+=%w
+" show git branch name
+set statusline+=%{FugitiveStatusline()}
+" show file syntax
+set statusline+=%y
+" show file format
+set statusline+=[%{&ff}]
+" show percent of file, current line number, column number
+set statusline+=[%p%%\ %04l/%04L,%04v]
+set statusline+=%{ALEStatusOK()}
+set statusline+=%{ALEStatusWarn()}
+set statusline+=%{ALEStatusError()}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPES
@@ -190,6 +246,8 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader = ","
 
 nnoremap j gj
 nnoremap k gk
@@ -335,6 +393,32 @@ nnoremap <Leader>g <cmd>Rg<cr>
 """"""""""""""""""""""""""""""""""""""""
 " ale
 """"""""""""""""""""""""""""""""""""""""
+
+" install language servers for ale
+if !executable('bash-language-server')
+  exe '! npm install -g bash-language-server'
+endif
+if !executable('vim-language-server')
+  exe '! npm install -g vim-language-server'
+endif
+if !executable('tsserver')
+  exe '! npm install -g typescript'
+endif
+
+" install linters & fixers
+if !executable('prettier')
+  exe '! npm i -g prettier'
+  exe '! npm i -g prettier-plugin-sh'
+  exe '! npm i -g prettier-plugin-go-template'
+  exe '! npm i -g @prettier/plugin-ruby'
+  exe '! npm i -g prettier-plugin-java'
+endif
+if !executable('doctoc')
+  exe '! npm i -g doctoc'
+endif
+if !executable('markdownlint')
+  exe '! npm i -g markdownlint-cli'
+endif
 
 set omnifunc=ale#completion#OmniFunc
 let g:ale_fixers = {
