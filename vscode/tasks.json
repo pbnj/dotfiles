@@ -31,7 +31,7 @@
       "args": ["ci", "status", "--live"],
       "problemMatcher": [],
       "options": {
-        "cwd": "${fileWorkspaceFolder}"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -47,7 +47,7 @@
       "args": ["help"],
       "problemMatcher": [],
       "options": {
-        "cwd": "${fileWorkspaceFolder}"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -57,7 +57,7 @@
       "args": ["${input:makeTarget}"],
       "problemMatcher": [],
       "options": {
-        "cwd": "${fileWorkspaceFolder}"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -66,7 +66,7 @@
       "command": "make",
       "problemMatcher": [],
       "options": {
-        "cwd": "${fileWorkspaceFolder}"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
@@ -76,7 +76,7 @@
       "args": ["-R", "${HOME}/.dotfiles/templates/${input:configName}/", "."],
       "problemMatcher": [],
       "options": {
-        "cwd": "${fileWorkspaceFolder}"
+        "cwd": "${workspaceFolder}"
       }
     },
     {
