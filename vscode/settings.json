@@ -201,7 +201,7 @@
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": false,
   "vim.incsearch": true,
-  "vim.leader": "<space>",
+  "vim.leader": ",",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "after": ["$"],
@@ -377,17 +377,14 @@
     "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
     "vscode-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
-  "window.autoDetectColorScheme": true,
   "window.title": "${rootName}${separator}${activeEditorMedium}",
   "window.titleSeparator": " | ",
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Night Owl",
+  "workbench.colorTheme": "Nord",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.preferredDarkColorTheme": "Night Owl",
-  "workbench.preferredLightColorTheme": "Night Owl Light",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.indent": 10,
