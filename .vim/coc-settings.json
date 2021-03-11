@@ -1,0 +1,67 @@
+{
+  "coc.preferences.enableFloatHighlight": false,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "hcl",
+    "javascript",
+    "json",
+    "jsonc",
+    "markdown",
+    "rust",
+    "sh",
+    "terraform",
+    "typescript",
+    "yaml"
+  ],
+  "codeLens.enable": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.hintSign": "○",
+  "diagnostic.infoSign": "●",
+  "diagnostic.warningSign": "⚠",
+  "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.position": "right",
+  "explorer.previewAction.onHover": false,
+  "git.addGBlameToBufferVar": true,
+  "git.enableGutters": true,
+  "languageserver": {
+    "bash": {
+      "args": ["start"],
+      "command": "bash-language-server",
+      "filetypes": ["sh", "bash"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dockerfile": {
+      "args": ["--stdio"],
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile", "Dockerfile"]
+    },
+    "golang": {
+      "command": "gopls",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "completeUnimported": true,
+        "usePlaceholders": true
+      },
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["tf", "terraform"]
+    }
+  },
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "suggest.autoTrigger": "always",
+  "suggest.defaultSortMethod": "alphabetical",
+  "suggest.floatEnable": true,
+  "suggest.noselect": false,
+  "yaml.completion": true,
+  "yaml.hover": true,
+  "yaml.schemas": {
+    "kubernetes": ["/kubernetes/*.yaml"]
+  },
+  "yaml.validate": true
+}
