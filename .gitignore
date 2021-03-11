@@ -17,3 +17,8 @@ work.fish
 .config/vscode-sqltools/
 .config/Code/
 .config/configstore/
+.config/coc/
+.config/htop/
+.config/iterm2/
+.config/nvim
+.vim/init.vim
