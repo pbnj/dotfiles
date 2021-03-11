@@ -14,16 +14,16 @@ background_opacity: 1.0
 font:
   size: 12.0
   normal:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Regular
   bold:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Italic
   bold_italic:
-    family: Iosevka Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold Italic
 
 selection:
@@ -42,5 +42,4 @@ key_bindings:
   - { key: N, mods: Command, action: SpawnNewInstance }
 
 import:
-  # - "~/.config/alacritty/color.yml"
-  - "~/.vim/plugged/base16-alacritty/colors/base16-default-dark.yml"
+  - "~/.config/alacritty/color.yml"
