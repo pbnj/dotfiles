@@ -8,26 +8,30 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " utilities
-Plug 'https://github.com/airblade/vim-rooter'
-Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/mhinz/vim-signify'
+Plug 'https://github.com/preservim/nerdtree'
+Plug 'https://github.com/wellle/tmux-complete.vim'
+Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+Plug 'https://github.com/airblade/vim-rooter'
+Plug 'https://github.com/cocopon/inspecthi.vim'
+Plug 'https://github.com/cocopon/pgmnt.vim'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/wellle/targets.vim'
-Plug 'https://github.com/wellle/tmux-complete.vim'
-Plug 'https://github.com/tweekmonster/startuptime.vim'
-Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
-Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
-Plug 'https://github.com/cocopon/pgmnt.vim'
-Plug 'https://github.com/preservim/nerdtree'
-Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/liuchengxu/vista.vim'
-Plug 'https://github.com/pbnj/vim-colors-pbnj'
-Plug 'https://github.com/cocopon/inspecthi.vim'
 Plug 'https://github.com/osyo-manga/vim-over'
-Plug 'https://github.com/chriskempson/base16-vim' | Plug 'https://github.com/aaron-williamson/base16-alacritty'
+Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
+Plug 'https://github.com/tweekmonster/startuptime.vim'
+Plug 'https://github.com/tyru/open-browser.vim'
+Plug 'https://github.com/tyru/open-browser-github.vim'
+Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/vim-scripts/YankRing.vim'
+
+" lightline
+Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'https://github.com/maximbaz/lightline-ale'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -46,8 +50,8 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-projectionist'
 
 " languages
-let g:ale_completion_enabled = 1
-Plug 'https://github.com/dense-analysis/ale'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:ale_completion_enabled = 1 | Plug 'https://github.com/dense-analysis/ale'
 Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'https://github.com/leafgarland/typescript-vim'
 Plug 'https://github.com/pangloss/vim-javascript'
@@ -55,7 +59,7 @@ Plug 'https://github.com/vim-ruby/vim-ruby'
 Plug 'https://github.com/tpope/vim-rails'
 Plug 'https://github.com/rust-lang/rust.vim'
 Plug 'https://github.com/Quramy/vison'
-Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'https://github.com/editorconfig/editorconfig-vim'
 Plug 'https://github.com/janko/vim-test'
 Plug 'https://github.com/hashivim/vim-hashicorp-tools'
@@ -69,6 +73,11 @@ Plug 'https://github.com/ianks/vim-tsx'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 
+" colorscheme
+" Plug 'https://github.com/cocopon/iceberg.vim'
+" Plug 'https://github.com/pbnj/vim-colors-pbnj'
+Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
+
 call plug#end()
 
 filetype plugin indent on
@@ -79,7 +88,7 @@ filetype plugin indent on
 
 set autoindent
 set autoread
-set background&
+set background=dark
 set backspace=indent,eol,start
 set belloff=all
 set breakindent
@@ -125,7 +134,7 @@ set shortmess+=c
 set showcmd
 set showmatch
 set sidescrolloff=5
-set signcolumn=no
+set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
@@ -151,8 +160,7 @@ if has("termguicolors")
 endif
 
 if has("gui_running")
-  " set guifont=JetBrainsMono\ Nerd\ Font:h11
-  set guifont=Iosevka\ Nerd\ Font:h11
+  set guifont=JetBrainsMono\ Nerd\ Font:h11
   set guioptions-=r
   set guioptions-=R
   set guioptions-=l
@@ -175,79 +183,59 @@ let g:netrw_liststyle  = 3
 let g:netrw_winsize    = 25
 let loaded_netrwPlugin = 1
 
-" disable all colors
 syntax on
 
-colorscheme base16-default-dark
+colorscheme iceberg
 
 """"""""""""""""""""""""""""""""""""""""
 " STATUSLINE
 """"""""""""""""""""""""""""""""""""""""
 
-function! ALEStatusOK() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? '[OK]' : ''
-endfunction
+let g:lightline = {}
+let g:lightline.colorscheme = 'iceberg'
+let g:lightline.active = {}
+let g:lightline.active.left = [
+      \ [ 'mode', 'paste' ] ,
+      \ [ 'readonly', 'relativepath', 'modified' ] ,
+      \ [ 'gitbranch' ] ,
+      \ ]
+let g:lightline.active.right = [
+      \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ,
+      \ [ 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ],
+      \ [ 'coc_status' ],
+      \ [ 'lineinfo' ] ,
+      \ [ 'percent' ] ,
+      \ [ 'method', 'filetype', 'fileformat', 'fileencoding' ] ,
+      \ ]
+let g:lightline.component_function = {
+      \ 'gitbranch': 'FugitiveHead',
+      \ 'method': 'NearestMethodOrFunction',
+      \ }
+ let g:lightline.component_expand = {
+      \ 'linter_checking': 'lightline#ale#checking',
+      \ 'linter_infos': 'lightline#ale#infos',
+      \ 'linter_warnings': 'lightline#ale#warnings',
+      \ 'linter_errors': 'lightline#ale#errors',
+      \ 'linter_ok': 'lightline#ale#ok',
+      \ }
+ let g:lightline.component_type = {
+      \ 'linter_checking': 'right',
+      \ 'linter_infos': 'right',
+      \ 'linter_warnings': 'warning',
+      \ 'linter_errors': 'error',
+      \ 'linter_ok': 'right',
+      \ }
 
-function! ALEStatusError() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:all_errors > 0 ? printf('[E:%d]', all_errors) : ''
-endfunction
-
-function! ALEStatusWarn() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:all_non_errors > 0 ? printf('[W:%d]', all_non_errors) : ''
-endfunction
-
-set statusline=
-set statusline+=%{(mode()=='n')?'[NORMAL]':''}
-set statusline+=%{(mode()=='i')?'[INSERT]':''}
-set statusline+=%{(mode()=='R')?'[REPLACE]':''}
-set statusline+=%{(mode()=='v')?'[VISUAL]':''}
-set statusline+=%{(mode()=='s')?'[SELECT]':''}
-set statusline+=%{(mode()=='t')?'[TERMINAL]':''}
-set statusline+=%{(mode()=='c')?'[COMMAND]':''}
-set statusline+=%{(mode()=='!')?'[SHELL]':''}
-" show buffer number, helpful for diff
-set statusline+=[%n]
-" show file name
-set statusline+=[%f]
-" show if modified
-set statusline+=%m
-" show if read only
-set statusline+=%r
-" show if help text
-set statusline+=%h
-" show if preview
-set statusline+=%w
-" show git branch name
-set statusline+=%{FugitiveStatusline()}
-" show file syntax
-set statusline+=%y
-" show file format
-set statusline+=[%{&ff}]
-" show percent of file, current line number, column number
-set statusline+=[%p%%\ %04l/%04L,%04v]
-set statusline+=%{ALEStatusOK()}
-set statusline+=%{ALEStatusWarn()}
-set statusline+=%{ALEStatusError()}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPES
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-augroup FileTypes
-  autocmd!
-  autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
-        \ indentkeys-=0# indentkeys-=<:>
-        \ foldmethod=indent
-augroup END
+" augroup FileTypes
+"   autocmd!
+"   autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+"         \ indentkeys-=0# indentkeys-=<:>
+"         \ foldmethod=indent
+" augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -299,7 +287,7 @@ function! InitConfig(...)
 endfunction
 
 function! InitConfigCompletion(A, L, P) abort
-  return readdir(expand("~/.dotfiles/templates/"), { d -> d =~ a:A})
+  return readdir(expand("~/.dotfiles/templates/"), { d -> d =~ a:A })
 endfunction
 
 command! -nargs=+ -complete=customlist,InitConfigCompletion InitConfig call InitConfig(<f-args>)
@@ -315,16 +303,27 @@ command! -nargs=* VJira execute 'vertical terminal jira <args>'
 " brew install glab
 command! -nargs=* Glab execute 'terminal glab <args>'
 command! -nargs=* VGlab execute 'vertical terminal glab <args>'
+" glab ci view
+command! -nargs=* GlabCIView execute 'terminal glab ci view'
+command! -nargs=* VGlabCIView execute 'vertical terminal glab ci view'
+command! -nargs=* GCV execute 'terminal glab ci view'
+command! -nargs=* VGCV execute 'vertical terminal glab ci view'
+" glab ci status
+command! -nargs=* GlabCIStat execute 'terminal glab ci status --live'
+command! -nargs=* VGlabCIStat execute 'vertical terminal glab ci status --live'
+command! -nargs=* GCS execute 'terminal glab ci status --live'
+command! -nargs=* VGCS execute 'vertical terminal glab ci status --live'
 
-function! Htop() abort
-  terminal ++close ++shell htop
+function! Top() abort
+  if executable("btm")
+    terminal ++close ++shell btm
+  elseif executable("htop")
+    terminal ++close ++shell htop
+  else
+    terminal ++shell top
+  end
 endfunction
-command! Htop call Htop()
-
-function! Btm() abort
-  terminal ++close ++shell btm
-endfunction
-command! Btm call Btm()
+command! Top call Top()
 
 function! BrewUp() abort
   terminal brew update && brew upgrade && brew cleanup && echo done
@@ -332,10 +331,14 @@ endfunction
 command! BrewUp call BrewUp()
 
 command! BuffOnly :%bdelete | edit# | normal `"
+command! BO :%bdelete | edit# | normal `"
 
 if has('nvim')
   command! -nargs=* T split | terminal <args>
   command! -nargs=* VT vsplit | terminal <args>
+else
+  command! -nargs=* T terminal <args>
+  command! -nargs=* VT vertical terminal <args>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -361,31 +364,26 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 nnoremap <leader>t <cmd>NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""
-" open-browser
+" https://github.com/tyru/open-browser.vim
 """"""""""""""""""""""""""""""""""""""""
 
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 """"""""""""""""""""""""""""""""""""""""
-" vim-signify
+" https://github.com/mhinz/vim-signify
 """"""""""""""""""""""""""""""""""""""""
 
 nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
 
-let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '-'
-let g:signify_sign_delete_first_line = '-'
-let g:signify_sign_change            = '~'
-
 """"""""""""""""""""""""""""""""""""""""
-" vim-fugitive
+" https://github.com/tpope/vim-fugitive
 """"""""""""""""""""""""""""""""""""""""
 
 let g:fugitive_gitlab_domains = ['https://gitlab.zeta.tools']
 
 """"""""""""""""""""""""""""""""""""""""
-" fzf.vim
+" https://github.com/junegunn/fzf.vim
 """"""""""""""""""""""""""""""""""""""""
 
 let g:fzf_layout = { 'down': '~40%' }
@@ -397,53 +395,15 @@ nnoremap <Leader>F <cmd>GFiles?<cr>
 nnoremap <Leader>g <cmd>Rg<cr>
 
 """"""""""""""""""""""""""""""""""""""""
-" ale
+" https://github.com/dense-analysis/ale
 """"""""""""""""""""""""""""""""""""""""
-
-" install language servers for ale
-if !executable('bash-language-server')
-  exe '! npm install -g bash-language-server'
-endif
-if !executable('vim-language-server')
-  exe '! npm install -g vim-language-server'
-endif
-if !executable('tsserver')
-  exe '! npm install -g typescript'
+if filereadable(expand("~/.vim/ale.vim"))
+  source ~/.vim/ale.vim
 endif
 
-" install linters & fixers
-if !executable('prettier')
-  exe '! npm i -g prettier'
-  exe '! npm i -g prettier-plugin-sh'
-  exe '! npm i -g prettier-plugin-go-template'
-  exe '! npm i -g @prettier/plugin-ruby'
-  exe '! npm i -g prettier-plugin-java'
-endif
-if !executable('doctoc')
-  exe '! npm i -g doctoc'
-endif
-if !executable('markdownlint')
-  exe '! npm i -g markdownlint-cli'
-endif
-
-set omnifunc=ale#completion#OmniFunc
-let g:ale_fixers = {
-      \ '*'          : [ "remove_trailing_lines", "trim_whitespace" ] ,
-      \ 'sh'         : [ "shfmt"                                    ] ,
-      \ 'bash'       : [ "shfmt"                                    ] ,
-      \ 'javascript' : [ "prettier"                                 ] ,
-      \ 'typescript' : [ "prettier", "eslint"                       ] ,
-      \ 'markdown'   : [ "prettier"                                 ] ,
-      \ 'yaml'       : [ "prettier"                                 ] ,
-      \ 'json'       : [ "prettier"                                 ] ,
-      \ 'go'         : [ "goimports"                                ] ,
-      \ 'rust'       : [ "rustfmt"                                  ] ,
-      \ 'ruby'       : [ "rubocop"                                  ] ,
-      \ 'graphql'    : [ "prettier"                                 ] ,
-      \ 'hcl'        : [ "terraform"                                ] ,
-      \ 'terraform'  : [ "terraform"                                ] ,
-      \ 'html'       : [ "prettier"                                 ] ,
-      \ }
-
-nnoremap <silent> <leader>af <cmd>ALEFix<cr>
-nnoremap <silent> <leader>al <cmd>ALELint<cr>
+""""""""""""""""""""""""""""""""""""""""
+" coc
+""""""""""""""""""""""""""""""""""""""""
+" if filereadable(expand("~/.vim/coc.vim"))
+"   source ~/.vim/coc.vim
+" endif
