@@ -35,6 +35,16 @@
       }
     },
     {
+      "label": "glab: ci view",
+      "type": "shell",
+      "command": "glab",
+      "args": ["ci", "view"],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
       "label": "brew: upgrade",
       "type": "shell",
       "command": "brew update && brew upgrade && brew cleanup",

@@ -131,7 +131,6 @@
     }
   ],
   "gitlab.instanceUrl": "https://gitlab.zeta.tools",
-  "gitlab.showPipelineUpdateNotifications": true,
   "gitlens.advanced.abbreviatedShaLength": 5,
   "gitlens.advanced.messages": {
     "suppressImproperWorkspaceCasingWarning": true
@@ -380,7 +379,6 @@
   "window.title": "${rootName}${separator}${activeEditorMedium}",
   "window.titleSeparator": " | ",
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Nord",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -392,5 +390,8 @@
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  }
+  },
+  "window.autoDetectColorScheme": true,
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.colorTheme": "GitHub Dark"
 }

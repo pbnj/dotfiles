@@ -91,5 +91,10 @@
   {
     "key": "ctrl+alt+cmd+t",
     "command": "todo-tree-view.focus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
   }
 ]
