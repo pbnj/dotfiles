@@ -53,7 +53,7 @@
 	trustctime = false
 
 	editor = vim
-	# editor = idea --wait # idea
+	# editor = code --wait
 
 [color]
 	ui = auto
