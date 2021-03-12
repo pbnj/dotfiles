@@ -22,3 +22,4 @@ work.fish
 .config/iterm2/
 .config/nvim
 .vim/init.vim
+.config/gh/
