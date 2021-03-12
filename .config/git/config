@@ -27,10 +27,10 @@
 	top = !git log --format=format:%an | sort | uniq -c | sort -r | head -n 20
 
 	# from trevor bramble https://twitter.com/TrevorBramble/status/774292970681937920
-	alias=!git config -l | grep ^alias | cut -c 7- | sort
+	; alias=!git config -l | grep ^alias | cut -c 7- | sort
 
 	# https://docs.gitlab.com/ee/user/project/merge_requests/reviewing_and_managing_merge_requests.html
-	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	; mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 
 	initconf = "!f() { for conf in $(ls ~/.dotfiles/templates | fzf --multi) ; do cp -R ~/.dotfiles/templates/\"${conf}\"/ \"$(git rev-parse --show-toplevel)\"/ ; done }; f"
 
