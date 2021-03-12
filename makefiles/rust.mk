@@ -1,15 +1,17 @@
-# vi: set ft=make :
-
 ################################################################################
 # RUST
 ################################################################################
 
+## Install rust
 .PHONY: rust
-rust: ## Install rust
-	./scripts/langs/rust/install.sh
+rust:
+	curl https://sh.rustup.rs -sSf | sh -s -- -y
+	source $(HOME)/.cargo/env
 
-.PHONY: crate-deps
-crate-deps: apt-update ## Install crate dependencies
+## Install crate dependencies
+.PHONY: rust-crate-deps
+rust-crate-deps:
+	apt-get update
 	apt-get install -y \
 		build-essential \
 		clang \
@@ -18,25 +20,23 @@ crate-deps: apt-update ## Install crate dependencies
 		llvm \
 		pkg-config
 
-.PHONY: crates
-crates: cargo-exa cargo-ripgrep cargo-bat cargo-starship ## Install rust crates
+## Install rust crates
+.PHONY: rust-cargo-crates
+rust-cargo-crates: rust-cargo-exa rust-cargo-ripgrep rust-cargo-starship
 
-.PHONY: cargo-exa
-cargo-exa: ## cargo install exa
-	source "$(HOME)/.cargo/env" \
-		&& cargo install exa
+## cargo install exa
+.PHONY: rust-cargo-exa
+rust-cargo-exa:
+	source "$(HOME)"/.cargo/env && cargo install exa
 
-.PHONY: cargo-ripgrep
-cargo-ripgrep: ## cargo install ripgrep
-	source "$(HOME)/.cargo/env" \
-		&& cargo install ripgrep
+## cargo install ripgrep
+.PHONY: rust-cargo-ripgrep
+rust-cargo-ripgrep:
+	source "$(HOME)"/.cargo/env && cargo install ripgrep
 
-.PHONY: cargo-bat
-cargo-bat: ## cargo install bat
-	source "$(HOME)/.cargo/env" \
-		&& cargo install bat
+## cargo install starship
+.PHONY: rust-cargo-starship
+rust-cargo-starship:
+	source "$(HOME)"/.cargo/env && cargo install starship
 
-.PHONY: cargo-starship
-cargo-starship: ## cargo install starship
-	source "$(HOME)/.cargo/env" \
-		&& cargo install starship
+# vim: ft=make

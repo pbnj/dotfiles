@@ -2,12 +2,10 @@
 # DEPENDENCIES
 ################################################################################
 
-.PHONY: apt-update
-apt-update: ## Run apt-get update
+## Install dependencies. Must run manually first.
+.PHONY: deps-deb
+deps-deb:
 	apt-get update
-
-.PHONY: install-deps
-install-deps: apt-update ## Install dependencies. Must run manually first.
 	apt-get install -y \
 		ca-certificates \
 		curl \
@@ -16,3 +14,4 @@ install-deps: apt-update ## Install dependencies. Must run manually first.
 		tmux \
 		vim
 
+# vim: ft=make
