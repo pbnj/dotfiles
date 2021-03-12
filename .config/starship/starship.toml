@@ -2,8 +2,6 @@
 # custom symbols: https://www.nerdfonts.com/cheat-sheet
 
 format = """\
-	$username\
-	$hostname\
 	$directory\
 	$git_branch\
 	$git_commit\
@@ -19,13 +17,6 @@ format = """\
 	$line_break\
 	$character
 """
-
-# https://starship.rs/config/#username
-[username]
-format = "[$user]($style) "
-
-[hostname]
-format = "[$hostname]($style) "
 
 # https://starship.rs/config/#aws
 [aws]
