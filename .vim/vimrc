@@ -8,11 +8,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " utilities
-Plug 'https://github.com/machakann/vim-highlightedyank'
-Plug 'https://github.com/mhinz/vim-signify'
-Plug 'https://github.com/preservim/nerdtree'
-Plug 'https://github.com/wellle/tmux-complete.vim'
-Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/cocopon/inspecthi.vim'
 Plug 'https://github.com/cocopon/pgmnt.vim'
@@ -21,17 +16,23 @@ Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/liuchengxu/vista.vim'
+Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/osyo-manga/vim-over'
+Plug 'https://github.com/preservim/nerdtree'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
-Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/tyru/open-browser-github.vim'
-Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/vim-scripts/YankRing.vim'
+Plug 'https://github.com/wellle/targets.vim'
+Plug 'https://github.com/wellle/tmux-complete.vim'
+Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 
 " lightline
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/maximbaz/lightline-ale'
+Plug 'https://github.com/niklaas/lightline-gitdiff'
 
 " tpope
 Plug 'https://github.com/tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui'
@@ -74,9 +75,8 @@ Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 
 " colorscheme
-" Plug 'https://github.com/cocopon/iceberg.vim'
-" Plug 'https://github.com/pbnj/vim-colors-pbnj'
-Plug 'https://github.com/pbnj/iceberg.vim', { 'branch': 'fix-ale-highlights' }
+Plug 'https://github.com/pbnj/vim-colors-pbnj'
+Plug 'https://github.com/bluz71/vim-moonfly-colors'
 
 call plug#end()
 
@@ -104,6 +104,7 @@ set formatoptions+=n
 set formatoptions-=t
 set hidden
 set history=1000
+set hlsearch
 set ignorecase
 set incsearch
 set infercase
@@ -117,8 +118,6 @@ set mouse=a
 set nobackup
 set nocursorline
 set nofoldenable
-set nohlsearch
-set nonumber
 set norelativenumber
 set noruler
 set noshowmode
@@ -126,6 +125,7 @@ set noswapfile
 set nowrap
 set nowrapscan
 set nowritebackup
+set number
 set path=.,**
 set pumheight=10
 set scrolloff=1
@@ -140,7 +140,7 @@ set smarttab
 set splitbelow
 set splitright
 set ttyfast
-set undodir=$HOME/.vim/undo
+set undodir=~/.vim/undo
 set undofile
 set updatetime=100
 set wildignorecase
@@ -155,10 +155,6 @@ if has("nvim")
   set inccommand=split
 endif
 
-if has("termguicolors")
-  set termguicolors
-endif
-
 if has("gui_running")
   set guifont=JetBrainsMono\ Nerd\ Font:h11
   set guioptions-=r
@@ -170,6 +166,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has("termguicolors")
+  set termguicolors
+endif
 
 augroup CursorLine
   autocmd!
@@ -185,20 +185,23 @@ let loaded_netrwPlugin = 1
 
 syntax on
 
-colorscheme iceberg
+colorscheme moonfly
 
 """"""""""""""""""""""""""""""""""""""""
 " STATUSLINE
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'iceberg'
+let g:lightline.colorscheme = 'moonfly'
 let g:lightline.active = {}
+
 let g:lightline.active.left = [
       \ [ 'mode', 'paste' ] ,
-      \ [ 'readonly', 'relativepath', 'modified' ] ,
+      \ [ 'bufnum', 'readonly', 'relativepath', 'modified' ] ,
       \ [ 'gitbranch' ] ,
+      \ [ 'gitdiff' ],
       \ ]
+
 let g:lightline.active.right = [
       \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ,
       \ [ 'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ],
@@ -207,23 +210,28 @@ let g:lightline.active.right = [
       \ [ 'percent' ] ,
       \ [ 'method', 'filetype', 'fileformat', 'fileencoding' ] ,
       \ ]
+
 let g:lightline.component_function = {
-      \ 'gitbranch': 'FugitiveHead',
-      \ 'method': 'NearestMethodOrFunction',
+      \ 'gitbranch' : 'FugitiveHead',
+      \ 'method'    : 'NearestMethodOrFunction',
       \ }
+
  let g:lightline.component_expand = {
-      \ 'linter_checking': 'lightline#ale#checking',
-      \ 'linter_infos': 'lightline#ale#infos',
-      \ 'linter_warnings': 'lightline#ale#warnings',
-      \ 'linter_errors': 'lightline#ale#errors',
-      \ 'linter_ok': 'lightline#ale#ok',
+      \ 'linter_checking' : 'lightline#ale#checking',
+      \ 'linter_infos'    : 'lightline#ale#infos',
+      \ 'linter_warnings' : 'lightline#ale#warnings',
+      \ 'linter_errors'   : 'lightline#ale#errors',
+      \ 'linter_ok'       : 'lightline#ale#ok',
+      \ 'gitdiff'         : 'lightline#gitdiff#get',
       \ }
+
  let g:lightline.component_type = {
-      \ 'linter_checking': 'right',
-      \ 'linter_infos': 'right',
-      \ 'linter_warnings': 'warning',
-      \ 'linter_errors': 'error',
-      \ 'linter_ok': 'right',
+      \ 'linter_checking' : 'right',
+      \ 'linter_infos'    : 'right',
+      \ 'linter_warnings' : 'warning',
+      \ 'linter_errors'   : 'error',
+      \ 'linter_ok'       : 'right',
+      \ 'gitdiff'         : 'middle',
       \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
