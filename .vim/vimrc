@@ -10,8 +10,8 @@ call plug#begin('~/.vim/plugged')
 " utilities
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/cocopon/inspecthi.vim'
-Plug 'https://github.com/cocopon/pgmnt.vim'
 Plug 'https://github.com/editorconfig/editorconfig-vim'
+Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/godlygeek/tabular'
 Plug 'https://github.com/habamax/vim-asciidoctor'
 Plug 'https://github.com/hashivim/vim-hashicorp-tools'
@@ -75,6 +75,8 @@ Plug 'https://github.com/vim-ruby/vim-ruby'
 
 " colorscheme
 Plug 'https://github.com/pbnj/vim-colors-pbnj'
+Plug 'https://github.com/lifepillar/vim-gruvbox8'
+Plug 'https://github.com/lifepillar/vim-colortemplate'
 
 call plug#end()
 
@@ -92,7 +94,7 @@ set belloff=all
 set breakindent
 set clipboard=unnamed,unnamedplus
 set cmdheight=2
-set completeopt=menu,noinsert,noselect
+set completeopt=menuone,noinsert,noselect
 set conceallevel=0
 set display+=lastline
 set encoding=utf-8
@@ -110,7 +112,7 @@ set laststatus=2
 set lazyredraw
 set linebreak
 set list
-set listchars=tab:\|\ ,extends:≫,precedes:≪,nbsp:·,trail:·
+set listchars=tab:\|\ ,extends:>,precedes:<,nbsp:·,trail:·
 set modeline
 set mouse=a
 set nobackup
@@ -132,11 +134,12 @@ set shortmess+=c
 set showcmd
 set showmatch
 set sidescrolloff=5
-set signcolumn=no
+set signcolumn=yes
 set smartcase
 set smarttab
 set splitbelow
 set splitright
+set tags=./tags
 set ttyfast
 set undodir=~/.vim/undo
 set undofile
@@ -156,11 +159,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if has("termguicolors")
-  set termguicolors
-endif
-
 augroup CursorLine
   autocmd!
   autocmd InsertEnter * set cursorline
@@ -173,23 +171,23 @@ let g:netrw_liststyle  = 3
 let g:netrw_winsize    = 25
 let g:loaded_netrwPlugin = 1
 
-syntax off
-let g:syntax_on = 0
+syntax on
 
-colorscheme pbnj
+" colorscheme pbnj
+colorscheme gruvbox8
 
 """"""""""""""""""""""""""""""""""""""""
 " STATUSLINE
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'default'
+let g:lightline.colorscheme = 'gruvbox8'
 let g:lightline.active = {}
 
 let g:lightline.active.left = [
       \ [ 'mode', 'paste' ] ,
       \ [ 'bufnum', 'readonly', 'relativepath', 'modified' ] ,
-      \ [ 'gitbranch', 'gitdiff' ] ,
+      \ [ 'gitbranch', 'gitdiff' ],
       \ ]
 
 let g:lightline.active.right = [
@@ -372,6 +370,17 @@ nnoremap <Leader>g <cmd>Rg<cr>
 " https://github.com/mhinz/vim-signify
 """"""""""""""""""""""""""""""""""""""""
 nnoremap <silent> gs <Cmd>SignifyHunkDiff<CR>
+
+""""""""""""""""""""""""""""""""""""""""
+" https://github.com/ervandew/supertab
+""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+""""""""""""""""""""""""""""""""""""""""
+" https://github.com/SirVer/ultisnips
+""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 """"""""""""""""""""""""""""""""""""""""
 " https://github.com/dense-analysis/ale
