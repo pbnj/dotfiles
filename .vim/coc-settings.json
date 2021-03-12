@@ -15,6 +15,7 @@
     "yaml"
   ],
   "codeLens.enable": true,
+  "diagnostic.displayByAle": true,
   "diagnostic.errorSign": "✖",
   "diagnostic.hintSign": "○",
   "diagnostic.infoSign": "●",

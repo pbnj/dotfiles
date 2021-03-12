@@ -11,15 +11,22 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/airblade/vim-rooter'
 Plug 'https://github.com/cocopon/inspecthi.vim'
 Plug 'https://github.com/cocopon/pgmnt.vim'
+Plug 'https://github.com/editorconfig/editorconfig-vim'
 Plug 'https://github.com/godlygeek/tabular'
+Plug 'https://github.com/habamax/vim-asciidoctor'
+Plug 'https://github.com/hashivim/vim-hashicorp-tools'
+Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/janko/vim-test'
 Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/liuchengxu/vista.vim'
-Plug 'https://github.com/machakann/vim-highlightedyank'
-Plug 'https://github.com/mhinz/vim-signify'
+" Plug 'https://github.com/machakann/vim-highlightedyank'
+" Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/osyo-manga/vim-over'
-Plug 'https://github.com/preservim/nerdtree'
+" Plug 'https://github.com/preservim/nerdtree'
+" Plug 'https://github.com/Quramy/vison'
+Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
 Plug 'https://github.com/tyru/open-browser-github.vim'
@@ -27,7 +34,7 @@ Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/vim-scripts/YankRing.vim'
 Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
-Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
+" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 
 " lightline
 Plug 'https://github.com/itchyny/lightline.vim'
@@ -51,32 +58,26 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-projectionist'
 
 " languages
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:ale_completion_enabled = 1 | Plug 'https://github.com/dense-analysis/ale'
-Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'https://github.com/leafgarland/typescript-vim'
-Plug 'https://github.com/pangloss/vim-javascript'
-Plug 'https://github.com/vim-ruby/vim-ruby'
-Plug 'https://github.com/tpope/vim-rails'
-Plug 'https://github.com/rust-lang/rust.vim'
-Plug 'https://github.com/Quramy/vison'
-Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'https://github.com/editorconfig/editorconfig-vim'
-Plug 'https://github.com/janko/vim-test'
-Plug 'https://github.com/hashivim/vim-hashicorp-tools'
-Plug 'https://github.com/jparise/vim-graphql'
-Plug 'https://github.com/habamax/vim-asciidoctor'
-Plug 'https://github.com/towolf/vim-helm'
+let g:ale_disable_lsp = 1
+Plug 'https://github.com/dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'https://github.com/cespare/vim-toml'
 Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
-Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'https://github.com/ianks/vim-tsx'
-Plug 'https://github.com/SirVer/ultisnips'
-Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/jparise/vim-graphql'
+Plug 'https://github.com/leafgarland/typescript-vim'
+Plug 'https://github.com/mxw/vim-jsx'
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/rust-lang/rust.vim'
+Plug 'https://github.com/towolf/vim-helm'
+Plug 'https://github.com/tpope/vim-rails'
+Plug 'https://github.com/vim-ruby/vim-ruby'
 
 " colorscheme
 Plug 'https://github.com/pbnj/vim-colors-pbnj'
-Plug 'https://github.com/bluz71/vim-moonfly-colors'
 
 call plug#end()
 
@@ -134,7 +135,7 @@ set shortmess+=c
 set showcmd
 set showmatch
 set sidescrolloff=5
-set signcolumn=yes
+set signcolumn=no
 set smartcase
 set smarttab
 set splitbelow
@@ -183,16 +184,15 @@ let g:netrw_liststyle  = 3
 let g:netrw_winsize    = 25
 let loaded_netrwPlugin = 1
 
-syntax on
-
-colorscheme moonfly
+syntax off
+let g:syntax_on = 0
 
 """"""""""""""""""""""""""""""""""""""""
 " STATUSLINE
 """"""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {}
-let g:lightline.colorscheme = 'moonfly'
+let g:lightline.colorscheme = 'default'
 let g:lightline.active = {}
 
 let g:lightline.active.left = [
@@ -352,24 +352,9 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " install built-in `matchit` plugin.
 " See :h matchit-install
 packadd! matchit
-
-""""""""""""""""""""""""""""""""""""""""
-" nerdtree
-""""""""""""""""""""""""""""""""""""""""
-
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeWinPos     = "right"
-let g:NERDTreeWinSize    = 80
-let g:NERDTreeMinimalUI  = 1
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="-"
-let g:NERDTreeNodeDelimiter = "\u00a0"
-
-nnoremap <leader>t <cmd>NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " https://github.com/tyru/open-browser.vim
@@ -379,21 +364,13 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 """"""""""""""""""""""""""""""""""""""""
-" https://github.com/mhinz/vim-signify
-""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <silent> gs <cmd>SignifyHunkDiff<cr>
-
-""""""""""""""""""""""""""""""""""""""""
 " https://github.com/tpope/vim-fugitive
 """"""""""""""""""""""""""""""""""""""""
-
 let g:fugitive_gitlab_domains = ['https://gitlab.zeta.tools']
 
 """"""""""""""""""""""""""""""""""""""""
 " https://github.com/junegunn/fzf.vim
 """"""""""""""""""""""""""""""""""""""""
-
 let g:fzf_layout = { 'down': '~40%' }
 
 " FZF mappings
@@ -405,13 +382,30 @@ nnoremap <Leader>g <cmd>Rg<cr>
 """"""""""""""""""""""""""""""""""""""""
 " https://github.com/dense-analysis/ale
 """"""""""""""""""""""""""""""""""""""""
-if filereadable(expand("~/.vim/ale.vim"))
-  source ~/.vim/ale.vim
-endif
+nnoremap <silent> <leader>af <Cmd>ALEFix<CR>
+
+let g:ale_fixers = {
+      \ '*'          : [ "remove_trailing_lines", "trim_whitespace" ] ,
+      \ 'sh'         : [ "shfmt"                                    ] ,
+      \ 'bash'       : [ "shfmt"                                    ] ,
+      \ 'javascript' : [ "prettier"                                 ] ,
+      \ 'typescript' : [ "prettier", "eslint"                       ] ,
+      \ 'markdown'   : [ "prettier"                                 ] ,
+      \ 'yaml'       : [ "prettier"                                 ] ,
+      \ 'json'       : [ "prettier"                                 ] ,
+      \ 'go'         : [ "goimports"                                ] ,
+      \ 'rust'       : [ "rustfmt"                                  ] ,
+      \ 'ruby'       : [ "rubocop"                                  ] ,
+      \ 'graphql'    : [ "prettier"                                 ] ,
+      \ 'hcl'        : [ "terraform"                                ] ,
+      \ 'terraform'  : [ "terraform"                                ] ,
+      \ 'html'       : [ "prettier"                                 ] ,
+      \ }
+
 
 """"""""""""""""""""""""""""""""""""""""
 " coc
 """"""""""""""""""""""""""""""""""""""""
-" if filereadable(expand("~/.vim/coc.vim"))
-"   source ~/.vim/coc.vim
-" endif
+if filereadable(expand("~/.vim/coc.vim"))
+  source ~/.vim/coc.vim
+endif
