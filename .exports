@@ -1,5 +1,6 @@
 # shellcheck shell=bash
 
+# GENERAL
 export EDITOR="vim"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --iglob='!.git' --iglob='!node_modules' --sort=path"
 export GIT_TERMINAL_PROMPT=1
@@ -14,8 +15,26 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export MANPAGER="less -X"
 
+# MISC
 export DOTFILES="${HOME}/.dotfiles"
 export JIRA_CONFIG="${HOME}/.config/jira-cli/config.json"
 export STARSHIP_CONFIG="${HOME}/.config/starship/starship.toml"
+
+# PATHS
+## GENERAL
+[ -d "${HOME}"/bin ]     && export PATH="${HOME}/bin:${PATH}"
+[ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:${PATH}"
+
+## NVM
+[ -d "${HOME}"/.nvm ] &&  export NVM_DIR="${HOME}"/.nvm
+
+## GO
+export GODEBUG=x509ignoreCN=0
+export GOPATH="${HOME}"/go
+export PATH="${PATH}:${GOPATH}/bin"
+
+## PYTHON
+[ -d "${HOME}"/.local/bin ]              && export PATH="${HOME}"/.local/bin:${PATH}
+[ -d "${HOME}"/Library/Python/3.9/bin/ ] && export PATH="${HOME}/Library/Python/3.9/bin/:${PATH}"
 
 # vim: ft=sh
