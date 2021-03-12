@@ -21,11 +21,10 @@ Plug 'https://github.com/junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/liuchengxu/vista.vim'
-" Plug 'https://github.com/machakann/vim-highlightedyank'
-" Plug 'https://github.com/mhinz/vim-signify'
+Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/mhinz/vim-signify'
 Plug 'https://github.com/osyo-manga/vim-over'
-" Plug 'https://github.com/preservim/nerdtree'
-" Plug 'https://github.com/Quramy/vison'
+Plug 'https://github.com/Quramy/vison'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug 'https://github.com/tweekmonster/startuptime.vim'
@@ -34,7 +33,6 @@ Plug 'https://github.com/tyru/open-browser.vim'
 Plug 'https://github.com/vim-scripts/YankRing.vim'
 Plug 'https://github.com/wellle/targets.vim'
 Plug 'https://github.com/wellle/tmux-complete.vim'
-" Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
 
 " lightline
 Plug 'https://github.com/itchyny/lightline.vim'
@@ -58,9 +56,8 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-projectionist'
 
 " languages
-let g:ale_disable_lsp = 1
+let g:ale_completion_enabled = 1
 Plug 'https://github.com/dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'https://github.com/cespare/vim-toml'
 Plug 'https://github.com/elzr/vim-json' | let g:vim_json_syntax_conceal = 0
@@ -119,6 +116,7 @@ set mouse=a
 set nobackup
 set nocursorline
 set nofoldenable
+set nonumber
 set norelativenumber
 set noruler
 set noshowmode
@@ -126,7 +124,6 @@ set noswapfile
 set nowrap
 set nowrapscan
 set nowritebackup
-set number
 set path=.,**
 set pumheight=10
 set scrolloff=1
@@ -156,14 +153,6 @@ if has("nvim")
   set inccommand=split
 endif
 
-if has("gui_running")
-  set guifont=JetBrainsMono\ Nerd\ Font:h11
-  set guioptions-=r
-  set guioptions-=R
-  set guioptions-=l
-  set guioptions-=L
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -182,10 +171,12 @@ augroup END
 let g:netrw_nogx       = 1
 let g:netrw_liststyle  = 3
 let g:netrw_winsize    = 25
-let loaded_netrwPlugin = 1
+let g:loaded_netrwPlugin = 1
 
 syntax off
 let g:syntax_on = 0
+
+colorscheme pbnj
 
 """"""""""""""""""""""""""""""""""""""""
 " STATUSLINE
@@ -198,8 +189,7 @@ let g:lightline.active = {}
 let g:lightline.active.left = [
       \ [ 'mode', 'paste' ] ,
       \ [ 'bufnum', 'readonly', 'relativepath', 'modified' ] ,
-      \ [ 'gitbranch' ] ,
-      \ [ 'gitdiff' ],
+      \ [ 'gitbranch', 'gitdiff' ] ,
       \ ]
 
 let g:lightline.active.right = [
@@ -208,7 +198,7 @@ let g:lightline.active.right = [
       \ [ 'coc_status' ],
       \ [ 'lineinfo' ] ,
       \ [ 'percent' ] ,
-      \ [ 'method', 'filetype', 'fileformat', 'fileencoding' ] ,
+      \ [ 'method', 'filetype', 'fileformat' ] ,
       \ ]
 
 let g:lightline.component_function = {
@@ -334,7 +324,7 @@ endfunction
 command! Top call Top()
 
 function! BrewUp() abort
-  terminal brew update && brew upgrade && brew cleanup && echo done
+  !brew update && brew upgrade && brew cleanup
 endfunction
 command! BrewUp call BrewUp()
 
@@ -359,7 +349,6 @@ packadd! matchit
 """"""""""""""""""""""""""""""""""""""""
 " https://github.com/tyru/open-browser.vim
 """"""""""""""""""""""""""""""""""""""""
-
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
@@ -380,9 +369,18 @@ nnoremap <Leader>F <cmd>GFiles?<cr>
 nnoremap <Leader>g <cmd>Rg<cr>
 
 """"""""""""""""""""""""""""""""""""""""
+" https://github.com/mhinz/vim-signify
+""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> gs <Cmd>SignifyHunkDiff<CR>
+
+""""""""""""""""""""""""""""""""""""""""
 " https://github.com/dense-analysis/ale
 """"""""""""""""""""""""""""""""""""""""
+set omnifunc=ale#completion#OmniFunc
+
 nnoremap <silent> <leader>af <Cmd>ALEFix<CR>
+nnoremap <silent> <leader>al <Cmd>ALELint<CR>
+nnoremap <silent> gd <Cmd>ALEGoToDefinition<CR>
 
 let g:ale_fixers = {
       \ '*'          : [ "remove_trailing_lines", "trim_whitespace" ] ,
@@ -401,11 +399,3 @@ let g:ale_fixers = {
       \ 'terraform'  : [ "terraform"                                ] ,
       \ 'html'       : [ "prettier"                                 ] ,
       \ }
-
-
-""""""""""""""""""""""""""""""""""""""""
-" coc
-""""""""""""""""""""""""""""""""""""""""
-if filereadable(expand("~/.vim/coc.vim"))
-  source ~/.vim/coc.vim
-endif
