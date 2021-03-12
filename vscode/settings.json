@@ -72,10 +72,13 @@
   "editor.inlineHints.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.smoothScrolling": true,
   "editor.wordWrap": "off",
   "explorer.openEditors.visible": 0,
+  "extensions.ignoreRecommendations": true,
   "files.associations": {
     "**/templates/*.yaml": "helm",
     "*.envrc": "shellscript",
@@ -148,8 +151,11 @@
     "documentLink": true,
     "format": true
   },
-  "go.lintFlags": ["--fast"],
+  "go.lintFlags": [
+    "--fast"
+  ],
   "go.lintTool": "golangci-lint",
+  "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "gopls": {
     "completeUnimported": true,
@@ -176,19 +182,25 @@
   "ruby.format": "rubocop",
   "ruby.intellisense": "rubyLocate",
   "ruby.lint": {
-    "rubocop": true,
-    "ruby": true
+    "rubocop": true
   },
+  "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
   "rubyTestExplorer.logpanel": true,
-  "rubyTestExplorer.minitestCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rake",
-  "rubyTestExplorer.rspecCommand": "/Users/pbenjamin/.rvm/gems/ruby-2.7.2/bin/bundle exec rspec",
-  "rubyTestExplorer.rspecDirectory": "./spec",
-  "rubyTestExplorer.testFramework": "rspec",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.macOptionIsMeta": true,
   "testExplorer.addToEditorContextMenu": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
   "todo-tree.tree.showScanModeButton": false,
   "update.mode": "start",
   "vim.cursorStylePerMode.insert": "line",
@@ -203,163 +215,361 @@
   "vim.leader": ",",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "after": ["$"],
-      "before": ["<C-e>"]
+      "after": [
+        "$"
+      ],
+      "before": [
+        "<C-e>"
+      ]
     },
     {
-      "after": ["^"],
-      "before": ["<C-a>"]
+      "after": [
+        "^"
+      ],
+      "before": [
+        "<C-a>"
+      ]
     },
     {
-      "after": ["o", "<esc>"],
-      "before": ["]", "<space>"]
+      "after": [
+        "o",
+        "<esc>"
+      ],
+      "before": [
+        "]",
+        "<space>"
+      ]
     },
     {
-      "after": ["O", "<esc>"],
-      "before": ["[", "<space>"]
+      "after": [
+        "O",
+        "<esc>"
+      ],
+      "before": [
+        "[",
+        "<space>"
+      ]
     },
     {
-      "after": ["g", "j"],
-      "before": ["j"]
+      "after": [
+        "g",
+        "j"
+      ],
+      "before": [
+        "j"
+      ]
     },
     {
-      "after": ["g", "k"],
-      "before": ["k"]
+      "after": [
+        "g",
+        "k"
+      ],
+      "before": [
+        "k"
+      ]
     },
     {
-      "before": ["<leader>", ":"],
-      "commands": ["workbench.action.showCommands"]
+      "before": [
+        "<leader>",
+        ":"
+      ],
+      "commands": [
+        "workbench.action.showCommands"
+      ]
     },
     {
-      "before": ["<leader>", "a", "f"],
-      "commands": ["editor.action.formatDocument"]
+      "before": [
+        "<leader>",
+        "a",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
     },
     {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.tasks.runTask"]
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.tasks.runTask"
+      ]
     },
     {
-      "before": ["<leader>", "f"],
-      "commands": ["workbench.action.quickOpen"]
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
     },
     {
-      "before": ["<C-w>", "H"],
-      "commands": ["workbench.action.moveEditorToLeftGroup"]
+      "before": [
+        "<C-w>",
+        "H"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToLeftGroup"
+      ]
     },
     {
-      "before": ["<C-w>", "L"],
-      "commands": ["workbench.action.moveEditorToRightGroup"]
+      "before": [
+        "<C-w>",
+        "L"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToRightGroup"
+      ]
     },
     {
-      "before": ["<C-w>", "J"],
-      "commands": ["workbench.action.moveEditorToBelowGroup"]
+      "before": [
+        "<C-w>",
+        "J"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToBelowGroup"
+      ]
     },
     {
-      "before": ["<C-w>", "K"],
-      "commands": ["workbench.action.moveEditorToAboveGroup"]
+      "before": [
+        "<C-w>",
+        "K"
+      ],
+      "commands": [
+        "workbench.action.moveEditorToAboveGroup"
+      ]
     },
     {
-      "before": ["<C-w>", "\\"],
-      "commands": ["workbench.action.splitEditorRight"]
+      "before": [
+        "<C-w>",
+        "\\"
+      ],
+      "commands": [
+        "workbench.action.splitEditorRight"
+      ]
     },
     {
-      "before": ["<C-w>", "|"],
-      "commands": ["workbench.action.splitEditorLeft"]
+      "before": [
+        "<C-w>",
+        "|"
+      ],
+      "commands": [
+        "workbench.action.splitEditorLeft"
+      ]
     },
     {
-      "before": ["<C-w>", "-"],
-      "commands": ["workbench.action.splitEditorUp"]
+      "before": [
+        "<C-w>",
+        "-"
+      ],
+      "commands": [
+        "workbench.action.splitEditorUp"
+      ]
     },
     {
-      "before": ["<C-w>", "_"],
-      "commands": ["workbench.action.splitEditorDown"]
+      "before": [
+        "<C-w>",
+        "_"
+      ],
+      "commands": [
+        "workbench.action.splitEditorDown"
+      ]
     },
     {
-      "before": ["]", "c"],
-      "commands": ["workbench.action.editor.nextChange"]
+      "before": [
+        "]",
+        "c"
+      ],
+      "commands": [
+        "workbench.action.editor.nextChange"
+      ]
     },
     {
-      "before": ["[", "c"],
-      "commands": ["workbench.action.editor.previousChange"]
+      "before": [
+        "[",
+        "c"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
     },
     {
-      "before": ["]", "q"],
-      "commands": ["editor.action.marker.next"]
+      "before": [
+        "]",
+        "q"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
     },
     {
-      "before": ["[", "q"],
-      "commands": ["editor.action.marker.prev"]
+      "before": [
+        "[",
+        "q"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
     },
     {
-      "before": ["]", "e"],
-      "commands": ["editor.action.moveLinesDownAction"]
+      "before": [
+        "]",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
     },
     {
-      "before": ["[", "e"],
-      "commands": ["editor.action.moveLinesUpAction"]
+      "before": [
+        "[",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
     },
     {
-      "before": ["K"],
-      "commands": ["editor.action.peekDefinition"]
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ]
     },
     {
-      "before": ["g", "d"],
-      "commands": ["editor.action.revealDefinition"]
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        "editor.action.revealDefinition"
+      ]
     },
     {
-      "before": ["g", "r"],
-      "commands": ["editor.action.goToReferences"]
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ]
     },
     {
-      "before": ["g", "o"],
-      "commands": ["workbench.action.gotoSymbol"]
+      "before": [
+        "g",
+        "o"
+      ],
+      "commands": [
+        "workbench.action.gotoSymbol"
+      ]
     },
     {
-      "before": ["g", "O"],
-      "commands": ["workbench.action.showAllSymbols"]
+      "before": [
+        "g",
+        "O"
+      ],
+      "commands": [
+        "workbench.action.showAllSymbols"
+      ]
     },
     {
-      "before": ["<leader>", "g", "s"],
-      "commands": ["gitlens.showQuickRepoStatus"]
+      "before": [
+        "<leader>",
+        "g",
+        "s"
+      ],
+      "commands": [
+        "gitlens.showQuickRepoStatus"
+      ]
     },
     {
-      "before": ["<leader>", "g", "w"],
-      "commands": ["git.stage"]
+      "before": [
+        "<leader>",
+        "g",
+        "w"
+      ],
+      "commands": [
+        "git.stage"
+      ]
     },
     {
-      "before": ["g", "s"],
-      "commands": ["editor.action.dirtydiff.next"]
+      "before": [
+        "g",
+        "s"
+      ],
+      "commands": [
+        "editor.action.dirtydiff.next"
+      ]
     },
     {
-      "before": ["<leader>", "g", "c"],
-      "commands": ["git.commit"]
+      "before": [
+        "<leader>",
+        "g",
+        "c"
+      ],
+      "commands": [
+        "git.commit"
+      ]
     }
   ],
   "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "after": ["$"],
-      "before": ["<C-e>"]
+      "after": [
+        "$"
+      ],
+      "before": [
+        "<C-e>"
+      ]
     },
     {
-      "after": ["^"],
-      "before": ["<C-a>"]
+      "after": [
+        "^"
+      ],
+      "before": [
+        "<C-a>"
+      ]
     },
     {
-      "before": ["]", "e"],
-      "commands": ["editor.action.moveLinesDownAction"]
+      "before": [
+        "]",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
     },
     {
-      "before": ["[", "e"],
-      "commands": ["editor.action.moveLinesUpAction"]
+      "before": [
+        "[",
+        "e"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
     },
     {
-      "before": ["<leader>", "g", "w"],
-      "commands": ["git.stageSelectedRanges"]
+      "before": [
+        "<leader>",
+        "g",
+        "w"
+      ],
+      "commands": [
+        "git.stageSelectedRanges"
+      ]
     },
     {
-      "before": ["<leader>", "a", "f"],
-      "commands": ["editor.action.formatSelection"]
+      "before": [
+        "<leader>",
+        "a",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatSelection"
+      ]
     }
   ],
   "vim.wrapscan": false,
@@ -376,9 +586,11 @@
     "vs-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
     "vscode-kubernetes.minikube-path.mac": "/Users/pbenjamin/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
   },
+  "window.autoDetectColorScheme": true,
   "window.title": "${rootName}${separator}${activeEditorMedium}",
   "window.titleSeparator": " | ",
   "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Default Light+",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -390,21 +602,5 @@
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "file:///Users/pbenjamin/.vscode/extensions/atlassian.atlascode-2.8.5/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "window.autoDetectColorScheme": true,
-  "go.toolsManagement.autoUpdate": true,
-  "workbench.colorTheme": "GitHub Light",
-  "workbench.preferredDarkColorTheme": "GitHub Dark",
-  "workbench.preferredLightColorTheme": "GitHub Light",
-  "extensions.ignoreRecommendations": true,
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+  }
 }
